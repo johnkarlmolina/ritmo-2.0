@@ -83,7 +83,7 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-white shadow-sm">
           <div className="px-4 py-3 space-y-1 text-center">
             <NavLink to="/" end onClick={() => setOpen(false)}
               className={({isActive}) => isActive ? 'inline-block px-3 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
