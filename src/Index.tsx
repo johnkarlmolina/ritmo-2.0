@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import phoneImg from './assets/ritmo-cp.png'
 
 export default function Index() {
   return (
@@ -9,38 +10,40 @@ export default function Index() {
           'linear-gradient(to right, #61CCB2 0%, #61CCB2 50%, #2D7778 50%, #2D7778 100%)',
       }}
     >
-      {/* Puzzle-like center shapes */}
+      {/* Puzzle-like center squares */}
       <div
-        className="pointer-events-none absolute rounded-full"
+        className="pointer-events-none absolute rounded-xl"
         style={{
-          width: '9rem',
-          height: '9rem',
+          width: '10rem',
+          height: '10rem',
           backgroundColor: '#61CCB2',
           left: '50%',
-          top: '38%',
-          transform: 'translate(-20%, -50%)',
+          top: '40%',
+          transform: 'translate(-40%, -50%)',
           boxShadow: '0 8px 20px rgba(0,0,0,0.08)'
         }}
       />
       <div
-        className="pointer-events-none absolute rounded-full"
+        className="pointer-events-none absolute rounded-xl"
         style={{
-          width: '9rem',
-          height: '9rem',
+          width: '10rem',
+          height: '10rem',
           backgroundColor: '#2D7778',
           left: '50%',
-          top: '68%',
-          transform: 'translate(-80%, -50%)',
+          top: '66%',
+          transform: 'translate(-60%, -50%)',
           boxShadow: '0 8px 20px rgba(0,0,0,0.06)'
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-16 sm:pb-20 min-h-screen flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-16 sm:pb-20 min-h-screen flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center w-full">
           {/* Left: Heading, description, buttons */}
-          <div>
+          <div className="md:pr-24">
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-white">
-              Empowering Daily Routines, supporting brighter days.
+              <span className="inline-block">Empowering Daily</span><br />
+              <span className="inline-block">Routines, supporting</span><br />
+              <span className="inline-block">brighter days.</span>
             </h1>
 
             <p className="mt-6 text-white text-lg md:text-xl leading-relaxed text-justify">
@@ -63,22 +66,10 @@ export default function Index() {
             </div>
           </div>
 
-          {/* Right: Simple card instead of phone area */}
-          <div className="w-full">
-            <div className="mx-auto w-full max-w-md rounded-3xl bg-white p-6 sm:p-8 shadow-xl">
-              <div className="space-y-4">
-                <div className="h-4 w-2/3 bg-emerald-100 rounded"></div>
-                <div className="grid gap-3">
-                  <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-                    <div className="text-sm text-gray-800">Sample Card Content</div>
-                    <div className="text-xs text-gray-500">Supporting details</div>
-                  </div>
-                  <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-                    <div className="text-sm text-gray-800">Another Item</div>
-                    <div className="text-xs text-gray-500">More details</div>
-                  </div>
-                </div>
-              </div>
+          {/* Right: Image with shadow */}
+          <div className="w-full md:pl-24">
+            <div className="mx-auto w-full max-w-md">
+              <img src={phoneImg} alt="Ritmo preview" className="w-full rounded-2xl shadow-xl" />
             </div>
           </div>
         </div>
