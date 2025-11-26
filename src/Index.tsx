@@ -40,10 +40,10 @@ export default function Index() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center w-full">
           {/* Left: Heading, description, buttons */}
           <div className="md:pr-24">
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-white">
-              <span className="inline-block">Empowering Daily</span><br />
-              <span className="inline-block">Routines, supporting</span><br />
-              <span className="inline-block">brighter days.</span>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-snug text-white">
+              <span className="inline-block whitespace-nowrap">Empowering Daily</span><br />
+              <span className="inline-block whitespace-nowrap">Routines, supporting</span><br />
+              <span className="inline-block whitespace-nowrap">brighter days.</span>
             </h1>
 
             <p className="mt-6 text-white text-lg md:text-xl leading-relaxed text-justify">
