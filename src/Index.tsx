@@ -20,7 +20,7 @@ export default function Index() {
           left: '50%',
           top: '40%',
           transform: 'translate(-40%, -50%)',
-          boxShadow: '0 8px 20px rgba(0,0,0,0.08)'
+          
         }}
       />
       <div
@@ -32,7 +32,7 @@ export default function Index() {
           left: '50%',
           top: '66%',
           transform: 'translate(-60%, -50%)',
-          boxShadow: '0 8px 20px rgba(0,0,0,0.06)'
+          
         }}
       />
 
@@ -53,14 +53,16 @@ export default function Index() {
             <div className="mt-10 flex flex-wrap items-center gap-5">
               <Link
                 to="/download"
-                className="inline-flex items-center rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-colors"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
                 <span>Download Now</span>
               </Link>
               <Link
                 to="/demo"
-                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-colors"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                 <span>Watch Demo</span>
               </Link>
             </div>
