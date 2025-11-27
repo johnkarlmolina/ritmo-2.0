@@ -3,8 +3,9 @@ import phoneImg from './assets/ritmo-cp.png'
 
 export default function Index() {
   return (
+    <>
     <section
-      className="relative min-h-screen overflow-hidden"
+      className="relative min-h-screen overflow-hidden -mt-px"
       style={{
         backgroundImage:
           'linear-gradient(to right, #61CCB2 0%, #61CCB2 50%, #2D7778 50%, #2D7778 100%)',
@@ -36,7 +37,7 @@ export default function Index() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-16 sm:pb-20 min-h-screen flex items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-12 sm:pb-16 min-h-screen flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center w-full">
           {/* Left: Heading, description, buttons */}
           <div className="md:pr-24">
@@ -77,5 +78,41 @@ export default function Index() {
         </div>
       </div>
     </section>
+
+    {/* What is Ritmo section */}
+    <section className="bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-20 w-full">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778] text-center">What is Ritmo?</h2>
+        <p className="mt-4 max-w-3xl mx-auto text-center text-gray-700">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+    </section>
+
+    {/* Key Features section */}
+    <section className="" style={{ backgroundColor: '#61CCB2' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 flex flex-col justify-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center">Key Features</h2>
+        <p className="mt-3 max-w-3xl mx-auto text-center text-white/90">
+          Explore the core tools that make Ritmo simple, supportive, and child‑friendly.
+        </p>
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {['Routine Builder','Visual Schedules','Positive Reminders','Progress Tracking'].map((title) => (
+            <div key={title} className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-6 flex flex-col">
+              <div className="h-12 w-12 rounded-xl bg-[#61CCB2]/20 mb-4" />
+              <div className="font-semibold text-[#2D7778]">{title}</div>
+              <div className="mt-2 text-sm text-gray-700">Brief description about this feature and how it helps.</div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <a href="#features" className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white font-semibold hover:bg-white/10 transition-colors">
+            View All Features
+          </a>
+        </div>
+      </div>
+    </section>
+    </>
   )
 }
