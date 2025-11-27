@@ -116,6 +116,35 @@ export default function Index() {
         </div>
       </div>
     </section>
+
+    {/* Why Ritmo Helps section */}
+    <section className="bg-white min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-16">
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">Why Ritmo Helps</h2>
+          <p className="mt-2 text-sm md:text-base text-gray-600">Benefits for everyone involved</p>
+        </div>
+        <div className="mt-12 grid gap-8 md:gap-10 grid-cols-1 md:grid-cols-3">
+          {[
+            { title: 'For Children', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
+            { title: 'For Parent', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
+            { title: 'For Therapist', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
+          ].map(block => (
+            <div key={block.title} className="rounded-xl bg-[#61CCB2]/25 border border-[#61CCB2]/30 shadow-sm p-6 md:p-7">
+              <h3 className="text-xl font-semibold text-[#2D7778]">{block.title}</h3>
+              <ul className="mt-4 space-y-2 text-[#2D7778] text-sm">
+                {block.items.map(item => (
+                  <li key={item} className="flex items-start gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-none"><path d="M20 6 9 17l-5-5"/></svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
     </>
   )
 }
