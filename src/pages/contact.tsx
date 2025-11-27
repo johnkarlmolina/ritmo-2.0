@@ -1,12 +1,328 @@
+import EmailIcon from '../assets/Email.png';
+import ChatIcon from '../assets/Chat.png';
+import CallIcon from '../assets/Call.png';
+import SendMessageIcon from '../assets/SendMessage.png';
+import LocationIcon from '../assets/Location.png';
+import ConnectIcon from '../assets/Connect.png';
+import FacebookIcon from '../assets/Facebook.png';
+import InstagramIcon from '../assets/Instagram.png';
+import TwitterIcon from '../assets/Twitter.png';
+import RitmoLogo from '../assets/ritmo-lgo.png';
+
 export default function Contact() {
 	return (
-		<section className="min-h-[50vh] flex items-center" style={{ backgroundColor: '#61CCB2' }}>
-			<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-				<h1 className="text-4xl md:text-5xl font-extrabold text-white">Get in Touch</h1>
-				<p className="mt-6 max-w-2xl mx-auto text-white/90 text-lg md:text-xl">
-					We're here to help and answer any questions you might have.
-				</p>
-			</div>
-		</section>
+		<div className="bg-white">
+			{/* Hero Section */}
+			<section className="py-20 px-4" style={{ backgroundColor: '#61CCB2' }}>
+				<div className="max-w-7xl mx-auto text-center">
+					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+						Get In Touch
+					</h1>
+					<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+						We're here to help and answer any<br /> questions you might have
+					</p>
+				</div>
+			</section>
+
+			{/* Contact Methods Section */}
+			<section className="py-20 px-4 bg-white">
+				<div className="max-w-7xl mx-auto">
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+						{/* Email us */}
+						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center">
+							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
+								<img 
+									src={EmailIcon} 
+									alt="Email Icon" 
+									className="w-10 h-10"
+								/>
+							</div>
+							<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B7A73' }}>
+								Email us
+							</h3>
+							<p className="text-[#61CCB2] font-semibold text-lg mb-3">
+								support@ritmoapp.com
+							</p>
+							<p className="text-gray-600 text-sm">
+								Get a response within 24 hours
+							</p>
+						</div>
+
+						{/* Live Chat */}
+						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center">
+							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
+								<img 
+									src={ChatIcon} 
+									alt="Chat Icon" 
+									className="w-10 h-10"
+								/>
+							</div>
+							<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B7A73' }}>
+								Live Chat
+							</h3>
+							<p className="text-[#61CCB2] font-semibold text-lg mb-3">
+								Available 9 AM - 6 PM
+							</p>
+							<p className="text-gray-600 text-sm">
+								Instant support during business hours
+							</p>
+						</div>
+
+						{/* Call us */}
+						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center">
+							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
+								<img 
+									src={CallIcon} 
+									alt="Call Icon" 
+									className="w-10 h-10"
+								/>
+							</div>
+							<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B7A73' }}>
+								Call us
+							</h3>
+							<p className="text-[#61CCB2] font-semibold text-lg mb-3">
+								+63 2 1234 5678
+							</p>
+							<p className="text-gray-600 text-sm">
+								Monday to Friday, 9 AM - 5 PM
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Send Us a Message Section */}
+			<section className="py-20 px-4 bg-gray-100">
+				<div className="max-w-7xl mx-auto">
+					<div className="text-center mb-12">
+						<h2 className="text-5xl font-bold mb-4" style={{ color: '#2B8A7A' }}>
+							Send Us a Message
+						</h2>
+						<p className="text-gray-600 text-base">
+							Fill out the form below and we'll get back to you as soon as possible
+						</p>
+					</div>
+
+					<div className="max-w-3xl mx-auto">
+						<div className="bg-white rounded-3xl p-12 shadow-md">
+							<form className="space-y-6">
+								{/* Name and Email Row */}
+								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+									<div>
+										<label className="block text-sm font-semibold mb-2" style={{ color: '#2B8A7A' }}>
+											Your Name <span className="text-red-500">*</span>
+										</label>
+										<input
+											type="text"
+											placeholder="Enter your name"
+											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+										/>
+									</div>
+									<div>
+										<label className="block text-sm font-semibold mb-2" style={{ color: '#2B8A7A' }}>
+											Email Address <span className="text-red-500">*</span>
+										</label>
+										<input
+											type="email"
+											placeholder="Enter your email address"
+											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+										/>
+									</div>
+								</div>
+
+								{/* Subject */}
+								<div>
+									<label className="block text-sm font-semibold mb-2" style={{ color: '#2B8A7A' }}>
+										Subject <span className="text-red-500">*</span>
+									</label>
+									<input
+										type="text"
+										placeholder="How can we help you?"
+										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+									/>
+								</div>
+
+								{/* Message */}
+								<div>
+									<label className="block text-sm font-semibold mb-2" style={{ color: '#2B8A7A' }}>
+										Message <span className="text-red-500">*</span>
+									</label>
+									<textarea
+										rows={6}
+										placeholder="Tell us more about your question or concern..."
+										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700 resize-none"
+									></textarea>
+								</div>
+
+								{/* Submit Button */}
+								<div className="text-center">
+									<button
+										type="submit"
+										className="inline-flex items-center gap-2 px-8 py-3 rounded-lg text-white font-semibold text-base transition-colors"
+										style={{ backgroundColor: '#61CCB2' }}
+									>
+										<img src={SendMessageIcon} alt="Send" className="w-5 h-5" />
+										Send Message
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Our Location and Connect with us Section */}
+			<section className="py-20 px-4 bg-white">
+				<div className="max-w-7xl mx-auto">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
+						{/* Our Location */}
+						<div className="flex flex-col h-full">
+							<div className="flex items-center gap-3 mb-6">
+								<img 
+									src={LocationIcon} 
+									alt="Location Icon" 
+									className="w-8 h-8"
+									style={{ filter: 'invert(48%) sepia(79%) saturate(449%) hue-rotate(120deg) brightness(94%) contrast(86%)' }}
+								/>
+								<h3 className="text-2xl font-bold" style={{ color: '#2B8A7A' }}>
+									Our Location
+								</h3>
+							</div>
+							<div className="bg-[#C8E6DD] rounded-3xl p-8 border-2 border-[#5BBFA5] flex-1">
+								<h4 className="font-bold text-gray-800 mb-3">Ritmo Office</h4>
+								<p className="text-gray-700 text-sm leading-relaxed">
+									123 Technology Drive<br />
+									Quezon City, Metro Manila<br />
+									Philippines 1100
+								</p>
+							</div>
+						</div>
+
+						{/* Connect with us */}
+						<div className="flex flex-col h-full">
+							<div className="flex items-center gap-3 mb-6">
+								<img 
+									src={ConnectIcon} 
+									alt="Connect Icon" 
+									className="w-8 h-8"
+									style={{ filter: 'invert(48%) sepia(79%) saturate(449%) hue-rotate(120deg) brightness(94%) contrast(86%)' }}
+								/>
+								<h3 className="text-2xl font-bold" style={{ color: '#2B8A7A' }}>
+									Connect with us
+								</h3>
+							</div>
+							<div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-sm flex-1">
+								<p className="text-gray-600 text-sm mb-6">
+									Follow us on social media for updates, tips, and community stories
+								</p>
+								<div className="space-y-3">
+									<a href="#" className="flex items-center gap-3 bg-[#E8F4F1] rounded-lg px-4 py-3 hover:bg-[#D5EDE7] transition-colors">
+										<img src={FacebookIcon} alt="Facebook" className="w-5 h-5" />
+										<span className="text-gray-800 font-medium">Facebook</span>
+									</a>
+									<a href="#" className="flex items-center gap-3 bg-[#E8F4F1] rounded-lg px-4 py-3 hover:bg-[#D5EDE7] transition-colors">
+										<img src={InstagramIcon} alt="Instagram" className="w-5 h-5" />
+										<span className="text-gray-800 font-medium">Instagram</span>
+									</a>
+									<a href="#" className="flex items-center gap-3 bg-[#E8F4F1] rounded-lg px-4 py-3 hover:bg-[#D5EDE7] transition-colors">
+										<img src={TwitterIcon} alt="Twitter" className="w-5 h-5" />
+										<span className="text-gray-800 font-medium">Twitter</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Footer */}
+			<footer className="py-10 px-4" style={{ backgroundColor: '#2B7A73' }}>
+				<div className="max-w-7xl mx-auto px-8">
+					<div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-8">
+						{/* Logo and Description */}
+						<div>
+							<div className="bg-white rounded-2xl px-4 py-2 inline-block mb-4">
+								<img 
+									src={RitmoLogo} 
+									alt="Ritmo Logo" 
+									className="h-7"
+								/>
+							</div>
+							<p className="text-white/90 text-base">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							</p>
+						</div>
+
+						{/* Quick Links */}
+						<div>
+							<h3 className="text-white font-bold text-xl mb-5">Quick Links</h3>
+							<ul className="space-y-2.5">
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										About Us
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Features
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										How it Works
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										News
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						{/* Support */}
+						<div>
+							<h3 className="text-white font-bold text-xl mb-5">Support</h3>
+							<ul className="space-y-2.5">
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Contact Us
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Download
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						{/* Legal */}
+						<div>
+							<h3 className="text-white font-bold text-xl mb-5">Legal</h3>
+							<ul className="space-y-2.5">
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Terms of Use
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Privacy Policy
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					{/* Divider */}
+					<div className="border-t border-white/20 pt-8">
+						<p className="text-center text-white/80 text-base">
+							© 2025 Ritmo. All rights reserved. Made with <span className="text-white">♥</span> for children with autism.
+						</p>
+					</div>
+				</div>
+			</footer>
+		</div>
 	)
 }
