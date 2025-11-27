@@ -1,12 +1,400 @@
+import DateIcon from '../assets/Date.png';
+import FeaturedIcon from '../assets/Featured.png';
+import RitmoLogo from '../assets/ritmo-lgo.png';
+
 export default function News() {
 	return (
-		<section className="min-h-[50vh] flex items-center" style={{ backgroundColor: '#61CCB2' }}>
-			<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-				<h1 className="text-4xl md:text-5xl font-extrabold text-white">News &amp; Updates</h1>
-				<p className="mt-6 max-w-2xl mx-auto text-white/90 text-lg md:text-xl">
-					Stay informed about the latest features, research, and community stories.
-				</p>
-			</div>
-		</section>
+		<div className="bg-white">
+			{/* Hero Section */}
+			<section className="py-20 px-4" style={{ backgroundColor: '#61CCB2' }}>
+				<div className="max-w-7xl mx-auto text-center">
+					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+						News &amp; Updates
+					</h1>
+					<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+						Stay informed about the latest features, research, and<br />
+						community stories
+					</p>
+				</div>
+			</section>
+
+			{/* Filter Buttons Section */}
+			<section className="py-8 px-4 bg-white border-b border-gray-200">
+				<div className="max-w-7xl mx-auto">
+					<div className="flex flex-wrap justify-center gap-3">
+						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
+							All
+						</button>
+						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
+							Update
+						</button>
+						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
+							Feature
+						</button>
+						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
+							Announcement
+						</button>
+						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
+							Research
+						</button>
+						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
+							Event
+						</button>
+						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
+							Community
+						</button>
+						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
+							Media
+						</button>
+					</div>
+				</div>
+			</section>
+
+		{/* Featured Stories Section */}
+		<section className="py-20 px-4 bg-white">
+			<div className="max-w-6xl mx-auto">
+				<h2 className="text-4xl font-bold mb-12" style={{ color: '#2B8A7A' }}>
+					Featured Stories
+				</h2>
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+					{/* Story Card 1 */}
+					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm hover:shadow-lg transition-shadow">
+						<div className="h-48 bg-[#61CCB2]"></div>
+						<div className="p-6">
+							<div className="flex items-center gap-3 mb-2">
+								<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
+									Feature
+								</span>
+								<div className="flex items-center gap-1.5 text-gray-500 text-sm">
+									<img src={DateIcon} alt="Date" className="w-4 h-4" />
+									<span>Jan 15, 2024</span>
+								</div>
+							</div>
+							<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
+								Ritmo Version 2.0 Released
+							</h3>
+							<p className="text-gray-600 text-sm mb-4 leading-relaxed">
+								Major update includes new emotion cards, improved performance, and enhanced customization options.
+							</p>
+							<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
+								Read More →
+							</a>
+					</div>
+				</div>
+
+					{/* Story Card 2 */}
+					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm hover:shadow-lg transition-shadow">
+						<div className="h-48 bg-[#61CCB2]"></div>
+						<div className="p-6">
+							<div className="flex items-center gap-3 mb-2">
+								<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
+									Research
+								</span>
+								<div className="flex items-center gap-1.5 text-gray-500 text-sm">
+									<img src={DateIcon} alt="Date" className="w-4 h-4" />
+									<span>Dec 20, 2023</span>
+								</div>
+							</div>
+							<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
+								Study Shows 85% Improvement in Communication
+							</h3>
+							<p className="text-gray-600 text-sm mb-4 leading-relaxed">
+								Recent research demonstrates significant improvement in communication abilities among Ritmo users.
+							</p>
+							<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
+								Read More →
+							</a>
+					</div>
+				</div>
+
+					{/* Story Card 3 */}
+					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm hover:shadow-lg transition-shadow">
+							<div className="h-48 bg-[#61CCB2]"></div>
+							<div className="p-6">
+								<div className="flex items-center gap-3 mb-2">
+									<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
+										Media
+									</span>
+									<div className="flex items-center gap-1.5 text-gray-500 text-sm">
+										<img src={DateIcon} alt="Date" className="w-4 h-4" />
+										<span>Nov 15, 2023</span>
+									</div>
+								</div>
+								<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
+									Ritmo Featured on National Television
+								</h3>
+								<p className="text-gray-600 text-sm mb-4 leading-relaxed">
+									Our app was featured on GMA News special report about autism support technology in the Philippines.
+								</p>
+								<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
+									Read More →
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* All Updates Section */}
+			<section className="py-20 px-4 bg-white">
+				<div className="max-w-6xl mx-auto">
+					<h2 className="text-4xl font-bold mb-10" style={{ color: '#2B8A7A' }}>
+						All Updates
+					</h2>
+					<div className="space-y-5">
+						{/* Update Item 1 */}
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+							<div className="flex items-center justify-between gap-6">
+								<div className="flex-1">
+									<div className="flex items-center gap-3 mb-3">
+										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
+											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
+											Feature
+										</span>
+										<div className="flex items-center gap-2 text-gray-500 text-sm">
+											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
+											<span>Jan 15, 2024</span>
+										</div>
+									</div>
+									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
+										Ritmo Version 2.0 Released
+									</h3>
+									<p className="text-gray-600 text-sm leading-relaxed">
+										Complete Tagalog translation now available for all interface elements and communication cards.
+									</p>
+								</div>
+								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
+									Read More →
+								</a>
+							</div>
+						</div>
+
+						{/* Update Item 2 */}
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+							<div className="flex items-center justify-between gap-6">
+								<div className="flex-1">
+									<div className="flex items-center gap-3 mb-3">
+										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
+											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
+											Feature
+										</span>
+										<div className="flex items-center gap-2 text-gray-500 text-sm">
+											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
+											<span>Jan 15, 2024</span>
+										</div>
+									</div>
+									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
+										Ritmo Version 2.0 Released
+									</h3>
+									<p className="text-gray-600 text-sm leading-relaxed">
+										Complete Tagalog translation now available for all interface elements and communication cards.
+									</p>
+								</div>
+								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
+									Read More →
+								</a>
+							</div>
+						</div>
+
+						{/* Update Item 3 */}
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+							<div className="flex items-center justify-between gap-6">
+								<div className="flex-1">
+									<div className="flex items-center gap-3 mb-3">
+										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
+											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
+											Feature
+										</span>
+										<div className="flex items-center gap-2 text-gray-500 text-sm">
+											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
+											<span>Jan 15, 2024</span>
+										</div>
+									</div>
+									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
+										Ritmo Version 2.0 Released
+									</h3>
+									<p className="text-gray-600 text-sm leading-relaxed">
+										Complete Tagalog translation now available for all interface elements and communication cards.
+									</p>
+								</div>
+								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
+									Read More →
+								</a>
+							</div>
+						</div>
+
+						{/* Update Item 4 */}
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+							<div className="flex items-center justify-between gap-6">
+								<div className="flex-1">
+									<div className="flex items-center gap-3 mb-3">
+										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
+											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
+											Feature
+										</span>
+										<div className="flex items-center gap-2 text-gray-500 text-sm">
+											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
+											<span>Jan 15, 2024</span>
+										</div>
+									</div>
+									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
+										Ritmo Version 2.0 Released
+									</h3>
+									<p className="text-gray-600 text-sm leading-relaxed">
+										Complete Tagalog translation now available for all interface elements and communication cards.
+									</p>
+								</div>
+								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
+									Read More →
+								</a>
+							</div>
+						</div>
+
+						{/* Update Item 5 */}
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+							<div className="flex items-center justify-between gap-6">
+								<div className="flex-1">
+									<div className="flex items-center gap-3 mb-3">
+										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
+											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
+											Feature
+										</span>
+										<div className="flex items-center gap-2 text-gray-500 text-sm">
+											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
+											<span>Jan 15, 2024</span>
+										</div>
+									</div>
+									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
+										Ritmo Version 2.0 Released
+									</h3>
+									<p className="text-gray-600 text-sm leading-relaxed">
+										Complete Tagalog translation now available for all interface elements and communication cards.
+									</p>
+								</div>
+								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
+									Read More →
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Stay Updated Section */}
+			<section className="py-20 px-4 bg-white">
+				<div className="max-w-6xl mx-auto flex justify-center">
+					<div className="bg-[#C8E6DD] rounded-3xl p-12 border-2 border-[#2B8A7A] max-w-2xl w-full text-center">
+						<h2 className="text-3xl font-bold mb-3" style={{ color: '#2B8A7A' }}>
+							Stay Updated
+						</h2>
+						<p className="text-gray-700 mb-6 text-sm">
+							Get the latest news, updates, and tips delivered to your inbox
+						</p>
+						<div className="flex gap-3 max-w-md mx-auto">
+							<input
+								type="email"
+								placeholder="Enter your email"
+								className="flex-1 px-5 py-2.5 rounded-full border-2 border-white bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#61CCB2] focus:border-transparent placeholder:text-gray-400"
+							/>
+							<button
+								className="px-7 py-2.5 rounded-full text-white font-semibold text-sm hover:opacity-90 transition-opacity"
+								style={{ backgroundColor: '#61CCB2' }}
+							>
+								Subscribe
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Footer */}
+			<footer className="py-10 px-4" style={{ backgroundColor: '#2B7A73' }}>
+				<div className="max-w-7xl mx-auto px-8">
+					<div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-8">
+						{/* Logo and Description */}
+						<div>
+							<div className="bg-white rounded-2xl px-4 py-2 inline-block mb-4">
+								<img 
+									src={RitmoLogo} 
+									alt="Ritmo Logo" 
+									className="h-7"
+								/>
+							</div>
+							<p className="text-white/90 text-base">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							</p>
+						</div>
+
+						{/* Quick Links */}
+						<div>
+							<h3 className="text-white font-bold text-xl mb-5">Quick Links</h3>
+							<ul className="space-y-2.5">
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										About Us
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Features
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										How it Works
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										News
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						{/* Support */}
+						<div>
+							<h3 className="text-white font-bold text-xl mb-5">Support</h3>
+							<ul className="space-y-2.5">
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Contact Us
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Download
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						{/* Legal */}
+						<div>
+							<h3 className="text-white font-bold text-xl mb-5">Legal</h3>
+							<ul className="space-y-2.5">
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Terms of Use
+									</a>
+								</li>
+								<li>
+									<a href="#" className="text-white/90 hover:text-white text-base transition-colors">
+										Privacy Policy
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					{/* Divider */}
+					<div className="border-t border-white/20 pt-8">
+						<p className="text-center text-white/80 text-base">
+							© 2025 Ritmo. All rights reserved. Made with <span className="text-white">♥</span> for children with autism.
+						</p>
+					</div>
+				</div>
+			</footer>
+		</div>
 	)
 }
