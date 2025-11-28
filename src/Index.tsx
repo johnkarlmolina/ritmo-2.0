@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import phoneImg from './assets/ritmo-cp.png'
+import bgImg from './assets/bg.png'
 
 export default function Index() {
   return (
@@ -119,27 +120,63 @@ export default function Index() {
 
     {/* Why Ritmo Helps section */}
     <section className="bg-white min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full py-16 md:py-24">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">Why Ritmo Helps</h2>
-          <p className="mt-2 text-sm md:text-base text-gray-600">Benefits for everyone involved</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">Why Ritmo Helps</h2>
+          <p className="mt-4 text-base md:text-lg text-gray-700">Benefits for everyone involved</p>
         </div>
-        <div className="mt-12 grid gap-8 md:gap-10 grid-cols-1 md:grid-cols-3">
+        <div className="mt-14 grid gap-10 lg:gap-12 grid-cols-1 md:grid-cols-3">
           {[
             { title: 'For Children', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
             { title: 'For Parent', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
             { title: 'For Therapist', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
           ].map(block => (
-            <div key={block.title} className="rounded-xl bg-[#61CCB2]/25 border border-[#61CCB2]/30 shadow-sm p-6 md:p-7">
-              <h3 className="text-xl font-semibold text-[#2D7778]">{block.title}</h3>
-              <ul className="mt-4 space-y-2 text-[#2D7778] text-sm">
+            <div key={block.title} className="rounded-2xl bg-[#61CCB2]/20 border border-[#61CCB2]/40 shadow-md p-8 md:p-10">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#2D7778]">{block.title}</h3>
+              <ul className="mt-6 space-y-3 text-[#2D7778] text-base">
                 {block.items.map(item => (
                   <li key={item} className="flex items-start gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-none"><path d="M20 6 9 17l-5-5"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-none"><path d="M20 6 9 17l-5-5"/></svg>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* See Ritmo in Action */}
+    <section
+      className="py-24 min-h-[70vh] flex items-center"
+      style={{
+        backgroundImage: `url(${bgImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">See Ritmo in Action</h2>
+          <p className="mt-3 text-gray-700">Simple, intuitive, and beautiful</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {[
+            { title: 'Setup Day Routine', subtitle: 'Interface 1' },
+            { title: 'Progress Report', subtitle: 'Interface 2' },
+            { title: 'Parent Settings', subtitle: 'Interface 3' },
+          ].map(({ title, subtitle }) => (
+            <div key={title} className="rounded-3xl bg-white shadow-md border-2 border-[#2B8A7A]/30 overflow-hidden h-full">
+              <div className="p-10 flex items-center justify-center">
+                <img src={phoneImg} alt={title} className="w-52 md:w-56 h-auto" />
+              </div>
+              <div className="px-8 pb-8">
+                <div className="mt-2 rounded-2xl bg-[#61CCB2] text-white px-6 py-5">
+                  <div className="font-bold text-xl">{title}</div>
+                  <div className="text-white/90 text-sm">{subtitle}</div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
