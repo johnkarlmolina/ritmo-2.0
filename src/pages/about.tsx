@@ -21,6 +21,8 @@ import SambilayImg from '../asset-team-img/Sambilay.png';
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement>(null);
 	const pausedRef = useRef<boolean>(false);
+	const contentClonedRef = useRef<boolean>(false);
+	const trackWidthRef = useRef<number>(0);
 
 	// Auto-scrolling carousel for the Team section with pause-on-hover
 	useEffect(() => {
@@ -30,13 +32,32 @@ export default function About() {
 		let rafId: number;
 		const speed = 1; // pixels per frame
 
+		// Duplicate the inner items into the same track to avoid creating a second row
+		if (!contentClonedRef.current) {
+			const track = el.querySelector<HTMLDivElement>('.team-track');
+			if (track) {
+				// Measure original track width before cloning
+				trackWidthRef.current = track.offsetWidth;
+				const children = Array.from(track.children);
+				children.forEach((child) => {
+					const childClone = child.cloneNode(true) as HTMLElement;
+					track.appendChild(childClone);
+				});
+				contentClonedRef.current = true;
+			}
+		}
+
 		const step = () => {
 			if (!pausedRef.current) {
-				// Loop seamlessly
-				if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 1) {
-					el.scrollLeft = 0;
-				} else {
-					el.scrollLeft += speed;
+				el.scrollLeft += speed;
+				const singleWidth = trackWidthRef.current || el.scrollWidth / 2;
+				// Wrap back by the width of the original track for seamless loop
+				if (el.scrollLeft >= singleWidth) {
+					el.scrollLeft -= singleWidth;
+				}
+				// Handle negative scroll (user drag left) to keep loop seamless
+				if (el.scrollLeft < 0) {
+					el.scrollLeft += singleWidth;
 				}
 			}
 			rafId = requestAnimationFrame(step);
@@ -294,7 +315,7 @@ export default function About() {
 			<div className="relative">
 				<div ref={scrollContainerRef} className="overflow-x-auto overflow-y-hidden scroll-smooth px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
 					<style>{`.overflow-x-auto::-webkit-scrollbar { display: none; }`}</style>
-					<div className="flex gap-10 pb-6" style={{ width: 'max-content' }}>
+					<div className="team-track flex gap-10 pb-6" style={{ width: 'max-content' }}>
 						{/* Team Member 1 - Myra Leah Duhiling */}
 						<div className="shrink-0 w-64">
 							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
