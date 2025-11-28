@@ -1,9 +1,118 @@
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import phoneImg from './assets/ritmo-cp.png'
 import handPhoneImg from './assets/hand-phone.png'
 import bgImg from './assets/bg.png'
 
 export default function Index() {
+  // Page-scoped sliding animations with different directions per element
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('section'))
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement
+          if (!entry.isIntersecting) return
+
+          const headings = Array.from(el.querySelectorAll<HTMLElement>('h1,h2,h3'))
+          const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'))
+          const buttons = Array.from(el.querySelectorAll<HTMLElement>('a,button'))
+          const images = Array.from(el.querySelectorAll<HTMLElement>('img'))
+
+          headings.forEach((node, idx) => {
+            const delay = Math.min(idx * 80, 400)
+            node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateX(0)'
+          })
+          texts.forEach((node, idx) => {
+            const delay = Math.min(idx * 60, 360)
+            node.style.transition = `transform 700ms ease-out ${delay}ms, opacity 700ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateY(0)'
+          })
+          buttons.forEach((node, idx) => {
+            const delay = Math.min(idx * 80, 480)
+            node.style.transition = `transform 700ms ease-out ${delay}ms, opacity 700ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateY(0)'
+          })
+          images.forEach((node, idx) => {
+            const delay = Math.min(idx * 80, 480)
+            node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateX(0)'
+          })
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+    )
+
+    // Initialize state for specific element types with directional offsets
+    sections.forEach((section) => {
+      const headings = Array.from(section.querySelectorAll<HTMLElement>('h1,h2,h3'))
+      const texts = Array.from(section.querySelectorAll<HTMLElement>('p,li'))
+      const buttons = Array.from(section.querySelectorAll<HTMLElement>('a,button'))
+      const images = Array.from(section.querySelectorAll<HTMLElement>('img'))
+
+      headings.forEach((node) => {
+        node.style.willChange = 'transform, opacity'
+        node.style.opacity = '0'
+        node.style.transform = 'translateX(-24px)'
+      })
+      texts.forEach((node) => {
+        node.style.willChange = 'transform, opacity'
+        node.style.opacity = '0'
+        node.style.transform = 'translateY(16px)'
+      })
+      buttons.forEach((node) => {
+        node.style.willChange = 'transform, opacity'
+        node.style.opacity = '0'
+        node.style.transform = 'translateY(12px)'
+      })
+      images.forEach((node) => {
+        node.style.willChange = 'transform, opacity'
+        node.style.opacity = '0'
+        node.style.transform = 'translateX(24px)'
+      })
+
+      observer.observe(section)
+
+      // Immediate reveal for already visible sections
+      const rect = section.getBoundingClientRect()
+      const vh = window.innerHeight || document.documentElement.clientHeight
+      if (rect.top < vh && rect.bottom > 0) {
+        requestAnimationFrame(() => {
+          headings.forEach((node, idx) => {
+            const delay = Math.min(idx * 80, 400)
+            node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateX(0)'
+          })
+          texts.forEach((node, idx) => {
+            const delay = Math.min(idx * 60, 360)
+            node.style.transition = `transform 700ms ease-out ${delay}ms, opacity 700ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateY(0)'
+          })
+          buttons.forEach((node, idx) => {
+            const delay = Math.min(idx * 80, 480)
+            node.style.transition = `transform 700ms ease-out ${delay}ms, opacity 700ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateY(0)'
+          })
+          images.forEach((node, idx) => {
+            const delay = Math.min(idx * 80, 480)
+            node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateX(0)'
+          })
+        })
+      }
+    })
+
+    return () => observer.disconnect()
+  }, [])
   return (
     <>
     <section
