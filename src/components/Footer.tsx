@@ -5,10 +5,10 @@ export default function Footer() {
   return (
     <footer className="py-10 px-4" style={{ backgroundColor: '#2B7A73' }}>
       <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-8 place-items-center md:place-items-start text-center md:text-left">
           {/* Logo and Description */}
           <div>
-            <div className="bg-white rounded-2xl px-4 py-2 inline-block mb-4">
+            <div className="bg-white rounded-2xl px-4 py-2 inline-block mb-4 mx-auto md:mx-0">
               <img src={RitmoLogo} alt="Ritmo Logo" className="h-7" />
             </div>
             <p className="text-white/90 text-base">
