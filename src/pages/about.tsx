@@ -246,19 +246,20 @@ export default function About() {
 		</section>
 
 		{/* Our Team Section */}
-		<section className="py-20 px-4 bg-white">
-			<div className="max-w-7xl mx-auto">
+		<section className="py-20 bg-white">
+			<div className="max-w-7xl mx-auto px-4">
 				<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
 					Our Team
 				</h2>
 				<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>
 					Join our mission together, we can build smoother, more structured days for every child.
-				</p>				
-				{/* Scrollable Team Container */}
-				<div className="relative">
-					<div ref={scrollContainerRef} className="overflow-x-auto overflow-y-hidden scroll-smooth" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-						<style>{`.overflow-x-auto::-webkit-scrollbar { display: none; }`}</style>
-						<div className="flex gap-10 pb-6" style={{ width: 'max-content' }}>
+				</p>
+			</div>
+			{/* Scrollable Team Container */}
+			<div className="relative">
+				<div ref={scrollContainerRef} className="overflow-x-auto overflow-y-hidden scroll-smooth px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+					<style>{`.overflow-x-auto::-webkit-scrollbar { display: none; }`}</style>
+					<div className="flex gap-10 pb-6" style={{ width: 'max-content' }}>
 						{/* Team Member 1 - Myra Leah Duhiling */}
 						<div className="shrink-0 w-64">
 							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
@@ -534,7 +535,6 @@ export default function About() {
 						</div>
 					</div>
 				</div>
-			</div>
 		</section>			
 		
 		{/* Join Our Mission Section */}
