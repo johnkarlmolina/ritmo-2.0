@@ -1,11 +1,10 @@
+import { useRef, useEffect } from 'react';
 import MissionIcon from '../assets/Mission.png';
 import VisionIcon from '../assets/Vision.png';
 import ChildrenIcon from '../assets/Children.png';
 import ParentIcon from '../assets/Parent.png';
 import EducatorsIcon from '../assets/Educators.png';
 import RitmoLogo from '../assets/ritmo-lgo.png';
-
-// Team member images
 import DuhilingImg from '../asset-team-img/Duhiling.png';
 import HernandezImg from '../asset-team-img/Hernandez.png';
 import IsorenaImg from '../asset-team-img/Isorena.png';
@@ -21,6 +20,71 @@ import MendozaImg from '../asset-team-img/Mendoza.png';
 import SambilayImg from '../asset-team-img/Sambilay.png';
 
 export default function About() {
+	const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const container = scrollContainerRef.current;
+		if (!container) return;
+
+		const handleWheel = (e: WheelEvent) => {
+			const maxScrollLeft = container.scrollWidth - container.clientWidth;
+			const currentScroll = container.scrollLeft;
+			const tolerance = 1; 
+			const canScrollRight = currentScroll < (maxScrollLeft - tolerance) && e.deltaY > 0;
+			const canScrollLeft = currentScroll > tolerance && e.deltaY < 0;
+			
+			if (canScrollRight || canScrollLeft) {
+				e.preventDefault();
+				container.scrollLeft += e.deltaY * 2;
+			}
+		};
+
+		let isDown = false;
+		let startX: number;
+
+		const handleMouseDown = (e: MouseEvent) => {
+			isDown = true;
+			container.style.cursor = 'grabbing';
+			container.style.userSelect = 'none';
+			startX = e.pageX + container.scrollLeft;
+			e.preventDefault();
+		};
+
+		const handleMouseLeave = () => {
+			isDown = false;
+			container.style.cursor = 'grab';
+			container.style.userSelect = 'auto';
+		};
+
+		const handleMouseUp = () => {
+			isDown = false;
+			container.style.cursor = 'grab';
+			container.style.userSelect = 'auto';
+		};
+
+		const handleMouseMove = (e: MouseEvent) => {
+			if (!isDown) return;
+			e.preventDefault();
+			container.scrollLeft = startX - e.pageX;
+		};
+
+		container.style.cursor = 'grab';
+		container.style.userSelect = 'none';
+		container.addEventListener('wheel', handleWheel, { passive: false });
+		container.addEventListener('mousedown', handleMouseDown);
+		container.addEventListener('mouseleave', handleMouseLeave);
+		container.addEventListener('mouseup', handleMouseUp);
+		container.addEventListener('mousemove', handleMouseMove);
+		container.addEventListener('dragstart', (e) => e.preventDefault());
+
+		return () => {
+			container.removeEventListener('wheel', handleWheel);
+			container.removeEventListener('mousedown', handleMouseDown);
+			container.removeEventListener('mouseleave', handleMouseLeave);
+			container.removeEventListener('mouseup', handleMouseUp);
+			container.removeEventListener('mousemove', handleMouseMove);
+		};
+	}, []);
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
@@ -183,95 +247,94 @@ export default function About() {
 		</section>
 
 		{/* Our Team Section */}
-		<section className="py-20 px-4" style={{ backgroundColor: '#61CCB2' }}>
+		<section className="py-20 px-4 bg-white">
 			<div className="max-w-7xl mx-auto">
-				<h2 className="text-5xl font-bold text-center mb-4 text-white">
+				<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
 					Our Team
 				</h2>
-				<p className="text-center text-white text-base max-w-2xl mx-auto mb-16">
+				<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>
 					Join our mission together, we can build smoother, more structured days for every child.
-				</p>				{/* Scrollable Team Container */}
+				</p>				
+				{/* Scrollable Team Container */}
 				<div className="relative">
-					<div className="overflow-x-auto overflow-y-hidden scroll-smooth" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+					<div ref={scrollContainerRef} className="overflow-x-auto overflow-y-hidden scroll-smooth" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+						<style>{`.overflow-x-auto::-webkit-scrollbar { display: none; }`}</style>
 						<div className="flex gap-10 pb-6" style={{ width: 'max-content' }}>
-							{/* Team Member 1 - Myra Leah S. Duhiling */}
-							<div className="shrink-0 w-64">
-								<div className="relative">
-									<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-										<div className="text-center mb-6 px-4">
-											<h3 className="text-xl font-bold mb-1 text-white">
-												Myra Leah Duhiling
-											</h3>
-											<p className="text-sm" style={{ color: '#C8E6DD' }}>
-												Project Manager
-											</p>
-										</div>
-										<div className="w-56 h-56 rounded-full overflow-hidden">
-											<img 
-												src={DuhilingImg} 
-												alt="Myra Leah S. Duhiling" 
-												className="w-full h-full object-cover"
-											/>
-										</div>
+						{/* Team Member 1 - Myra Leah Duhiling */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Myra Leah S. Duhiling
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										Project Manager
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
+										<img 
+											src={DuhilingImg} 
+											alt="Myra Leah Duhiling" 
+											className="w-full h-full object-cover"
+										/>
 									</div>
 								</div>
 							</div>
 
-					{/* Team Member 2 - Fletcher Peter M. Hernandez */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-									<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											Fletcher Peter Hernandez
+							{/* Team Member 2 - Fletcher Peter M. Hernandez */}
+							<div className="shrink-0 w-64">
+								<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+									<div className="text-center mb-2 px-4 z-10">
+										<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.875rem)' }}>
+											Fletcher Peter M. Hernandez
 										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
+										<p className="text-sm" style={{ color: '#C8E6DD', fontSize: 'clamp(0.75rem, 2vw, 0.875rem)' }}>
 											Lead UI/UX Designer
 										</p>
 									</div>
-										<div className="w-56 h-56 rounded-full overflow-hidden">
-											<img 
-												src={HernandezImg} 
-												alt="Fletcher Peter M. Hernandez" 
-												className="w-full h-full object-cover"
-											/>
-										</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
+										<img 
+											src={HernandezImg} 
+											alt="Fletcher Peter M. Hernandez" 
+											className="w-full h-full object-cover"
+										/>
 									</div>
+								</div>
 							</div>
-						</div>					{/* Team Member 3 - Jerald B. Isorena */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-									<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											Jerald B. Isorena
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											Lead Programmer
-										</p>
+
+						{/* Team Member 3 - Jerald B. Isorena */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Jerald B. Isorena
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										Lead Programmer
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
+										<img 
+											src={IsorenaImg} 
+											alt="Jerald B. Isorena" 
+											className="w-full h-full object-cover"
+										/>
 									</div>
-										<div className="w-56 h-56 rounded-full overflow-hidden">
-											<img 
-												src={IsorenaImg} 
-												alt="Jerald B. Isorena" 
-												className="w-full h-full object-cover"
-											/>
-										</div>
-									</div>
+								</div>
 							</div>
-						</div>					{/* Team Member 4 - John Pritch L. Arcas */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											John Pritch L. Arcas
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											Back-End Developer
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 4 - John Pritch L. Arcas */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										John Pritch L. Arcas
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										Back-End Developer
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={ArcasImg} 
 											alt="John Pritch L. Arcas" 
@@ -280,19 +343,19 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>					{/* Team Member 5 - Alrashim M. Awal */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											Alrashim M. Awal
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											Front-End Developer
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 5 - Alrashim M. Awal */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Alrashim M. Awal
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										Front-End Developer
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={AwalImg} 
 											alt="Alrashim M. Awal" 
@@ -301,19 +364,19 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>					{/* Team Member 6 - John Carlo A. Deato */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											John Carlo A. Deato
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											Back-End Developer
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 6 - John Carlo A. Deato */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										John Carlo A. Deato
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										Back-End Developer
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={DeatoImg} 
 											alt="John Carlo A. Deato" 
@@ -322,19 +385,19 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>					{/* Team Member 7 - John Karl P. Molina */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											John Karl P. Molina
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											Front-End Developer
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 7 - John Karl P. Molina */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										John Karl P. Molina
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										Front-End Developer
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={MolinaImg} 
 											alt="John Karl P. Molina" 
@@ -343,19 +406,19 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>					{/* Team Member 8 - Kurt Lee B. Manzano */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											Kurt Lee B. Manzano
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											UI/UX Designer
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 8 - Kurt Lee B. Manzano */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Kurt Lee B. Manzano
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										UI/UX Designer
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={ManzanoImg} 
 											alt="Kurt Lee B. Manzano" 
@@ -364,19 +427,19 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>					{/* Team Member 9 - Ashley D. Abucay */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											Ashley D. Abucay
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											System Analyst
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 9 - Ashley D. Abucay */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Ashley D. Abucay
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										System Analyst
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={AbucayImg} 
 											alt="Ashley D. Abucay" 
@@ -385,19 +448,19 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>					{/* Team Member 10 - Ma. Daniella A. Broncano */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											Ma. Daniella A. Broncano
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											System Analyst
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 10 - Ma. Daniella A. Broncano */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Ma. Daniella A. Broncano
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										System Analyst
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={BroncanoImg} 
 											alt="Ma. Daniella A. Broncano" 
@@ -406,19 +469,19 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>					{/* Team Member 11 - Nikki Anne R. Bertes */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											Nikki Anne Bertes
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											System Analyst
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 11 - Nikki Anne R. Bertes */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Nikki Anne R. Bertes
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										System Analyst
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={BertesImg} 
 											alt="Nikki Anne R. Bertes" 
@@ -427,19 +490,19 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>					{/* Team Member 12 - Mary Joy N. Mendoza */}
-					<div className="shrink-0 w-64">
-							<div className="relative">
-								<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-									<div className="text-center mb-6 px-4">
-										<h3 className="text-xl font-bold mb-1 text-white">
-											Mary Joy N. Mendoza
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD' }}>
-											System Analyst
-										</p>
-									</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+
+						{/* Team Member 12 - Mary Joy N. Mendoza */}
+						<div className="shrink-0 w-64">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Mary Joy N. Mendoza
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										System Analyst
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
 											src={MendozaImg} 
 											alt="Mary Joy N. Mendoza" 
@@ -448,25 +511,24 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>						{/* Team Member 13 - Joemar A. Sambilay */}
+
+						{/* Team Member 13 - Joemar A. Sambilay */}
 						<div className="shrink-0 w-64">
-								<div className="relative">
-									<div className="w-64 h-80 rounded-[56px] overflow-visible flex flex-col items-center justify-start pt-12 shadow-[0_16px_40px_rgba(43,138,122,0.35)] border-2" style={{ backgroundColor: '#2B8A7A', borderColor: '#2B8A7A' }}>
-										<div className="text-center mb-6 px-4">
-											<h3 className="text-xl font-bold mb-1 text-white">
-												Joemar A. Sambilay
-											</h3>
-											<p className="text-sm" style={{ color: '#C8E6DD' }}>
-												Documentation Specialist
-											</p>
-										</div>
-									<div className="w-56 h-56 rounded-full overflow-hidden">
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="text-center mb-2 px-4 z-10">
+									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
+										Joemar A. Sambilay
+									</h3>
+									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
+										System Analyst
+									</p>
+								</div>
+									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
 										<img 
-											src={SambilayImg}
-												alt="Joemar A. Sambilay" 
-												className="w-full h-full object-cover"
-											/>
-										</div>
+											src={SambilayImg} 
+											alt="Joemar A. Sambilay" 
+											className="w-full h-full object-cover"
+										/>
 									</div>
 								</div>
 							</div>
@@ -474,7 +536,9 @@ export default function About() {
 					</div>
 				</div>
 			</div>
-		</section>			{/* Join Our Mission Section */}
+		</section>			
+		
+		{/* Join Our Mission Section */}
 			<section className="py-16 px-4" style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h2 className="text-5xl font-bold text-white mb-4">

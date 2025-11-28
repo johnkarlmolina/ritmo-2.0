@@ -1,10 +1,10 @@
 export default function HowItWorks() {
 	return (
-		<section className="min-h-[50vh] flex items-center" style={{ backgroundColor: '#61CCB2' }}>
-			<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-				<h1 className="text-4xl md:text-5xl font-extrabold text-white">How It Works</h1>
-				<p className="mt-6 max-w-2xl mx-auto text-white/90 text-lg md:text-xl">
-					See how Ritmo guides daily routines step by step in a supportive way.
+		<section className="py-20 px-4" style={{ backgroundColor: '#61CCB2' }}>
+			<div className="max-w-7xl mx-auto text-center">
+				<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">How It Works</h1>
+				<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+					See how Ritmo guides daily routines step by step<br />in a supportive way.
 				</p>
 			</div>
 		</section>
