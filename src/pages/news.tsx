@@ -8,32 +8,48 @@ export default function News() {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
-					const el = entry.target as HTMLElement
 					if (!entry.isIntersecting) return
+					const el = entry.target as HTMLElement
 					const headings = Array.from(el.querySelectorAll<HTMLElement>('h1,h2,h3'))
 					const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'))
 					const cards = Array.from(el.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'))
-					headings.forEach((node, idx) => { const d=Math.min(idx*80,400); node.style.transition=`transform 800ms ease-out ${d}ms, opacity 800ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateX(0)' })
-					texts.forEach((node, idx) => { const d=Math.min(idx*60,360); node.style.transition=`transform 700ms ease-out ${d}ms, opacity 700ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0)' })
-					cards.forEach((node, idx) => { const d=Math.min(idx*70,490); node.style.transition=`transform 750ms ease-out ${d}ms, opacity 750ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0)' })
+
+					headings.forEach((node, idx) => {
+						const d = Math.min(idx * 85, 425)
+						node.style.transition = `transform 880ms cubic-bezier(.16,.68,.44,1.02) ${d}ms, opacity 700ms ease-out ${d}ms`
+						node.style.opacity = '1'
+						node.style.transform = 'translateY(0) scale(1)'
+					})
+					texts.forEach((node, idx) => {
+						const d = Math.min(idx * 65, 390)
+						node.style.transition = `transform 760ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 640ms ease-out ${d}ms`
+						node.style.opacity = '1'
+						node.style.transform = 'translateY(0) scale(1)'
+					})
+					cards.forEach((node, idx) => {
+						const d = Math.min(idx * 80, 500)
+						node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${d}ms, opacity 700ms ease-out ${d}ms`
+						node.style.opacity = '1'
+						node.style.transform = 'translateX(0) scale(1) rotate(0deg)'
+					})
 				})
 			},
-			{ threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+			{ threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
 		)
 		sections.forEach((section) => {
 			const headings = Array.from(section.querySelectorAll<HTMLElement>('h1,h2,h3'))
 			const texts = Array.from(section.querySelectorAll<HTMLElement>('p,li'))
 			const cards = Array.from(section.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'))
-			headings.forEach((node) => { node.style.opacity='0'; node.style.transform='translateX(-24px)'; node.style.willChange='transform, opacity' })
-			texts.forEach((node) => { node.style.opacity='0'; node.style.transform='translateY(16px)'; node.style.willChange='transform, opacity' })
-			cards.forEach((node) => { node.style.opacity='0'; node.style.transform='translateY(18px)'; node.style.willChange='transform, opacity' })
+			headings.forEach((node) => { node.style.opacity='0'; node.style.transform='translateY(40px) scale(.92)'; node.style.willChange='transform, opacity' })
+			texts.forEach((node) => { node.style.opacity='0'; node.style.transform='translateY(40px) scale(.94)'; node.style.willChange='transform, opacity' })
+			cards.forEach((node, idx) => { const dir = idx % 2 === 0 ? -1 : 1; node.style.opacity='0'; node.style.transform=`translateX(${dir*40}px) scale(.92) rotate(${dir*2}deg)`; node.style.willChange='transform, opacity' })
 			observer.observe(section)
 			const rect = section.getBoundingClientRect(); const vh = window.innerHeight || document.documentElement.clientHeight
 			if (rect.top < vh && rect.bottom > 0) {
 				requestAnimationFrame(() => {
-					headings.forEach((node, idx) => { const d=Math.min(idx*80,400); node.style.transition=`transform 800ms ease-out ${d}ms, opacity 800ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateX(0)' })
-					texts.forEach((node, idx) => { const d=Math.min(idx*60,360); node.style.transition=`transform 700ms ease-out ${d}ms, opacity 700ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0)' })
-					cards.forEach((node, idx) => { const d=Math.min(idx*70,490); node.style.transition=`transform 750ms ease-out ${d}ms, opacity 750ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0)' })
+					headings.forEach((node, idx) => { const d=Math.min(idx*85,425); node.style.transition=`transform 880ms cubic-bezier(.16,.68,.44,1.02) ${d}ms, opacity 700ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0) scale(1)' })
+					texts.forEach((node, idx) => { const d=Math.min(idx*65,390); node.style.transition=`transform 760ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 640ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0) scale(1)' })
+					cards.forEach((node, idx) => { const d=Math.min(idx*80,500); node.style.transition=`transform 900ms cubic-bezier(.23,1,.32,1) ${d}ms, opacity 700ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateX(0) scale(1) rotate(0deg)' })
 				})
 			}
 		})
