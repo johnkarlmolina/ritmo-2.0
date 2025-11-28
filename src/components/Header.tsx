@@ -37,12 +37,7 @@ export default function Header() {
                 }>
                 Features
               </NavLink>
-              <NavLink to="/how-it-works" onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `px-3 py-1 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
-                }>
-                How It Works
-              </NavLink>
+              {/* How It Works removed per request */}
               <NavLink to="/news" onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `px-3 py-1 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
@@ -97,10 +92,7 @@ export default function Header() {
               className={({isActive}) => isActive ? 'inline-block px-3 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               Features
             </NavLink>
-            <NavLink to="/how-it-works" onClick={() => setOpen(false)}
-              className={({isActive}) => isActive ? 'inline-block px-3 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
-              How It Works
-            </NavLink>
+            {/* How It Works removed per request */}
             <NavLink to="/news" onClick={() => setOpen(false)}
               className={({isActive}) => isActive ? 'inline-block px-3 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               News

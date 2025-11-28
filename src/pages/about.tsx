@@ -87,7 +87,7 @@ export default function About() {
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
-			<section className="py-20 px-4" style={{ backgroundColor: '#61CCB2' }}>
+			<section className="py-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
 						About Ritmo
@@ -100,11 +100,11 @@ export default function About() {
 			</section>
 
 			{/* Mission and Vision Cards Section */}
-			<section className="py-20 px-4">
+			<section className="py-20 px-4" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 						{/* Our Mission Card */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5]">
+						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] transition transform hover:-translate-y-1 hover:shadow-xl">
 							<div className="mb-6">
 								<img 
 									src={MissionIcon} 
@@ -121,7 +121,7 @@ export default function About() {
 						</div>
 
 						{/* Our Vision Card */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5]">
+						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] transition transform hover:-translate-y-1 hover:shadow-xl">
 							<div className="mb-6">
 								<img 
 									src={VisionIcon} 
@@ -141,13 +141,13 @@ export default function About() {
 			</section>
 
 			{/* Our Story Section */}
-			<section className="py-20 px-4 bg-gray-100">
+			<section className="py-20 px-4 bg-gray-100" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>
 						Our Story
 					</h2>
 					<div className="max-w-4xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md">
+						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
 							<p className="text-gray-700 text-base leading-relaxed mb-6">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 							</p>
@@ -160,7 +160,7 @@ export default function About() {
 			</section>
 
 			{/* Who We Serve Section */}
-			<section className="py-20 px-4 bg-white">
+			<section className="py-20 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
 						Who We Serve
@@ -224,29 +224,29 @@ export default function About() {
 			</section>
 
 			{/* Our Values Section */}
-			<section className="py-20 px-4 bg-[#E8F4F1]">
+			<section className="py-20 px-4 bg-[#E8F4F1]" data-reveal>
 				<div className="max-w-7xl mx-auto px-8">
 					<h2 className="text-5xl font-bold text-center mb-16" style={{ color: '#2B8A7A' }}>
 						Our Values
 					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 						{/* Value Card 1 */}
-						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px]">
+						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px] transition transform hover:-translate-y-1 hover:shadow-xl">
 						</div>
 
 						{/* Value Card 2 */}
-						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px]">
+						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px] transition transform hover:-translate-y-1 hover:shadow-xl">
 						</div>
 
 						{/* Value Card 3 */}
-						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px]">
+						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px] transition transform hover:-translate-y-1 hover:shadow-xl">
 						</div>
 					</div>
 			</div>
 		</section>
 
 		{/* Our Team Section */}
-		<section className="py-20 bg-white">
+		<section className="py-20 bg-white" data-reveal>
 			<div className="max-w-7xl mx-auto px-4">
 				<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
 					Our Team
@@ -538,7 +538,7 @@ export default function About() {
 		</section>			
 		
 		{/* Join Our Mission Section */}
-			<section className="py-16 px-4" style={{ backgroundColor: '#61CCB2' }}>
+			<section className="py-16 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h2 className="text-5xl font-bold text-white mb-4">
 						Join Our Mission
@@ -550,7 +550,7 @@ export default function About() {
 			</section>
 
 			{/* White Space */}
-			<section className="py-8 bg-white"></section>
+			<section className="py-8 bg-white" data-reveal></section>
 
 		</div>
 	)
