@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import phoneImg from './assets/ritmo-cp.png'
+import handPhoneImg from './assets/hand-phone.png'
 import bgImg from './assets/bg.png'
 
 export default function Index() {
@@ -80,6 +81,7 @@ export default function Index() {
       </div>
     </section>
 
+
     {/* What is Ritmo section */}
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-20 w-full">
@@ -149,7 +151,7 @@ export default function Index() {
 
     {/* See Ritmo in Action */}
     <section
-      className="py-24 min-h-[70vh] flex items-center"
+      className="py-24 min-h-screen flex items-center"
       style={{
         backgroundImage: `url(${bgImg})`,
         backgroundSize: 'cover',
@@ -179,6 +181,105 @@ export default function Index() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+
+    
+    {/* Availability Promo */}
+    <section className="bg-white py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-6 md:p-8 lg:p-10">
+          <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-8 items-center">
+            {/* Image panel */}
+            <div className="rounded-2xl bg-white/75 p-4 md:p-6 flex items-center justify-center">
+              <img src={handPhoneImg} alt="Ritmo phone in hand" className="w-60 md:w-64 h-auto object-contain" />
+            </div>
+            {/* Content */}
+            <div className="text-white">
+              <h3 className="text-2xl md:text-3xl font-extrabold leading-snug">
+                The Ritmo App is now available for download on Android.
+              </h3>
+              <div className="mt-5">
+                <div className="font-semibold">What does Ritmo do?</div>
+                <ul className="mt-3 space-y-2 text-white/95">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />
+                    <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <Link
+                  to="/download"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                  <span>Download Now</span>
+                </Link>
+                <Link
+                  to="/demo"
+                  className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-5 py-2.5 text-white font-semibold shadow-sm hover:bg-white/10 transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>Watch Demo</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Our Mission */}
+    <section className="bg-gray-100 py-16 md:py-20">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <h3 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">Our Mission</h3>
+        <p className="mt-4 text-gray-700">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <div className="mt-8">
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] text-white px-6 py-3 font-semibold shadow hover:opacity-90 transition"
+          >
+            Learn More About Us
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </Link>
+        </div>
+      </div>
+    </section>
+     {/* We'd love to hear from you */}
+    <section className="min-h-screen flex items-center" style={{ backgroundColor: '#61CCB2' }}>
+      <div className="max-w-5xl mx-auto px-6 text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+          We’d love to hear
+          <br className="hidden sm:block" />
+          from you.
+        </h2>
+        <p className="mt-4 text-white/90">
+          Feel free to reach out for questions, support, or collaboration. We’re always ready to assist you.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Link
+            to="/download"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            <span>Download Now - It’s Free</span>
+          </Link>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-colors"
+          >
+            Get in Touch
+          </Link>
         </div>
       </div>
     </section>
