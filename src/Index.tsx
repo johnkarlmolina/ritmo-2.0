@@ -46,8 +46,6 @@ export default function Index() {
           })
           cards.forEach((node, idx) => {
             const delay = Math.min(idx * 85, 510)
-            // Alternate horizontal slide direction for visual variety
-            const dir = idx % 2 === 0 ? -1 : 1
             node.style.transition = `transform 850ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 850ms ease-out ${delay}ms`
             node.style.opacity = '1'
             node.style.transform = 'translateX(0) scale(1)'
@@ -268,8 +266,8 @@ export default function Index() {
             <div key={block.title} className="rounded-2xl bg-[#61CCB2]/20 border border-[#61CCB2]/40 shadow-md p-8 md:p-10">
               <h3 className="text-2xl md:text-3xl font-bold text-[#2D7778]">{block.title}</h3>
               <ul className="mt-6 space-y-3 text-[#2D7778] text-base">
-                {block.items.map(item => (
-                  <li key={item} className="flex items-start gap-2">
+                {block.items.map((item, idx) => (
+                  <li key={`${block.title}-${idx}`} className="flex items-start gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-none"><path d="M20 6 9 17l-5-5"/></svg>
                     <span>{item}</span>
                   </li>
