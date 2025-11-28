@@ -188,13 +188,13 @@ export default function Index() {
 
     
     {/* Availability Promo */}
-    <section className="bg-white py-16">
+    <section className="bg-white min-h-screen flex items-center py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-6 md:p-8 lg:p-10">
+        <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-10 md:p-12 lg:p-14 min-h-[28rem] md:min-h-[32rem] flex items-center">
           <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-8 items-center">
             {/* Image panel */}
             <div className="rounded-2xl bg-white/75 p-4 md:p-6 flex items-center justify-center">
-              <img src={handPhoneImg} alt="Ritmo phone in hand" className="w-60 md:w-64 h-auto object-contain" />
+              <img src={handPhoneImg} alt="Ritmo phone in hand" className="w-64 md:w-72 h-auto object-contain" />
             </div>
             {/* Content */}
             <div className="text-white">
@@ -255,8 +255,8 @@ export default function Index() {
         </div>
       </div>
     </section>
-     {/* We'd love to hear from you */}
-    <section className="min-h-screen flex items-center" style={{ backgroundColor: '#61CCB2' }}>
+    {/* We'd love to hear from you */}
+    <section className="min-h-[70vh] flex items-center" style={{ backgroundColor: '#61CCB2' }}>
       <div className="max-w-5xl mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
           We’d love to hear
