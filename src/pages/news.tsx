@@ -1,7 +1,44 @@
 import DateIcon from '../assets/Date.png';
 import FeaturedIcon from '../assets/Featured.png';
+import { useEffect } from 'react';
 
 export default function News() {
+	useEffect(() => {
+		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'))
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					const el = entry.target as HTMLElement
+					if (!entry.isIntersecting) return
+					const headings = Array.from(el.querySelectorAll<HTMLElement>('h1,h2,h3'))
+					const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'))
+					const cards = Array.from(el.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'))
+					headings.forEach((node, idx) => { const d=Math.min(idx*80,400); node.style.transition=`transform 800ms ease-out ${d}ms, opacity 800ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateX(0)' })
+					texts.forEach((node, idx) => { const d=Math.min(idx*60,360); node.style.transition=`transform 700ms ease-out ${d}ms, opacity 700ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0)' })
+					cards.forEach((node, idx) => { const d=Math.min(idx*70,490); node.style.transition=`transform 750ms ease-out ${d}ms, opacity 750ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0)' })
+				})
+			},
+			{ threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+		)
+		sections.forEach((section) => {
+			const headings = Array.from(section.querySelectorAll<HTMLElement>('h1,h2,h3'))
+			const texts = Array.from(section.querySelectorAll<HTMLElement>('p,li'))
+			const cards = Array.from(section.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'))
+			headings.forEach((node) => { node.style.opacity='0'; node.style.transform='translateX(-24px)'; node.style.willChange='transform, opacity' })
+			texts.forEach((node) => { node.style.opacity='0'; node.style.transform='translateY(16px)'; node.style.willChange='transform, opacity' })
+			cards.forEach((node) => { node.style.opacity='0'; node.style.transform='translateY(18px)'; node.style.willChange='transform, opacity' })
+			observer.observe(section)
+			const rect = section.getBoundingClientRect(); const vh = window.innerHeight || document.documentElement.clientHeight
+			if (rect.top < vh && rect.bottom > 0) {
+				requestAnimationFrame(() => {
+					headings.forEach((node, idx) => { const d=Math.min(idx*80,400); node.style.transition=`transform 800ms ease-out ${d}ms, opacity 800ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateX(0)' })
+					texts.forEach((node, idx) => { const d=Math.min(idx*60,360); node.style.transition=`transform 700ms ease-out ${d}ms, opacity 700ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0)' })
+					cards.forEach((node, idx) => { const d=Math.min(idx*70,490); node.style.transition=`transform 750ms ease-out ${d}ms, opacity 750ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0)' })
+				})
+			}
+		})
+		return () => observer.disconnect()
+	}, [])
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
