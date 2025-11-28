@@ -51,7 +51,7 @@ export default function News() {
 			</section>
 
 		{/* Featured Stories Section */}
-		<section className="py-20 px-4 bg-white">
+		<section className="pt-20 pb-12 px-4 bg-white">
 			<div className="max-w-6xl mx-auto">
 				<h2 className="text-4xl font-bold mb-12" style={{ color: '#2B8A7A' }}>
 					Featured Stories
@@ -136,7 +136,7 @@ export default function News() {
 			</section>
 
 			{/* All Updates Section */}
-			<section className="py-20 px-4 bg-white">
+			<section className="pt-12 pb-12 px-4 bg-white">
 				<div className="max-w-6xl mx-auto">
 					<h2 className="text-4xl font-bold mb-10" style={{ color: '#2B8A7A' }}>
 						All Updates
@@ -281,7 +281,7 @@ export default function News() {
 			</section>
 
 			{/* Stay Updated Section */}
-			<section className="py-20 px-4 bg-white">
+			<section className="pt-12 pb-20 px-4 bg-white">
 				<div className="max-w-6xl mx-auto flex justify-center">
 					<div className="bg-[#C8E6DD] rounded-3xl p-12 border-2 border-[#2B8A7A] max-w-2xl w-full text-center">
 						<h2 className="text-3xl font-bold mb-3" style={{ color: '#2B8A7A' }}>
