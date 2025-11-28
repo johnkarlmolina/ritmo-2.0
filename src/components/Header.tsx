@@ -16,9 +16,9 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Center: Nav (hidden on small screens) */}
-          <div className="flex-1 flex justify-center">
-            <nav className="hidden md:flex items-center gap-7 text-lg text-[#2D7778] whitespace-nowrap font-semibold">
+          {/* Center/Right: Nav + Desktop CTA grouped (remove flex-1 to pull closer) */}
+          <div className="flex items-center ml-auto">
+            <nav className="hidden md:flex items-center gap-6 text-lg text-[#2D7778] whitespace-nowrap font-semibold">
               <NavLink to="/" end onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
@@ -50,29 +50,27 @@ export default function Header() {
                 }>
                 Contact
               </NavLink>
+              <Link to="/download" onClick={() => setOpen(false)} className="ml-2 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-2.5 rounded-lg text-base font-semibold shadow-sm whitespace-nowrap transition-colors">
+                Download Now!
+              </Link>
             </nav>
           </div>
 
-          {/* Right: CTA and mobile menu button */}
-          <div className="flex items-center justify-end space-x-4 shrink-0">
-            <Link to="/download" onClick={() => setOpen(false)} className="hidden sm:inline-block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-2.5 rounded-lg text-base font-semibold shadow-sm whitespace-nowrap">Download Now!</Link>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setOpen((s) => !s)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 md:hidden hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-              aria-label="Toggle menu"
-              aria-expanded={open}
-            >
-              <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                {open ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+          {/* Mobile menu button (still separate) */}
+          <button
+            onClick={() => setOpen((s) => !s)}
+            className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 md:hidden hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              {open ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
 
