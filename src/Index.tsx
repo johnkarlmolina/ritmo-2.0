@@ -18,6 +18,7 @@ export default function Index() {
           const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'))
           const buttons = Array.from(el.querySelectorAll<HTMLElement>('a,button'))
           const images = Array.from(el.querySelectorAll<HTMLElement>('img'))
+          const cards = Array.from(el.querySelectorAll<HTMLElement>('.rounded-2xl,.rounded-3xl'))
 
           headings.forEach((node, idx) => {
             const delay = Math.min(idx * 80, 400)
@@ -43,6 +44,14 @@ export default function Index() {
             node.style.opacity = '1'
             node.style.transform = 'translateX(0)'
           })
+          cards.forEach((node, idx) => {
+            const delay = Math.min(idx * 85, 510)
+            // Alternate horizontal slide direction for visual variety
+            const dir = idx % 2 === 0 ? -1 : 1
+            node.style.transition = `transform 850ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 850ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateX(0) scale(1)'
+          })
         })
       },
       { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
@@ -54,6 +63,7 @@ export default function Index() {
       const texts = Array.from(section.querySelectorAll<HTMLElement>('p,li'))
       const buttons = Array.from(section.querySelectorAll<HTMLElement>('a,button'))
       const images = Array.from(section.querySelectorAll<HTMLElement>('img'))
+      const cards = Array.from(section.querySelectorAll<HTMLElement>('.rounded-2xl,.rounded-3xl'))
 
       headings.forEach((node) => {
         node.style.willChange = 'transform, opacity'
@@ -74,6 +84,12 @@ export default function Index() {
         node.style.willChange = 'transform, opacity'
         node.style.opacity = '0'
         node.style.transform = 'translateX(24px)'
+      })
+      cards.forEach((node, idx) => {
+        node.style.willChange = 'transform, opacity'
+        node.style.opacity = '0'
+        const dir = idx % 2 === 0 ? -1 : 1
+        node.style.transform = `translateX(${dir * 40}px) scale(.92)`
       })
 
       observer.observe(section)
@@ -106,6 +122,12 @@ export default function Index() {
             node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
             node.style.opacity = '1'
             node.style.transform = 'translateX(0)'
+          })
+          cards.forEach((node, idx) => {
+            const delay = Math.min(idx * 85, 510)
+            node.style.transition = `transform 850ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 850ms ease-out ${delay}ms`
+            node.style.opacity = '1'
+            node.style.transform = 'translateX(0) scale(1)'
           })
         })
       }
