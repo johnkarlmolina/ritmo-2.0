@@ -20,6 +20,41 @@ import SambilayImg from '../asset-team-img/Sambilay.png';
 
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement>(null);
+	const pausedRef = useRef<boolean>(false);
+
+	// Auto-scrolling carousel for the Team section with pause-on-hover
+	useEffect(() => {
+		const el = scrollContainerRef.current;
+		if (!el) return;
+
+		let rafId: number;
+		const speed = 1; // pixels per frame
+
+		const step = () => {
+			if (!pausedRef.current) {
+				// Loop seamlessly
+				if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 1) {
+					el.scrollLeft = 0;
+				} else {
+					el.scrollLeft += speed;
+				}
+			}
+			rafId = requestAnimationFrame(step);
+		};
+
+		rafId = requestAnimationFrame(step);
+
+		const onEnter = () => { pausedRef.current = true; };
+		const onLeave = () => { pausedRef.current = false; };
+		el.addEventListener('mouseenter', onEnter);
+		el.addEventListener('mouseleave', onLeave);
+
+		return () => {
+			cancelAnimationFrame(rafId);
+			el.removeEventListener('mouseenter', onEnter);
+			el.removeEventListener('mouseleave', onLeave);
+		};
+	}, []);
 
 	useEffect(() => {
 		const container = scrollContainerRef.current;
