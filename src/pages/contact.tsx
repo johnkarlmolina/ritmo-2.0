@@ -12,7 +12,7 @@ export default function Contact() {
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
-			<section className="py-20 px-4" style={{ backgroundColor: '#61CCB2' }}>
+			<section className="py-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
 						Get In Touch
@@ -24,11 +24,11 @@ export default function Contact() {
 			</section>
 
 			{/* Contact Methods Section */}
-			<section className="py-20 px-4 bg-white">
+			<section className="py-20 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 						{/* Email us */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center">
+						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
 							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
 								<img 
 									src={EmailIcon} 
@@ -48,7 +48,7 @@ export default function Contact() {
 						</div>
 
 						{/* Live Chat */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center">
+						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
 							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
 								<img 
 									src={ChatIcon} 
@@ -68,7 +68,7 @@ export default function Contact() {
 						</div>
 
 						{/* Call us */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center">
+						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
 							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
 								<img 
 									src={CallIcon} 
@@ -91,7 +91,7 @@ export default function Contact() {
 			</section>
 
 			{/* Send Us a Message Section */}
-			<section className="py-20 px-4 bg-gray-100">
+			<section className="py-20 px-4 bg-gray-100" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<div className="text-center mb-12">
 						<h2 className="text-5xl font-bold mb-4" style={{ color: '#2B8A7A' }}>
@@ -103,7 +103,7 @@ export default function Contact() {
 					</div>
 
 					<div className="max-w-3xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md">
+						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
 							<form className="space-y-6">
 								{/* Name and Email Row */}
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -171,7 +171,7 @@ export default function Contact() {
 			</section>
 
 			{/* Our Location and Connect with us Section */}
-			<section className="py-20 px-4 bg-white">
+			<section className="py-20 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
 						{/* Our Location */}
@@ -187,7 +187,7 @@ export default function Contact() {
 									Our Location
 								</h3>
 							</div>
-							<div className="bg-[#C8E6DD] rounded-3xl p-8 border-2 border-[#5BBFA5] flex-1">
+							<div className="bg-[#C8E6DD] rounded-3xl p-8 border-2 border-[#5BBFA5] flex-1 transition transform hover:-translate-y-1 hover:shadow-xl">
 								<h4 className="font-bold text-gray-800 mb-3">Ritmo Office</h4>
 								<p className="text-gray-700 text-sm leading-relaxed">
 									123 Technology Drive<br />
@@ -210,7 +210,7 @@ export default function Contact() {
 									Connect with us
 								</h3>
 							</div>
-							<div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-sm flex-1">
+							<div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-sm flex-1 transition transform hover:-translate-y-1 hover:shadow-xl">
 								<p className="text-gray-600 text-sm mb-6">
 									Follow us on social media for updates, tips, and community stories
 								</p>

@@ -5,7 +5,7 @@ export default function News() {
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
-			<section className="py-20 px-4" style={{ backgroundColor: '#61CCB2' }}>
+			<section className="py-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
 						News &amp; Updates
@@ -18,7 +18,7 @@ export default function News() {
 			</section>
 
 			{/* Filter Buttons Section */}
-			<section className="py-8 px-4 bg-white border-b border-gray-200">
+			<section className="py-8 px-4 bg-white border-b border-gray-200" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<div className="flex flex-wrap justify-center gap-3">
 						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
@@ -50,14 +50,14 @@ export default function News() {
 			</section>
 
 		{/* Featured Stories Section */}
-		<section className="pt-20 pb-12 px-4 bg-white">
+		<section className="pt-20 pb-12 px-4 bg-white" data-reveal>
 			<div className="max-w-6xl mx-auto">
 				<h2 className="text-4xl font-bold mb-12" style={{ color: '#2B8A7A' }}>
 					Featured Stories
 				</h2>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					{/* Story Card 1 */}
-					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm hover:shadow-lg transition-shadow">
+					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
 						<div className="h-48 bg-[#61CCB2]"></div>
 						<div className="p-6">
 							<div className="flex items-center gap-3 mb-2">
@@ -82,7 +82,7 @@ export default function News() {
 				</div>
 
 					{/* Story Card 2 */}
-					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm hover:shadow-lg transition-shadow">
+					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
 						<div className="h-48 bg-[#61CCB2]"></div>
 						<div className="p-6">
 							<div className="flex items-center gap-3 mb-2">
@@ -107,7 +107,7 @@ export default function News() {
 				</div>
 
 					{/* Story Card 3 */}
-					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm hover:shadow-lg transition-shadow">
+					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
 							<div className="h-48 bg-[#61CCB2]"></div>
 							<div className="p-6">
 								<div className="flex items-center gap-3 mb-2">
@@ -135,14 +135,14 @@ export default function News() {
 			</section>
 
 			{/* All Updates Section */}
-			<section className="pt-12 pb-12 px-4 bg-white">
+			<section className="pt-12 pb-12 px-4 bg-white" data-reveal>
 				<div className="max-w-6xl mx-auto">
 					<h2 className="text-4xl font-bold mb-10" style={{ color: '#2B8A7A' }}>
 						All Updates
 					</h2>
 					<div className="space-y-5">
 						{/* Update Item 1 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
 							<div className="flex items-center justify-between gap-6">
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-3">
@@ -169,7 +169,7 @@ export default function News() {
 						</div>
 
 						{/* Update Item 2 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
 							<div className="flex items-center justify-between gap-6">
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-3">
@@ -196,7 +196,7 @@ export default function News() {
 						</div>
 
 						{/* Update Item 3 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
 							<div className="flex items-center justify-between gap-6">
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-3">
@@ -223,7 +223,7 @@ export default function News() {
 						</div>
 
 						{/* Update Item 4 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
+						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
 							<div className="flex items-center justify-between gap-6">
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-3">
@@ -280,7 +280,7 @@ export default function News() {
 			</section>
 
 			{/* Stay Updated Section */}
-			<section className="pt-12 pb-20 px-4 bg-white">
+			<section className="pt-12 pb-20 px-4 bg-white" data-reveal>
 				<div className="max-w-6xl mx-auto flex justify-center">
 					<div className="bg-[#C8E6DD] rounded-3xl p-12 border-2 border-[#2B8A7A] max-w-2xl w-full text-center">
 						<h2 className="text-3xl font-bold mb-3" style={{ color: '#2B8A7A' }}>

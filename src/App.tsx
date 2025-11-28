@@ -5,7 +5,6 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Index from './Index.tsx'
 import About from './pages/about.tsx'
 import Features from './pages/feature.tsx'
-import HowItWorks from './pages/howitworks.tsx'
 import News from './pages/news.tsx'
 import Contact from './pages/contact.tsx'
 import Download from './pages/download.tsx'
@@ -19,7 +18,7 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/features" element={<Features />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
+          {/* How It Works route removed per request */}
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/download" element={<Download />} />

@@ -8,6 +8,7 @@ export default function Index() {
     <>
     <section
       className="relative min-h-screen overflow-hidden"
+      data-reveal
       style={{
         backgroundImage:
           'linear-gradient(to right, #61CCB2 0%, #61CCB2 50%, #2D7778 50%, #2D7778 100%)',
@@ -83,7 +84,7 @@ export default function Index() {
 
 
     {/* What is Ritmo section */}
-    <section className="bg-white">
+    <section className="bg-white" data-reveal>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-20 w-full">
         <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778] text-center">What is Ritmo?</h2>
         <p className="mt-4 max-w-3xl mx-auto text-center text-gray-700">
@@ -97,7 +98,7 @@ export default function Index() {
     </section>
 
     {/* Key Features section */}
-    <section className="" style={{ backgroundColor: '#61CCB2' }}>
+    <section className="" style={{ backgroundColor: '#61CCB2' }} data-reveal>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 flex flex-col justify-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center">Key Features</h2>
         <p className="mt-3 max-w-3xl mx-auto text-center text-white/90">
@@ -105,7 +106,7 @@ export default function Index() {
         </p>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {['Routine Builder','Visual Schedules','Positive Reminders','Progress Tracking'].map((title) => (
-            <div key={title} className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-6 flex flex-col">
+            <div key={title} className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-6 flex flex-col transition transform hover:-translate-y-1 hover:shadow-2xl">
               <div className="h-12 w-12 rounded-xl bg-[#61CCB2]/20 mb-4" />
               <div className="font-semibold text-[#2D7778]">{title}</div>
               <div className="mt-2 text-sm text-gray-700">Brief description about this feature and how it helps.</div>
@@ -121,7 +122,7 @@ export default function Index() {
     </section>
 
     {/* Why Ritmo Helps section */}
-    <section className="bg-white min-h-screen flex items-center">
+    <section className="bg-white min-h-screen flex items-center" data-reveal>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full py-16 md:py-24">
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">Why Ritmo Helps</h2>
@@ -152,6 +153,7 @@ export default function Index() {
     {/* See Ritmo in Action */}
     <section
       className="py-24 min-h-screen flex items-center"
+      data-reveal
       style={{
         backgroundImage: `url(${bgImg})`,
         backgroundSize: 'cover',
@@ -169,7 +171,7 @@ export default function Index() {
             { title: 'Progress Report', subtitle: 'Interface 2' },
             { title: 'Parent Settings', subtitle: 'Interface 3' },
           ].map(({ title, subtitle }) => (
-            <div key={title} className="rounded-3xl bg-white shadow-md border-2 border-[#2B8A7A]/30 overflow-hidden h-full">
+            <div key={title} className="rounded-3xl bg-white shadow-md border-2 border-[#2B8A7A]/30 overflow-hidden h-full transition transform hover:-translate-y-1 hover:shadow-2xl">
               <div className="p-10 flex items-center justify-center">
                 <img src={phoneImg} alt={title} className="w-52 md:w-56 h-auto" />
               </div>
@@ -188,12 +190,12 @@ export default function Index() {
 
     
     {/* Availability Promo */}
-    <section className="bg-white min-h-screen flex items-center py-16">
+    <section className="bg-white min-h-screen flex items-center py-16" data-reveal>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-10 md:p-12 lg:p-14 min-h-[28rem] md:min-h-[32rem] flex items-center">
           <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-8 items-center">
             {/* Image panel */}
-            <div className="rounded-2xl bg-white/75 p-4 md:p-6 flex items-center justify-center">
+            <div className="rounded-2xl bg-white/75 p-4 md:p-6 flex items-center justify-center transition transform hover:-translate-y-1 hover:shadow-xl">
               <img src={handPhoneImg} alt="Ritmo phone in hand" className="w-64 md:w-72 h-auto object-contain" />
             </div>
             {/* Content */}
@@ -217,14 +219,14 @@ export default function Index() {
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link
                   to="/download"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-transform hover:-translate-y-0.5"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
                   <span>Download Now</span>
                 </Link>
                 <Link
                   to="/demo"
-                  className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-5 py-2.5 text-white font-semibold shadow-sm hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-5 py-2.5 text-white font-semibold shadow-sm hover:bg-white/10 transition-transform hover:-translate-y-0.5"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                   <span>Watch Demo</span>
@@ -237,7 +239,7 @@ export default function Index() {
     </section>
 
     {/* Our Mission */}
-    <section className="bg-gray-100 py-16 md:py-20">
+    <section className="bg-gray-100 py-16 md:py-20" data-reveal>
       <div className="max-w-3xl mx-auto px-6 text-center">
         <h3 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">Our Mission</h3>
         <p className="mt-4 text-gray-700">
@@ -247,7 +249,7 @@ export default function Index() {
         <div className="mt-8">
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] text-white px-6 py-3 font-semibold shadow hover:opacity-90 transition"
+            className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] text-white px-6 py-3 font-semibold shadow hover:opacity-90 transition-transform hover:-translate-y-0.5"
           >
             Learn More About Us
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -256,7 +258,7 @@ export default function Index() {
       </div>
     </section>
     {/* We'd love to hear from you */}
-    <section className="min-h-[70vh] flex items-center" style={{ backgroundColor: '#61CCB2' }}>
+    <section className="min-h-[70vh] flex items-center" style={{ backgroundColor: '#61CCB2' }} data-reveal>
       <div className="max-w-5xl mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
           We’d love to hear
@@ -269,14 +271,14 @@ export default function Index() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
             to="/download"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-transform hover:-translate-y-0.5"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
             <span>Download Now - It’s Free</span>
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-transform hover:-translate-y-0.5"
           >
             Get in Touch
           </Link>
