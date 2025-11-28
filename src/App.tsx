@@ -1,5 +1,6 @@
 import './App.css'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Index from './Index.tsx'
 import About from './pages/about.tsx'
@@ -25,6 +26,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <Footer />
     </>
   ) 
 }
