@@ -12,4 +12,23 @@ body {
   color: #0f172a; /* slate-900 */
 }
 
-/* Tailwind-driven animations; no custom class styles needed here */
+/* Infinite carousel for Team section */
+.infinite-carousel {
+  overflow: hidden;
+}
+
+.infinite-carousel-track {
+  display: flex;
+  gap: 2.5rem; /* match tailwind gap-10 */
+  width: max-content;
+  animation: carousel-scroll 30s linear infinite;
+}
+
+.infinite-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes carousel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

@@ -20,24 +20,16 @@ import SambilayImg from '../asset-team-img/Sambilay.png';
 
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement>(null);
-	const pausedRef = useRef<boolean>(false);
 	const contentClonedRef = useRef<boolean>(false);
-	const trackWidthRef = useRef<number>(0);
 
-	// Auto-scrolling carousel for the Team section with pause-on-hover
+	// Prepare a duplicated track for CSS-based infinite scrolling (marquee style)
 	useEffect(() => {
 		const el = scrollContainerRef.current;
 		if (!el) return;
 
-		let rafId: number;
-		const speed = 1; // pixels per frame
-
-		// Duplicate the inner items into the same track to avoid creating a second row
 		if (!contentClonedRef.current) {
 			const track = el.querySelector<HTMLDivElement>('.team-track');
 			if (track) {
-				// Measure original track width before cloning
-				trackWidthRef.current = track.offsetWidth;
 				const children = Array.from(track.children);
 				children.forEach((child) => {
 					const childClone = child.cloneNode(true) as HTMLElement;
@@ -46,100 +38,9 @@ export default function About() {
 				contentClonedRef.current = true;
 			}
 		}
-
-		const step = () => {
-			if (!pausedRef.current) {
-				el.scrollLeft += speed;
-				const singleWidth = trackWidthRef.current || el.scrollWidth / 2;
-				// Wrap back by the width of the original track for seamless loop
-				if (el.scrollLeft >= singleWidth) {
-					el.scrollLeft -= singleWidth;
-				}
-				// Handle negative scroll (user drag left) to keep loop seamless
-				if (el.scrollLeft < 0) {
-					el.scrollLeft += singleWidth;
-				}
-			}
-			rafId = requestAnimationFrame(step);
-		};
-
-		rafId = requestAnimationFrame(step);
-
-		const onEnter = () => { pausedRef.current = true; };
-		const onLeave = () => { pausedRef.current = false; };
-		el.addEventListener('mouseenter', onEnter);
-		el.addEventListener('mouseleave', onLeave);
-
-		return () => {
-			cancelAnimationFrame(rafId);
-			el.removeEventListener('mouseenter', onEnter);
-			el.removeEventListener('mouseleave', onLeave);
-		};
 	}, []);
 
-	useEffect(() => {
-		const container = scrollContainerRef.current;
-		if (!container) return;
-
-		const handleWheel = (e: WheelEvent) => {
-			const maxScrollLeft = container.scrollWidth - container.clientWidth;
-			const currentScroll = container.scrollLeft;
-			const tolerance = 1; 
-			const canScrollRight = currentScroll < (maxScrollLeft - tolerance) && e.deltaY > 0;
-			const canScrollLeft = currentScroll > tolerance && e.deltaY < 0;
-			
-			if (canScrollRight || canScrollLeft) {
-				e.preventDefault();
-				container.scrollLeft += e.deltaY * 2;
-			}
-		};
-
-		let isDown = false;
-		let startX: number;
-
-		const handleMouseDown = (e: MouseEvent) => {
-			isDown = true;
-			container.style.cursor = 'grabbing';
-			container.style.userSelect = 'none';
-			startX = e.pageX + container.scrollLeft;
-			e.preventDefault();
-		};
-
-		const handleMouseLeave = () => {
-			isDown = false;
-			container.style.cursor = 'grab';
-			container.style.userSelect = 'auto';
-		};
-
-		const handleMouseUp = () => {
-			isDown = false;
-			container.style.cursor = 'grab';
-			container.style.userSelect = 'auto';
-		};
-
-		const handleMouseMove = (e: MouseEvent) => {
-			if (!isDown) return;
-			e.preventDefault();
-			container.scrollLeft = startX - e.pageX;
-		};
-
-		container.style.cursor = 'grab';
-		container.style.userSelect = 'none';
-		container.addEventListener('wheel', handleWheel, { passive: false });
-		container.addEventListener('mousedown', handleMouseDown);
-		container.addEventListener('mouseleave', handleMouseLeave);
-		container.addEventListener('mouseup', handleMouseUp);
-		container.addEventListener('mousemove', handleMouseMove);
-		container.addEventListener('dragstart', (e) => e.preventDefault());
-
-		return () => {
-			container.removeEventListener('wheel', handleWheel);
-			container.removeEventListener('mousedown', handleMouseDown);
-			container.removeEventListener('mouseleave', handleMouseLeave);
-			container.removeEventListener('mouseup', handleMouseUp);
-			container.removeEventListener('mousemove', handleMouseMove);
-		};
-	}, []);
+	// Remove manual scroll/drag handlers; CSS animation handles movement
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
@@ -313,9 +214,8 @@ export default function About() {
 			</div>
 			{/* Scrollable Team Container */}
 			<div className="relative">
-				<div ref={scrollContainerRef} className="overflow-x-auto overflow-y-hidden scroll-smooth px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-					<style>{`.overflow-x-auto::-webkit-scrollbar { display: none; }`}</style>
-					<div className="team-track flex gap-10 pb-6" style={{ width: 'max-content' }}>
+				<div ref={scrollContainerRef} className="infinite-carousel px-4">
+					<div className="team-track infinite-carousel-track flex gap-10 pb-6" style={{ width: 'max-content' }}>
 						{/* Team Member 1 - Myra Leah Duhiling */}
 						<div className="shrink-0 w-64">
 							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
