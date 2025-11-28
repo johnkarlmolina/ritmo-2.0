@@ -262,7 +262,7 @@ export default function About() {
 					<div className="flex gap-10 pb-6" style={{ width: 'max-content' }}>
 						{/* Team Member 1 - Myra Leah Duhiling */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										Myra Leah S. Duhiling
@@ -283,7 +283,7 @@ export default function About() {
 
 							{/* Team Member 2 - Fletcher Peter M. Hernandez */}
 							<div className="shrink-0 w-64">
-								<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+								<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 									<div className="text-center mb-2 px-4 z-10">
 										<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.875rem)' }}>
 											Fletcher Peter M. Hernandez
@@ -304,7 +304,7 @@ export default function About() {
 
 						{/* Team Member 3 - Jerald B. Isorena */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										Jerald B. Isorena
@@ -325,7 +325,7 @@ export default function About() {
 
 						{/* Team Member 4 - John Pritch L. Arcas */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										John Pritch L. Arcas
@@ -346,7 +346,7 @@ export default function About() {
 
 						{/* Team Member 5 - Alrashim M. Awal */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										Alrashim M. Awal
@@ -367,7 +367,7 @@ export default function About() {
 
 						{/* Team Member 6 - John Carlo A. Deato */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										John Carlo A. Deato
@@ -388,7 +388,7 @@ export default function About() {
 
 						{/* Team Member 7 - John Karl P. Molina */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										John Karl P. Molina
@@ -409,7 +409,7 @@ export default function About() {
 
 						{/* Team Member 8 - Kurt Lee B. Manzano */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										Kurt Lee B. Manzano
@@ -430,7 +430,7 @@ export default function About() {
 
 						{/* Team Member 9 - Ashley D. Abucay */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										Ashley D. Abucay
@@ -451,7 +451,7 @@ export default function About() {
 
 						{/* Team Member 10 - Ma. Daniella A. Broncano */}
 						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
+							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
 								<div className="text-center mb-2 px-4 z-10">
 									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
 										Ma. Daniella A. Broncano

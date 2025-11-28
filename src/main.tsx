@@ -31,7 +31,7 @@ function initReveal() {
   const reveals = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
   reveals.forEach((el) => {
     // Set initial Tailwind-based hidden state
-    el.classList.add('opacity-0', 'translate-y-6', 'transition-all', 'duration-700', 'ease-out')
+    el.classList.add('opacity-0', 'translate-y-6', 'transition-all', 'duration-700', 'ease-in-out')
     observer.observe(el)
     // If currently visible, reveal immediately
     const rect = el.getBoundingClientRect()
