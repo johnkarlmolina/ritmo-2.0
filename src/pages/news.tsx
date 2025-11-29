@@ -64,7 +64,7 @@ export default function News() {
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
-			<section className="pt-32 pb-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
+			<section className="mt-4 pt-20 pb-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
 						News &amp; Updates

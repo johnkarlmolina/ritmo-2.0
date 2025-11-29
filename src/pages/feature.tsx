@@ -49,7 +49,7 @@ export default function Features() {
 						: 'opacity-0 translate-y-10'
 				}`}>
 				{/* Hero Content */}
-				<div className="pt-32 pb-20 flex items-center" style={{ backgroundColor: '#61CCB2' }}>
+				<div className="mt-4 pt-20 pb-20 flex items-center" style={{ backgroundColor: '#61CCB2' }}>
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
 						<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Features</h1>
 						<p className="max-w-3xl mx-auto text-xl md:text-2xl text-white leading-relaxed">
