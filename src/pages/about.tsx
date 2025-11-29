@@ -94,6 +94,84 @@ export default function About() {
 		});
 	}, []);
 
+	// Animate Mission & Vision on mount regardless of scroll
+	useEffect(() => {
+		const mv = document.getElementById('mission-vision');
+		if (!mv) return;
+		const headings = Array.from(mv.querySelectorAll<HTMLElement>('h3'));
+		const texts = Array.from(mv.querySelectorAll<HTMLElement>('p'));
+		const cards = Array.from(mv.querySelectorAll<HTMLElement>('.rounded-2xl'));
+
+		headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translate(-32px,-16px) scale(.94)'; });
+		texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.94)'; });
+		cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(40px) scale(.9)'; });
+
+		requestAnimationFrame(() => {
+			headings.forEach((node, idx) => {
+				const d = Math.min(idx * 80, 420);
+				node.style.transition = `transform 820ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 660ms ease-out ${d}ms`;
+				node.style.opacity = '1';
+				node.style.transform = 'translate(0,0) scale(1)';
+			});
+			texts.forEach((node, idx) => {
+				const d = Math.min(idx * 70, 390);
+				node.style.transition = `transform 760ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 640ms ease-out ${d}ms`;
+				node.style.opacity = '1';
+				node.style.transform = 'translateY(0) scale(1)';
+			});
+			cards.forEach((node, idx) => {
+				const d = Math.min(idx * 75, 480);
+				node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${d}ms, opacity 700ms ease-out ${d}ms`;
+				node.style.opacity = '1';
+				node.style.transform = 'translateY(0) scale(1)';
+			});
+		});
+	}, []);
+
+	// Ensure hero animates immediately on navigation without requiring scroll
+	useEffect(() => {
+		const hero = document.querySelector<HTMLElement>('section[data-reveal]');
+		if (!hero) return;
+		const headings = Array.from(hero.querySelectorAll<HTMLElement>('h1,h2,h3'));
+		const texts = Array.from(hero.querySelectorAll<HTMLElement>('p,li'));
+		const buttons = Array.from(hero.querySelectorAll<HTMLElement>('a,button'));
+		const cards = Array.from(hero.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'));
+
+		// Set initial hidden state for a clean mount animation
+		headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translate(-40px,-20px) scale(.92) rotate(-3deg)'; });
+		texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(32px) scale(.94)'; });
+		buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
+		cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(48px) scale(.88) rotate(2deg)'; });
+
+		// Animate into view on the next frame to avoid layout thrash
+		requestAnimationFrame(() => {
+			headings.forEach((node, idx) => {
+				const delay = Math.min(idx * 90, 450);
+				node.style.transition = `transform 850ms cubic-bezier(.16,.68,.44,1.02) ${delay}ms, opacity 850ms ease-out ${delay}ms`;
+				node.style.opacity = '1';
+				node.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
+			});
+			texts.forEach((node, idx) => {
+				const delay = Math.min(idx * 70, 420);
+				node.style.transition = `transform 780ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 780ms ease-out ${delay}ms`;
+				node.style.opacity = '1';
+				node.style.transform = 'translateY(0) scale(1)';
+			});
+			buttons.forEach((node, idx) => {
+				const delay = Math.min(idx * 80, 480);
+				node.style.transition = `transform 720ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 720ms ease-out ${delay}ms`;
+				node.style.opacity = '1';
+				node.style.transform = 'translateY(0) scale(1)';
+			});
+			cards.forEach((node, idx) => {
+				const delay = Math.min(idx * 85, 510);
+				node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 900ms ease-out ${delay}ms`;
+				node.style.opacity = '1';
+				node.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+			});
+		});
+	}, []);
+
 	return (
 		<div>
 			{/* Hero Section */}
@@ -109,7 +187,7 @@ export default function About() {
 			</section>
 
 			{/* Mission & Vision Cards */}
-			<section className="px-4 py-16 bg-white" data-reveal>
+			<section id="mission-vision" className="px-4 py-16 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 					<div className="bg-[#E9FBF7] border border-gray-300 rounded-2xl p-8 shadow-sm transition hover:shadow-md hover:-translate-y-1">
 						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">

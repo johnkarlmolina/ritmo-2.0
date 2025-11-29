@@ -1,6 +1,5 @@
 import EmailIcon from '../assets/Email.png';
 import { useEffect } from 'react';
-import ChatIcon from '../assets/Chat.png';
 import CallIcon from '../assets/Call.png';
 import SendMessageIcon from '../assets/SendMessage.png';
 import LocationIcon from '../assets/Location.png';
@@ -121,23 +120,23 @@ export default function Contact() {
 							</p>
 						</div>
 
-						{/* Live Chat */}
+						{/* Our Location (replacing Live Chat) */}
 						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
 							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
 								<img 
-									src={ChatIcon} 
-									alt="Chat Icon" 
+									src={LocationIcon} 
+									alt="Location Icon" 
 									className="w-10 h-10"
 								/>
 							</div>
 							<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B7A73' }}>
-								Live Chat
+								Our Location
 							</h3>
 							<p className="text-[#61CCB2] font-semibold text-lg mb-3">
-								Available 9 AM - 6 PM
+								123 Ritmo St., Quezon City
 							</p>
 							<p className="text-gray-600 text-sm">
-								Instant support during business hours
+								Open Mon–Fri, 9 AM – 5 PM
 							</p>
 						</div>
 
@@ -244,35 +243,10 @@ export default function Contact() {
 				</div>
 			</section>
 
-			{/* Our Location and Connect with us Section */}
+			{/* Connect with us Section (centered, wide) */}
 			<section className="py-20 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
-						{/* Our Location */}
-						<div className="flex flex-col h-full">
-							<div className="flex items-center gap-3 mb-6">
-								<img 
-									src={LocationIcon} 
-									alt="Location Icon" 
-									className="w-8 h-8"
-									style={{ filter: 'invert(48%) sepia(79%) saturate(449%) hue-rotate(120deg) brightness(94%) contrast(86%)' }}
-								/>
-								<h3 className="text-2xl font-bold" style={{ color: '#2B8A7A' }}>
-									Our Location
-								</h3>
-							</div>
-							<div className="bg-[#C8E6DD] rounded-3xl p-8 border-2 border-[#5BBFA5] flex-1 transition transform hover:-translate-y-1 hover:shadow-xl">
-								<h4 className="font-bold text-gray-800 mb-3">Ritmo Office</h4>
-								<p className="text-gray-700 text-sm leading-relaxed">
-									123 Technology Drive<br />
-									Quezon City, Metro Manila<br />
-									Philippines 1100
-								</p>
-							</div>
-						</div>
-
-						{/* Connect with us */}
-						<div className="flex flex-col h-full">
+					<div className="max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
 							<div className="flex items-center gap-3 mb-6">
 								<img 
 									src={ConnectIcon} 
@@ -284,7 +258,7 @@ export default function Contact() {
 									Connect with us
 								</h3>
 							</div>
-							<div className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-sm flex-1 transition transform hover:-translate-y-1 hover:shadow-xl">
+							<div className="rounded-3xl border-2 border-[#E2E8F0] bg-white shadow-md p-8">
 								<p className="text-gray-600 text-sm mb-6">
 									Follow us on social media for updates, tips, and community stories
 								</p>
@@ -303,7 +277,6 @@ export default function Contact() {
 									</a>
 								</div>
 							</div>
-						</div>
 					</div>
 				</div>
 			</section>

@@ -76,37 +76,7 @@ export default function News() {
 				</div>
 			</section>
 
-			{/* Filter Buttons Section */}
-			<section className="py-8 px-4 bg-white border-b border-gray-200" data-reveal>
-				<div className="max-w-7xl mx-auto">
-					<div className="flex flex-wrap justify-center gap-3">
-						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
-							All
-						</button>
-						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
-							Update
-						</button>
-						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
-							Feature
-						</button>
-						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
-							Announcement
-						</button>
-						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
-							Research
-						</button>
-						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
-							Event
-						</button>
-						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
-							Community
-						</button>
-						<button className="px-6 py-2 rounded-full border-2 border-[#2B8A7A] text-[#2B8A7A] font-medium hover:bg-[#2B8A7A] hover:text-white transition-colors">
-							Media
-						</button>
-					</div>
-				</div>
-			</section>
+            {/* Filter Buttons Section removed per request */}
 
 		{/* Featured Stories Section */}
 		<section className="pt-20 pb-12 px-4 bg-white" data-reveal>

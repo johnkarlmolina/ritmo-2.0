@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
-import phoneImg from './assets/ritmo-cp.png'
+import phoneImg from './assets/2-phone.png'
 import handPhoneImg from './assets/hand-phone.png'
 import bgImg from './assets/bg.png'
 
