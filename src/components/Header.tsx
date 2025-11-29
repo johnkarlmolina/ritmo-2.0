@@ -6,8 +6,8 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur shadow-sm">
-      <div className="container mx-auto px-4">
+    <header className="fixed top-0 left-0 right-0 z-[9999] bg-white/95 backdrop-blur shadow-sm" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+      <div className="container mx-auto px-4" style={{ paddingLeft: 'max(1rem, env(safe-area-inset-left))', paddingRight: 'max(1rem, env(safe-area-inset-right))' }}>
         <div className="flex items-center h-20 gap-5">
           {/* Left: Logo */}
           <div className="flex items-center shrink-0">
@@ -16,8 +16,8 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Center/Right: Nav + Desktop CTA grouped (remove flex-1 to pull closer) */}
-          <div className="flex items-center ml-auto">
+          {/* Center/Right: Desktop nav; ensure space for burger with flex-1 justify-end */}
+          <div className="flex-1 flex items-center justify-end">
             <nav className="hidden md:flex items-center gap-6 text-lg text-[#2D7778] whitespace-nowrap font-semibold">
               <NavLink to="/" end onClick={() => setOpen(false)}
                 className={({ isActive }) =>
@@ -56,10 +56,10 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Mobile menu button (still separate) */}
+          {/* Mobile menu button */}
           <button
             onClick={() => setOpen((s) => !s)}
-            className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 md:hidden hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            className="inline-flex items-center justify-center p-2 rounded-md text-[#2D7778] md:hidden hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             aria-label="Toggle menu"
             aria-expanded={open}
           >
@@ -76,30 +76,30 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-white shadow-sm">
-          <div className="px-4 py-4 space-y-1 text-center text-lg font-medium">
+        <div className="md:hidden fixed left-0 right-0 z-[9998] bg-white/95 backdrop-blur shadow-lg border-t border-slate-100" style={{ top: 'calc(5rem + env(safe-area-inset-top))' }}>
+          <div className="px-4 py-4 flex flex-col items-center space-y-3 text-center text-lg font-medium max-h-[calc(100vh-5rem)] overflow-auto">
             <NavLink to="/" end onClick={() => setOpen(false)}
-              className={({isActive}) => isActive ? 'inline-block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
+              className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               Home
             </NavLink>
             <NavLink to="/about" onClick={() => setOpen(false)}
-              className={({isActive}) => isActive ? 'inline-block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
+              className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               About Us
             </NavLink>
             <NavLink to="/features" onClick={() => setOpen(false)}
-              className={({isActive}) => isActive ? 'inline-block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
+              className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               Features
             </NavLink>
             {/* How It Works removed per request */}
             <NavLink to="/news" onClick={() => setOpen(false)}
-              className={({isActive}) => isActive ? 'inline-block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
+              className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               News
             </NavLink>
             <NavLink to="/contact" onClick={() => setOpen(false)}
-              className={({isActive}) => isActive ? 'inline-block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
+              className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               Contact
             </NavLink>
-            <Link to="/download" onClick={() => setOpen(false)} className="inline-block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-3 rounded-lg text-base font-semibold">Download Now!</Link>
+            <Link to="/download" onClick={() => setOpen(false)} className="block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-3 rounded-lg text-base font-semibold">Download Now!</Link>
           </div>
         </div>
       )}
