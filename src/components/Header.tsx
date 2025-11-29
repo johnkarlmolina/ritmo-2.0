@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import logo from '../assets/ritmo-lgo.png'
+import logo from '../assets/text-logo.png'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -45,7 +45,7 @@ export default function Header() {
                 setOpen(false)
               }}
             >
-              <img src={logo} alt="Ritmo" className="h-12 w-auto mr-4" />
+              <img src={logo} alt="Ritmo text logo" className="h-14 md:h-16 lg:h-20 w-auto mr-4 drop-shadow" />
             </Link>
           </div>
 
