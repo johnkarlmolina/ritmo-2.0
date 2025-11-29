@@ -243,9 +243,9 @@ export default function Index() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <a href="#features" className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white font-semibold hover:bg-white/10 transition-colors">
-            View All Features
-          </a>
+              <Link to="/features" className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white font-semibold hover:bg-white/10 transition-colors">
+                View All Features
+              </Link>
         </div>
       </div>
     </section>
