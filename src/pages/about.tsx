@@ -288,8 +288,8 @@ export default function About() {
 				</div>
 				<div className="relative">
 					<div ref={scrollContainerRef} className="infinite-carousel px-4">
-						<div className="team-track infinite-carousel-track flex gap-10 pb-6" style={{ width: 'max-content' }}>
-							{[
+						{(() => {
+							const members = [
 								{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
 								{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
 								{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
@@ -303,10 +303,18 @@ export default function About() {
 								{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
 								{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
 								{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
-							].map(m => (
-								<TeamMemberCard key={m.name} name={m.name} role={m.role} img={m.img} />
-							))}
-						</div>
+							];
+							const doubled = [...members, ...members];
+							return (
+								<div className="team-track infinite-carousel-track pb-6">
+									{doubled.map((m, idx) => (
+										<div key={m.name + idx} className="flex">
+											<TeamMemberCard name={m.name} role={m.role} img={m.img} />
+										</div>
+									))}
+								</div>
+							);
+						})()}
 					</div>
 				</div>
 			</section>
