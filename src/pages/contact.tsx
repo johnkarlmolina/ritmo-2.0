@@ -86,7 +86,7 @@ export default function Contact() {
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
-			<section className="py-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
+			<section className="pt-32 pb-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
 						Get In Touch
