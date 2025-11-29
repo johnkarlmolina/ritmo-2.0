@@ -8,30 +8,36 @@ export default function News() {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
-					if (!entry.isIntersecting) return
 					const el = entry.target as HTMLElement
 					const headings = Array.from(el.querySelectorAll<HTMLElement>('h1,h2,h3'))
 					const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'))
 					const cards = Array.from(el.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'))
 
-					headings.forEach((node, idx) => {
-						const d = Math.min(idx * 85, 425)
-						node.style.transition = `transform 880ms cubic-bezier(.16,.68,.44,1.02) ${d}ms, opacity 700ms ease-out ${d}ms`
-						node.style.opacity = '1'
-						node.style.transform = 'translateY(0) scale(1)'
-					})
-					texts.forEach((node, idx) => {
-						const d = Math.min(idx * 65, 390)
-						node.style.transition = `transform 760ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 640ms ease-out ${d}ms`
-						node.style.opacity = '1'
-						node.style.transform = 'translateY(0) scale(1)'
-					})
-					cards.forEach((node, idx) => {
-						const d = Math.min(idx * 80, 500)
-						node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${d}ms, opacity 700ms ease-out ${d}ms`
-						node.style.opacity = '1'
-						node.style.transform = 'translateX(0) scale(1) rotate(0deg)'
-					})
+					if (entry.isIntersecting) {
+						headings.forEach((node, idx) => {
+							const d = Math.min(idx * 85, 425)
+							node.style.transition = `transform 880ms cubic-bezier(.16,.68,.44,1.02) ${d}ms, opacity 700ms ease-out ${d}ms`
+							node.style.opacity = '1'
+							node.style.transform = 'translateY(0) scale(1)'
+						})
+						texts.forEach((node, idx) => {
+							const d = Math.min(idx * 65, 390)
+							node.style.transition = `transform 760ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 640ms ease-out ${d}ms`
+							node.style.opacity = '1'
+							node.style.transform = 'translateY(0) scale(1)'
+						})
+						cards.forEach((node, idx) => {
+							const d = Math.min(idx * 80, 500)
+							node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${d}ms, opacity 700ms ease-out ${d}ms`
+							node.style.opacity = '1'
+							node.style.transform = 'translateX(0) scale(1) rotate(0deg)'
+						})
+					} else {
+						// Reset for replay
+						headings.forEach((node) => { node.style.opacity='0'; node.style.transform='translateY(40px) scale(.92)' })
+						texts.forEach((node) => { node.style.opacity='0'; node.style.transform='translateY(40px) scale(.94)' })
+						cards.forEach((node, idx) => { const dir = idx % 2 === 0 ? -1 : 1; node.style.opacity='0'; node.style.transform=`translateX(${dir*40}px) scale(.92) rotate(${dir*2}deg)` })
+					}
 				})
 			},
 			{ threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
