@@ -12,44 +12,67 @@ export default function Index() {
       (entries) => {
         entries.forEach((entry) => {
           const el = entry.target as HTMLElement
-          if (!entry.isIntersecting) return
-
           const headings = Array.from(el.querySelectorAll<HTMLElement>('h1,h2,h3'))
           const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'))
           const buttons = Array.from(el.querySelectorAll<HTMLElement>('a,button'))
           const images = Array.from(el.querySelectorAll<HTMLElement>('img'))
           const cards = Array.from(el.querySelectorAll<HTMLElement>('.rounded-2xl,.rounded-3xl'))
 
-          headings.forEach((node, idx) => {
-            const delay = Math.min(idx * 80, 400)
-            node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
-            node.style.opacity = '1'
-            node.style.transform = 'translateX(0)'
-          })
-          texts.forEach((node, idx) => {
-            const delay = Math.min(idx * 60, 360)
-            node.style.transition = `transform 700ms ease-out ${delay}ms, opacity 700ms ease-out ${delay}ms`
-            node.style.opacity = '1'
-            node.style.transform = 'translateY(0)'
-          })
-          buttons.forEach((node, idx) => {
-            const delay = Math.min(idx * 80, 480)
-            node.style.transition = `transform 700ms ease-out ${delay}ms, opacity 700ms ease-out ${delay}ms`
-            node.style.opacity = '1'
-            node.style.transform = 'translateY(0)'
-          })
-          images.forEach((node, idx) => {
-            const delay = Math.min(idx * 80, 480)
-            node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
-            node.style.opacity = '1'
-            node.style.transform = 'translateX(0)'
-          })
-          cards.forEach((node, idx) => {
-            const delay = Math.min(idx * 85, 510)
-            node.style.transition = `transform 850ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 850ms ease-out ${delay}ms`
-            node.style.opacity = '1'
-            node.style.transform = 'translateX(0) scale(1)'
-          })
+          if (entry.isIntersecting) {
+            headings.forEach((node, idx) => {
+              const delay = Math.min(idx * 80, 400)
+              node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
+              node.style.opacity = '1'
+              node.style.transform = 'translateX(0)'
+            })
+            texts.forEach((node, idx) => {
+              const delay = Math.min(idx * 60, 360)
+              node.style.transition = `transform 700ms ease-out ${delay}ms, opacity 700ms ease-out ${delay}ms`
+              node.style.opacity = '1'
+              node.style.transform = 'translateY(0)'
+            })
+            buttons.forEach((node, idx) => {
+              const delay = Math.min(idx * 80, 480)
+              node.style.transition = `transform 700ms ease-out ${delay}ms, opacity 700ms ease-out ${delay}ms`
+              node.style.opacity = '1'
+              node.style.transform = 'translateY(0)'
+            })
+            images.forEach((node, idx) => {
+              const delay = Math.min(idx * 80, 480)
+              node.style.transition = `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
+              node.style.opacity = '1'
+              node.style.transform = 'translateX(0)'
+            })
+            cards.forEach((node, idx) => {
+              const delay = Math.min(idx * 85, 510)
+              node.style.transition = `transform 850ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 850ms ease-out ${delay}ms`
+              node.style.opacity = '1'
+              node.style.transform = 'translateX(0) scale(1)'
+            })
+          } else {
+            // Reset to initial hidden state so scrolling back replays animation
+            headings.forEach((node) => {
+              node.style.opacity = '0'
+              node.style.transform = 'translateX(-24px)'
+            })
+            texts.forEach((node) => {
+              node.style.opacity = '0'
+              node.style.transform = 'translateY(16px)'
+            })
+            buttons.forEach((node) => {
+              node.style.opacity = '0'
+              node.style.transform = 'translateY(12px)'
+            })
+            images.forEach((node) => {
+              node.style.opacity = '0'
+              node.style.transform = 'translateX(24px)'
+            })
+            cards.forEach((node, idx) => {
+              node.style.opacity = '0'
+              const dir = idx % 2 === 0 ? -1 : 1
+              node.style.transform = `translateX(${dir * 40}px) scale(.92)`
+            })
+          }
         })
       },
       { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
