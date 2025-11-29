@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import logo from '../assets/ritmo-lgo.png'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const location = useLocation()
+
+  const reloadIfSame = (path: string, e: React.MouseEvent) => {
+    if (location.pathname === path) {
+      e.preventDefault()
+      window.location.reload()
+    }
+  }
 
   const [scrolled, setScrolled] = useState(false)
 
@@ -25,7 +33,18 @@ export default function Header() {
         <div className="flex items-center h-20 gap-5">
           {/* Left: Logo */}
           <div className="flex items-center shrink-0">
-            <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
+            <Link
+              to="/"
+              className="flex items-center"
+              onClick={(e) => {
+                if (location.pathname === '/') {
+                  e.preventDefault()
+                  // Force full reload to refresh state
+                  window.location.reload()
+                }
+                setOpen(false)
+              }}
+            >
               <img src={logo} alt="Ritmo" className="h-12 w-auto mr-4" />
             </Link>
           </div>
@@ -33,38 +52,38 @@ export default function Header() {
           {/* Center/Right: Desktop nav; ensure space for burger with flex-1 justify-end */}
           <div className="flex-1 flex items-center justify-end">
             <nav className="hidden md:flex items-center gap-6 text-lg text-[#2D7778] whitespace-nowrap font-semibold">
-              <NavLink to="/" end onClick={() => setOpen(false)}
+              <NavLink to="/" end onClick={(e) => { reloadIfSame('/', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
                 Home
               </NavLink>
-              <NavLink to="/about" onClick={() => setOpen(false)}
+              <NavLink to="/about" onClick={(e) => { reloadIfSame('/about', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
                 About Us
               </NavLink>
-              <NavLink to="/features" onClick={() => setOpen(false)}
+              <NavLink to="/features" onClick={(e) => { reloadIfSame('/features', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
                 Features
               </NavLink>
               {/* How It Works removed per request */}
-              <NavLink to="/news" onClick={() => setOpen(false)}
+              <NavLink to="/news" onClick={(e) => { reloadIfSame('/news', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
                 News
               </NavLink>
-              <NavLink to="/contact" onClick={() => setOpen(false)}
+              <NavLink to="/contact" onClick={(e) => { reloadIfSame('/contact', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
                 Contact
               </NavLink>
-              <Link to="/download" onClick={() => setOpen(false)} className="ml-2 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-2.5 rounded-lg text-base font-semibold shadow-sm whitespace-nowrap transition-colors">
+              <Link to="/download" onClick={(e) => { reloadIfSame('/download', e); setOpen(false) }} className="ml-2 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-2.5 rounded-lg text-base font-semibold shadow-sm whitespace-nowrap transition-colors">
                 Download Now!
               </Link>
             </nav>
@@ -92,28 +111,28 @@ export default function Header() {
       {open && (
         <div className="md:hidden fixed left-0 right-0 z-[9998] bg-white/95 backdrop-blur shadow-lg border-t border-slate-100" style={{ top: 'calc(5rem + env(safe-area-inset-top))' }}>
           <div className="px-4 py-4 flex flex-col items-center space-y-3 text-center text-lg font-medium max-h-[calc(100vh-6rem)] overflow-auto">
-            <NavLink to="/" end onClick={() => setOpen(false)}
+            <NavLink to="/" end onClick={(e) => { reloadIfSame('/', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               Home
             </NavLink>
-            <NavLink to="/about" onClick={() => setOpen(false)}
+            <NavLink to="/about" onClick={(e) => { reloadIfSame('/about', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               About Us
             </NavLink>
-            <NavLink to="/features" onClick={() => setOpen(false)}
+            <NavLink to="/features" onClick={(e) => { reloadIfSame('/features', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               Features
             </NavLink>
             {/* How It Works removed per request */}
-            <NavLink to="/news" onClick={() => setOpen(false)}
+            <NavLink to="/news" onClick={(e) => { reloadIfSame('/news', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               News
             </NavLink>
-            <NavLink to="/contact" onClick={() => setOpen(false)}
+            <NavLink to="/contact" onClick={(e) => { reloadIfSame('/contact', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               Contact
             </NavLink>
-            <Link to="/download" onClick={() => setOpen(false)} className="block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-3 rounded-lg text-base font-semibold">Download Now!</Link>
+            <Link to="/download" onClick={(e) => { reloadIfSame('/download', e); setOpen(false) }} className="block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-3 rounded-lg text-base font-semibold">Download Now!</Link>
           </div>
         </div>
       )}

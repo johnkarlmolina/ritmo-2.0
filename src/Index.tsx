@@ -230,7 +230,7 @@ export default function Index() {
           {/* Right: Image with shadow */}
           <div className="w-full md:pl-24">
             <div className="mx-auto w-full max-w-md">
-              <img src={phoneImg} alt="Ritmo preview" className="w-full rounded-2xl shadow-xl" />
+              <img src={phoneImg} alt="Ritmo preview" className="w-full rounded-2xl" />
             </div>
           </div>
         </div>
