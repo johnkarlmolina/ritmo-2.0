@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import cra1 from './assets/CRA-1.png'
+import cra2 from './assets/CRA-2.png'
+import cra3 from './assets/CRA-3.png'
 import phoneImg from './assets/2-phone.png'
 import handPhoneImg from './assets/hand-phone.png'
 import bgImg from './assets/bg.png'
@@ -319,13 +322,13 @@ export default function Index() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {[
-            { title: 'Setup Day Routine', subtitle: 'Interface 1' },
-            { title: 'Progress Report', subtitle: 'Interface 2' },
-            { title: 'Parent Settings', subtitle: 'Interface 3' },
-          ].map(({ title, subtitle }) => (
+            { title: 'Setup Day Routine', subtitle: 'Interface 1', img: cra1 },
+            { title: 'Progress Report', subtitle: 'Interface 2', img: cra2 },
+            { title: 'Parent Settings', subtitle: 'Interface 3', img: cra3 },
+          ].map(({ title, subtitle, img }) => (
             <div key={title} className="rounded-3xl bg-white shadow-md border-2 border-[#2B8A7A]/30 overflow-hidden h-full transition transform hover:-translate-y-1 hover:shadow-2xl">
               <div className="p-10 flex items-center justify-center">
-                <img src={phoneImg} alt={title} className="w-52 md:w-56 h-auto" />
+                <img src={img} alt={title} className="w-52 md:w-56 h-auto" />
               </div>
               <div className="px-8 pb-8">
                 <div className="mt-2 rounded-2xl bg-[#61CCB2] text-white px-6 py-5">

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 
 interface TeamMemberCardProps {
   name: string
@@ -9,10 +9,13 @@ interface TeamMemberCardProps {
 }
 
 export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', details }: TeamMemberCardProps) {
+  const [flipped, setFlipped] = useState(false)
+
   return (
-    <div
-      className="flip-card shrink-0 w-64 h-[400px]"
-      onClick={(e) => e.currentTarget.classList.toggle('flipped')}
+    <button
+      type="button"
+      className={`flip-card shrink-0 w-64 h-[400px] ${flipped ? 'flipped' : ''}`}
+      onClick={() => setFlipped((f) => !f)}
       aria-label={`${name} card; tap to flip`}
     >
       <div className="flip-inner rounded-[200px] overflow-hidden" style={{ backgroundColor: bg }}>
@@ -38,6 +41,6 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
           </div>
         </div>
       </div>
-    </div>
+    </button>
   )
 }
