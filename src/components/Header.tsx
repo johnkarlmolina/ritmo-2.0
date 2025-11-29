@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${scrolled ? 'bg-white/95 shadow-sm backdrop-blur' : 'bg-transparent'} `}
+      className={`fixed top-0 left-0 right-0 z-[9999] shadow-sm transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur' : 'bg-transparent'} `}
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <div className="max-w-7xl mx-auto px-4" style={{ paddingLeft: 'max(1rem, env(safe-area-inset-left))', paddingRight: 'max(1rem, env(safe-area-inset-right))' }}>

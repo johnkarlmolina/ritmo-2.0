@@ -97,7 +97,7 @@ export default function About() {
 	return (
 		<div>
 			{/* Hero Section */}
-			<section className="pt-32 pb-20 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
+			<section className="mt-4 pt-20 pb-20 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
 				<div className="max-w-7xl mx-auto text-center">
 					<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
 						About Ritmo

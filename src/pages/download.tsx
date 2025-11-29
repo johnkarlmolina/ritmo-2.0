@@ -54,7 +54,7 @@ export default function Download() {
 		return () => observer.disconnect()
 	}, [])
 	return (
-		<section className="py-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
+		<section className="mt-4 py-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 			<div className="max-w-7xl mx-auto text-center">
 				<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Download Ritmo</h1>
 				<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
