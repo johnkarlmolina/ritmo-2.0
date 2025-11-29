@@ -127,6 +127,7 @@ export default function Contact() {
 									src={LocationIcon} 
 									alt="Location Icon" 
 									className="w-10 h-10"
+									style={{ filter: 'brightness(0) invert(1)' }}
 								/>
 							</div>
 							<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B7A73' }}>
