@@ -43,16 +43,16 @@ export default function Features() {
 			{/* Hero Section + Feature Section 1 Combined */}
 			<section 
 				data-section
-				className={`min-h-screen transition-all duration-1000 ease-out transform ${
+				className={`transition-all duration-1000 ease-out transform ${
 					visibleSections.has(0) 
 						? 'opacity-100 translate-y-0' 
 						: 'opacity-0 translate-y-10'
 				}`}>
 				{/* Hero Content */}
-				<div className="py-16 flex items-center" style={{ backgroundColor: '#61CCB2' }}>
-					<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-						<h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Features</h1>
-						<p className="max-w-2xl mx-auto text-white/90 text-lg md:text-xl">
+				<div className="pt-32 pb-20 flex items-center" style={{ backgroundColor: '#61CCB2' }}>
+					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+						<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Features</h1>
+						<p className="max-w-3xl mx-auto text-xl md:text-2xl text-white leading-relaxed">
 							Everything you need to create structured, stress-free daily routines, all in one simple app.
 						</p>
 					</div>

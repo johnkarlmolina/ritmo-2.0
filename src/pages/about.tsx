@@ -17,158 +17,117 @@ import BroncanoImg from '../asset-team-img/Broncano.png';
 import BertesImg from '../asset-team-img/Bertes.png';
 import MendozaImg from '../asset-team-img/Mendoza.png';
 import SambilayImg from '../asset-team-img/Sambilay.png';
+import TeamMemberCard from '../components/TeamMemberCard';
 
 export default function About() {
-	// Unique diagonal + scale + rotation animation for About page
-	useEffect(() => {
-		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'))
-			const observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						const el = entry.target as HTMLElement
-						const headings = Array.from(el.querySelectorAll<HTMLElement>('h1,h2,h3'))
-						const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'))
-						const buttons = Array.from(el.querySelectorAll<HTMLElement>('a,button'))
-						const cards = Array.from(el.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'))
+	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
-						if (entry.isIntersecting) {
-							headings.forEach((node, idx) => {
-								const delay = Math.min(idx * 90, 450)
-								node.style.transition = `transform 850ms cubic-bezier(.16,.68,.44,1.02) ${delay}ms, opacity 850ms ease-out ${delay}ms`
-								node.style.opacity = '1'
-								node.style.transform = 'translate(0,0) scale(1) rotate(0deg)'
-							})
-							texts.forEach((node, idx) => {
-								const delay = Math.min(idx * 70, 420)
-								node.style.transition = `transform 780ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 780ms ease-out ${delay}ms`
-								node.style.opacity = '1'
-								node.style.transform = 'translateY(0) scale(1)'
-							})
-							buttons.forEach((node, idx) => {
-								const delay = Math.min(idx * 80, 480)
-								node.style.transition = `transform 720ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 720ms ease-out ${delay}ms`
-								node.style.opacity = '1'
-								node.style.transform = 'translateY(0) scale(1)'
-							})
-							cards.forEach((node, idx) => {
-								const delay = Math.min(idx * 85, 510)
-								node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 900ms ease-out ${delay}ms`
-								node.style.opacity = '1'
-								node.style.transform = 'translateY(0) scale(1) rotate(0deg)'
-							})
-						} else {
-							// Reset when leaving viewport to allow replay when scrolling back
-							headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translate(-40px,-20px) scale(.92) rotate(-3deg)' })
-							texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(32px) scale(.94)' })
-							buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)' })
-							cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(48px) scale(.88) rotate(2deg)' })
-						}
-					})
-				},
-				{ threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
-			)
+	useEffect(() => {
+		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					const el = entry.target as HTMLElement;
+					const headings = Array.from(el.querySelectorAll<HTMLElement>('h1,h2,h3'));
+					const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'));
+					const buttons = Array.from(el.querySelectorAll<HTMLElement>('a,button'));
+					const cards = Array.from(el.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'));
+
+					if (entry.isIntersecting) {
+						headings.forEach((node, idx) => {
+							const delay = Math.min(idx * 90, 450);
+							node.style.transition = `transform 850ms cubic-bezier(.16,.68,.44,1.02) ${delay}ms, opacity 850ms ease-out ${delay}ms`;
+							node.style.opacity = '1';
+							node.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
+						});
+						texts.forEach((node, idx) => {
+							const delay = Math.min(idx * 70, 420);
+							node.style.transition = `transform 780ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 780ms ease-out ${delay}ms`;
+							node.style.opacity = '1';
+							node.style.transform = 'translateY(0) scale(1)';
+						});
+						buttons.forEach((node, idx) => {
+							const delay = Math.min(idx * 80, 480);
+							node.style.transition = `transform 720ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 720ms ease-out ${delay}ms`;
+							node.style.opacity = '1';
+							node.style.transform = 'translateY(0) scale(1)';
+						});
+						cards.forEach((node, idx) => {
+							const delay = Math.min(idx * 85, 510);
+							node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 900ms ease-out ${delay}ms`;
+							node.style.opacity = '1';
+							node.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+						});
+					} else {
+						headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translate(-40px,-20px) scale(.92) rotate(-3deg)'; });
+						texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(32px) scale(.94)'; });
+						buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
+						cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(48px) scale(.88) rotate(2deg)'; });
+					}
+				});
+			},
+			{ threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+		);
 
 		sections.forEach((section) => {
-			const headings = Array.from(section.querySelectorAll<HTMLElement>('h1,h2,h3'))
-			const texts = Array.from(section.querySelectorAll<HTMLElement>('p,li'))
-			const buttons = Array.from(section.querySelectorAll<HTMLElement>('a,button'))
-			const cards = Array.from(section.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'))
+			const headings = Array.from(section.querySelectorAll<HTMLElement>('h1,h2,h3'));
+			const texts = Array.from(section.querySelectorAll<HTMLElement>('p,li'));
+			const buttons = Array.from(section.querySelectorAll<HTMLElement>('a,button'));
+			const cards = Array.from(section.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'));
 
-			headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translate(-40px,-20px) scale(.92) rotate(-3deg)'; node.style.willChange = 'transform, opacity' })
-			texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(32px) scale(.94)'; node.style.willChange = 'transform, opacity' })
-			buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; node.style.willChange = 'transform, opacity' })
-			cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(48px) scale(.88) rotate(2deg)'; node.style.willChange = 'transform, opacity' })
+			headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translate(-40px,-20px) scale(.92) rotate(-3deg)'; node.style.willChange = 'transform, opacity'; });
+			texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(32px) scale(.94)'; node.style.willChange = 'transform, opacity'; });
+			buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; node.style.willChange = 'transform, opacity'; });
+			cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(48px) scale(.88) rotate(2deg)'; node.style.willChange = 'transform, opacity'; });
 
-			observer.observe(section)
+			observer.observe(section);
 
-			const rect = section.getBoundingClientRect()
-			const vh = window.innerHeight || document.documentElement.clientHeight
+			const rect = section.getBoundingClientRect();
+			const vh = window.innerHeight || document.documentElement.clientHeight;
 			if (rect.top < vh && rect.bottom > 0) {
-				requestAnimationFrame(() => {
-					headings.forEach((node, idx) => { const d=Math.min(idx*90,450); node.style.transition=`transform 850ms cubic-bezier(.16,.68,.44,1.02) ${d}ms, opacity 850ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translate(0,0) scale(1) rotate(0deg)' })
-					texts.forEach((node, idx) => { const d=Math.min(idx*70,420); node.style.transition=`transform 780ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 780ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0) scale(1)' })
-					buttons.forEach((node, idx) => { const d=Math.min(idx*80,480); node.style.transition=`transform 720ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 720ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0) scale(1)' })
-					cards.forEach((node, idx) => { const d=Math.min(idx*85,510); node.style.transition=`transform 900ms cubic-bezier(.23,1,.32,1) ${d}ms, opacity 900ms ease-out ${d}ms`; node.style.opacity='1'; node.style.transform='translateY(0) scale(1) rotate(0deg)' })
-				})
+				// Immediately reveal sections already in view on mount
+				headings.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translate(0,0) scale(1) rotate(0deg)'; });
+				texts.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'; });
+				buttons.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'; });
+				cards.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1) rotate(0deg)'; });
 			}
-		})
-
-		return () => observer.disconnect()
-	}, [])
-	const scrollContainerRef = useRef<HTMLDivElement>(null);
-	const contentClonedRef = useRef<boolean>(false);
-
-	// Prepare a duplicated track for CSS-based infinite scrolling (marquee style)
-	useEffect(() => {
-		const el = scrollContainerRef.current;
-		if (!el) return;
-
-		if (!contentClonedRef.current) {
-			const track = el.querySelector<HTMLDivElement>('.team-track');
-			if (track) {
-				const children = Array.from(track.children);
-				children.forEach((child) => {
-					const childClone = child.cloneNode(true) as HTMLElement;
-					track.appendChild(childClone);
-				});
-				contentClonedRef.current = true;
-			}
-		}
+		});
 	}, []);
 
-	// Remove manual scroll/drag handlers; CSS animation handles movement
 	return (
-		<div className="bg-white">
+		<div>
 			{/* Hero Section */}
-			<section className="py-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
+			<section className="pt-32 pb-20 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
 				<div className="max-w-7xl mx-auto text-center">
-					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+					<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
 						About Ritmo
 					</h1>
 					<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
-						Transforming daily routines with simple, supportive<br />
-						guidance for children with autism.
+						Transforming daily routines with simple, supportive guidance for children with autism.
 					</p>
 				</div>
 			</section>
 
-			{/* Mission and Vision Cards Section */}
-			<section className="py-20 px-4" data-reveal>
-				<div className="max-w-7xl mx-auto">
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-						{/* Our Mission Card */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] transition transform hover:-translate-y-1 hover:shadow-xl">
-							<div className="mb-6">
-								<img 
-									src={MissionIcon} 
-									alt="Mission Icon" 
-									className="w-12 h-12"
-								/>
-							</div>
-							<h2 className="text-3xl font-bold text-gray-900 mb-6">
-								Our Mission
-							</h2>
-							<p className="text-gray-700 text-base leading-relaxed">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</p>
+			{/* Mission & Vision Cards */}
+			<section className="px-4 py-16 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div className="bg-[#E9FBF7] border border-gray-300 rounded-2xl p-8 shadow-sm transition hover:shadow-md hover:-translate-y-1">
+						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">
+							<img src={MissionIcon} alt="Mission Icon" className="w-8 h-8" />
 						</div>
-
-						{/* Our Vision Card */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] transition transform hover:-translate-y-1 hover:shadow-xl">
-							<div className="mb-6">
-								<img 
-									src={VisionIcon} 
-									alt="Vision Icon" 
-									className="w-12 h-12"
-								/>
-							</div>
-							<h2 className="text-3xl font-bold text-gray-900 mb-6">
-								Our Vision
-							</h2>
-							<p className="text-gray-700 text-base leading-relaxed">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</p>
+						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Mission</h3>
+						<p className="text-sm text-gray-600 leading-relaxed">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
+					</div>
+					<div className="bg-[#E9FBF7] border border-gray-300 rounded-2xl p-8 shadow-sm transition hover:shadow-md hover:-translate-y-1">
+						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">
+							<img src={VisionIcon} alt="Vision Icon" className="w-8 h-8" />
 						</div>
+						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Vision</h3>
+						<p className="text-sm text-gray-600 leading-relaxed">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
 					</div>
 				</div>
 			</section>
@@ -182,10 +141,10 @@ export default function About() {
 					<div className="max-w-4xl mx-auto">
 						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
 							<p className="text-gray-700 text-base leading-relaxed mb-6">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 							</p>
 							<p className="text-gray-700 text-base leading-relaxed">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 							</p>
 						</div>
 					</div>
@@ -202,14 +161,9 @@ export default function About() {
 						Ritmo is designed for everyone who plays a role in a child's communication journey
 					</p>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-						{/* Children with Autism */}
 						<div className="flex flex-col items-center text-center">
 							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img 
-									src={ChildrenIcon} 
-									alt="Children Icon" 
-									className="w-12 h-12"
-								/>
+								<img src={ChildrenIcon} alt="Children Icon" className="w-12 h-12" />
 							</div>
 							<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>
 								Children with Autism
@@ -218,15 +172,9 @@ export default function About() {
 								Who benefit from structured routines, visual guidance, and predictable daily activities.
 							</p>
 						</div>
-
-						{/* Parents & Caregivers */}
 						<div className="flex flex-col items-center text-center">
 							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img 
-									src={ParentIcon} 
-									alt="Parents Icon" 
-									className="w-12 h-12"
-								/>
+								<img src={ParentIcon} alt="Parents Icon" className="w-12 h-12" />
 							</div>
 							<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>
 								Parents & Caregivers
@@ -235,15 +183,9 @@ export default function About() {
 								Families looking for an easier way to support daily habits, transitions, and independence at home.
 							</p>
 						</div>
-
-						{/* Educators & Therapists */}
 						<div className="flex flex-col items-center text-center">
 							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img 
-									src={EducatorsIcon} 
-									alt="Educators Icon" 
-									className="w-12 h-12"
-								/>
+								<img src={EducatorsIcon} alt="Educators Icon" className="w-12 h-12" />
 							</div>
 							<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>
 								Educators & Therapists
@@ -256,320 +198,42 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* Our Values Section */}
-			<section className="py-20 px-4 bg-[#E8F4F1]" data-reveal>
-				<div className="max-w-7xl mx-auto px-8">
-					<h2 className="text-5xl font-bold text-center mb-16" style={{ color: '#2B8A7A' }}>
-						Our Values
+			{/* Our Team Section with Flip Cards */}
+			<section className="py-20 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto px-4">
+					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
+						Our Team
 					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-						{/* Value Card 1 */}
-						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px] transition transform hover:-translate-y-1 hover:shadow-xl">
-						</div>
-
-						{/* Value Card 2 */}
-						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px] transition transform hover:-translate-y-1 hover:shadow-xl">
-						</div>
-
-						{/* Value Card 3 */}
-						<div className="bg-white rounded-3xl p-12 shadow-sm min-h-[280px] transition transform hover:-translate-y-1 hover:shadow-xl">
-						</div>
-					</div>
-			</div>
-		</section>
-
-		{/* Our Team Section */}
-		<section className="py-20 bg-white" data-reveal>
-			<div className="max-w-7xl mx-auto px-4">
-				<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
-					Our Team
-				</h2>
-				<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>
-					Join our mission together, we can build smoother, more structured days for every child.
-				</p>
-			</div>
-			{/* Scrollable Team Container */}
-			<div className="relative">
-				<div ref={scrollContainerRef} className="infinite-carousel px-4">
-					<div className="team-track infinite-carousel-track flex gap-10 pb-6" style={{ width: 'max-content' }}>
-						{/* Team Member 1 - Myra Leah Duhiling */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Myra Leah S. Duhiling
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										Project Manager
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={DuhilingImg} 
-											alt="Myra Leah Duhiling" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-							{/* Team Member 2 - Fletcher Peter M. Hernandez */}
-							<div className="shrink-0 w-64">
-								<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-									<div className="text-center mb-2 px-4 z-10">
-										<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.875rem)' }}>
-											Fletcher Peter M. Hernandez
-										</h3>
-										<p className="text-sm" style={{ color: '#C8E6DD', fontSize: 'clamp(0.75rem, 2vw, 0.875rem)' }}>
-											Lead UI/UX Designer
-										</p>
-									</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={HernandezImg} 
-											alt="Fletcher Peter M. Hernandez" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 3 - Jerald B. Isorena */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Jerald B. Isorena
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										Lead Programmer
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={IsorenaImg} 
-											alt="Jerald B. Isorena" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 4 - John Pritch L. Arcas */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										John Pritch L. Arcas
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										Back-End Developer
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={ArcasImg} 
-											alt="John Pritch L. Arcas" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 5 - Alrashim M. Awal */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Alrashim M. Awal
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										Front-End Developer
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={AwalImg} 
-											alt="Alrashim M. Awal" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 6 - John Carlo A. Deato */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										John Carlo A. Deato
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										Back-End Developer
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={DeatoImg} 
-											alt="John Carlo A. Deato" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 7 - John Karl P. Molina */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										John Karl P. Molina
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										Front-End Developer
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={MolinaImg} 
-											alt="John Karl P. Molina" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 8 - Kurt Lee B. Manzano */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Kurt Lee B. Manzano
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										UI/UX Designer
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={ManzanoImg} 
-											alt="Kurt Lee B. Manzano" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 9 - Ashley D. Abucay */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Ashley D. Abucay
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										System Analyst
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={AbucayImg} 
-											alt="Ashley D. Abucay" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 10 - Ma. Daniella A. Broncano */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16 transition transform hover:-translate-y-1 hover:shadow-2xl" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Ma. Daniella A. Broncano
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										System Analyst
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={BroncanoImg} 
-											alt="Ma. Daniella A. Broncano" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 11 - Nikki Anne R. Bertes */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Nikki Anne R. Bertes
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										System Analyst
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={BertesImg} 
-											alt="Nikki Anne R. Bertes" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 12 - Mary Joy N. Mendoza */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Mary Joy N. Mendoza
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										System Analyst
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={MendozaImg} 
-											alt="Mary Joy N. Mendoza" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
-
-						{/* Team Member 13 - Joemar A. Sambilay */}
-						<div className="shrink-0 w-64">
-							<div className="relative w-64 h-[400px] rounded-[200px] overflow-hidden flex flex-col items-center pt-16" style={{ backgroundColor: '#2B8A7A' }}>
-								<div className="text-center mb-2 px-4 z-10">
-									<h3 className="text-sm font-bold text-white leading-tight" style={{ fontSize: '0.875rem' }}>
-										Joemar A. Sambilay
-									</h3>
-									<p className="text-sm leading-tight" style={{ color: '#C8E6DD', fontSize: '0.875rem' }}>
-										System Analyst
-									</p>
-								</div>
-									<div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
-										<img 
-											src={SambilayImg} 
-											alt="Joemar A. Sambilay" 
-											className="w-full h-full object-cover"
-										/>
-									</div>
-								</div>
-							</div>
+					<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>
+						Tap / click a card to flip and learn more.
+					</p>
+				</div>
+				<div className="relative">
+					<div ref={scrollContainerRef} className="infinite-carousel px-4">
+						<div className="team-track infinite-carousel-track flex gap-10 pb-6" style={{ width: 'max-content' }}>
+							{[
+								{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
+								{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
+								{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
+								{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg },
+								{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg },
+								{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg },
+								{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg },
+								{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg },
+								{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg },
+								{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg },
+								{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
+								{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
+								{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
+							].map(m => (
+								<TeamMemberCard key={m.name} name={m.name} role={m.role} img={m.img} />
+							))}
 						</div>
 					</div>
 				</div>
-		</section>			
-		
-		{/* Join Our Mission Section */}
+			</section>
+
+			{/* Join Our Mission Section */}
 			<section className="py-16 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h2 className="text-5xl font-bold text-white mb-4">
@@ -581,9 +245,7 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* White Space */}
 			<section className="py-8 bg-white" data-reveal></section>
-
 		</div>
-	)
+	);
 }
