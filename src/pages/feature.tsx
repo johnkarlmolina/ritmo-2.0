@@ -1,3 +1,8 @@
+import FeatureIcon from '../assets/Rectangle 482.png';
+import PhoneMockup1 from '../assets/1.png';
+import PhoneMockup2 from '../assets/2.1.png';
+import PhoneMockup3 from '../assets/2.3.png';
+import PhoneMockup4 from '../assets/3.png';
 import { useEffect, useState } from 'react';
 
 export default function Features() {
@@ -70,7 +75,7 @@ export default function Features() {
 							}`}>
 								<div className="flex items-start mb-4">
 									<img 
-										src="/src/assets/Rectangle 482.png" 
+										src={FeatureIcon} 
 										alt="Feature Icon"
 										className="w-6 h-6 mr-4"
 									/>
@@ -111,7 +116,7 @@ export default function Features() {
 							}`}>
 								<div className="relative">
 									<img 
-										src="/src/assets/1.png" 
+										src={PhoneMockup1} 
 										alt="Number 1 Feature Phone Mockup"
 										className="w-64 h-auto object-contain"
 									/>
@@ -141,7 +146,7 @@ export default function Features() {
 						}`}>
 							<div className="relative">
 								<img 
-									src="/src/assets/2.1.png" 
+									src={PhoneMockup2} 
 									alt="Number 2 Feature Phone Mockup"
 									className="w-64 h-auto object-contain"
 								/>
@@ -156,7 +161,7 @@ export default function Features() {
 						}`}>
 							<div className="flex items-start mb-4">
 								<img 
-									src="/src/assets/Rectangle 482.png" 
+									src={FeatureIcon} 
 									alt="Feature Icon"
 									className="w-6 h-6 mr-4"
 								/>
@@ -211,7 +216,7 @@ export default function Features() {
 						}`}>
 							<div className="flex items-start mb-4">
 								<img 
-									src="/src/assets/Rectangle 482.png" 
+									src={FeatureIcon} 
 									alt="Feature Icon"
 									className="w-6 h-6 mr-4"
 								/>
@@ -252,7 +257,7 @@ export default function Features() {
 						}`}>
 							<div className="relative">
 								<img 
-									src="/src/assets/2.3.png" 
+									src={PhoneMockup3} 
 									alt="Number 3 Feature Phone Mockup"
 									className="w-64 h-auto object-contain"
 								/>
@@ -282,7 +287,7 @@ export default function Features() {
 							}`}>
 								<div className="relative">
 									<img 
-										src="/src/assets/3.png" 
+										src={PhoneMockup4} 
 										alt="Number 4 Feature Phone Mockup"
 										className="w-64 h-auto object-contain"
 									/>
@@ -297,7 +302,7 @@ export default function Features() {
 							}`}>
 								<div className="flex items-start mb-4">
 									<img 
-										src="/src/assets/Rectangle 482.png" 
+										src={FeatureIcon} 
 										alt="Feature Icon"
 										className="w-6 h-6 mr-4"
 									/>
