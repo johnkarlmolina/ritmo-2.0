@@ -43,7 +43,7 @@ export default function Features() {
 	}, []);
 
 	return (
-		<div className="scroll-smooth">
+		<div className="scroll-smooth overflow-x-hidden">
 			{/* Hero Section + Feature Section 1 Combined */}
 			<section 
 				data-section
@@ -65,7 +65,7 @@ export default function Features() {
 				{/* Feature 1 Content */}
 				<div className="py-10 px-4" style={{ backgroundColor: '#E8F5F1' }}>
 					<div className="max-w-7xl mx-auto">
-						<div className="flex items-center justify-between gap-20">
+						<div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-20">
 							{/* Left Content */}
 							<div className={`flex-1 transition-all duration-1000 ease-out transform delay-300 ${
 								visibleSections.has(0) 
@@ -122,7 +122,7 @@ export default function Features() {
 									<img 
 										src={PhoneMockup1} 
 										alt="Number 1 Feature Phone Mockup"
-										className="w-64 h-auto object-contain"
+										className="w-64 max-w-full h-auto object-contain"
 									/>
 								</div>
 							</div>
@@ -141,7 +141,7 @@ export default function Features() {
 				}`} 
 				style={{ backgroundColor: '#E8F5F1' }}>
 				<div className="max-w-7xl mx-auto">
-					<div className="flex items-center justify-between gap-20">
+					<div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-20">
 						{/* Left Phone Image */}
 						<div className={`flex-1 flex items-center justify-center transition-all duration-1000 ease-out transform ${
 							visibleSections.has(1) 
@@ -152,7 +152,7 @@ export default function Features() {
 								<img 
 									src={PhoneMockup2} 
 									alt="Number 2 Feature Phone Mockup"
-									className="w-64 h-auto object-contain"
+									className="w-64 max-w-full h-auto object-contain"
 								/>
 							</div>
 						</div>
@@ -216,7 +216,7 @@ export default function Features() {
 				}`} 
 				style={{ backgroundColor: '#E8F5F1' }}>
 				<div className="max-w-7xl mx-auto">
-					<div className="flex items-center justify-between gap-20">
+					<div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-20">
 						{/* Left Content */}
 						<div className={`flex-1 transition-all duration-1000 ease-out transform ${
 							visibleSections.has(2) 
@@ -273,7 +273,7 @@ export default function Features() {
 								<img 
 									src={PhoneMockup3} 
 									alt="Number 3 Feature Phone Mockup"
-									className="w-64 h-auto object-contain"
+									className="w-64 max-w-full h-auto object-contain"
 								/>
 							</div>
 						</div>
@@ -292,7 +292,7 @@ export default function Features() {
 				{/* Feature 4 Content */}
 				<div className="py-10 px-4" style={{ backgroundColor: '#E8F5F1' }}>
 					<div className="max-w-7xl mx-auto">
-						<div className="flex items-center justify-between gap-20">
+						<div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-20">
 							{/* Left Phone Image */}
 							<div className={`flex-1 flex items-center justify-center transition-all duration-1000 ease-out transform ${
 								visibleSections.has(3) 
@@ -303,7 +303,7 @@ export default function Features() {
 									<img 
 										src={PhoneMockup4} 
 										alt="Number 4 Feature Phone Mockup"
-										className="w-64 h-auto object-contain"
+										className="w-64 max-w-full h-auto object-contain"
 									/>
 								</div>
 							</div>

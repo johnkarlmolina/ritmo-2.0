@@ -62,7 +62,7 @@ export default function News() {
 		return () => observer.disconnect()
 	}, [])
 	return (
-		<div className="bg-white">
+		<div className="bg-white overflow-x-hidden">
 			{/* Hero Section */}
 			<section className="mt-4 pt-20 pb-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
