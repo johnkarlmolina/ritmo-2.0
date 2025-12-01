@@ -71,23 +71,24 @@ export default function Features() {
 								visibleSections.has(0) 
 									? 'opacity-100 translate-x-0' 
 									: 'opacity-0 -translate-x-20'
-							}`}>
-								<div className="flex items-start mb-4">
-									<svg 
-										width="24" 
-										height="24" 
-										viewBox="0 0 24 24" 
-										fill="none" 
-										xmlns="http://www.w3.org/2000/svg"
-										className="w-6 h-6 mr-4 flex-shrink-0"
-									>
-										<rect x="3" y="3" width="18" height="18" rx="2" fill="#61CCB2" />
-									</svg>
-									<h2 className="text-2xl font-bold" style={{ color: '#4A5D5A' }}>
-										Number 1 Feature
-									</h2>
-								</div>
-								<div className="flex-1">
+						}`}>
+						<div className="flex items-start mb-4">
+							<svg 
+								width="24" 
+								height="24" 
+								viewBox="0 0 24 24" 
+								fill="none" 
+								xmlns="http://www.w3.org/2000/svg"
+								className="w-6 h-6 mr-4 shrink-0"
+								aria-hidden="true"
+							>
+								<rect x="3" y="3" width="18" height="18" rx="2" fill="#61CCB2" />
+							</svg>
+							<h2 className="text-2xl font-bold" style={{ color: '#4A5D5A' }}>
+								Number 4 Feature
+							</h2>
+						</div>
+						<div className="flex-1">
 									<p className="text-gray-700 text-lg mb-6 leading-relaxed">
 										Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 									</p>
@@ -170,12 +171,13 @@ export default function Features() {
 									viewBox="0 0 24 24" 
 									fill="none" 
 									xmlns="http://www.w3.org/2000/svg"
-									className="w-6 h-6 mr-4 flex-shrink-0"
+									className="w-6 h-6 mr-4 shrink-0"
+									aria-hidden="true"
 								>
 									<rect x="3" y="3" width="18" height="18" rx="2" fill="#61CCB2" />
 								</svg>
 								<h2 className="text-2xl font-bold" style={{ color: '#4A5D5A' }}>
-									Number 1 Feature
+									Number 2 Feature
 								</h2>
 							</div>
 							<div className="flex-1">
@@ -230,7 +232,8 @@ export default function Features() {
 									viewBox="0 0 24 24" 
 									fill="none" 
 									xmlns="http://www.w3.org/2000/svg"
-									className="w-6 h-6 mr-4 flex-shrink-0"
+									className="w-6 h-6 mr-4 shrink-0"
+									aria-hidden="true"
 								>
 									<rect x="3" y="3" width="18" height="18" rx="2" fill="#61CCB2" />
 								</svg>
@@ -314,21 +317,22 @@ export default function Features() {
 									? 'opacity-100 translate-x-0' 
 									: 'opacity-0 translate-x-20'
 							}`}>
-								<div className="flex items-start mb-4">
-									<svg 
-										width="24" 
-										height="24" 
-										viewBox="0 0 24 24" 
-										fill="none" 
-										xmlns="http://www.w3.org/2000/svg"
-										className="w-6 h-6 mr-4 flex-shrink-0"
-									>
-										<rect x="3" y="3" width="18" height="18" rx="2" fill="#61CCB2" />
-									</svg>
-									<h2 className="text-2xl font-bold" style={{ color: '#4A5D5A' }}>
-										Number 4 Feature
-									</h2>
-								</div>
+							<div className="flex items-start mb-4">
+								<svg 
+									width="24" 
+									height="24" 
+									viewBox="0 0 24 24" 
+									fill="none" 
+									xmlns="http://www.w3.org/2000/svg"
+									className="w-6 h-6 mr-4 shrink-0"
+									aria-hidden="true"
+								>
+									<rect x="3" y="3" width="18" height="18" rx="2" fill="#61CCB2" />
+								</svg>
+								<h2 className="text-2xl font-bold" style={{ color: '#4A5D5A' }}>
+									Number 4 Feature
+								</h2>
+							</div>
 								<div className="flex-1">
 									<p className="text-gray-700 text-lg mb-6 leading-relaxed">
 										Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
