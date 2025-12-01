@@ -177,7 +177,7 @@ export default function Contact() {
 					</div>
 
 					<div className="max-w-3xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
+						<div className="bg-gray-200 rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
 							<form className="space-y-6">
 								{/* Name and Email Row */}
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
