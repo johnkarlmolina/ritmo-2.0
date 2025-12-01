@@ -344,6 +344,14 @@ function SliderHero() {
   )
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
+
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     if (paused) return
@@ -370,9 +378,20 @@ function SliderHero() {
             src={s.src}
             alt={s.alt}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === index ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              transform: `translateY(${scrollY * 0.5}px)`,
+              imageRendering: 'crisp-edges',
+              filter: 'contrast(1.1) saturate(1.1) brightness(1.05)',
+              backfaceVisibility: 'hidden',
+              perspective: '1000px',
+              willChange: 'transform',
+            }}
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/20 pointer-events-none" />
       </div>
 
       <button
