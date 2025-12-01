@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-8 place-items-center md:place-items-start text-center md:text-left">
           {/* Logo and Description */}
           <div>
-            <div className="inline-block mb-4 mx-auto md:mx-0">
+            <div className="bg-white rounded-full px-2 py-0 inline-block mb-4 mx-auto md:mx-0">
               <img src={TextLogo} alt="Ritmo Logo" className="h-15" />
             </div>
             <p className="text-white/90 text-base">
