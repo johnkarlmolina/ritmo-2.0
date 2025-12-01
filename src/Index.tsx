@@ -2,15 +2,12 @@ import { Link } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
 import { useNetworkAwareLoading } from './hooks/useNetworkAwareLoading'
 import { GlobalLoadingScreen } from './components/GlobalLoadingScreen'
+import handPhoneImg from './assets/hand-phone.png'
 import frontViewChild from './assets/front-view-kid-making-puzzle-table.jpg'
 import istockPhoto from './assets/istockphoto-2030023202-612x612.jpg'
 import sideViewChild from './assets/side-view-child-learning-how-count-home-using-pencils.jpg'
 import ritmoOldLogo from './assets/ritmo-old-log.png'
-import bgImg from './assets/bg.png'
-import cra1 from './assets/CRA-1.png'
-import cra2 from './assets/CRA-2.png'
-import cra3 from './assets/CRA-3.png'
-import handPhoneImg from './assets/hand-phone.png'
+// Removed sections no longer use these assets
 
 export default function Index() {
   const { isLoading, progress } = useNetworkAwareLoading()
@@ -130,9 +127,9 @@ export default function Index() {
 
       <section className="bg-white" data-reveal>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-16 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-            {/* Text column (left on desktop) */}
-            <div className="w-full md:pr-6 md:order-1 order-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 lg:gap-16 items-center">
+            {/* Text column (right on desktop) */}
+            <div className="w-full md:pl-6 md:order-2 order-2">
               <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">What is Ritmo?</h2>
               <p className="mt-4 text-gray-700 text-base md:text-lg leading-relaxed text-justify">
                 Ritmo is a daily routine tracker designed to support children with autism and their families. It helps make everyday tasks easier through visual guides,
@@ -143,9 +140,9 @@ export default function Index() {
                 It’s a simple, supportive app built to bring structure, clarity, and fun to each day.
               </p>
             </div>
-            {/* Logo image (right on desktop) */}
-            <div className="w-full flex items-start justify-center md:justify-end md:pl-0 md:order-2 order-1">
-              <img src={ritmoOldLogo} alt="Ritmo logo" className="w-48 sm:w-64 md:w-72 lg:w-80 xl:w-88 h-auto object-contain" />
+            {/* Logo image (left on desktop, nudged right and slightly larger) */}
+            <div className="w-full flex items-start justify-center md:justify-end md:pr-6 md:order-1 order-1">
+              <img src={ritmoOldLogo} alt="Ritmo logo" className="w-52 sm:w-64 md:w-80 lg:w-96 xl:w-[24rem] h-auto object-contain" />
             </div>
           </div>
         </div>
@@ -176,8 +173,8 @@ export default function Index() {
       </section>
 
       {/* Why Ritmo Helps section */}
-      <section className="bg-white min-h-screen flex items-center" data-reveal>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full py-16 md:py-24">
+      <section className="bg-white" data-reveal>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full py-12 md:py-16">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">Why Ritmo Helps</h2>
             <p className="mt-4 text-base md:text-lg text-gray-700">Benefits for everyone involved</p>
@@ -204,97 +201,13 @@ export default function Index() {
         </div>
       </section>
 
-      {/* See Ritmo in Action */}
-      <section
-        className="py-24 min-h-screen flex items-center"
-        data-reveal
-        style={{
-          backgroundImage: `url(${bgImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">See Ritmo in Action</h2>
-            <p className="mt-3 text-gray-700">Simple, intuitive, and beautiful</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              { title: 'Setup Day Routine', subtitle: 'Interface 1', img: cra1 },
-              { title: 'Progress Report', subtitle: 'Interface 2', img: cra2 },
-              { title: 'Parent Settings', subtitle: 'Interface 3', img: cra3 },
-            ].map(({ title, subtitle, img }) => (
-              <div key={title} className="rounded-3xl bg-white shadow-md border-2 border-[#2B8A7A]/30 overflow-hidden h-full transition transform hover:-translate-y-1 hover:shadow-2xl">
-                <div className="p-10 flex items-center justify-center">
-                  <img src={img} alt={title} className="w-52 md:w-56 h-auto" />
-                </div>
-                <div className="px-8 pb-8">
-                  <div className="mt-2 rounded-2xl bg-[#61CCB2] text-white px-6 py-5">
-                    <div className="font-bold text-xl">{title}</div>
-                    <div className="text-white/90 text-sm">{subtitle}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Availability Promo */}
-      <section className="bg-white min-h-screen flex items-center py-16" data-reveal>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-10 md:p-12 lg:p-14 min-h-[28rem] md:min-h-[32rem] flex items-center">
-            <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-8 items-center">
-              {/* Image panel */}
-              <div className="rounded-2xl bg-white/75 p-4 md:p-6 flex items-center justify-center transition transform hover:-translate-y-1 hover:shadow-xl">
-                <img src={handPhoneImg} alt="Ritmo phone in hand" className="w-64 md:w-72 h-auto object-contain" />
-              </div>
-              {/* Content */}
-              <div className="text-white">
-                <h3 className="text-2xl md:text-3xl font-extrabold leading-snug">
-                  The Ritmo App is now available for download on Android.
-                </h3>
-                <div className="mt-5">
-                  <div className="font-semibold">What does Ritmo do?</div>
-                  <ul className="mt-3 space-y-2 text-white/95">
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />
-                      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />
-                      <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="mt-6 flex flex-wrap gap-4">
-                  <Link
-                    to="/download"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-transform hover:-translate-y-0.5"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-                    <span>Download Now</span>
-                  </Link>
-                  <Link
-                    to="/demo"
-                    className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-5 py-2.5 text-white font-semibold shadow-sm hover:bg-white/10 transition-transform hover:-translate-y-0.5"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    <span>Watch Demo</span>
-                  </Link>
-              
-              </div>
-              {/* Close content block */}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* See Ritmo in Action - removed per request */}
+      
+      {/* Availability Promo - removed per request */}
 
       {/* Our Mission */}
-      <section className="bg-gray-100 py-16 md:py-20" data-reveal>
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <section className="bg-gray-100 py-12 md:py-16" data-reveal>
+        <div className="max-w-2xl mx-auto px-6 text-center">
           <h3 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">Our Mission</h3>
           <p className="mt-4 text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -312,31 +225,41 @@ export default function Index() {
         </div>
       </section>
 
-      {/* We'd love to hear from you */}
-      <section className="min-h-[70vh] flex items-center" style={{ backgroundColor: '#61CCB2' }} data-reveal>
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-            We’d love to hear
-            <br className="hidden sm:block" />
-            from you.
-          </h2>
-          <p className="mt-4 text-white/90">
-            Feel free to reach out for questions, support, or collaboration. We’re always ready to assist you.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              to="/download"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-transform hover:-translate-y-0.5"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-              <span>Download Now - It’s Free</span>
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-transform hover:-translate-y-0.5"
-            >
-              Get in Touch
-            </Link>
+      {/* Ritmo is now available (restored, full width) */}
+      <section className="py-16 md:py-20 mt-12 md:mt-16 mb-12 md:mb-16" style={{ backgroundColor: '#61CCB2' }} data-reveal>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-10 md:gap-12 items-center">
+            {/* Image */}
+            <div className="flex items-center justify-center">
+              <img src={handPhoneImg} alt="Ritmo phone in hand" className="w-72 md:w-80 lg:w-96 h-auto object-contain drop-shadow" />
+            </div>
+            {/* Content */}
+            <div className="text-white">
+              <h3 className="text-3xl md:text-4xl font-extrabold leading-snug">The Ritmo App is now available for download on Android.</h3>
+              <p className="mt-4 text-white/95 text-base md:text-lg max-w-2xl">
+                Build calm, structured days with visual schedules, reminders, and playful guidance designed for children with autism.
+              </p>
+              <ul className="mt-5 space-y-2 text-white/95 text-sm md:text-base">
+                <li className="flex items-start gap-3"><span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />Visual routines with audio cues</li>
+                <li className="flex items-start gap-3"><span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />Positive feedback and progress tracking</li>
+              </ul>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <Link
+                  to="/download"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-transform hover:-translate-y-0.5"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                  <span>Download Now</span>
+                </Link>
+                <Link
+                  to="/demo"
+                  className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-transform hover:-translate-y-0.5"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>Watch Demo</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
