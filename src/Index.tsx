@@ -101,7 +101,7 @@ export default function Index() {
 
             {/* Right column: definition card */}
             <div className="w-full">
-              <div className="rounded-2xl bg-linear-to-b from-[#61CCB2] to-[#2D7778] text-white shadow-xl p-6 md:p-8">
+              <div className="rounded-2xl bg-gradient-to-b from-[#61CCB2] to-[#2D7778] text-white shadow-xl p-6 md:p-8">
                 <div className="flex items-center gap-2">
                   <span className="inline-block rounded-full bg-white/90 text-[#2D7778] font-bold px-3 py-1">Autism</span>
                   <span className="text-white/90">aa·ti·zm</span>
@@ -244,7 +244,7 @@ export default function Index() {
       {/* Availability Promo */}
       <section className="bg-white min-h-screen flex items-center py-16" data-reveal>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-10 md:p-12 lg:p-14 min-h-112 md:min-h-128 flex items-center">
+          <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-10 md:p-12 lg:p-14 min-h-[28rem] md:min-h-[32rem] flex items-center">
             <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-8 items-center">
               {/* Image panel */}
               <div className="rounded-2xl bg-white/75 p-4 md:p-6 flex items-center justify-center transition transform hover:-translate-y-1 hover:shadow-xl">
@@ -283,7 +283,9 @@ export default function Index() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     <span>Watch Demo</span>
                   </Link>
-                </div>
+              
+              </div>
+              {/* Close content block */}
               </div>
             </div>
           </div>
@@ -351,6 +353,32 @@ function SliderHero() {
     ],
     []
   )
+  const contents = useMemo(
+    () => [
+      {
+        title: 'Guiding every step with care.',
+        desc:
+          'Ritmo is a daily routine tracker designed for children with autism — combining structured tasks with audio‑visual aids, voice feedback, and playful mini‑games to make every step clearer, calmer, and more engaging.',
+        ctaLabel: 'Download Ritmo',
+        ctaHref: '/download',
+      },
+      {
+        title: 'Together with parents, Ritmo builds better habits.',
+        desc:
+          'Built in collaboration with parents, Ritmo features parental lock controls and a clear progress tracker to help parents monitor their children and support safe, guided, and meaningful daily routines.',
+        ctaLabel: 'See all features',
+        ctaHref: '/features',
+      },
+      {
+        title: 'Our Mission to Support Families',
+        desc:
+          'To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.',
+        ctaLabel: 'More about us',
+        ctaHref: '/about',
+      },
+    ],
+    []
+  )
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const [scrollY, setScrollY] = useState(0)
@@ -380,6 +408,7 @@ function SliderHero() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      {/* Image layer */}
       <div className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
         {slides.map((s, i) => (
           <img
@@ -390,7 +419,7 @@ function SliderHero() {
             style={{
               transform: `translateY(${scrollY * 0.5}px)`,
               imageRendering: 'crisp-edges',
-              filter: 'contrast(1.1) saturate(1.1) brightness(1.05)',
+              filter: 'contrast(1.08) saturate(1.08) brightness(1.05)',
               backfaceVisibility: 'hidden',
               perspective: '1000px',
               willChange: 'transform',
@@ -400,33 +429,57 @@ function SliderHero() {
             fetchPriority="high"
           />
         ))}
-        <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/20 pointer-events-none" />
-      </div>
+        {/* Dim overlay */}
+        <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+        {/* Text overlay (absolute in front of image) */}
+        <div className="absolute inset-0 z-10">
+          <div className="max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
+            <div className="max-w-xl md:max-w-2xl">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight drop-shadow-md">
+                {contents[index].title}
+              </h2>
+              <p className="mt-3 md:mt-4 text-slate-900 text-sm md:text-base leading-relaxed drop-shadow">
+                {contents[index].desc}
+              </p>
+              <div className="mt-4 md:mt-6">
+                <Link
+                  to={contents[index].ctaHref}
+                  className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] text-white border-2 border-white px-5 py-2.5 md:px-6 md:py-3 font-semibold shadow-lg hover:bg-[#4FBDA4] transition-colors"
+                >
+                  {contents[index].ctaLabel}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <button
-        aria-label="Previous slide"
-        onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/50 text-white rounded-full p-3"
-      >
-        ‹
-      </button>
-      <button
-        aria-label="Next slide"
-        onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/50 text-white rounded-full p-3"
-      >
-        ›
-      </button>
+        {/* Arrows */}
+        <button
+          aria-label="Previous slide"
+          onClick={prev}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+        >
+          ‹
+        </button>
+        <button
+          aria-label="Next slide"
+          onClick={next}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+        >
+          ›
+        </button>
 
-      <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => goTo(i)}
-            className={`h-2.5 w-2.5 rounded-full ${i === index ? 'bg-white' : 'bg-white/50'} hover:bg-white`}
-          />)
-        )}
+        {/* Dots */}
+        <div className="absolute bottom-4 left-0 right-0 z-20 flex items-center justify-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => goTo(i)}
+              className={`h-2.5 w-2.5 rounded-full ${i === index ? 'bg-white' : 'bg-white/50'} hover:bg-white`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
