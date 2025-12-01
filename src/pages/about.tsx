@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MissionIcon from '../assets/Mission.png';
 import VisionIcon from '../assets/Vision.png';
 import ChildrenIcon from '../assets/Children.png';
@@ -18,6 +19,7 @@ import BertesImg from '../asset-team-img/Bertes.png';
 import MendozaImg from '../asset-team-img/Mendoza.png';
 import SambilayImg from '../asset-team-img/Sambilay.png';
 import TeamMemberCard from '../components/TeamMemberCard';
+import PhoneHand from '../assets/hand-phone.png';
 
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -193,8 +195,8 @@ export default function About() {
 						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">
 							<img src={MissionIcon} alt="Mission Icon" className="w-8 h-8" />
 						</div>
-						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Mission</h3>
-						<p className="text-sm text-gray-600 leading-relaxed">
+						<h3 className="font-extrabold text-2xl md:text-3xl mb-3" style={{ color: '#2B8A7A' }}>Our Mission</h3>
+						<p className="text-base md:text-lg text-gray-700 leading-relaxed">
 							To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.
 						</p>
 					</div>
@@ -202,10 +204,53 @@ export default function About() {
 						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">
 							<img src={VisionIcon} alt="Vision Icon" className="w-8 h-8" />
 						</div>
-						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Vision</h3>
-						<p className="text-sm text-gray-600 leading-relaxed">
+						<h3 className="font-extrabold text-2xl md:text-3xl mb-3" style={{ color: '#2B8A7A' }}>Our Vision</h3>
+						<p className="text-base md:text-lg text-gray-700 leading-relaxed">
 							To create a world where every child with autism can thrive in their daily routines, guided by parents and supported by technology that fosters growth, independence, and confidence.
 						</p>
+					</div>
+				</div>
+			</section>
+
+			{/* Our Team Section with Flip Cards (moved under Mission & Vision) */}
+			<section className="py-20 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto px-4">
+					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
+						Our Team
+					</h2>
+					<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>
+						Tap / click a card to flip and learn more.
+					</p>
+				</div>
+				<div className="relative">
+					<div ref={scrollContainerRef} className="infinite-carousel px-4">
+						{(() => {
+							const members = [
+								{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
+								{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
+								{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
+								{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg },
+								{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg },
+								{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg },
+								{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg },
+								{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg },
+								{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg },
+								{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg },
+								{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
+								{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
+								{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
+							];
+							const doubled = [...members, ...members];
+							return (
+								<div className="team-track infinite-carousel-track pb-6">
+									{doubled.map((m, idx) => (
+										<div key={m.name + idx} className="flex">
+											<TeamMemberCard name={m.name} role={m.role} img={m.img} />
+										</div>
+									))}
+								</div>
+							);
+						})()}
 					</div>
 				</div>
 			</section>
@@ -218,12 +263,21 @@ export default function About() {
 					</h2>
 					<div className="max-w-4xl mx-auto">
 						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
-							<p className="text-gray-700 text-base leading-relaxed mb-6">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</p>
-							<p className="text-gray-700 text-base leading-relaxed">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							</p>
+								<p className="text-gray-700 text-base leading-relaxed mb-6">
+									Our team began with a simple truth we could no longer ignore: many families of children with autism face overwhelming challenges emotionally, situationally, and often financially. We saw parents working tirelessly to support their children, doing their best with the limited tools and resources available to them. We listened to their stories of long days, unpredictable routines, and the constant search for guidance that was both accessible and meaningful.
+								</p>
+								<p className="text-gray-700 text-base leading-relaxed mb-6">
+									Moved by these experiences, our team came together with one goal: to create something that could truly help. We wanted a tool that didn’t just organize daily routines, but brought comfort, structure, and joy into the lives of children with autism and the families who support them.
+								</p>
+								<p className="text-gray-700 text-base leading-relaxed mb-6">
+									That vision became <span className="font-semibold">Ritmo</span>.
+								</p>
+								<p className="text-gray-700 text-base leading-relaxed mb-6">
+									Ritmo was built not as a product, but as a response — a way to make support more reachable, more practical, and more affordable for every family. By combining routine tracking, audio-visual guides, voice feedback, and parent-focused features, we designed <span className="font-semibold">Ritmo</span> to lighten the daily load and create moments of calm, clarity, and connection.
+								</p>
+								<p className="text-gray-700 text-base leading-relaxed">
+									Our team continues to grow with the same shared purpose: to support families, uplift children, and make life a little easier for those who need it most.
+								</p>
 						</div>
 					</div>
 				</div>
@@ -276,58 +330,36 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* Our Team Section with Flip Cards */}
-			<section className="py-20 bg-white" data-reveal>
-				<div className="max-w-7xl mx-auto px-4">
-					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
-						Our Team
-					</h2>
-					<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>
-						Tap / click a card to flip and learn more.
-					</p>
-				</div>
-				<div className="relative">
-					<div ref={scrollContainerRef} className="infinite-carousel px-4">
-						{(() => {
-							const members = [
-								{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
-								{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
-								{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
-								{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg },
-								{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg },
-								{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg },
-								{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg },
-								{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg },
-								{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg },
-								{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg },
-								{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
-								{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
-								{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
-							];
-							const doubled = [...members, ...members];
-							return (
-								<div className="team-track infinite-carousel-track pb-6">
-									{doubled.map((m, idx) => (
-										<div key={m.name + idx} className="flex">
-											<TeamMemberCard name={m.name} role={m.role} img={m.img} />
-										</div>
-									))}
-								</div>
-							);
-						})()}
+			{/* Availability Promo Section (replaces Join Our Mission) */}
+			<section className="py-16 px-4 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto">
+					<div className="flex flex-col md:flex-row items-center gap-10">
+						{/* Image */}
+						<div className="w-full md:w-1/3">
+							<div className="rounded-2xl shadow-md border border-gray-200 overflow-hidden bg-white max-w-xs mx-auto">
+								<img src={PhoneHand} alt="Hand holding phone with Ritmo app" className="w-full h-auto object-cover" />
+							</div>
+						</div>
+						{/* Text */}
+						<div className="w-full md:w-2/3">
+							<h3 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3">The Ritmo App is now available for download on Android.</h3>
+							<p className="text-gray-700 font-semibold mb-2">What does Ritmo do?</p>
+							<ul className="text-gray-600 space-y-2 mb-6 list-disc pl-5">
+								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+								<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+							</ul>
+							<div className="flex flex-wrap gap-3">
+								<Link to="/download" className="inline-flex items-center gap-2 rounded-full bg-gray-100 text-gray-800 px-5 py-3 shadow-sm hover:bg-gray-200 transition">
+									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+									Download Now
+								</Link>
+								<Link to="/howitworks" className="inline-flex items-center gap-2 rounded-full bg-[#E9FBF7] text-[#2B8A7A] px-5 py-3 shadow-sm border border-[#BFEFE6] hover:bg-[#dff7f0] transition">
+									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+									Watch Demo
+								</Link>
+							</div>
+						</div>
 					</div>
-				</div>
-			</section>
-
-			{/* Join Our Mission Section */}
-			<section className="py-16 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
-				<div className="max-w-7xl mx-auto text-center">
-					<h2 className="text-5xl font-bold text-white mb-4">
-						Join Our Mission
-					</h2>
-					<p className="text-lg text-white">
-						Together, we can build smoother, more structured days for every child.
-					</p>
 				</div>
 			</section>
 
