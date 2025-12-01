@@ -206,21 +206,23 @@ export default function Index() {
       {/* Availability Promo - removed per request */}
 
       {/* Our Mission */}
-      <section className="bg-gray-100 py-12 md:py-16" data-reveal>
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">Our Mission</h3>
-          <p className="mt-4 text-gray-700">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-          <div className="mt-8">
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] text-white px-6 py-3 font-semibold shadow hover:opacity-90 transition-transform hover:-translate-y-0.5"
-            >
-              Learn More About Us
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </Link>
+      <section className="py-12 md:py-16 bg-white" data-reveal>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="bg-gray-100 rounded-3xl shadow-md px-6 md:px-10 lg:px-16 py-10 md:py-14 text-center">
+            <h3 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">Our Mission</h3>
+            <p className="mt-4 text-gray-700 text-lg md:text-xl">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <div className="mt-8">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] text-white px-6 py-3 font-semibold shadow hover:opacity-90 transition-transform hover:-translate-y-0.5"
+              >
+                Learn More About Us
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
