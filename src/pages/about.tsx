@@ -195,7 +195,7 @@ export default function About() {
 						</div>
 						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Mission</h3>
 						<p className="text-sm text-gray-600 leading-relaxed">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.
 						</p>
 					</div>
 					<div className="bg-[#E9FBF7] border border-gray-300 rounded-2xl p-8 shadow-sm transition hover:shadow-md hover:-translate-y-1">
@@ -204,7 +204,7 @@ export default function About() {
 						</div>
 						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Vision</h3>
 						<p className="text-sm text-gray-600 leading-relaxed">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							To create a world where every child with autism can thrive in their daily routines, guided by parents and supported by technology that fosters growth, independence, and confidence.
 						</p>
 					</div>
 				</div>
