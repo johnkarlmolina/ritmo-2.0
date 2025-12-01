@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import RitmoLogo from '../assets/ritmo-lgo.png'
+import TextLogo from '../assets/text-logo.png'
 import Modal from './Modal'
 
 export default function Footer() {
@@ -12,8 +12,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-8 place-items-center md:place-items-start text-center md:text-left">
           {/* Logo and Description */}
           <div>
-            <div className="bg-white rounded-2xl px-4 py-2 inline-block mb-4 mx-auto md:mx-0">
-              <img src={RitmoLogo} alt="Ritmo Logo" className="h-7" />
+            <div className="inline-block mb-4 mx-auto md:mx-0">
+              <img src={TextLogo} alt="Ritmo Logo" className="h-15" />
             </div>
             <p className="text-white/90 text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
