@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[9999] shadow-sm transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur' : 'bg-transparent'} `}
+      className={`fixed top-0 left-0 right-0 z-9999 shadow-sm transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur' : 'bg-transparent'} `}
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <div className="max-w-7xl mx-auto px-4" style={{ paddingLeft: 'max(1rem, env(safe-area-inset-left))', paddingRight: 'max(1rem, env(safe-area-inset-right))' }}>
@@ -109,7 +109,7 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden fixed left-0 right-0 z-[9998] bg-white/95 backdrop-blur shadow-lg border-t border-slate-100" style={{ top: 'calc(5rem + env(safe-area-inset-top))' }}>
+        <div className="md:hidden fixed left-0 right-0 z-9998 bg-white/95 backdrop-blur shadow-lg border-t border-slate-100" style={{ top: 'calc(5rem + env(safe-area-inset-top))' }}>
           <div className="px-4 py-4 flex flex-col items-center space-y-3 text-center text-lg font-medium max-h-[calc(100vh-6rem)] overflow-auto">
             <NavLink to="/" end onClick={(e) => { reloadIfSame('/', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
