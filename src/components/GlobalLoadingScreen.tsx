@@ -57,7 +57,7 @@ export function GlobalLoadingScreen({
           <div className="w-64 md:w-80 mx-auto">
             <div className="h-1 bg-gray-200 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-linear-to-r from-[#61CCB2] to-[#2D7778] rounded-full transition-all duration-500 ease-out"
+                className="h-full bg-gradient-to-r from-[#61CCB2] to-[#2D7778] rounded-full transition-all duration-500 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
