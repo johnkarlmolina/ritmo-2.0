@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
+import { useNetworkAwareLoading } from './hooks/useNetworkAwareLoading'
+import { GlobalLoadingScreen } from './components/GlobalLoadingScreen'
 import frontViewChild from './assets/front-view-kid-making-puzzle-table.jpg'
 import istockPhoto from './assets/istockphoto-2030023202-612x612.jpg'
 import sideViewChild from './assets/side-view-child-learning-how-count-home-using-pencils.jpg'
@@ -11,6 +13,8 @@ import cra3 from './assets/CRA-3.png'
 import handPhoneImg from './assets/hand-phone.png'
 
 export default function Index() {
+  const { isLoading, progress } = useNetworkAwareLoading()
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -67,6 +71,11 @@ export default function Index() {
     sections.forEach(s => observer.observe(s))
     return () => observer.disconnect()
   }, [])
+  // Show loading screen while content is loading
+  if (isLoading) {
+    return <GlobalLoadingScreen isLoading={isLoading} progress={progress} />
+  }
+
   return (
     <>
       <section className="relative mt-4" data-reveal>
@@ -92,7 +101,7 @@ export default function Index() {
 
             {/* Right column: definition card */}
             <div className="w-full">
-              <div className="rounded-2xl bg-gradient-to-b from-[#61CCB2] to-[#2D7778] text-white shadow-xl p-6 md:p-8">
+              <div className="rounded-2xl bg-linear-to-b from-[#61CCB2] to-[#2D7778] text-white shadow-xl p-6 md:p-8">
                 <div className="flex items-center gap-2">
                   <span className="inline-block rounded-full bg-white/90 text-[#2D7778] font-bold px-3 py-1">Autism</span>
                   <span className="text-white/90">aa·ti·zm</span>
@@ -136,7 +145,7 @@ export default function Index() {
             </div>
             {/* Logo image (right on desktop) */}
             <div className="w-full flex items-start justify-center md:justify-end md:pl-0 md:order-2 order-1">
-              <img src={ritmoOldLogo} alt="Ritmo logo" className="w-48 sm:w-64 md:w-72 lg:w-80 xl:w-[22rem] h-auto object-contain" />
+              <img src={ritmoOldLogo} alt="Ritmo logo" className="w-48 sm:w-64 md:w-72 lg:w-80 xl:w-88 h-auto object-contain" />
             </div>
           </div>
         </div>
@@ -235,7 +244,7 @@ export default function Index() {
       {/* Availability Promo */}
       <section className="bg-white min-h-screen flex items-center py-16" data-reveal>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-10 md:p-12 lg:p-14 min-h-[28rem] md:min-h-[32rem] flex items-center">
+          <div className="rounded-3xl border-4 border-[#2B8A7A] bg-[#61CCB2] shadow-xl p-10 md:p-12 lg:p-14 min-h-112 md:min-h-128 flex items-center">
             <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-8 items-center">
               {/* Image panel */}
               <div className="rounded-2xl bg-white/75 p-4 md:p-6 flex items-center justify-center transition transform hover:-translate-y-1 hover:shadow-xl">
