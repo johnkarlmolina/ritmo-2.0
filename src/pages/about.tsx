@@ -19,7 +19,9 @@ import BertesImg from '../asset-team-img/Bertes.png';
 import MendozaImg from '../asset-team-img/Mendoza.png';
 import SambilayImg from '../asset-team-img/Sambilay.png';
 import TeamMemberCard from '../components/TeamMemberCard';
-import PhoneHand from '../assets/hand-phone.png';
+import HandPhoneImg from '../assets/hand-phone.png';
+import DownloadIcon from '../assets/Download.png';
+import WatchIcon from '../assets/Watch.png';
 
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -195,25 +197,25 @@ export default function About() {
 						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">
 							<img src={MissionIcon} alt="Mission Icon" className="w-8 h-8" />
 						</div>
-						<h3 className="font-extrabold text-2xl md:text-3xl mb-3" style={{ color: '#2B8A7A' }}>Our Mission</h3>
-						<p className="text-base md:text-lg text-gray-700 leading-relaxed">
-							To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.
+						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Mission</h3>
+						<p className="text-sm text-gray-600 leading-relaxed">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 						</p>
 					</div>
 					<div className="bg-[#E9FBF7] border border-gray-300 rounded-2xl p-8 shadow-sm transition hover:shadow-md hover:-translate-y-1">
 						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">
 							<img src={VisionIcon} alt="Vision Icon" className="w-8 h-8" />
 						</div>
-						<h3 className="font-extrabold text-2xl md:text-3xl mb-3" style={{ color: '#2B8A7A' }}>Our Vision</h3>
-						<p className="text-base md:text-lg text-gray-700 leading-relaxed">
-							To create a world where every child with autism can thrive in their daily routines, guided by parents and supported by technology that fosters growth, independence, and confidence.
+						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Vision</h3>
+						<p className="text-sm text-gray-600 leading-relaxed">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 						</p>
 					</div>
 				</div>
 			</section>
 
-			{/* Our Team Section with Flip Cards (moved under Mission & Vision) */}
-			<section className="py-20 bg-white" data-reveal>
+			{/* Our Team Section with Flip Cards */}
+			<section className="py-2	 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto px-4">
 					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
 						Our Team
@@ -251,34 +253,6 @@ export default function About() {
 								</div>
 							);
 						})()}
-					</div>
-				</div>
-			</section>
-
-			{/* Our Story Section */}
-			<section className="py-20 px-4 bg-gray-100" data-reveal>
-				<div className="max-w-7xl mx-auto">
-					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>
-						Our Story
-					</h2>
-					<div className="max-w-4xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
-								<p className="text-gray-700 text-base leading-relaxed mb-6">
-									Our team began with a simple truth we could no longer ignore: many families of children with autism face overwhelming challenges emotionally, situationally, and often financially. We saw parents working tirelessly to support their children, doing their best with the limited tools and resources available to them. We listened to their stories of long days, unpredictable routines, and the constant search for guidance that was both accessible and meaningful.
-								</p>
-								<p className="text-gray-700 text-base leading-relaxed mb-6">
-									Moved by these experiences, our team came together with one goal: to create something that could truly help. We wanted a tool that didn’t just organize daily routines, but brought comfort, structure, and joy into the lives of children with autism and the families who support them.
-								</p>
-								<p className="text-gray-700 text-base leading-relaxed mb-6">
-									That vision became <span className="font-semibold">Ritmo</span>.
-								</p>
-								<p className="text-gray-700 text-base leading-relaxed mb-6">
-									Ritmo was built not as a product, but as a response — a way to make support more reachable, more practical, and more affordable for every family. By combining routine tracking, audio-visual guides, voice feedback, and parent-focused features, we designed <span className="font-semibold">Ritmo</span> to lighten the daily load and create moments of calm, clarity, and connection.
-								</p>
-								<p className="text-gray-700 text-base leading-relaxed">
-									Our team continues to grow with the same shared purpose: to support families, uplift children, and make life a little easier for those who need it most.
-								</p>
-						</div>
 					</div>
 				</div>
 			</section>
@@ -330,31 +304,65 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* Availability Promo Section (replaces Join Our Mission) */}
-			<section className="py-16 px-4 bg-white" data-reveal>
+			{/* Our Story Section */}
+			<section className="py-10 px-4 bg-gray-100" data-reveal>
 				<div className="max-w-7xl mx-auto">
-					<div className="flex flex-col md:flex-row items-center gap-10">
-						{/* Image */}
-						<div className="w-full md:w-1/3">
-							<div className="rounded-2xl shadow-md border border-gray-200 overflow-hidden bg-white max-w-xs mx-auto">
-								<img src={PhoneHand} alt="Hand holding phone with Ritmo app" className="w-full h-auto object-cover" />
-							</div>
+					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>
+						Our Story
+					</h2>
+					<div className="max-w-4xl mx-auto">
+						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
+							<p className="text-gray-700 text-base leading-relaxed mb-6">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</p>
+							<p className="text-gray-700 text-base leading-relaxed">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							</p>
 						</div>
-						{/* Text */}
-						<div className="w-full md:w-2/3">
-							<h3 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3">The Ritmo App is now available for download on Android.</h3>
-							<p className="text-gray-700 font-semibold mb-2">What does Ritmo do?</p>
-							<ul className="text-gray-600 space-y-2 mb-6 list-disc pl-5">
-								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-								<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-							</ul>
-							<div className="flex flex-wrap gap-3">
-								<Link to="/download" className="inline-flex items-center gap-2 rounded-full bg-gray-100 text-gray-800 px-5 py-3 shadow-sm hover:bg-gray-200 transition">
-									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+				</div>
+			</div>
+		</section>
+
+	{/* Download Ritmo App Section */}
+	<section className="py-4 bg-white" data-reveal></section>
+	<section className="py-12 px-4 bg-white" data-reveal>
+		<div className="max-w-7xl mx-auto">
+			<div className="flex flex-col md:flex-row items-center justify-center gap-8">
+			{/* Left - Phone Image */}
+			<div className="flex justify-center">
+				<img 
+					src={HandPhoneImg} 
+					alt="Ritmo App on Phone" 
+					className="w-full max-w-xs h-auto object-contain"
+				/>
+			</div>
+
+		{/* Right - Content */}
+			<div className="flex-1 min-w-0 max-w-2xl">
+					<h2 className="text-3xl md:text-4xl font-bold mb-6 whitespace-nowrap" style={{ color: '#2B2B2B' }}>
+						The Ritmo App is now available<br />for download on Android.
+					</h2>
+					
+						<h3 className="text-lg font-semibold mb-4" style={{ color: '#2B2B2B' }}>
+							What does Ritmo do?
+							</h3>
+							
+						<ul className="space-y-3 mb-8">
+							<li className="flex items-start text-gray-700 text-sm">
+								<span className="mr-3 mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-800 shrink-0"></span>
+								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+							</li>
+							<li className="flex items-start text-gray-700 text-sm">
+								<span className="mr-3 mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-800 shrink-0"></span>
+								<span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+							</li>
+						</ul>						<div className="flex flex-wrap gap-4">
+							<Link to="/download" className="flex items-center justify-center gap-2 w-44 py-4 bg-gray-200 hover:bg-gray-300 font-semibold rounded-full shadow-md border border-gray-300 transition-all cursor-pointer" style={{ color: '#2B8A7A' }}>
+								<img src={DownloadIcon} alt="Download" className="w-5 h-5" />
 									Download Now
 								</Link>
-								<Link to="/howitworks" className="inline-flex items-center gap-2 rounded-full bg-[#E9FBF7] text-[#2B8A7A] px-5 py-3 shadow-sm border border-[#BFEFE6] hover:bg-[#dff7f0] transition">
-									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+							<Link to="/features#how-ritmo-works" className="flex items-center justify-center gap-2 w-44 py-4 hover:opacity-90 text-white font-semibold rounded-full shadow-md border-2 border-white transition-all cursor-pointer" style={{ backgroundColor: '#61CCB2' }}>
+								<img src={WatchIcon} alt="Watch" className="w-5 h-5" />
 									Watch Demo
 								</Link>
 							</div>
@@ -362,8 +370,7 @@ export default function About() {
 					</div>
 				</div>
 			</section>
-
-			<section className="py-8 bg-white" data-reveal></section>
+		<section className="py-4 bg-white" data-reveal></section>
 		</div>
 	);
 }
