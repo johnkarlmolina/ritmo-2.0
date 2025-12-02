@@ -6,7 +6,7 @@ import LocationIcon from '../assets/Location.png';
 import ConnectIcon from '../assets/Connect.png';
 import FacebookIcon from '../assets/Facebook.png';
 import InstagramIcon from '../assets/Instagram.png';
-import TwitterIcon from '../assets/Twitter.png';
+// Replaced Twitter with YouTube (inline SVG icon)
 
 export default function Contact() {
 	useEffect(() => {
@@ -273,8 +273,11 @@ export default function Contact() {
 										<span className="text-gray-800 font-medium">Instagram</span>
 									</a>
 									<a href="#" className="flex items-center gap-3 bg-[#E8F4F1] rounded-lg px-4 py-3 hover:bg-[#D5EDE7] transition-colors">
-										<img src={TwitterIcon} alt="Twitter" className="w-5 h-5" />
-										<span className="text-gray-800 font-medium">Twitter</span>
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-[#2B8A7A]" aria-hidden="true">
+											<path fill="currentColor" d="M23.5 6.2a3.1 3.1 0 0 0-2.2-2.2C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.3.5A3.1 3.1 0 0 0 .5 6.2 32 32 0 0 0 0 12c0 1.8.1 3.6.5 5.8a3.1 3.1 0 0 0 2.2 2.2c1.9.5 9.3.5 9.3.5s7.4 0 9.3-.5a3.1 3.1 0 0 0 2.2-2.2c.4-2.2.5-4 .5-5.8 0-1.8-.1-3.6-.5-5.8Z"/>
+											<path fill="#FFF" d="M9.75 15.5v-7l6 3.5-6 3.5Z"/>
+										</svg>
+										<span className="text-gray-800 font-medium">YouTube</span>
 									</a>
 								</div>
 							</div>
