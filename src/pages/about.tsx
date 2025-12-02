@@ -222,9 +222,9 @@ export default function About() {
 								<img src={HandPhoneImg} alt="Hand holding phone with Ritmo app" className="w-full h-auto object-cover" />
 							</div>
 						</div>
-						<div className="w-full md:w-2/3">
-							<h3 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3">The Ritmo App is now available for download on Android.</h3>
-							<p className="text-gray-700 font-semibold mb-2">What does Ritmo do?</p>
+							<div className="w-full md:w-2/3">
+							<h3 className="text-2xl md:text-3xl font-extrabold mb-3" style={{ color: '#2B8A7A' }}>The Ritmo App is now available for download on Android.</h3>
+							<p className="font-semibold mb-2" style={{ color: '#2B8A7A' }}>What does Ritmo do?</p>
 							<ul className="text-gray-600 space-y-2 mb-6 list-disc pl-5">
 								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
 								<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
