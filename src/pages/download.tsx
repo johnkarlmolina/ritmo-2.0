@@ -54,20 +54,18 @@ export default function Download() {
 		return () => observer.disconnect()
 	}, [])
 	return (
-		<div>
-			{/* Hero Section */}
-			<section className="mt-4 pt-20 pb-20 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
+		<section className="mt-4 py-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 			<div className="max-w-7xl mx-auto text-center">
-					<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-						Download Ritmo
-					</h1>
+				<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Download Ritmo</h1>
 				<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
 					Get the app and start building supportive daily routines today.
 				</p>
+				<div className="mt-10">
+					<a href="#" className="inline-flex items-center rounded-full bg-white px-8 py-4 text-[#2D7778] font-semibold shadow hover:bg-white/90 transition-transform hover:-translate-y-0.5">
+						Start Download
+					</a>
+				</div>
 			</div>
 		</section>
-
-			<section className="py-8 bg-white" data-reveal></section>
-		</div>
 	)
 }
