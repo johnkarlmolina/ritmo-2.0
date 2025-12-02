@@ -314,8 +314,8 @@ export default function Features() {
 		<div className="max-w-7xl mx-auto">
 			{/* Header */}
 			<div className="bg-[#61CCB2] rounded-3xl py-4 px-6 mb-6 text-center">
-				<h2 className="text-4xl font-bold mb-1" style={{ color: '#2B2B2B' }}>How Ritmo Works</h2>
-				<p className="text-lg" style={{ color: '#2B2B2B' }}>Watch How Ritmo Works</p>
+				<h2 className="text-4xl font-bold mb-1 text-white">How Ritmo Works</h2>
+				<p className="text-lg text-white">Watch How Ritmo Works</p>
 			</div>
 
 			{/* Video Player (wider, shorter, with sample) */}
@@ -335,15 +335,14 @@ export default function Features() {
 	<section className="py-4 bg-white" data-reveal>
 		<div className="w-full" style={{ backgroundColor: '#61CCB2' }}>
 			<div className="max-w-7xl mx-auto text-center py-12 px-6">
-				<h2 className="text-4xl font-extrabold mb-3" style={{ color: '#2B2B2B' }}>Experience All Features</h2>
-				<p className="text-lg mb-6" style={{ color: '#2B2B2B' }}>
+				<h2 className="text-4xl font-extrabold mb-3 text-white">Experience All Features</h2>
+				<p className="text-lg mb-6 text-white">
 							Download Ritmo today and see how simple routines can bring calm, confidence, and independence.
 						</p>
 				<div className="flex justify-center">
 					<Link
 						to="/download"
-						className="flex items-center justify-center gap-2 w-48 py-4 bg-gray-200 hover:bg-gray-300 font-semibold rounded-full shadow-md border border-gray-300 transition-all"
-						style={{ color: '#2B8A7A' }}
+						className="flex items-center justify-center gap-2 w-48 py-4 bg-white hover:bg-gray-50 text-[#2B8A7A] font-semibold rounded-full shadow-lg border-2 border-white transition-all focus:outline-none focus:ring-4 focus:ring-white/60"
 					>
 						<img src={DownloadIcon} alt="Download" className="w-5 h-5" />
 							Download Now
