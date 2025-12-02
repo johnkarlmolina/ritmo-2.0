@@ -98,9 +98,9 @@ export default function Features() {
 		<div className="hidden lg:grid lg:grid-cols-3 gap-x-0 items-center">
 			{/* Left Column - Cards */}
 			<div className="col-span-1 flex flex-col justify-end space-y-5">
-				<div className="relative ml-auto">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden">
+				<div className="relative ml-auto group cursor-pointer">
+					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 							<div className="flex items-center gap-3 mb-4">
 								<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 									<img src={StarIcon} alt="Star" className="w-6 h-6" />
@@ -127,10 +127,10 @@ export default function Features() {
 									</li>
 								</ul>
 							</div>
-				</div>
-				<div className="relative ml-auto">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden">
+						</div>
+						<div className="relative ml-auto group cursor-pointer">
+							<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+							<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 						<div className="flex items-center gap-3 mb-4">
 							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
@@ -172,9 +172,9 @@ export default function Features() {
 
 			{/* Right Column - Cards */}
 			<div className="col-span-1 flex flex-col space-y-5">
-				<div className="relative">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden">
+				<div className="relative group cursor-pointer">
+					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 						<div className="flex items-center gap-3 mb-4">
 							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
@@ -202,9 +202,9 @@ export default function Features() {
 						</ul>
 					</div>
 				</div>
-				<div className="relative">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden">
+				<div className="relative group cursor-pointer">
+					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 						<div className="flex items-center gap-3 mb-4">
 							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
@@ -230,9 +230,9 @@ export default function Features() {
 		{/* Mobile & Tablet Layout */}
 		<div className="lg:hidden flex flex-col items-center gap-6 py-8">
 			{/* All cards in vertical stack on mobile/tablet */}
-			<div className="relative w-72">
-				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72"></div>
-				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden">
+			<div className="relative w-72 group cursor-pointer">
+				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
@@ -249,9 +249,9 @@ export default function Features() {
 			</div>
 			
 		
-		<div className="relative w-72">
-			<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72"></div>
-			<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden">
+		<div className="relative w-72 group cursor-pointer">
+			<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+			<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 				<div className="flex items-center gap-3 mb-4">
 					<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 						<img src={StarIcon} alt="Star" className="w-6 h-6" />
@@ -272,9 +272,9 @@ export default function Features() {
 				style={{ filter: 'drop-shadow(-6px 6px 0px rgba(128, 128, 128, 0.5))' }}
 			/>
 			
-			<div className="relative w-72">
-				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72"></div>
-				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden">
+			<div className="relative w-72 group cursor-pointer">
+				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
@@ -290,9 +290,9 @@ export default function Features() {
 								</div>
 							</div>
 
-			<div className="relative w-72">
-				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72"></div>
-				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden">
+			<div className="relative w-72 group cursor-pointer">
+				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
