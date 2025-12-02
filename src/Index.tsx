@@ -121,7 +121,7 @@ export default function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 items-start">
             {/* Left column: heading + paragraphs */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">What is autism?</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">What is Autism?</h2>
               <p className="mt-4 text-gray-800 leading-relaxed">
                 Autism, or autism spectrum disorder (ASD), is a developmental condition marked by differences in social communication, interaction, sensory processing, and
                 behavior. People on the spectrum may have a strong need for routines, focused interests, and repetitive actions. These characteristics usually appear in early
