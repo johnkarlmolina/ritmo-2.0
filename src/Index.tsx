@@ -427,14 +427,14 @@ function SliderHero() {
         <button
           aria-label="Previous slide"
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+          className="absolute left-3 md:left-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
         >
           ‹
         </button>
         <button
           aria-label="Next slide"
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+          className="absolute right-3 md:right-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
         >
           ›
         </button>
