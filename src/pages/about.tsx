@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MissionIcon from '../assets/Mission.png';
 import VisionIcon from '../assets/Vision.png';
@@ -25,6 +25,7 @@ import WatchIcon from '../assets/Watch.png';
 
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const [paused, setPaused] = useState(false)
 
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
@@ -117,6 +118,64 @@ export default function About() {
 		});
 	}, []);
 
+	// Auto-scroll the team carousel while allowing user horizontal scrolling
+	useEffect(() => {
+		const el = scrollContainerRef.current
+		if (!el) return
+		let rafId = 0
+		let lastTime = performance.now()
+		const speed = 0.25 // pixels per ms (~250px/sec)
+		// compute loop span as half the scroll width (with duplicated items)
+		const loopSpan = () => {
+			const track = el.querySelector<HTMLElement>('.team-track')
+			if (!track) return 0
+			return Math.floor(track.scrollWidth / 2)
+		}
+
+		const tick = (now: number) => {
+			const dt = now - lastTime
+			lastTime = now
+			if (!paused) {
+				el.scrollLeft += dt * speed
+			}
+			// maintain seamless loop by wrapping at half track span
+			const span = loopSpan()
+			if (span > 0) {
+				if (el.scrollLeft >= span) {
+					el.scrollLeft -= span
+				} else if (el.scrollLeft < 0) {
+					el.scrollLeft += span
+				}
+			}
+			rafId = requestAnimationFrame(tick)
+		}
+
+		rafId = requestAnimationFrame(tick)
+
+		const pauseFor = (ms: number) => {
+			setPaused(true)
+			window.setTimeout(() => setPaused(false), ms)
+		}
+
+		const onMouseEnter = () => setPaused(true)
+		const onMouseLeave = () => setPaused(false)
+		const onTouchStart = () => setPaused(true)
+		const onTouchEnd = () => pauseFor(2000)
+
+		el.addEventListener('mouseenter', onMouseEnter, { passive: true })
+		el.addEventListener('mouseleave', onMouseLeave, { passive: true })
+		el.addEventListener('touchstart', onTouchStart, { passive: true })
+		el.addEventListener('touchend', onTouchEnd, { passive: true })
+
+		return () => {
+			cancelAnimationFrame(rafId)
+			el.removeEventListener('mouseenter', onMouseEnter)
+			el.removeEventListener('mouseleave', onMouseLeave)
+			el.removeEventListener('touchstart', onTouchStart)
+			el.removeEventListener('touchend', onTouchEnd)
+		}
+	}, [paused])
+
 	return (
 		<div>
 			{/* Hero */}
@@ -154,7 +213,7 @@ export default function About() {
 					<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>Tap / click a card to flip and learn more.</p>
 				</div>
 				<div className="relative">
-					<div ref={scrollContainerRef} className="infinite-carousel px-4">
+					<div ref={scrollContainerRef} className="px-4 overflow-x-auto scroll-smooth no-scrollbar">
 						{(() => {
 							const members = [
 								{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
@@ -171,11 +230,11 @@ export default function About() {
 								{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
 								{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
 							];
-							const doubled = [...members, ...members];
+							const doubled = [...members, ...members]
 							return (
-								<div className="team-track infinite-carousel-track pb-6">
+								<div className="team-track flex gap-4 sm:gap-6 pb-4 snap-x snap-mandatory">
 									{doubled.map((m, idx) => (
-										<div key={m.name + idx} className="flex">
+										<div key={m.name + idx} className="snap-start">
 											<TeamMemberCard name={m.name} role={m.role} img={m.img} />
 										</div>
 									))}
@@ -183,6 +242,7 @@ export default function About() {
 							);
 						})()}
 					</div>
+					{/* Auto-scrolling carousel: buttons removed per request; users can swipe/scroll horizontally */}
 				</div>
 			</section>
 

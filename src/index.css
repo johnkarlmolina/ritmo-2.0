@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Hide scrollbars for elements that should not show them */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
 html,
 body,
 #root {
