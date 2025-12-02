@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type React from 'react'
 import { useNetworkAwareLoading } from './hooks/useNetworkAwareLoading'
 import { GlobalLoadingScreen } from './components/GlobalLoadingScreen'
 import handPhoneImg from './assets/hand-phone.png'
@@ -341,6 +342,8 @@ function SliderHero() {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const touchStartRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
+  const touchLastRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
 
   // Parallax scroll effect
   useEffect(() => {
@@ -366,6 +369,27 @@ function SliderHero() {
       className="relative w-full"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={(e: React.TouchEvent) => {
+        const t = e.touches[0]
+        ;(touchStartRef.current.x = t.clientX), (touchStartRef.current.y = t.clientY)
+        touchLastRef.current.x = t.clientX
+        touchLastRef.current.y = t.clientY
+        setPaused(true)
+      }}
+      onTouchMove={(e: React.TouchEvent) => {
+        const t = e.touches[0]
+        touchLastRef.current.x = t.clientX
+        touchLastRef.current.y = t.clientY
+      }}
+      onTouchEnd={() => {
+        const dx = touchLastRef.current.x - touchStartRef.current.x
+        const dy = touchLastRef.current.y - touchStartRef.current.y
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) next()
+          else prev()
+        }
+        setTimeout(() => setPaused(false), 250)
+      }}
     >
       {/* Image layer */}
       <div className="relative h-[80vh] md:h-[92vh] lg:h-screen overflow-hidden">
@@ -427,14 +451,14 @@ function SliderHero() {
         <button
           aria-label="Previous slide"
           onClick={prev}
-          className="absolute left-3 md:left-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+          className="hidden md:block absolute left-3 md:left-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
         >
           ‹
         </button>
         <button
           aria-label="Next slide"
           onClick={next}
-          className="absolute right-3 md:right-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+          className="hidden md:block absolute right-3 md:right-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
         >
           ›
         </button>
