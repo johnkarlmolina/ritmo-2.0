@@ -254,7 +254,7 @@ export default function About() {
 									<img src={DownloadIcon} alt="Download" className="w-5 h-5" />
 									Download Now
 								</Link>
-								<Link to="/howitworks" className="flex items-center justify-center gap-2 w-44 py-4 hover:opacity-90 text-white font-semibold rounded-full shadow-md border-2 border-white transition-all cursor-pointer" style={{ backgroundColor: '#61CCB2' }}>
+								<Link to="/features#how-ritmo-works" className="flex items-center justify-center gap-2 w-44 py-4 hover:opacity-90 text-white font-semibold rounded-full shadow-md border-2 border-white transition-all cursor-pointer" style={{ backgroundColor: '#61CCB2' }}>
 								<img src={WatchIcon} alt="Watch" className="w-5 h-5" />
 									Watch Demo
 								</Link>
