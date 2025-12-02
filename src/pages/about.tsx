@@ -89,10 +89,30 @@ export default function About() {
 			const rect = section.getBoundingClientRect();
 			const vh = window.innerHeight || document.documentElement.clientHeight;
 			if (rect.top < vh && rect.bottom > 0) {
-				headings.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translate(0,0) scale(1) rotate(0deg)'; });
-				texts.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'; });
-				buttons.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'; });
-				cards.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1) rotate(0deg)'; });
+				headings.forEach((node, idx) => {
+					const delay = Math.min(idx * 90, 450);
+					node.style.transition = `transform 850ms cubic-bezier(.16,.68,.44,1.02) ${delay}ms, opacity 850ms ease-out ${delay}ms`;
+					node.style.opacity = '1';
+					node.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
+				});
+				texts.forEach((node, idx) => {
+					const delay = Math.min(idx * 70, 420);
+					node.style.transition = `transform 780ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 780ms ease-out ${delay}ms`;
+					node.style.opacity = '1';
+					node.style.transform = 'translateY(0) scale(1)';
+				});
+				buttons.forEach((node, idx) => {
+					const delay = Math.min(idx * 80, 480);
+					node.style.transition = `transform 720ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 720ms ease-out ${delay}ms`;
+					node.style.opacity = '1';
+					node.style.transform = 'translateY(0) scale(1)';
+				});
+				cards.forEach((node, idx) => {
+					const delay = Math.min(idx * 85, 510);
+					node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 900ms ease-out ${delay}ms`;
+					node.style.opacity = '1';
+					node.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+				});
 			}
 		});
 	}, []);
