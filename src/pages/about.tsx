@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MissionIcon from '../assets/Mission.png';
 import VisionIcon from '../assets/Vision.png';
 import ChildrenIcon from '../assets/Children.png';
@@ -18,6 +19,9 @@ import BertesImg from '../asset-team-img/Bertes.png';
 import MendozaImg from '../asset-team-img/Mendoza.png';
 import SambilayImg from '../asset-team-img/Sambilay.png';
 import TeamMemberCard from '../components/TeamMemberCard';
+import HandPhoneImg from '../assets/hand-phone.png';
+import DownloadIcon from '../assets/Download.png';
+import WatchIcon from '../assets/Watch.png';
 
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -195,7 +199,7 @@ export default function About() {
 						</div>
 						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Mission</h3>
 						<p className="text-sm text-gray-600 leading-relaxed">
-							To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 						</p>
 					</div>
 					<div className="bg-[#E9FBF7] border border-gray-300 rounded-2xl p-8 shadow-sm transition hover:shadow-md hover:-translate-y-1">
@@ -204,27 +208,51 @@ export default function About() {
 						</div>
 						<h3 className="font-bold text-lg mb-3" style={{ color: '#2B8A7A' }}>Our Vision</h3>
 						<p className="text-sm text-gray-600 leading-relaxed">
-							To create a world where every child with autism can thrive in their daily routines, guided by parents and supported by technology that fosters growth, independence, and confidence.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 						</p>
 					</div>
 				</div>
 			</section>
 
-			{/* Our Story Section */}
-			<section className="py-20 px-4 bg-gray-100" data-reveal>
-				<div className="max-w-7xl mx-auto">
-					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>
-						Our Story
+			{/* Our Team Section with Flip Cards */}
+			<section className="py-2	 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto px-4">
+					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
+						Our Team
 					</h2>
-					<div className="max-w-4xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
-							<p className="text-gray-700 text-base leading-relaxed mb-6">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</p>
-							<p className="text-gray-700 text-base leading-relaxed">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							</p>
-						</div>
+					<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>
+						Tap / click a card to flip and learn more.
+					</p>
+				</div>
+				<div className="relative">
+					<div ref={scrollContainerRef} className="infinite-carousel px-4">
+						{(() => {
+							const members = [
+								{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
+								{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
+								{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
+								{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg },
+								{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg },
+								{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg },
+								{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg },
+								{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg },
+								{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg },
+								{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg },
+								{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
+								{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
+								{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
+							];
+							const doubled = [...members, ...members];
+							return (
+								<div className="team-track infinite-carousel-track pb-6">
+									{doubled.map((m, idx) => (
+										<div key={m.name + idx} className="flex">
+											<TeamMemberCard name={m.name} role={m.role} img={m.img} />
+										</div>
+									))}
+								</div>
+							);
+						})()}
 					</div>
 				</div>
 			</section>
@@ -276,62 +304,73 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* Our Team Section with Flip Cards */}
-			<section className="py-20 bg-white" data-reveal>
-				<div className="max-w-7xl mx-auto px-4">
-					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>
-						Our Team
+			{/* Our Story Section */}
+			<section className="py-10 px-4 bg-gray-100" data-reveal>
+				<div className="max-w-7xl mx-auto">
+					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>
+						Our Story
 					</h2>
-					<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>
-						Tap / click a card to flip and learn more.
-					</p>
+					<div className="max-w-4xl mx-auto">
+						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
+							<p className="text-gray-700 text-base leading-relaxed mb-6">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+							</p>
+							<p className="text-gray-700 text-base leading-relaxed">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							</p>
+						</div>
 				</div>
-				<div className="relative">
-					<div ref={scrollContainerRef} className="infinite-carousel px-4">
-						{(() => {
-							const members = [
-								{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
-								{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
-								{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
-								{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg },
-								{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg },
-								{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg },
-								{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg },
-								{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg },
-								{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg },
-								{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg },
-								{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
-								{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
-								{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
-							];
-							const doubled = [...members, ...members];
-							return (
-								<div className="team-track infinite-carousel-track pb-6">
-									{doubled.map((m, idx) => (
-										<div key={m.name + idx} className="flex">
-											<TeamMemberCard name={m.name} role={m.role} img={m.img} />
-										</div>
-									))}
-								</div>
-							);
-						})()}
+			</div>
+		</section>
+
+	{/* Download Ritmo App Section */}
+	<section className="py-4 bg-white" data-reveal></section>
+	<section className="py-12 px-4 bg-white" data-reveal>
+		<div className="max-w-7xl mx-auto">
+			<div className="flex flex-col md:flex-row items-center justify-center gap-8">
+			{/* Left - Phone Image */}
+			<div className="flex justify-center">
+				<img 
+					src={HandPhoneImg} 
+					alt="Ritmo App on Phone" 
+					className="w-full max-w-xs h-auto object-contain"
+				/>
+			</div>
+
+		{/* Right - Content */}
+			<div className="flex-1 min-w-0 max-w-2xl">
+					<h2 className="text-3xl md:text-4xl font-bold mb-6 whitespace-nowrap" style={{ color: '#2B2B2B' }}>
+						The Ritmo App is now available<br />for download on Android.
+					</h2>
+					
+						<h3 className="text-lg font-semibold mb-4" style={{ color: '#2B2B2B' }}>
+							What does Ritmo do?
+							</h3>
+							
+						<ul className="space-y-3 mb-8">
+							<li className="flex items-start text-gray-700 text-sm">
+								<span className="mr-3 mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-800 shrink-0"></span>
+								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+							</li>
+							<li className="flex items-start text-gray-700 text-sm">
+								<span className="mr-3 mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-800 shrink-0"></span>
+								<span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+							</li>
+						</ul>						<div className="flex flex-wrap gap-4">
+							<Link to="/download" className="flex items-center justify-center gap-2 w-44 py-4 bg-gray-200 hover:bg-gray-300 font-semibold rounded-full shadow-md border border-gray-300 transition-all cursor-pointer" style={{ color: '#2B8A7A' }}>
+								<img src={DownloadIcon} alt="Download" className="w-5 h-5" />
+									Download Now
+								</Link>
+							<Link to="/features#how-ritmo-works" className="flex items-center justify-center gap-2 w-44 py-4 hover:opacity-90 text-white font-semibold rounded-full shadow-md border-2 border-white transition-all cursor-pointer" style={{ backgroundColor: '#61CCB2' }}>
+								<img src={WatchIcon} alt="Watch" className="w-5 h-5" />
+									Watch Demo
+								</Link>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
-
-			{/* Join Our Mission Section */}
-			<section className="py-16 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
-				<div className="max-w-7xl mx-auto text-center">
-					<h2 className="text-5xl font-bold text-white mb-4">
-						Join Our Mission
-					</h2>
-					<p className="text-lg text-white">
-						Together, we can build smoother, more structured days for every child.
-					</p>
-				</div>
-			</section>
-
-			<section className="py-8 bg-white" data-reveal></section>
+		<section className="py-4 bg-white" data-reveal></section>
 		</div>
 	);
 }
