@@ -368,7 +368,7 @@ function SliderHero() {
       onMouseLeave={() => setPaused(false)}
     >
       {/* Image layer */}
-      <div className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
+      <div className="relative h-[80vh] md:h-[92vh] lg:h-screen overflow-hidden">
         {slides.map((s, i) => (
           <img
             key={s.alt}
