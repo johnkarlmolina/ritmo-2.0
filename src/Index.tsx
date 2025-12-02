@@ -66,6 +66,40 @@ export default function Index() {
       })
     }, { threshold: 0.15 })
     sections.forEach(s => observer.observe(s))
+
+    // Ensure elements already in view reveal on initial load without scrolling
+    const vh = window.innerHeight || document.documentElement.clientHeight
+    sections.forEach((el) => {
+      const rect = el.getBoundingClientRect()
+      if (rect.top < vh && rect.bottom > 0) {
+        const headings = el.querySelectorAll<HTMLElement>('h1,h2,h3')
+        const texts = el.querySelectorAll<HTMLElement>('p,li')
+        const buttons = el.querySelectorAll<HTMLElement>('a,button')
+        const cards = el.querySelectorAll<HTMLElement>('.rounded-2xl,.rounded-3xl')
+        requestAnimationFrame(() => {
+          headings.forEach((node, idx) => {
+            const d = Math.min(idx * 90, 450)
+            node.style.transition = `transform 820ms cubic-bezier(.16,.68,.44,1.02) ${d}ms, opacity 820ms ease-out ${d}ms`
+            node.style.opacity = '1'; node.style.transform = 'translate(0,0) scale(1)'
+          })
+          texts.forEach((node, idx) => {
+            const d = Math.min(idx * 70, 420)
+            node.style.transition = `transform 760ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 760ms ease-out ${d}ms`
+            node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'
+          })
+          buttons.forEach((node, idx) => {
+            const d = Math.min(idx * 80, 480)
+            node.style.transition = `transform 700ms cubic-bezier(.19,1,.22,1) ${d}ms, opacity 700ms ease-out ${d}ms`
+            node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'
+          })
+          cards.forEach((node, idx) => {
+            const d = Math.min(idx * 75, 480)
+            node.style.transition = `transform 880ms cubic-bezier(.23,1,.32,1) ${d}ms, opacity 800ms ease-out ${d}ms`
+            node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'
+          })
+        })
+      }
+    })
     return () => observer.disconnect()
   }, [])
   // Show loading screen while content is loading

@@ -68,10 +68,30 @@ export default function Features() {
 			const rect = section.getBoundingClientRect();
 			const vh = window.innerHeight || document.documentElement.clientHeight;
 			if (rect.top < vh && rect.bottom > 0) {
-				headings.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translate(0,0) scale(1) rotate(0deg)'; });
-				texts.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'; });
-				buttons.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1)'; });
-				cards.forEach((node) => { node.style.opacity = '1'; node.style.transform = 'translateY(0) scale(1) rotate(0deg)'; });
+				headings.forEach((node, idx) => {
+					const delay = Math.min(idx * 90, 450);
+					node.style.transition = `transform 850ms cubic-bezier(.16,.68,.44,1.02) ${delay}ms, opacity 850ms ease-out ${delay}ms`;
+					node.style.opacity = '1';
+					node.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
+				});
+				texts.forEach((node, idx) => {
+					const delay = Math.min(idx * 70, 420);
+					node.style.transition = `transform 780ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 780ms ease-out ${delay}ms`;
+					node.style.opacity = '1';
+					node.style.transform = 'translateY(0) scale(1)';
+				});
+				buttons.forEach((node, idx) => {
+					const delay = Math.min(idx * 80, 480);
+					node.style.transition = `transform 720ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 720ms ease-out ${delay}ms`;
+					node.style.opacity = '1';
+					node.style.transform = 'translateY(0) scale(1)';
+				});
+				cards.forEach((node, idx) => {
+					const delay = Math.min(idx * 85, 510);
+					node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 900ms ease-out ${delay}ms`;
+					node.style.opacity = '1';
+					node.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+				});
 			}
 		});
 
@@ -310,17 +330,18 @@ export default function Features() {
 	</section>
 
 	{/* How Ritmo Works Section */}
-	<section id="how-ritmo-works" className="py-12 px-4 bg-white" data-reveal>
-		<div className="max-w-7xl mx-auto">
-			{/* Header */}
-			<div className="bg-[#61CCB2] rounded-3xl py-4 px-6 mb-6 text-center">
-				<h2 className="text-4xl font-bold mb-1 text-white">How Ritmo Works</h2>
-				<p className="text-lg text-white">Watch How Ritmo Works</p>
-			</div>
+	{/* How Ritmo Works header (align styling to News/Contact hero) */}
+	<section id="how-ritmo-works" className="py-8 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
+		<div className="max-w-7xl mx-auto text-center">
+			<h2 className="text-4xl font-bold mb-1 text-white">How Ritmo Works</h2>
+			<p className="text-lg text-white">Watch How Ritmo Works</p>
+		</div>
+	</section>
 
-			{/* Video Player (wider, shorter, with sample) */}
+	{/* How Ritmo Works content (video) */}
+	<section className="py-6 px-4 bg-white" data-reveal>
+		<div className="max-w-7xl mx-auto">
 			<div className="relative bg-gray-400 rounded-3xl overflow-hidden" style={{ paddingBottom: '42%' }}>
-				{/* Playable sample video */}
 				<video
 					className="absolute inset-0 w-full h-full object-cover"
 					controls
