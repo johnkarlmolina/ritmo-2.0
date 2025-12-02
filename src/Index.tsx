@@ -148,7 +148,7 @@ export default function Index() {
           </div>
 
           {/* Full-width: Routine for Autism */}
-          <div className="mt-12">
+          <div className="mt-6 md:mt-8">
             <h3 className="text-2xl md:text-3xl font-extrabold text-[#2D7778]">Routine for Autism</h3>
             <p className="mt-4 text-gray-800 leading-relaxed">
               Autistic individuals often share that routines, rituals, and organized planning help them cope with stress by adding predictability and structure to their daily
@@ -160,7 +160,7 @@ export default function Index() {
       </section>
 
       <section className="bg-white" data-reveal>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-16 w-full">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8 pb-12 md:pb-16 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 lg:gap-16 items-center">
             {/* Text column (right on desktop) */}
             <div className="w-full md:pl-6 md:order-2 order-2">
