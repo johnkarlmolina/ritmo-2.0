@@ -21,6 +21,12 @@ body {
   color: #0f172a; /* slate-900 */
 }
 
+/* Accessible text scaling: apply on the html element */
+html.text-scale-1 { font-size: 18px; }
+html.text-scale-2 { font-size: 20px; }
+html.text-scale-3 { font-size: 22px; }
+
+
 /* Infinite carousel for Team section */
 .infinite-carousel {
   overflow: hidden;
