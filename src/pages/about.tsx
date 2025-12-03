@@ -130,6 +130,7 @@ export default function About() {
 		let isDragging = false;
 		let startX = 0;
 		let startScrollLeft = 0;
+		const dragThreshold = 10; // px movement before treating as drag
 
 		// Initialize in the middle block to allow seamless left/right scrolling
 		const initPosition = () => {
@@ -155,23 +156,32 @@ export default function About() {
 		};
 
 		const onPointerDown = (e: PointerEvent) => {
-			isDragging = true;
+			// If starting on a card, let the card handle the click (no drag)
+			const target = e.target as HTMLElement;
+			if (target.closest('.flip-card')) return;
+			if (e.button !== 0) return; // only left button starts potential drag
+			isDragging = false;
 			startX = e.clientX;
 			startScrollLeft = container.scrollLeft;
-			container.setPointerCapture?.(e.pointerId);
-			container.style.cursor = 'grabbing';
+			container.style.cursor = '';
 		};
 
 		const onPointerMove = (e: PointerEvent) => {
-			if (!isDragging) return;
+			const target = e.target as HTMLElement;
+			if (target.closest('.flip-card')) return; // don't hijack move over a card
+			if (e.buttons !== 1) return; // require left button held
 			const dx = e.clientX - startX;
-			container.scrollLeft = startScrollLeft - dx;
+			if (!isDragging && Math.abs(dx) > dragThreshold) {
+				isDragging = true;
+				container.style.cursor = 'grabbing';
+			}
+			if (isDragging) {
+				container.scrollLeft = startScrollLeft - dx;
+			}
 		};
 
-		const endDrag = (e?: PointerEvent) => {
-			if (!isDragging) return;
+		const endDrag = (_e?: PointerEvent) => {
 			isDragging = false;
-			if (e) container.releasePointerCapture?.(e.pointerId);
 			container.style.cursor = '';
 		};
 
@@ -254,37 +264,37 @@ export default function About() {
 						<div
 							ref={scrollContainerRef}
 							className="px-4 overflow-x-auto no-scrollbar select-none"
-							style={{ scrollBehavior: 'auto', WebkitOverflowScrolling: 'auto' }}
+							style={{ scrollBehavior: 'auto', WebkitOverflowScrolling: 'auto', touchAction: 'pan-y' }}
 						>
 							{(() => {
 								const members = [
-									{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
-									{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
-									{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
-									{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg },
-									{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg },
-									{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg },
-									{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg },
-									{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg },
-									{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg },
-									{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg },
-									{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
-									{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
-									{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
+									{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg, details: 'Leads cross-functional efforts and keeps the team aligned to goals.' },
+									{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg, details: 'Designs human-centered interfaces and ensures accessible experiences.' },
+									{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg, details: 'Architects core features and maintains code quality and performance.' },
+									{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg, details: 'Builds reliable APIs and data flows powering Ritmo routines.' },
+									{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg, details: 'Implements responsive UI and smooth interactions for daily use.' },
+									{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg, details: 'Focuses on server logic and secure data handling.' },
+									{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg, details: 'Delivers features with attention to clarity and performance.' },
+									{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg, details: 'Shapes visual identity and consistent design systems.' },
+									{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg, details: 'Analyzes requirements and streamlines workflows for families.' },
+									{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg, details: 'Translates user needs into actionable technical specs.' },
+									{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg, details: 'Improves processes and ensures reliable routine tracking.' },
+									{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg, details: 'Helps validate features that support daily independence.' },
+									{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg, details: 'Focuses on usability and real-world routine scenarios.' }
 								];
 								return (
 									<div ref={trackRef} className="flex pb-4 gap-4 sm:gap-6">
 										<div ref={contentRef} className="flex gap-4 sm:gap-6">
 											{members.map((m) => (
 												<div key={m.name}>
-													<TeamMemberCard name={m.name} role={m.role} img={m.img} />
+													<TeamMemberCard name={m.name} role={m.role} img={m.img} details={m.details} />
 												</div>
 											))}
 										</div>
 										<div ref={cloneRef} className="flex gap-4 sm:gap-6" aria-hidden="true">
 											{members.map((m, idx) => (
 												<div key={m.name + '-clone-' + idx}>
-													<TeamMemberCard name={m.name} role={m.role} img={m.img} />
+													<TeamMemberCard name={m.name} role={m.role} img={m.img} details={m.details} />
 												</div>
 											))}
 										</div>
