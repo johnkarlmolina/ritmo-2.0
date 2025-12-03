@@ -16,7 +16,8 @@ export default function Footer() {
               <img src={TextLogo} alt="Ritmo Logo" className="h-15" />
             </div>
             <p className="text-white/90 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Autism empowering
+              One routine at a time
             </p>
           </div>
 
