@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MissionIcon from '../assets/Mission.png';
 import VisionIcon from '../assets/Vision.png';
@@ -26,7 +26,6 @@ import WatchIcon from '../assets/Watch.png';
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 	const trackRef = useRef<HTMLDivElement | null>(null);
-  const [paused, setPaused] = useState(false)
 
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
@@ -119,63 +118,12 @@ export default function About() {
 		});
 	}, []);
 
-	// Auto-scroll the team carousel with transform for better performance
+	// Make carousel static: disable autoplay; allow manual swipe/scroll.
 	useEffect(() => {
-		const container = scrollContainerRef.current
 		const track = trackRef.current
-		if (!container || !track) return
-
-		let rafId = 0
-		let lastTime = performance.now()
-		const speed = 0.18 // px/ms
-		let offset = 0 // current translateX offset
-		track.style.willChange = 'transform'
-
-		const halfWidth = () => Math.floor(track.scrollWidth / 2)
-
-		const step = (now: number) => {
-			const dt = Math.min(now - lastTime, 32)
-			lastTime = now
-			if (!paused) {
-				offset += dt * speed
-				const span = halfWidth()
-				if (span > 0) {
-					if (offset >= span) offset -= span
-					else if (offset < 0) offset += span
-				}
-				track.style.transform = `translateX(${-offset}px)`
-			}
-			rafId = requestAnimationFrame(step)
-		}
-
-		rafId = requestAnimationFrame(step)
-
-		const pauseFor = (ms: number) => {
-			setPaused(true)
-			window.setTimeout(() => setPaused(false), ms)
-		}
-
-		const onMouseEnter = () => setPaused(true)
-		const onMouseLeave = () => setPaused(false)
-		const onTouchStart = () => setPaused(true)
-		const onTouchEnd = () => pauseFor(2000)
-		const onScroll = () => pauseFor(1500)
-
-		container.addEventListener('mouseenter', onMouseEnter, { passive: true })
-		container.addEventListener('mouseleave', onMouseLeave, { passive: true })
-		container.addEventListener('touchstart', onTouchStart, { passive: true })
-		container.addEventListener('touchend', onTouchEnd, { passive: true })
-		container.addEventListener('scroll', onScroll, { passive: true })
-
-		return () => {
-			cancelAnimationFrame(rafId)
-			container.removeEventListener('mouseenter', onMouseEnter)
-			container.removeEventListener('mouseleave', onMouseLeave)
-			container.removeEventListener('touchstart', onTouchStart)
-			container.removeEventListener('touchend', onTouchEnd)
-			container.removeEventListener('scroll', onScroll)
-		}
-	}, [paused])
+		if (!track) return
+		track.style.transform = ''
+	}, [])
 
 	return (
 		<div>
