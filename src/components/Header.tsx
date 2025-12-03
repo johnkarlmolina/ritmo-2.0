@@ -14,19 +14,37 @@ export default function Header() {
   }
 
   const [scrolled, setScrolled] = useState(false)
+  const [mobileHidden, setMobileHidden] = useState(false)
+  const [lastY, setLastY] = useState(0)
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 8)
+      const y = window.scrollY
+      setScrolled(y > 8)
+      // Mobile auto-hide on scroll down, show on scroll up
+      const isMobile = window.innerWidth < 768
+      if (isMobile) {
+        const goingDown = y > lastY
+        const distance = Math.abs(y - lastY)
+        // small threshold to avoid flicker
+        if (distance > 4) {
+          if (goingDown && y > 16) setMobileHidden(true)
+          else setMobileHidden(false)
+          setLastY(y)
+        }
+      } else {
+        // ensure visible on desktop
+        setMobileHidden(false)
+      }
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [lastY])
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-9999 shadow-sm transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur' : 'bg-transparent'} `}
+      className={`fixed top-0 left-0 right-0 z-9999 shadow-sm transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur' : 'bg-transparent'} transform ${mobileHidden ? '-translate-y-full md:translate-y-0' : 'translate-y-0'} `}
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <div className="max-w-7xl mx-auto px-4" style={{ paddingLeft: 'max(1rem, env(safe-area-inset-left))', paddingRight: 'max(1rem, env(safe-area-inset-right))' }}>
