@@ -20,7 +20,8 @@ export default function Header() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY
-      setScrolled(y > 8)
+      // Use a slightly larger threshold so top stays truly transparent
+      setScrolled(y > 24)
       // Mobile auto-hide on scroll down, show on scroll up
       const isMobile = window.innerWidth < 768
       if (isMobile) {
@@ -37,14 +38,14 @@ export default function Header() {
         setMobileHidden(false)
       }
     }
-    onScroll()
+    // Do not force-run on mount; start as transparent
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [lastY])
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-9999 shadow-sm transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur' : 'bg-transparent'} transform ${mobileHidden ? '-translate-y-full md:translate-y-0' : 'translate-y-0'} `}
+      className={`fixed top-0 left-0 right-0 z-9999 ${scrolled ? 'shadow-sm bg-white border-b border-slate-200' : 'shadow-none bg-slate-200/30 backdrop-blur-md border-b border-slate-200/40'} transition-all duration-300 transform ${mobileHidden ? '-translate-y-full md:translate-y-0' : 'translate-y-0'} `}
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
       <div className="max-w-7xl mx-auto px-4" style={{ paddingLeft: 'max(1rem, env(safe-area-inset-left))', paddingRight: 'max(1rem, env(safe-area-inset-right))' }}>
