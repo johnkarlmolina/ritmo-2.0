@@ -4,6 +4,10 @@ import type React from 'react'
 import { useNetworkAwareLoading } from './hooks/useNetworkAwareLoading'
 import { GlobalLoadingScreen } from './components/GlobalLoadingScreen'
 import handPhoneImg from './assets/hand-phone.png'
+import feature1 from './assets/Feature-1.png'
+import feature2 from './assets/Feature-2.png'
+import feature3 from './assets/Feature-3.png'
+import feature4 from './assets/Feature-4.png'
 import frontViewChild from './assets/front-view-kid-making-puzzle-table.jpg'
 import istockPhoto from './assets/istockphoto-2030023202-612x612.jpg'
 import sideViewChild from './assets/side-view-child-learning-how-count-home-using-pencils.jpg'
@@ -191,11 +195,18 @@ export default function Index() {
             Explore the core tools that make Ritmo simple, supportive, and child‑friendly.
           </p>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['Routine Builder','Visual Schedules','Positive Reminders','Progress Tracking'].map((title) => (
-              <div key={title} className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-6 flex flex-col transition transform hover:-translate-y-1 hover:shadow-2xl">
-                <div className="h-12 w-12 rounded-xl bg-[#61CCB2]/20 mb-4" />
-                <div className="font-semibold text-[#2D7778]">{title}</div>
-                <div className="mt-2 text-sm text-gray-700">Brief description about this feature and how it helps.</div>
+            {[
+              { title: 'Autism-Friendly', desc: 'Clear visuals and animations made for children with autism.', img: feature1 },
+              { title: 'Parental Control', desc: 'Parents manage routines and keep app usage safe.', img: feature2 },
+              { title: 'Entertainment', desc: 'Fun games, videos, and stories for active learning.', img: feature3 },
+              { title: 'Progress Tracking', desc: 'See your child’s improvements through routine reports.', img: feature4 },
+            ].map((f) => (
+              <div key={f.title} className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-6 flex flex-col transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30">
+                <div className="h-12 w-12 rounded-xl bg-[#61CCB2]/20 mb-4 flex items-center justify-center overflow-hidden">
+                  <img src={f.img} alt={`${f.title} icon`} className="h-10 w-10 object-contain" />
+                </div>
+                <div className="font-semibold text-[#2D7778]">{f.title}</div>
+                <div className="mt-2 text-sm text-gray-700">{f.desc}</div>
               </div>
             ))}
           </div>
@@ -214,13 +225,12 @@ export default function Index() {
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">Why Ritmo Helps</h2>
             <p className="mt-4 text-base md:text-lg text-gray-700">Benefits for everyone involved</p>
           </div>
-          <div className="mt-14 grid gap-10 lg:gap-12 grid-cols-1 md:grid-cols-3">
+          <div className="mt-14 grid gap-10 lg:gap-12 grid-cols-1 md:grid-cols-2 place-items-center">
             {[
-              { title: 'For Children', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
-              { title: 'For Parent', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
-              { title: 'For Therapist', items: ['Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum','Lorem Ipsum'] },
+              { title: 'For Children', items: ['Provides clear step-by-step visual guidance','Helps build independence in daily routines','Encourages positive behavior and achievements','Supports learning through engaging visuals'] },
+              { title: 'For Parent', items: ['Makes routine management easier at home','Monitors the child’s progress daily','Customizable schedules for unique needs','Promotes consistency and smoother days for the family'] },
             ].map(block => (
-              <div key={block.title} className="rounded-2xl bg-[#61CCB2]/20 border border-[#61CCB2]/40 shadow-md p-8 md:p-10">
+              <div key={block.title} className="w-full rounded-2xl bg-[#61CCB2]/20 border border-[#61CCB2]/40 shadow-md p-8 md:p-10 transition transform hover:-translate-y-1 hover:shadow-xl">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#2D7778]">{block.title}</h3>
                 <ul className="mt-6 space-y-3 text-[#2D7778] text-base">
                   {block.items.map((item, idx) => (
@@ -246,8 +256,7 @@ export default function Index() {
           <div className="bg-gray-100 rounded-3xl shadow-md px-6 md:px-10 lg:px-16 py-10 md:py-14 text-center">
             <h3 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">Our Mission</h3>
             <p className="mt-4 text-gray-700 text-lg md:text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+             To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.
             </p>
             <div className="mt-8">
               <Link
