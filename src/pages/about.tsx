@@ -25,6 +25,7 @@ import WatchIcon from '../assets/Watch.png';
 
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+	const trackRef = useRef<HTMLDivElement | null>(null);
   const [paused, setPaused] = useState(false)
 
 	useEffect(() => {
@@ -118,39 +119,36 @@ export default function About() {
 		});
 	}, []);
 
-	// Auto-scroll the team carousel while allowing user horizontal scrolling
+	// Auto-scroll the team carousel with transform for better performance
 	useEffect(() => {
-		const el = scrollContainerRef.current
-		if (!el) return
+		const container = scrollContainerRef.current
+		const track = trackRef.current
+		if (!container || !track) return
+
 		let rafId = 0
 		let lastTime = performance.now()
-		const speed = 0.25 // pixels per ms (~250px/sec)
-		// compute loop span as half the scroll width (with duplicated items)
-		const loopSpan = () => {
-			const track = el.querySelector<HTMLElement>('.team-track')
-			if (!track) return 0
-			return Math.floor(track.scrollWidth / 2)
-		}
+		const speed = 0.18 // px/ms
+		let offset = 0 // current translateX offset
+		track.style.willChange = 'transform'
 
-		const tick = (now: number) => {
-			const dt = now - lastTime
+		const halfWidth = () => Math.floor(track.scrollWidth / 2)
+
+		const step = (now: number) => {
+			const dt = Math.min(now - lastTime, 32)
 			lastTime = now
 			if (!paused) {
-				el.scrollLeft += dt * speed
-			}
-			// maintain seamless loop by wrapping at half track span
-			const span = loopSpan()
-			if (span > 0) {
-				if (el.scrollLeft >= span) {
-					el.scrollLeft -= span
-				} else if (el.scrollLeft < 0) {
-					el.scrollLeft += span
+				offset += dt * speed
+				const span = halfWidth()
+				if (span > 0) {
+					if (offset >= span) offset -= span
+					else if (offset < 0) offset += span
 				}
+				track.style.transform = `translateX(${-offset}px)`
 			}
-			rafId = requestAnimationFrame(tick)
+			rafId = requestAnimationFrame(step)
 		}
 
-		rafId = requestAnimationFrame(tick)
+		rafId = requestAnimationFrame(step)
 
 		const pauseFor = (ms: number) => {
 			setPaused(true)
@@ -161,18 +159,21 @@ export default function About() {
 		const onMouseLeave = () => setPaused(false)
 		const onTouchStart = () => setPaused(true)
 		const onTouchEnd = () => pauseFor(2000)
+		const onScroll = () => pauseFor(1500)
 
-		el.addEventListener('mouseenter', onMouseEnter, { passive: true })
-		el.addEventListener('mouseleave', onMouseLeave, { passive: true })
-		el.addEventListener('touchstart', onTouchStart, { passive: true })
-		el.addEventListener('touchend', onTouchEnd, { passive: true })
+		container.addEventListener('mouseenter', onMouseEnter, { passive: true })
+		container.addEventListener('mouseleave', onMouseLeave, { passive: true })
+		container.addEventListener('touchstart', onTouchStart, { passive: true })
+		container.addEventListener('touchend', onTouchEnd, { passive: true })
+		container.addEventListener('scroll', onScroll, { passive: true })
 
 		return () => {
 			cancelAnimationFrame(rafId)
-			el.removeEventListener('mouseenter', onMouseEnter)
-			el.removeEventListener('mouseleave', onMouseLeave)
-			el.removeEventListener('touchstart', onTouchStart)
-			el.removeEventListener('touchend', onTouchEnd)
+			container.removeEventListener('mouseenter', onMouseEnter)
+			container.removeEventListener('mouseleave', onMouseLeave)
+			container.removeEventListener('touchstart', onTouchStart)
+			container.removeEventListener('touchend', onTouchEnd)
+			container.removeEventListener('scroll', onScroll)
 		}
 	}, [paused])
 
@@ -232,7 +233,7 @@ export default function About() {
 							];
 							const doubled = [...members, ...members]
 							return (
-								<div className="team-track flex gap-4 sm:gap-6 pb-4 snap-x snap-mandatory">
+								<div ref={trackRef} className="team-track flex gap-4 sm:gap-6 pb-4 snap-x snap-proximity">
 									{doubled.map((m, idx) => (
 										<div key={m.name + idx} className="snap-start">
 											<TeamMemberCard name={m.name} role={m.role} img={m.img} />
