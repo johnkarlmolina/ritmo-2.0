@@ -20,9 +20,9 @@ export default function Modal({ open, title, onClose, children }: ModalProps) {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center" aria-modal="true" role="dialog">
+    <div className="fixed inset-0 z-[2000] flex items-center justify-center" aria-modal="true" role="dialog">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative mx-4 w-full max-w-4xl">
+      <div className="relative mx-4 md:mx-8 my-8 md:my-12 w-full max-w-3xl">
         <div className="rounded-3xl border-4 border-[#2B8A7A] bg-white shadow-xl">
           <div className="px-6 py-5 border-b-2 border-[#2B8A7A]/30 flex items-center justify-center relative">
             <h2 className="text-xl md:text-2xl font-extrabold text-[#2D7778] text-center w-full px-10">
@@ -37,7 +37,7 @@ export default function Modal({ open, title, onClose, children }: ModalProps) {
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
           </div>
-          <div className="px-6 py-6 max-h-[80vh] overflow-auto text-gray-700 leading-relaxed">
+          <div className="px-6 py-6 max-h-[60vh] overflow-auto text-gray-700 leading-relaxed">
             {children}
           </div>
           <div className="px-6 py-4 border-t-2 border-[#2B8A7A]/30 flex justify-end">
