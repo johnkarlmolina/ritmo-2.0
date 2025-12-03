@@ -21,7 +21,9 @@ export default function Index() {
     window.scrollTo(0, 0)
   }, [])
   // Sliding / reveal animations similar to other pages
+  // Run only after loading screen finishes so sections exist in the DOM
   useEffect(() => {
+    if (isLoading) return
     const sections = Array.from(document.querySelectorAll<HTMLElement>('section[data-reveal]'))
     const hide = (el: HTMLElement) => {
       const headings = el.querySelectorAll<HTMLElement>('h1,h2,h3')
@@ -106,7 +108,7 @@ export default function Index() {
       }
     })
     return () => observer.disconnect()
-  }, [])
+  }, [isLoading])
   // Show loading screen while content is loading
   if (isLoading) {
     return <GlobalLoadingScreen isLoading={isLoading} progress={progress} />
