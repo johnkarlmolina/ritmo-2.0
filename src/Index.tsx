@@ -203,7 +203,7 @@ export default function Index() {
             <Link to="/features" className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white font-semibold hover:bg-white/10 transition-colors">
               View All Features
             </Link>
-          </div>
+        </div>
         </div>
       </section>
 
@@ -289,7 +289,7 @@ export default function Index() {
                   <span>Download Now</span>
                 </Link>
                 <Link
-                  to="/demo"
+                  to="/features#how-ritmo-works"
                   className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-transform hover:-translate-y-0.5"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><polygon points="5 3 19 12 5 21 5 3"/></svg>
