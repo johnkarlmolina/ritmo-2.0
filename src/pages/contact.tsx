@@ -165,7 +165,7 @@ export default function Contact() {
 			</section>
 
 			{/* Send Us a Message Section */}
-			<section className="py-20 px-4 bg-gray-100" data-reveal>
+			<section className="py-20 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<div className="text-center mb-12">
 						<h2 className="text-5xl font-bold mb-4" style={{ color: '#2B8A7A' }}>
@@ -177,7 +177,7 @@ export default function Contact() {
 					</div>
 
 					<div className="max-w-3xl mx-auto">
-						<div className="bg-gray-200 rounded-3xl p-12 shadow-md">
+						<div className="bg-white rounded-3xl p-12 shadow-md">
 							<form className="space-y-6">
 								{/* Name and Email Row */}
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">

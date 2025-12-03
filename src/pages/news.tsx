@@ -76,67 +76,65 @@ export default function News() {
 				</div>
 			</section>
 
-            {/* Filter Buttons Section removed per request */}
-
-		{/* Featured Stories Section */}
-		<section className="pt-20 pb-12 px-4 bg-white" data-reveal>
-			<div className="max-w-6xl mx-auto">
-				<h2 className="text-4xl font-bold mb-12" style={{ color: '#2B8A7A' }}>
-					Featured Stories
-				</h2>
+			{/* Featured Stories Section */}
+			<section className="pt-20 pb-12 px-4 bg-white" data-reveal>
+				<div className="max-w-6xl mx-auto">
+					<h2 className="text-4xl font-bold mb-12" style={{ color: '#2B8A7A' }}>
+						Featured Stories
+					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-					{/* Story Card 1 */}
-					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
-						<div className="h-48 bg-[#61CCB2]"></div>
-						<div className="p-6">
-							<div className="flex items-center gap-3 mb-2">
-								<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
-									Feature
-								</span>
-								<div className="flex items-center gap-1.5 text-gray-500 text-sm">
-									<img src={DateIcon} alt="Date" className="w-4 h-4" />
-									<span>Jan 15, 2024</span>
+						{/* Story Card 1 */}
+						<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
+							<div className="h-48 bg-[#61CCB2]"></div>
+							<div className="p-6">
+								<div className="flex items-center gap-3 mb-2">
+									<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
+										Feature
+									</span>
+									<div className="flex items-center gap-1.5 text-gray-500 text-sm">
+										<img src={DateIcon} alt="Date" className="w-4 h-4" />
+										<span>Jan 15, 2024</span>
+									</div>
 								</div>
+								<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
+									Ritmo Version 2.0 Released
+								</h3>
+								<p className="text-gray-600 text-sm mb-4 leading-relaxed">
+									Major update includes new emotion cards, improved performance, and enhanced customization options.
+								</p>
+								<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
+									Read More →
+								</a>
 							</div>
-							<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
-								Ritmo Version 2.0 Released
-							</h3>
-							<p className="text-gray-600 text-sm mb-4 leading-relaxed">
-								Major update includes new emotion cards, improved performance, and enhanced customization options.
-							</p>
-							<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
-								Read More →
-							</a>
-					</div>
-				</div>
+						</div>
 
-					{/* Story Card 2 */}
-					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
-						<div className="h-48 bg-[#61CCB2]"></div>
-						<div className="p-6">
-							<div className="flex items-center gap-3 mb-2">
-								<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
-									Research
-								</span>
-								<div className="flex items-center gap-1.5 text-gray-500 text-sm">
-									<img src={DateIcon} alt="Date" className="w-4 h-4" />
-									<span>Dec 20, 2023</span>
+						{/* Story Card 2 */}
+						<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
+							<div className="h-48 bg-[#61CCB2]"></div>
+							<div className="p-6">
+								<div className="flex items-center gap-3 mb-2">
+									<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
+										Research
+									</span>
+									<div className="flex items-center gap-1.5 text-gray-500 text-sm">
+										<img src={DateIcon} alt="Date" className="w-4 h-4" />
+										<span>Dec 20, 2023</span>
+									</div>
 								</div>
+								<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
+									Study Shows 85% Improvement in Communication
+								</h3>
+								<p className="text-gray-600 text-sm mb-4 leading-relaxed">
+									Recent research demonstrates significant improvement in communication abilities among Ritmo users.
+								</p>
+								<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
+									Read More →
+								</a>
 							</div>
-							<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
-								Study Shows 85% Improvement in Communication
-							</h3>
-							<p className="text-gray-600 text-sm mb-4 leading-relaxed">
-								Recent research demonstrates significant improvement in communication abilities among Ritmo users.
-							</p>
-							<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
-								Read More →
-							</a>
-					</div>
-				</div>
+						</div>
 
-					{/* Story Card 3 */}
-					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
+						{/* Story Card 3 */}
+						<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
 							<div className="h-48 bg-[#61CCB2]"></div>
 							<div className="p-6">
 								<div className="flex items-center gap-3 mb-2">
@@ -308,32 +306,7 @@ export default function News() {
 				</div>
 			</section>
 
-			{/* Stay Updated Section */}
-			<section className="pt-12 pb-20 px-4 bg-white" data-reveal>
-				<div className="max-w-6xl mx-auto flex justify-center">
-					<div className="bg-[#C8E6DD] rounded-3xl p-12 border-2 border-[#2B8A7A] max-w-2xl w-full text-center">
-						<h2 className="text-3xl font-bold mb-3" style={{ color: '#2B8A7A' }}>
-							Stay Updated
-						</h2>
-						<p className="text-gray-700 mb-6 text-sm">
-							Get the latest news, updates, and tips delivered to your inbox
-						</p>
-						<div className="flex gap-3 max-w-md mx-auto">
-							<input
-								type="email"
-								placeholder="Enter your email"
-								className="flex-1 px-5 py-2.5 rounded-full border-2 border-white bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#61CCB2] focus:border-transparent placeholder:text-gray-400"
-							/>
-							<button
-								className="px-7 py-2.5 rounded-full text-white font-semibold text-sm hover:opacity-90 transition-opacity"
-								style={{ backgroundColor: '#61CCB2' }}
-							>
-								Subscribe
-							</button>
-						</div>
-					</div>
-				</div>
-			</section>
+			{/* Stay Updated Section removed per request */}
 		</div>
 	)
 }
