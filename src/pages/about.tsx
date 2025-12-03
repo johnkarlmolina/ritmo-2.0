@@ -307,8 +307,8 @@ export default function About() {
 							<h3 className="text-2xl md:text-3xl font-extrabold mb-3" style={{ color: '#2B8A7A' }}>The Ritmo App is now available for download on Android.</h3>
 							<p className="font-semibold mb-2" style={{ color: '#2B8A7A' }}>What does Ritmo do?</p>
 							<ul className="text-gray-600 space-y-2 mb-6 list-disc pl-5">
-								<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-								<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+								<li>Visual routines with audio cues</li>
+								<li>Positive feedback and progress tracking</li>
 							</ul>
 							<div className="flex flex-wrap gap-3">
 								<Link to="/download" className="inline-flex items-center gap-2 rounded-full bg-gray-100 text-gray-800 px-5 py-3 shadow-sm hover:bg-gray-200 transition">

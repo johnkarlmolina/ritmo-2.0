@@ -201,12 +201,10 @@ export default function Index() {
               { title: 'Entertainment', desc: 'Fun games, videos, and stories for active learning.', img: feature3 },
               { title: 'Progress Tracking', desc: 'See your child’s improvements through routine reports.', img: feature4 },
             ].map((f) => (
-              <div key={f.title} className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-6 flex flex-col transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30">
-                <div className="h-12 w-12 rounded-xl bg-[#61CCB2]/20 mb-4 flex items-center justify-center overflow-hidden">
-                  <img src={f.img} alt={`${f.title} icon`} className="h-10 w-10 object-contain" />
-                </div>
-                <div className="font-semibold text-[#2D7778]">{f.title}</div>
-                <div className="mt-2 text-sm text-gray-700">{f.desc}</div>
+                <div key={f.title} className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-6 flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30">
+                  <img src={f.img} alt={`${f.title} icon`} className="mb-4 h-90 w-90 object-contain" />
+                  <div className="font-semibold text-[#2D7778]">{f.title}</div>
+                  <div className="mt-2 text-sm text-gray-700">{f.desc}</div>
               </div>
             ))}
           </div>
