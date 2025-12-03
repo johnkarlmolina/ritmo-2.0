@@ -202,9 +202,9 @@ export default function Index() {
               { title: 'Progress Tracking', desc: 'See your child’s improvements through routine reports.', img: feature4 },
             ].map((f) => (
                 <div key={f.title} className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-6 flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30">
-                  <img src={f.img} alt={`${f.title} icon`} className="mb-4 h-90 w-90 object-contain" />
-                  <div className="font-semibold text-[#2D7778]">{f.title}</div>
-                  <div className="mt-2 text-sm text-gray-700">{f.desc}</div>
+                  <img src={f.img} alt={`${f.title} icon`} className="mb-4 h-100 w-100 object-contain" />
+                  <div className="text-[#2D7778] font-extrabold text-lg md:text-xl">{f.title}</div>
+                  <div className="mt-2 text-base text-gray-700">{f.desc}</div>
               </div>
             ))}
           </div>
