@@ -30,12 +30,10 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
             <img src={img} alt={name} className="w-full h-full object-cover" />
           </div>
         </div>
-        {/* Back */}
+        {/* Back: text only */}
         <div className="flip-back rounded-[200px] text-center" style={{ backgroundColor: bg }}>
-          <div className="px-4">
-            <h3 className="font-bold text-white mb-1">{name}</h3>
-            <p className="text-xs text-[#C8E6DD] mb-3">{role}</p>
-            <p className="text-xs text-white/90 leading-relaxed">
+          <div className="px-5 py-6">
+            <p className="text-sm md:text-base text-white/95 leading-relaxed">
               {details || 'Passionate about improving structured routine experiences. Click again to flip back.'}
             </p>
           </div>
