@@ -26,6 +26,7 @@ import WatchIcon from '../assets/Watch.png';
 export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 	const trackRef = useRef<HTMLDivElement | null>(null);
+	const contentRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
@@ -118,11 +119,94 @@ export default function About() {
 		});
 	}, []);
 
-	// Make carousel static: disable autoplay; allow manual swipe/scroll.
+	// Enable drag, wheel-to-horizontal scroll, and infinite looping for the team carousel
 	useEffect(() => {
-		const track = trackRef.current
-		if (!track) return
-		track.style.transform = ''
+		const container = scrollContainerRef.current;
+		const content = contentRef.current;
+		if (!container || !content) return;
+
+		let contentWidth = content.offsetWidth;
+		let isDragging = false;
+		let startX = 0;
+		let startScrollLeft = 0;
+
+		// Initialize in the middle block to allow seamless left/right scrolling
+		const initPosition = () => {
+			contentWidth = content.offsetWidth;
+			container.scrollLeft = contentWidth;
+		};
+
+		initPosition();
+
+		const wrapIfNeeded = () => {
+			const maxScrollLeft = contentWidth * 2 - container.clientWidth;
+			if (container.scrollLeft <= 0) {
+				container.scrollLeft += contentWidth;
+			} else if (container.scrollLeft >= maxScrollLeft - 1) {
+				container.scrollLeft -= contentWidth;
+			}
+		};
+
+		const onScroll = () => {
+			wrapIfNeeded();
+		};
+
+		const onPointerDown = (e: PointerEvent) => {
+			isDragging = true;
+			startX = e.clientX;
+			startScrollLeft = container.scrollLeft;
+			container.setPointerCapture?.(e.pointerId);
+			container.style.cursor = 'grabbing';
+		};
+
+		const onPointerMove = (e: PointerEvent) => {
+			if (!isDragging) return;
+			const dx = e.clientX - startX;
+			container.scrollLeft = startScrollLeft - dx;
+		};
+
+		const endDrag = (e?: PointerEvent) => {
+			if (!isDragging) return;
+			isDragging = false;
+			if (e) container.releasePointerCapture?.(e.pointerId);
+			container.style.cursor = '';
+		};
+
+		const onWheel = (e: WheelEvent) => {
+			// Convert vertical wheel to horizontal scrolling
+			const absX = Math.abs(e.deltaX);
+			const absY = Math.abs(e.deltaY);
+			if (absY >= absX) {
+				e.preventDefault();
+				container.scrollLeft += e.deltaY;
+			} else {
+				container.scrollLeft += e.deltaX;
+			}
+		};
+
+		const onResize = () => {
+			const prevRatio = (container.scrollLeft % contentWidth) / contentWidth;
+			contentWidth = content.offsetWidth;
+			container.scrollLeft = contentWidth + prevRatio * contentWidth;
+		};
+
+		container.addEventListener('scroll', onScroll);
+		container.addEventListener('pointerdown', onPointerDown);
+		container.addEventListener('pointermove', onPointerMove);
+		container.addEventListener('pointerup', endDrag);
+		container.addEventListener('pointerleave', endDrag);
+		container.addEventListener('wheel', onWheel, { passive: false });
+		window.addEventListener('resize', onResize);
+
+		return () => {
+			container.removeEventListener('scroll', onScroll);
+			container.removeEventListener('pointerdown', onPointerDown);
+			container.removeEventListener('pointermove', onPointerMove);
+			container.removeEventListener('pointerup', endDrag);
+			container.removeEventListener('pointerleave', endDrag);
+			container.removeEventListener('wheel', onWheel as EventListener);
+			window.removeEventListener('resize', onResize);
+		};
 	}, [])
 
 	return (
@@ -161,38 +245,50 @@ export default function About() {
 					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>Our Team</h2>
 					<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>Tap / click a card to flip and learn more.</p>
 				</div>
-				<div className="relative">
-					<div ref={scrollContainerRef} className="px-4 overflow-x-auto scroll-smooth no-scrollbar">
-						{(() => {
-							const members = [
-								{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
-								{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
-								{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
-								{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg },
-								{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg },
-								{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg },
-								{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg },
-								{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg },
-								{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg },
-								{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg },
-								{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
-								{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
-								{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
-							];
-							const doubled = [...members, ...members]
-							return (
-								<div ref={trackRef} className="team-track flex gap-4 sm:gap-6 pb-4 snap-x snap-proximity">
-									{doubled.map((m, idx) => (
-										<div key={m.name + idx} className="snap-start">
-											<TeamMemberCard name={m.name} role={m.role} img={m.img} />
+					<div className="relative">
+						<div
+							ref={scrollContainerRef}
+							className="px-4 overflow-x-auto no-scrollbar select-none"
+							style={{ scrollBehavior: 'auto', WebkitOverflowScrolling: 'auto' }}
+						>
+							{(() => {
+								const members = [
+									{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg },
+									{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg },
+									{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg },
+									{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg },
+									{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg },
+									{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg },
+									{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg },
+									{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg },
+									{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg },
+									{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg },
+									{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg },
+									{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg },
+									{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
+								];
+								return (
+									<div ref={trackRef} className="flex pb-4">
+										<div ref={contentRef} className="flex gap-4 sm:gap-6">
+											{members.map((m) => (
+												<div key={m.name}>
+													<TeamMemberCard name={m.name} role={m.role} img={m.img} />
+												</div>
+											))}
 										</div>
-									))}
-								</div>
-							);
-						})()}
+										<div className="flex gap-4 sm:gap-6" aria-hidden="true">
+											{members.map((m, idx) => (
+												<div key={m.name + '-clone-' + idx}>
+													<TeamMemberCard name={m.name} role={m.role} img={m.img} />
+												</div>
+											))}
+										</div>
+									</div>
+								);
+							})()}
+						</div>
 					</div>
 					{/* Auto-scrolling carousel: buttons removed per request; users can swipe/scroll horizontally */}
-				</div>
 			</section>
 
 			{/* Story */}
