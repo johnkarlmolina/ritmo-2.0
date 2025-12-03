@@ -27,6 +27,7 @@ export default function About() {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 	const trackRef = useRef<HTMLDivElement | null>(null);
 	const contentRef = useRef<HTMLDivElement | null>(null);
+	const cloneRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
@@ -125,25 +126,27 @@ export default function About() {
 		const content = contentRef.current;
 		if (!container || !content) return;
 
-		let contentWidth = content.offsetWidth;
+		let period = 0; // distance from group1 start to group2 start (includes gap)
 		let isDragging = false;
 		let startX = 0;
 		let startScrollLeft = 0;
 
 		// Initialize in the middle block to allow seamless left/right scrolling
 		const initPosition = () => {
-			contentWidth = content.offsetWidth;
-			container.scrollLeft = contentWidth;
+			const clone = cloneRef.current;
+			period = clone?.offsetLeft ?? content.offsetWidth;
+			container.scrollLeft = period;
 		};
 
 		initPosition();
 
 		const wrapIfNeeded = () => {
-			const maxScrollLeft = contentWidth * 2 - container.clientWidth;
+			const track = trackRef.current;
+			const maxScrollLeft = (track?.scrollWidth ?? 0) - container.clientWidth;
 			if (container.scrollLeft <= 0) {
-				container.scrollLeft += contentWidth;
+				container.scrollLeft += period;
 			} else if (container.scrollLeft >= maxScrollLeft - 1) {
-				container.scrollLeft -= contentWidth;
+				container.scrollLeft -= period;
 			}
 		};
 
@@ -185,9 +188,11 @@ export default function About() {
 		};
 
 		const onResize = () => {
-			const prevRatio = (container.scrollLeft % contentWidth) / contentWidth;
-			contentWidth = content.offsetWidth;
-			container.scrollLeft = contentWidth + prevRatio * contentWidth;
+			const clone = cloneRef.current;
+			const prevPeriod = period || 1;
+			const prevRatio = (container.scrollLeft % prevPeriod) / prevPeriod;
+			period = clone?.offsetLeft ?? content.offsetWidth;
+			container.scrollLeft = period + prevRatio * period;
 		};
 
 		container.addEventListener('scroll', onScroll);
@@ -268,7 +273,7 @@ export default function About() {
 									{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg }
 								];
 								return (
-									<div ref={trackRef} className="flex pb-4">
+									<div ref={trackRef} className="flex pb-4 gap-4 sm:gap-6">
 										<div ref={contentRef} className="flex gap-4 sm:gap-6">
 											{members.map((m) => (
 												<div key={m.name}>
@@ -276,7 +281,7 @@ export default function About() {
 												</div>
 											))}
 										</div>
-										<div className="flex gap-4 sm:gap-6" aria-hidden="true">
+										<div ref={cloneRef} className="flex gap-4 sm:gap-6" aria-hidden="true">
 											{members.map((m, idx) => (
 												<div key={m.name + '-clone-' + idx}>
 													<TeamMemberCard name={m.name} role={m.role} img={m.img} />
