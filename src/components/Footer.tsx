@@ -201,7 +201,7 @@ export default function Footer() {
 
       {/* Privacy Modal */}
       <Modal open={showPrivacy} title="Privacy Policy" onClose={() => setShowPrivacy(false)}>
-*        <h3 className="text-lg font-bold text-[#2D7778]">Last Updated: November 2025</h3>
+        <p className="text-sm font-semibold text-[#2D7778]">Last Updated: November 2025</p>
         <p className="mt-3">
           Ritmo is designed to support children, parents, and caregivers in managing daily routines through visual schedules and guided activities. We value your trust and are committed to protecting your privacy. This Privacy Policy explains what information we collect, how it is used, and the choices you have regarding your data.
         </p>
