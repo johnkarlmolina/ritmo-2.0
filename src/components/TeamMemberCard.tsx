@@ -15,7 +15,7 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
     <button
       type="button"
       className={`flip-card shrink-0 w-64 h-[400px] ${flipped ? 'flipped' : ''}`}
-      onClick={() => setFlipped((f) => !f)}
+      onClick={(e) => { e.stopPropagation(); setFlipped((f) => !f) }}
       aria-label={`${name} card; tap to flip`}
     >
       <div className="flip-inner rounded-[200px] overflow-hidden" style={{ backgroundColor: bg }}>
