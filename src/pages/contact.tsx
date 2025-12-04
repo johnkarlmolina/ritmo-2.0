@@ -113,7 +113,7 @@ export default function Contact() {
 								Email us
 							</h3>
 							<p className="text-[#61CCB2] font-semibold text-lg mb-3">
-								support@ritmoapp.com
+								Ritmokids1123@gmail.com
 							</p>
 							<p className="text-gray-600 text-sm">
 								Get a response within 24 hours
