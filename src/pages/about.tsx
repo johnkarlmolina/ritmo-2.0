@@ -156,9 +156,6 @@ export default function About() {
 		};
 
 		const onPointerDown = (e: PointerEvent) => {
-			// If starting on a card, let the card handle the click (no drag)
-			const target = e.target as HTMLElement;
-			if (target.closest('.flip-card')) return;
 			if (e.button !== 0) return; // only left button starts potential drag
 			isDragging = false;
 			startX = e.clientX;
@@ -167,8 +164,6 @@ export default function About() {
 		};
 
 		const onPointerMove = (e: PointerEvent) => {
-			const target = e.target as HTMLElement;
-			if (target.closest('.flip-card')) return; // don't hijack move over a card
 			if (e.buttons !== 1) return; // require left button held
 			const dx = e.clientX - startX;
 			if (!isDragging && Math.abs(dx) > dragThreshold) {
@@ -264,7 +259,7 @@ export default function About() {
 						<div
 							ref={scrollContainerRef}
 							className="px-4 overflow-x-auto no-scrollbar select-none"
-							style={{ scrollBehavior: 'auto', WebkitOverflowScrolling: 'auto', touchAction: 'pan-y' }}
+							style={{ scrollBehavior: 'auto', WebkitOverflowScrolling: 'auto', touchAction: 'pan-x' }}
 						>
 							{(() => {
 								const members = [
