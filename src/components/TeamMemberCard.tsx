@@ -14,11 +14,14 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
   return (
     <button
       type="button"
-      className={`flip-card shrink-0 w-64 h-[400px] ${flipped ? 'flipped' : ''}`}
+      className={`flip-card shrink-0 w-60 h-96 transition-transform duration-300 hover:scale-105 ${flipped ? 'flipped' : ''}`}
       onClick={(e) => { e.stopPropagation(); setFlipped((f) => !f) }}
       aria-label={`${name} card; tap to flip`}
     >
-      <div className="flip-inner rounded-[200px] overflow-hidden" style={{ backgroundColor: bg }}>
+      <div
+        className="flip-inner rounded-[200px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        style={{ backgroundColor: bg }}
+      >
         {/* Front */}
         <div className="flip-front flex flex-col items-center pt-16">
           <div className="flip-hint">FLIP</div>
@@ -26,7 +29,7 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
             <h3 className="text-sm font-bold text-white leading-tight">{name}</h3>
             <p className="text-sm leading-tight" style={{ color: '#C8E6DD' }}>{role}</p>
           </div>
-          <div className="w-64 h-64 rounded-full overflow-hidden shrink-0 mt-auto">
+          <div className="w-60 h-60 rounded-full overflow-hidden shrink-0 mt-auto">
             <img src={img} alt={name} className="w-full h-full object-cover" />
           </div>
         </div>

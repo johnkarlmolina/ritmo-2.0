@@ -24,11 +24,6 @@ import DownloadIcon from '../assets/Download.png';
 import WatchIcon from '../assets/Watch.png';
 
 export default function About() {
-	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-	const trackRef = useRef<HTMLDivElement | null>(null);
-	const contentRef = useRef<HTMLDivElement | null>(null);
-	const cloneRef = useRef<HTMLDivElement | null>(null);
-
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
 		const observer = new IntersectionObserver(
@@ -120,105 +115,6 @@ export default function About() {
 		});
 	}, []);
 
-	// Enable drag, wheel-to-horizontal scroll, and infinite looping for the team carousel
-	useEffect(() => {
-		const container = scrollContainerRef.current;
-		const content = contentRef.current;
-		if (!container || !content) return;
-
-		let period = 0; // distance from group1 start to group2 start (includes gap)
-		let isDragging = false;
-		let startX = 0;
-		let startScrollLeft = 0;
-		const dragThreshold = 10; // px movement before treating as drag
-
-		// Initialize in the middle block to allow seamless left/right scrolling
-		const initPosition = () => {
-			const clone = cloneRef.current;
-			period = clone?.offsetLeft ?? content.offsetWidth;
-			container.scrollLeft = period;
-		};
-
-		initPosition();
-
-		const wrapIfNeeded = () => {
-			const track = trackRef.current;
-			const maxScrollLeft = (track?.scrollWidth ?? 0) - container.clientWidth;
-			if (container.scrollLeft <= 0) {
-				container.scrollLeft += period;
-			} else if (container.scrollLeft >= maxScrollLeft - 1) {
-				container.scrollLeft -= period;
-			}
-		};
-
-		const onScroll = () => {
-			wrapIfNeeded();
-		};
-
-		const onPointerDown = (e: PointerEvent) => {
-			if (e.button !== 0) return; // only left button starts potential drag
-			isDragging = false;
-			startX = e.clientX;
-			startScrollLeft = container.scrollLeft;
-			container.style.cursor = '';
-		};
-
-		const onPointerMove = (e: PointerEvent) => {
-			if (e.buttons !== 1) return; // require left button held
-			const dx = e.clientX - startX;
-			if (!isDragging && Math.abs(dx) > dragThreshold) {
-				isDragging = true;
-				container.style.cursor = 'grabbing';
-			}
-			if (isDragging) {
-				container.scrollLeft = startScrollLeft - dx;
-			}
-		};
-
-		const endDrag = (_e?: PointerEvent) => {
-			isDragging = false;
-			container.style.cursor = '';
-		};
-
-		const onWheel = (e: WheelEvent) => {
-			// Convert vertical wheel to horizontal scrolling
-			const absX = Math.abs(e.deltaX);
-			const absY = Math.abs(e.deltaY);
-			if (absY >= absX) {
-				e.preventDefault();
-				container.scrollLeft += e.deltaY;
-			} else {
-				container.scrollLeft += e.deltaX;
-			}
-		};
-
-		const onResize = () => {
-			const clone = cloneRef.current;
-			const prevPeriod = period || 1;
-			const prevRatio = (container.scrollLeft % prevPeriod) / prevPeriod;
-			period = clone?.offsetLeft ?? content.offsetWidth;
-			container.scrollLeft = period + prevRatio * period;
-		};
-
-		container.addEventListener('scroll', onScroll);
-		container.addEventListener('pointerdown', onPointerDown);
-		container.addEventListener('pointermove', onPointerMove);
-		container.addEventListener('pointerup', endDrag);
-		container.addEventListener('pointerleave', endDrag);
-		container.addEventListener('wheel', onWheel, { passive: false });
-		window.addEventListener('resize', onResize);
-
-		return () => {
-			container.removeEventListener('scroll', onScroll);
-			container.removeEventListener('pointerdown', onPointerDown);
-			container.removeEventListener('pointermove', onPointerMove);
-			container.removeEventListener('pointerup', endDrag);
-			container.removeEventListener('pointerleave', endDrag);
-			container.removeEventListener('wheel', onWheel as EventListener);
-			window.removeEventListener('resize', onResize);
-		};
-	}, [])
-
 	return (
 		<div>
 			{/* Hero */}
@@ -249,59 +145,37 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* Team */}
-			<section className="py-20 bg-white" data-reveal>
-				<div className="max-w-7xl mx-auto px-4">
-					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>Our Team</h2>
-					<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>Tap / click a card to flip and learn more.</p>
+		{/* Team */}
+		<section className="py-20 bg-white" data-reveal>
+			<div className="max-w-[1600px] mx-auto px-8">
+				<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>Our Team</h2>
+				<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>Tap / click a card to flip and learn more.</p>
+				
+				{/* Grid layout: 5 columns */}
+				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-8 justify-items-center">
+					{(() => {
+						const members = [
+							{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg, details: 'Leads cross-functional efforts and keeps the team aligned to goals.' },
+							{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg, details: 'Designs human-centered interfaces and ensures accessible experiences.' },
+							{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg, details: 'Architects core features and maintains code quality and performance.' },
+							{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg, details: 'Builds reliable APIs and data flows powering Ritmo routines.' },
+							{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg, details: 'Implements responsive UI and smooth interactions for daily use.' },
+							{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg, details: 'Focuses on server logic and secure data handling.' },
+							{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg, details: 'Delivers features with attention to clarity and performance.' },
+							{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg, details: 'Shapes visual identity and consistent design systems.' },
+							{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg, details: 'Analyzes requirements and streamlines workflows for families.' },
+							{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg, details: 'Translates user needs into actionable technical specs.' },
+							{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg, details: 'Improves processes and ensures reliable routine tracking.' },
+							{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg, details: 'Helps validate features that support daily independence.' },
+							{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg, details: 'Focuses on usability and real-world routine scenarios.' }
+						];
+						return members.map((m) => (
+							<TeamMemberCard key={m.name} name={m.name} role={m.role} img={m.img} details={m.details} />
+						));
+					})()}
 				</div>
-					<div className="relative">
-						<div
-							ref={scrollContainerRef}
-							className="px-4 overflow-x-auto no-scrollbar select-none"
-							style={{ scrollBehavior: 'auto', WebkitOverflowScrolling: 'auto', touchAction: 'pan-x' }}
-						>
-							{(() => {
-								const members = [
-									{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg, details: 'Leads cross-functional efforts and keeps the team aligned to goals.' },
-									{ name: 'Fletcher Peter M. Hernandez', role: 'Lead UI/UX Designer', img: HernandezImg, details: 'Designs human-centered interfaces and ensures accessible experiences.' },
-									{ name: 'Jerald B. Isorena', role: 'Lead Programmer', img: IsorenaImg, details: 'Architects core features and maintains code quality and performance.' },
-									{ name: 'John Pritch L. Arcas', role: 'Back-End Developer', img: ArcasImg, details: 'Builds reliable APIs and data flows powering Ritmo routines.' },
-									{ name: 'Alrashim M. Awal', role: 'Front-End Developer', img: AwalImg, details: 'Implements responsive UI and smooth interactions for daily use.' },
-									{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg, details: 'Focuses on server logic and secure data handling.' },
-									{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg, details: 'Delivers features with attention to clarity and performance.' },
-									{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg, details: 'Shapes visual identity and consistent design systems.' },
-									{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg, details: 'Analyzes requirements and streamlines workflows for families.' },
-									{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg, details: 'Translates user needs into actionable technical specs.' },
-									{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg, details: 'Improves processes and ensures reliable routine tracking.' },
-									{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg, details: 'Helps validate features that support daily independence.' },
-									{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg, details: 'Focuses on usability and real-world routine scenarios.' }
-								];
-								return (
-									<div ref={trackRef} className="flex pb-4 gap-4 sm:gap-6">
-										<div ref={contentRef} className="flex gap-4 sm:gap-6">
-											{members.map((m) => (
-												<div key={m.name}>
-													<TeamMemberCard name={m.name} role={m.role} img={m.img} details={m.details} />
-												</div>
-											))}
-										</div>
-										<div ref={cloneRef} className="flex gap-4 sm:gap-6" aria-hidden="true">
-											{members.map((m, idx) => (
-												<div key={m.name + '-clone-' + idx}>
-													<TeamMemberCard name={m.name} role={m.role} img={m.img} details={m.details} />
-												</div>
-											))}
-										</div>
-									</div>
-								);
-							})()}
-						</div>
-					</div>
-					{/* Auto-scrolling carousel: buttons removed per request; users can swipe/scroll horizontally */}
-			</section>
-
-			{/* Story */}
+			</div>
+		</section>			{/* Story */}
 			<section className="py-20 px-4 bg-gray-100" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>Our Story</h2>
