@@ -1,5 +1,7 @@
 import EmailIcon from '../assets/Email.png';
 import { useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../utils/translations';
 import CallIcon from '../assets/Call.png';
 import SendMessageIcon from '../assets/SendMessage.png';
 import LocationIcon from '../assets/Location.png';
@@ -9,6 +11,9 @@ import InstagramIcon from '../assets/Instagram.png';
 // Replaced Twitter with YouTube (inline SVG icon)
 
 export default function Contact() {
+	const { language } = useLanguage()
+	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
+
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'))
 		const observer = new IntersectionObserver(
@@ -88,10 +93,10 @@ export default function Contact() {
 			<section className="mt-4 pt-20 pb-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
 				<div className="max-w-7xl mx-auto text-center">
 					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-						Get In Touch
+						{t('getInTouch')}
 					</h1>
 					<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
-						We're here to help and answer any<br /> questions you might have
+						{t('hereToHelp')}
 					</p>
 				</div>
 			</section>
@@ -110,7 +115,7 @@ export default function Contact() {
 								/>
 							</div>
 							<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B7A73' }}>
-								Email us
+								{t('emailUs')}
 							</h3>
 							<p className="text-[#61CCB2] font-semibold text-lg mb-3">
 								Ritmokids1123@gmail.com
