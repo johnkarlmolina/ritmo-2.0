@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import TextLogo from '../assets/text-logo.png'
 import Modal from './Modal'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../utils/translations'
 
 export default function Footer() {
+  const { language } = useLanguage()
+  const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
   const [showTerms, setShowTerms] = useState(false)
   const [showPrivacy, setShowPrivacy] = useState(false)
   return (
@@ -16,39 +20,38 @@ export default function Footer() {
               <img src={TextLogo} alt="Ritmo Logo" className="h-15" />
             </div>
             <p className="text-white/90 text-base">
-              Autism empowering
-              One routine at a time
+              {t('autismEmpowering')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-bold text-xl mb-5">Quick Links</h3>
+            <h3 className="text-white font-bold text-xl mb-5">{t('quickLinks')}</h3>
             <ul className="space-y-2.5">
-              <li><Link to="/about" className="text-white/90 hover:text-white text-base transition-colors">About Us</Link></li>
-              <li><Link to="/features" className="text-white/90 hover:text-white text-base transition-colors">Features</Link></li>
-              <li><Link to="/news" className="text-white/90 hover:text-white text-base transition-colors">News</Link></li>
+              <li><Link to="/about" className="text-white/90 hover:text-white text-base transition-colors">{t('aboutUsFooter')}</Link></li>
+              <li><Link to="/features" className="text-white/90 hover:text-white text-base transition-colors">{t('featuresFooter')}</Link></li>
+              <li><Link to="/news" className="text-white/90 hover:text-white text-base transition-colors">{t('newsFooter')}</Link></li>
             </ul>
           </div>
 
           {/* Support */}
           <div>
-            <h3 className="text-white font-bold text-xl mb-5">Support</h3>
+            <h3 className="text-white font-bold text-xl mb-5">{t('supportSection')}</h3>
             <ul className="space-y-2.5">
-              <li><Link to="/contact" className="text-white/90 hover:text-white text-base transition-colors">Contact Us</Link></li>
-              <li><Link to="/download" className="text-white/90 hover:text-white text-base transition-colors">Download</Link></li>
+              <li><Link to="/contact" className="text-white/90 hover:text-white text-base transition-colors">{t('contactUsFooter')}</Link></li>
+              <li><Link to="/download" className="text-white/90 hover:text-white text-base transition-colors">{t('downloadFooter')}</Link></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-bold text-xl mb-5">Legal</h3>
+            <h3 className="text-white font-bold text-xl mb-5">{t('legalSection')}</h3>
             <ul className="space-y-2.5">
               <li>
-                <button type="button" onClick={() => setShowTerms(true)} className="text-white/90 hover:text-white text-base transition-colors">Terms and Conditions</button>
+                <button type="button" onClick={() => setShowTerms(true)} className="text-white/90 hover:text-white text-base transition-colors">{t('termsAndConditions')}</button>
               </li>
               <li>
-                <button type="button" onClick={() => setShowPrivacy(true)} className="text-white/90 hover:text-white text-base transition-colors">Privacy Policy</button>
+                <button type="button" onClick={() => setShowPrivacy(true)} className="text-white/90 hover:text-white text-base transition-colors">{t('privacyPolicy')}</button>
               </li>
             </ul>
           </div>

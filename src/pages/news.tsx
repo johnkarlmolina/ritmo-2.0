@@ -1,8 +1,13 @@
 import DateIcon from '../assets/Date.png';
 import FeaturedIcon from '../assets/Featured.png';
 import { useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../utils/translations';
 
 export default function News() {
+	const { language } = useLanguage()
+	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
+
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'))
 		const observer = new IntersectionObserver(
@@ -65,14 +70,13 @@ export default function News() {
 		<div className="bg-white overflow-x-hidden">
 			{/* Hero Section */}
 			<section className="mt-4 pt-20 pb-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
-				<div className="max-w-7xl mx-auto text-center">
-					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-						News &amp; Updates
-					</h1>
-					<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
-						Stay informed about the latest features, research, and<br />
-						community stories
-					</p>
+			<div className="max-w-7xl mx-auto text-center">
+				<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+					{t('newsPage')}
+				</h1>
+				<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+					{t('newsPageDesc')}
+				</p>
 				</div>
 			</section>
 

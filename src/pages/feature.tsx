@@ -3,8 +3,13 @@ import StarIcon from '../assets/Star.png';
 import DownloadIcon from '../assets/Download.png';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../utils/translations';
 
 export default function Features() {
+	const { language } = useLanguage()
+	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
+
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
 		const observer = new IntersectionObserver(
@@ -100,15 +105,12 @@ export default function Features() {
 	return (
 		<div className="scroll-smooth overflow-x-hidden">
 			{/* Hero Section */}
-			<section data-reveal>
-				{/* Hero Content */}
-				<div className="mt-4 pt-20 pb-20 flex items-center" style={{ backgroundColor: '#61CCB2' }}>
-					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-						<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Features</h1>
-						<p className="max-w-3xl mx-auto text-xl md:text-2xl text-white leading-relaxed">
-							Everything you need to create structured, stress-free daily routines, all in one simple app.
-						</p>
-					</div>
+			<section className="mt-4 pt-20 pb-20 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
+				<div className="max-w-7xl mx-auto text-center">
+					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">{t('featuresPage')}</h1>
+					<p className="max-w-3xl mx-auto text-xl md:text-2xl text-white leading-relaxed">
+						{t('featuresPageDesc')}
+					</p>
 				</div>
 			</section>
 				
@@ -126,24 +128,24 @@ export default function Features() {
 									<img src={StarIcon} alt="Star" className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-									Autism Friendly
+									{t('autismFriendlyTitle')}
 								</h3>
 								</div>
 							<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								The ui design was integrated to suit people with Autism or <span className="underline">Autism Spectrum Disorder (ASD)</span>
+								{t('autismFriendlyText')}
 							</p>
 							<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Big Ui components</span>
+									<span>{t('bigUiComponents')}</span>
 									</li>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Audio Visual Feedback</span>
+									<span>{t('audioVisualFeedback')}</span>
 									</li>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Animated Characters</span>
+									<span>{t('animatedCharacters')}</span>
 									</li>
 								</ul>
 							</div>
@@ -156,24 +158,24 @@ export default function Features() {
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
 							</div>
 							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								Parental Control
+								{t('parentalControlTitle')}
 								</h3>
 							</div>
 							<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								The System has built in parental control to guide every childrens action
+								{t('parentalControlText')}
 							</p>
 							<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Parental Lock</span>
+									<span>{t('parentalLock')}</span>
 								</li>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Daily Routine Setup</span>
+									<span>{t('dailyRoutineSetup')}</span>
 								</li>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Limited media search</span>
+									<span>{t('limitedMediaSearch')}</span>
 								</li>
 							</ul>
 						</div>
@@ -200,24 +202,24 @@ export default function Features() {
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
 							</div>
 							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								Entertainment
+								{t('entertainmentTitle')}
 								</h3>
 							</div>
 							<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								The System has built in games, media and book guides to enhance interaction and fun.
+								{t('entertainmentText')}
 							</p>
 							<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Fun and enjoying games</span>
+									<span>{t('funGames')}</span>
 								</li>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Audio visual book guides</span>
+									<span>{t('audioVisualBooks')}</span>
 								</li>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Media page (Youtube)</span>
+									<span>{t('mediaPage')}</span>
 								</li>
 						</ul>
 					</div>
@@ -230,16 +232,16 @@ export default function Features() {
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
 							</div>
 							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-							Progression
+							{t('progressionTitle')}
 								</h3>
 							</div>
 							<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								The app has a built in progress report that records your child routine weekly
+								{t('progressionText')}
 							</p>
 							<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
 								<li className="flex items-start">
 									<span className="mr-3">●</span>
-									<span>Downloadable PDF Report</span>
+									<span>{t('downloadablePdf')}</span>
 								</li>
 							</ul>
 						</div>
@@ -257,32 +259,32 @@ export default function Features() {
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
 						</div>
-						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Autism Friendly</h3>
+						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('autismFriendlyTitle')}</h3>
 					</div>
-					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>The ui design was integrated to suit people with Autism or <span className="underline">Autism Spectrum Disorder (ASD)</span></p>
+					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('autismFriendlyText')}</p>
 					<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-						<li className="flex items-start"><span className="mr-3">●</span><span>Big Ui components</span></li>
-						<li className="flex items-start"><span className="mr-3">●</span><span>Audio Visual Feedback</span></li>
-						<li className="flex items-start"><span className="mr-3">●</span><span>Animated Characters</span></li>
+						<li className="flex items-start"><span className="mr-3">●</span><span>{t('bigUiComponents')}</span></li>
+						<li className="flex items-start"><span className="mr-3">●</span><span>{t('audioVisualFeedback')}</span></li>
+						<li className="flex items-start"><span className="mr-3">●</span><span>{t('animatedCharacters')}</span></li>
 					</ul>
 				</div>
 			</div>
 			
 		
-		<div className="relative w-72 group cursor-pointer">
+			<div className="relative w-72 group cursor-pointer">
 			<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
 			<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 				<div className="flex items-center gap-3 mb-4">
 					<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 						<img src={StarIcon} alt="Star" className="w-6 h-6" />
 					</div>
-					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Entertainment</h3>
+					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('entertainmentTitle')}</h3>
 				</div>
-				<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>The System has built in games, media and book guides to enhance interaction and fun.</p>
+				<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('entertainmentText')}</p>
 				<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-					<li className="flex items-start"><span className="mr-3">●</span><span>Fun and enjoying games</span></li>
-					<li className="flex items-start"><span className="mr-3">●</span><span>Audio visual book guides</span></li>
-					<li className="flex items-start"><span className="mr-3">●</span><span>Media page (Youtube)</span></li>
+					<li className="flex items-start"><span className="mr-3">●</span><span>{t('funGames')}</span></li>
+					<li className="flex items-start"><span className="mr-3">●</span><span>{t('audioVisualBooks')}</span></li>
+					<li className="flex items-start"><span className="mr-3">●</span><span>{t('mediaPage')}</span></li>
 				</ul>
 			</div>
 		</div>			<img 
@@ -299,13 +301,13 @@ export default function Features() {
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
 						</div>
-						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Parental Control</h3>
+						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('parentalControlTitle')}</h3>
 					</div>
-					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>The System has built in parental control to guide every childrens action</p>
+					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('parentalControlText')}</p>
 					<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-						<li className="flex items-start"><span className="mr-3">●</span><span>Parental Lock</span></li>
-						<li className="flex items-start"><span className="mr-3">●</span><span>Daily Routine Setup</span></li>
-						<li className="flex items-start"><span className="mr-3">●</span><span>Limited media search</span></li>
+						<li className="flex items-start"><span className="mr-3">●</span><span>{t('parentalLock')}</span></li>
+						<li className="flex items-start"><span className="mr-3">●</span><span>{t('dailyRoutineSetup')}</span></li>
+						<li className="flex items-start"><span className="mr-3">●</span><span>{t('limitedMediaSearch')}</span></li>
 					</ul>
 								</div>
 							</div>
@@ -317,11 +319,11 @@ export default function Features() {
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
 								</div>
-						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Progression</h3>
+						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('progressionTitle')}</h3>
 								</div>
-					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>The app has a built in progress report that records your child routine weekly</p>
+					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('progressionText')}</p>
 					<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-						<li className="flex items-start"><span className="mr-3">●</span><span>Downloadable PDF Report</span></li>
+						<li className="flex items-start"><span className="mr-3">●</span><span>{t('downloadablePdf')}</span></li>
 								</ul>
 							</div>
 						</div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import CircleLogo from '../assets/circle-logo.png'
+import { useLanguage } from '../context/LanguageContext'
 
 const SCALE_CLASSES = ['','text-scale-1','text-scale-2','text-scale-3'] as const
 
@@ -8,6 +9,7 @@ type ScaleIndex = 0 | 1 | 2 | 3
 export default function AccessibilityWidget() {
   const [scale, setScale] = useState<ScaleIndex>(0)
   const [open, setOpen] = useState(false)
+  const { language, setLanguage } = useLanguage()
 
   useEffect(() => {
     const saved = window.localStorage.getItem('ritmo:textScale')
@@ -65,8 +67,9 @@ export default function AccessibilityWidget() {
                 </button>
               </div>
 
-              {/* Modal content: one tile (Bigger Text) styled per reference */}
-              <div className="px-4 md:px-6 py-6 grid grid-cols-1 gap-6">
+              {/* Modal content: Text scale and Language tiles */}
+              <div className="px-4 md:px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Bigger Text tile */}
                 <button
                   type="button"
                   onClick={cycleScale}
@@ -88,6 +91,22 @@ export default function AccessibilityWidget() {
                     <span className={`inline-block h-1 w-12 rounded ${scale >= 3 ? 'bg-[#2D7778]' : 'bg-[#61CCB2]/40'}`} />
                   </div>
                 </button>
+
+                {/* Language Selector tile */}
+                <div className="rounded-2xl border-2 border-[#61CCB2] bg-white shadow-sm p-4 md:p-5 hover:bg-[#F4FBF9] flex flex-col">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-[#2D7778] font-bold text-lg">🌐</div>
+                  </div>
+                  <div className="text-[#2D7778] font-extrabold text-base md:text-lg text-center mb-4">Language</div>
+                  <select
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                    className="w-full px-3 py-2 border-2 border-[#61CCB2] rounded-xl bg-white text-[#2D7778] font-semibold focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-center"
+                  >
+                    <option value="en">English</option>
+                    <option value="tl">Tagalog</option>
+                  </select>
+                </div>
               </div>
 
               {/* Modal footer */}

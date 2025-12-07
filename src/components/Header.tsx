@@ -1,10 +1,33 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import logo from '../assets/text-logo.png'
+import { useLanguage } from '../context/LanguageContext'
+
+const translations = {
+  en: {
+    home: 'Home',
+    aboutUs: 'About Us',
+    features: 'Features',
+    news: 'News',
+    contact: 'Contact',
+    downloadNow: 'Download Now!',
+  },
+  tl: {
+    home: 'Tahanan',
+    aboutUs: 'Tungkol sa Amin',
+    features: 'Mga Tampok',
+    news: 'Balita',
+    contact: 'Makipag-ugnayan',
+    downloadNow: 'I-download Ngayon!',
+  },
+}
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const { language } = useLanguage()
   const location = useLocation()
+
+  const t = (key: keyof typeof translations.en) => translations[language as keyof typeof translations][key]
 
   const reloadIfSame = (path: string, e: React.MouseEvent) => {
     if (location.pathname === path) {
@@ -69,60 +92,63 @@ export default function Header() {
           </div>
 
           {/* Center/Right: Desktop nav; ensure space for burger with flex-1 justify-end */}
-          <div className="flex-1 flex items-center justify-end">
+          <div className="flex-1 flex items-center justify-end gap-6">
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6 text-lg text-[#2D7778] whitespace-nowrap font-semibold">
               <NavLink to="/" end onClick={(e) => { reloadIfSame('/', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
-                Home
+                {t('home')}
               </NavLink>
               <NavLink to="/about" onClick={(e) => { reloadIfSame('/about', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
-                About Us
+                {t('aboutUs')}
               </NavLink>
               <NavLink to="/features" onClick={(e) => { reloadIfSame('/features', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
-                Features
+                {t('features')}
               </NavLink>
               {/* How It Works removed per request */}
               <NavLink to="/news" onClick={(e) => { reloadIfSame('/news', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
-                News
+                {t('news')}
               </NavLink>
               <NavLink to="/contact" onClick={(e) => { reloadIfSame('/contact', e); setOpen(false) }}
                 className={({ isActive }) =>
                   `px-4 py-2 rounded-full inline-block ${isActive ? 'bg-emerald-100' : 'hover:bg-emerald-50'} text-[#2D7778] transition-colors`
                 }>
-                Contact
+                {t('contact')}
               </NavLink>
               <Link to="/download" onClick={(e) => { reloadIfSame('/download', e); setOpen(false) }} className="ml-2 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-2.5 rounded-lg text-base font-semibold shadow-sm whitespace-nowrap transition-colors">
-                Download Now!
+                {t('downloadNow')}
               </Link>
             </nav>
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setOpen((s) => !s)}
-            className="inline-flex items-center justify-center p-2 rounded-md text-[#2D7778] md:hidden hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-            aria-label="Toggle menu"
-            aria-expanded={open}
-          >
-            <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              {open ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+          <div className="md:hidden">
+            <button
+              onClick={() => setOpen((s) => !s)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#2D7778] hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              aria-label="Toggle menu"
+              aria-expanded={open}
+            >
+              <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                {open ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -132,26 +158,26 @@ export default function Header() {
           <div className="px-4 py-4 flex flex-col items-center space-y-3 text-center text-lg font-medium max-h-[calc(100vh-6rem)] overflow-auto">
             <NavLink to="/" end onClick={(e) => { reloadIfSame('/', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
-              Home
+              {t('home')}
             </NavLink>
             <NavLink to="/about" onClick={(e) => { reloadIfSame('/about', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
-              About Us
+              {t('aboutUs')}
             </NavLink>
             <NavLink to="/features" onClick={(e) => { reloadIfSame('/features', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
-              Features
+              {t('features')}
             </NavLink>
             {/* How It Works removed per request */}
             <NavLink to="/news" onClick={(e) => { reloadIfSame('/news', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
-              News
+              {t('news')}
             </NavLink>
             <NavLink to="/contact" onClick={(e) => { reloadIfSame('/contact', e); setOpen(false) }}
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
-              Contact
+              {t('contact')}
             </NavLink>
-            <Link to="/download" onClick={(e) => { reloadIfSame('/download', e); setOpen(false) }} className="block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-3 rounded-lg text-base font-semibold">Download Now!</Link>
+            <Link to="/download" onClick={(e) => { reloadIfSame('/download', e); setOpen(false) }} className="block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-3 rounded-lg text-base font-semibold">{t('downloadNow')}</Link>
           </div>
         </div>
       )}

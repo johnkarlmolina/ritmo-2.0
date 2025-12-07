@@ -1,6 +1,11 @@
 import { useEffect } from 'react'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../utils/translations'
 
 export default function Download() {
+	const { language } = useLanguage()
+	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
+
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'))
 		const observer = new IntersectionObserver(
@@ -58,11 +63,11 @@ export default function Download() {
 			{/* Hero Section */}
 			<section className="mt-4 pt-20 pb-20 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
 			<div className="max-w-7xl mx-auto text-center">
-					<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-						Download Ritmo
-					</h1>
+				<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+					{t('downloadPage')}
+				</h1>
 				<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
-					Get the app and start building supportive daily routines today.
+					{t('downloadPageDesc')}
 				</p>
 			</div>
 		</section>

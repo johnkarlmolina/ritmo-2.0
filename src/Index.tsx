@@ -3,6 +3,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type React from 'react'
 import { useNetworkAwareLoading } from './hooks/useNetworkAwareLoading'
 import { GlobalLoadingScreen } from './components/GlobalLoadingScreen'
+import { useLanguage } from './context/LanguageContext'
+import { translations } from './utils/translations'
 import handPhoneImg from './assets/hand-phone.png'
 import feature1 from './assets/Feature-1.png'
 import feature2 from './assets/Feature-2.png'
@@ -16,6 +18,8 @@ import ritmoOldLogo from './assets/ritmo-old-log.png'
 
 export default function Index() {
   const { isLoading, progress } = useNetworkAwareLoading()
+  const { language } = useLanguage()
+  const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -127,13 +131,9 @@ export default function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 items-start">
             {/* Left column: heading + paragraphs */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">What is Autism?</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">{t('whatIsAutism')}</h2>
               <p className="mt-4 text-gray-800 leading-relaxed">
-                Autism, or Autism Spectrum Disorder (ASD), is a developmental condition marked by differences in social communication, interaction, sensory processing, and
-                behavior. People on the spectrum may have a strong need for routines, focused interests, and repetitive actions. These characteristics usually appear in early
-                childhood and continue throughout a person’s life. As a neurodevelopmental disorder, autism is formally diagnosed when these traits create notable differences
-                in everyday functioning beyond what is typical for someone’s age or environment. Because autism exists on a spectrum, individuals can have very different
-                experiences and levels of support needs ranging from minimal assistance to being non‑speaking or requiring full‑time care.
+                {t('autismDesc')}
               </p>
             </div>
 
@@ -141,14 +141,12 @@ export default function Index() {
             <div className="w-full">
               <div className="rounded-2xl bg-gradient-to-b from-[#61CCB2] to-[#2D7778] text-white shadow-xl p-6 md:p-8">
                 <div className="flex items-center gap-2">
-                  <span className="inline-block rounded-full bg-white/90 text-[#2D7778] font-bold px-3 py-1">Autism</span>
-                  <span className="text-white/90">aa·ti·zm</span>
+                  <span className="inline-block rounded-full bg-white/90 text-[#2D7778] font-bold px-3 py-1">{t('autism')}</span>
+                  <span className="text-white/90">{t('autismPronunciation')}</span>
                 </div>
                 <div className="mt-4 border-t border-white/40" />
                 <p className="mt-4 text-white/95 text-sm md:text-base leading-relaxed">
-                  The term “autism” comes from the Greek word auto, meaning “self.” Because autistic individuals can have many different traits and abilities, autism is
-                  recognized as a spectrum of conditions. This spectrum ranges from people who struggle with social interaction to those who are non‑speaking. Autism may be
-                  diagnosed by a professional or self‑identified by an individual, and people with autism are often described as autistic.
+                  {t('autismDefinition')}
                 </p>
               </div>
             </div>
@@ -156,11 +154,9 @@ export default function Index() {
 
           {/* Full-width: Routine for Autism */}
           <div className="mt-6 md:mt-8">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-[#2D7778]">Routine for Autism</h3>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-[#2D7778]">{t('routineForAutism')}</h3>
             <p className="mt-4 text-gray-800 leading-relaxed">
-              Autistic individuals often share that routines, rituals, and organized planning help them cope with stress by adding predictability and structure to their daily
-              lives. These consistent patterns can support self‑regulation, help maintain energy levels by giving the day a clear flow, and make it easier to handle changes.
-              By creating a sense of order, routines also reduce anxiety and provide stability in a world that can sometimes feel unpredictable.
+              {t('routineDesc')}
             </p>
           </div>
         </div>
@@ -171,14 +167,12 @@ export default function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 lg:gap-16 items-center">
             {/* Text column (right on desktop) */}
             <div className="w-full md:pl-6 md:order-2 order-2">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">What is Ritmo?</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">{t('whatIsRitmo')}</h2>
               <p className="mt-4 text-gray-700 text-base md:text-lg leading-relaxed text-justify">
-                Ritmo is a daily routine tracker designed to support children with autism and their families. It helps make everyday tasks easier through visual guides,
-                voice feedback, alarms, and engaging mini‑games that turn routines into enjoyable activities.
+                {t('ritmoDesc1')}
               </p>
               <p className="mt-3 text-gray-700 text-base md:text-lg leading-relaxed text-justify">
-                Ritmo also includes parent‑focused tools such as a parental lock and a progress tracker so parents can guide their child safely and monitor growth over time.
-                It’s a simple, supportive app built to bring structure, clarity, and fun to each day.
+                {t('ritmoDesc2')}
               </p>
             </div>
             {/* Logo image (left on desktop, nudged right and slightly larger) */}
@@ -192,16 +186,16 @@ export default function Index() {
       {/* Key Features section */}
       <section className="" style={{ backgroundColor: '#61CCB2' }} data-reveal>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 flex flex-col justify-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center">Key Features</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center">{t('keyFeatures')}</h2>
           <p className="mt-3 max-w-3xl mx-auto text-center text-white/90">
-            Explore the core tools that make Ritmo simple, supportive, and child‑friendly.
+            {t('keyFeaturesDesc')}
           </p>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Autism-Friendly', desc: 'Clear visuals and animations made for children with autism.', img: feature1 },
-              { title: 'Parental Control', desc: 'Parents manage routines and keep app usage safe.', img: feature2 },
-              { title: 'Entertainment', desc: 'Fun games, videos, and stories for active learning.', img: feature3 },
-              { title: 'Progress Tracking', desc: 'See your child’s improvements through routine reports.', img: feature4 },
+              { title: t('autismFriendly'), desc: t('autismFriendlyDesc'), img: feature1 },
+              { title: t('parentalControl'), desc: t('parentalControlDesc'), img: feature2 },
+              { title: t('entertainment'), desc: t('entertainmentDesc'), img: feature3 },
+              { title: t('progressTracking'), desc: t('progressTrackingDesc'), img: feature4 },
             ].map((f) => (
                 <div
                   key={f.title}
@@ -219,7 +213,7 @@ export default function Index() {
           </div>
           <div className="mt-12 text-center">
             <Link to="/features" className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white font-semibold hover:bg-white/10 transition-colors">
-              View All Features
+              {t('viewAllFeatures')}
             </Link>
         </div>
         </div>
@@ -229,13 +223,13 @@ export default function Index() {
       <section className="bg-white" data-reveal>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full py-12 md:py-16">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">Why Ritmo Helps</h2>
-            <p className="mt-4 text-base md:text-lg text-gray-700">Benefits for everyone involved</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">{t('whyRitmoHelps')}</h2>
+            <p className="mt-4 text-base md:text-lg text-gray-700">{t('benefitsForEveryone')}</p>
           </div>
           <div className="mt-14 grid gap-10 lg:gap-12 grid-cols-1 md:grid-cols-2 place-items-center">
             {[
-              { title: 'For Children', items: ['Provides clear step-by-step visual guidance','Helps build independence in daily routines','Encourages positive behavior and achievements','Supports learning through engaging visuals'] },
-              { title: 'For Parent', items: ['Makes routine management easier at home','Monitors the child’s progress daily','Customizable schedules for unique needs','Promotes consistency and smoother days for the family'] },
+              { title: t('forChildren'), items: [t('childBenefit1'), t('childBenefit2'), t('childBenefit3'), t('childBenefit4')] },
+              { title: t('forParent'), items: [t('parentBenefit1'), t('parentBenefit2'), t('parentBenefit3'), t('parentBenefit4')] },
             ].map(block => (
               <div key={block.title} className="w-full rounded-2xl bg-[#61CCB2]/20 border border-[#61CCB2]/40 shadow-md p-8 md:p-10 transition transform hover:-translate-y-1 hover:shadow-xl">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#2D7778]">{block.title}</h3>
@@ -261,16 +255,16 @@ export default function Index() {
       <section className="py-12 md:py-16 bg-white" data-reveal>
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-gray-100 rounded-3xl shadow-md px-6 md:px-10 lg:px-16 py-10 md:py-14 text-center">
-            <h3 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">Our Mission</h3>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">{t('ourMission')}</h3>
             <p className="mt-4 text-gray-700 text-lg md:text-xl">
-             To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.
+             {t('missionStatement')}
             </p>
             <div className="mt-8">
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] text-white px-6 py-3 font-semibold shadow hover:opacity-90 transition-transform hover:-translate-y-0.5"
               >
-                Learn More About Us
+                {t('learnMoreAboutUs')}
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </Link>
             </div>
@@ -288,13 +282,13 @@ export default function Index() {
             </div>
             {/* Content */}
             <div className="text-white">
-              <h3 className="text-3xl md:text-4xl font-extrabold leading-snug">The Ritmo App is now available for download on Android.</h3>
+              <h3 className="text-3xl md:text-4xl font-extrabold leading-snug">{t('ritmoAppAvailable')}</h3>
               <p className="mt-4 text-white/95 text-base md:text-lg max-w-2xl">
-                Build calm, structured days with visual schedules, reminders, and playful guidance designed for children with autism.
+                {t('buildCalmStructured')}
               </p>
               <ul className="mt-5 space-y-2 text-white/95 text-sm md:text-base">
-                <li className="flex items-start gap-3"><span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />Visual routines with audio cues</li>
-                <li className="flex items-start gap-3"><span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />Positive feedback and progress tracking</li>
+                <li className="flex items-start gap-3"><span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />{t('visualRoutines')}</li>
+                <li className="flex items-start gap-3"><span className="mt-1 inline-block w-2.5 h-2.5 rounded-full bg-white" />{t('positiveFeedback')}</li>
               </ul>
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link
@@ -302,14 +296,14 @@ export default function Index() {
                   className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[#2D7778] font-semibold shadow-sm hover:bg-white/90 transition-transform hover:-translate-y-0.5"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-                  <span>Download Now</span>
+                  <span>{t('downloadNow')}</span>
                 </Link>
                 <Link
                   to="/features#how-ritmo-works"
-                  className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 rounded-full border border-white bg-transparent px-6 py-3 text-white font-semibold shadow-sm hover:bg-white/10 transition-transform hover:-translate-y-0.5 whitespace-nowrap"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  <span>Watch Demo</span>
+                  <span>{t('watchDemo')}</span>
                 </Link>
               </div>
             </div>
@@ -321,6 +315,9 @@ export default function Index() {
 }
 
 function SliderHero() {
+  const { language } = useLanguage()
+  const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
+
   const slides = useMemo(
     () => [
       { src: frontViewChild, alt: 'Child making puzzle at table' },
@@ -332,28 +329,25 @@ function SliderHero() {
   const contents = useMemo(
     () => [
       {
-        title: 'Guiding every step with care.',
-        desc:
-          'Ritmo is a daily routine tracker designed for children with autism — combining structured tasks with audio‑visual aids, voice feedback, and playful mini‑games to make every step clearer, calmer, and more engaging.',
-        ctaLabel: 'Download Ritmo',
+        title: t('sliderTitle1'),
+        desc: t('sliderDesc1'),
+        ctaLabel: t('downloadNow'),
         ctaHref: '/download',
       },
       {
-        title: 'Together with parents, Ritmo builds better habits.',
-        desc:
-          'Built in collaboration with parents, Ritmo features parental lock controls and a clear progress tracker to help parents monitor their children and support safe, guided, and meaningful daily routines.',
-        ctaLabel: 'See all features',
+        title: t('sliderTitle2'),
+        desc: t('sliderDesc2'),
+        ctaLabel: t('viewAllFeatures'),
         ctaHref: '/features',
       },
       {
-        title: 'Our Mission to Support Families',
-        desc:
-          'To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.',
-        ctaLabel: 'More about us',
+        title: t('sliderTitle3'),
+        desc: t('sliderDesc3'),
+        ctaLabel: t('learnMoreAboutUs'),
         ctaHref: '/about',
       },
     ],
-    []
+    [language]
   )
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)

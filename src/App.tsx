@@ -10,10 +10,11 @@ import Features from './pages/feature.tsx'
 import News from './pages/news.tsx'
 import Contact from './pages/contact.tsx'
 import Download from './pages/download.tsx'
+import { LanguageProvider } from './context/LanguageContext'
 
 function App() {
   return (
-    <>
+    <LanguageProvider>
       <Header />
       <ScrollToTop />
       <main className="pt-16">
@@ -30,7 +31,7 @@ function App() {
       </main>
       <Footer />
       <AccessibilityWidget />
-    </>
+    </LanguageProvider>
   ) 
 }
 
