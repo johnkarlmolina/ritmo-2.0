@@ -1,6 +1,7 @@
 import PhoneImg from '../assets/1.png';
 import StarIcon from '../assets/Star.png';
 import DownloadIcon from '../assets/Download.png';
+import RitmoAdVideo from '../assets/Ritmo Ad(22sec).mp4';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
@@ -347,7 +348,7 @@ export default function Features() {
 				<video
 					className="absolute inset-0 w-full h-full object-cover"
 					controls
-					src="https://www.w3schools.com/html/mov_bbb.mp4"
+					src={RitmoAdVideo}
 					aria-label="How Ritmo Works sample video"
 				/>
 			</div>
