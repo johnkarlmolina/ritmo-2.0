@@ -172,26 +172,36 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="bg-white" data-reveal>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8 pb-12 md:pb-16 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 lg:gap-16 items-center">
-            {/* Text column (right on desktop) */}
-            <div className="w-full md:pl-6 md:order-2 order-2">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">{t('whatIsRitmo')}</h2>
-              <p className="mt-4 text-gray-700 text-base md:text-lg leading-relaxed text-justify">
-                {t('ritmoDesc1')}
-              </p>
-              <p className="mt-3 text-gray-700 text-base md:text-lg leading-relaxed text-justify">
-                {t('ritmoDesc2')}
-              </p>
-            </div>
-            {/* Logo image (left on desktop, nudged right and slightly larger) */}
-            <div className="w-full flex items-start justify-center md:justify-end md:pr-6 md:order-1 order-1">
-              <img src={ritmoOldLogo} alt="Ritmo logo" className="w-52 sm:w-64 md:w-80 lg:w-96 xl:w-[24rem] h-auto object-contain" />
-            </div>
-          </div>
+    
+{/*
+  <section className="bg-white" data-reveal>
+    <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8 pb-12 md:pb-16 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 lg:gap-16 items-center">
+
+        {/* Text column (right on desktop) }
+        <div className="w-full md:pl-6 md:order-2 order-2">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">{t('whatIsRitmo')}</h2>
+          <p className="mt-4 text-gray-700 text-base md:text-lg leading-relaxed text-justify">
+            {t('ritmoDesc1')}
+          </p>
+          <p className="mt-3 text-gray-700 text-base md:text-lg leading-relaxed text-justify">
+            {t('ritmoDesc2')}
+          </p>
         </div>
-      </section>
+
+        {/* Logo image }
+        <div className="w-full flex items-start justify-center md:justify-end md:pr-6 md:order-1 order-1">
+          <img
+            src={ritmoOldLogo}
+            alt="Ritmo logo"
+            className="w-52 sm:w-64 md:w-80 lg:w-96 xl:w-[24rem] h-auto object-contain"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+*/}
 
       {/* Key Features section */}
       <section className="" style={{ backgroundColor: '#61CCB2' }} data-reveal>
