@@ -155,7 +155,13 @@ export default function Contact() {
 				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 						{/* Email us */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
+						<button
+							onClick={() => {
+								const messageSection = document.getElementById('message-section')
+								messageSection?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+							}}
+							className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl cursor-pointer w-full"
+						>
 							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
 								<img 
 									src={EmailIcon} 
@@ -172,7 +178,7 @@ export default function Contact() {
 							<p className="text-gray-600 text-sm">
 								Get a response within 24 hours
 							</p>
-						</div>
+						</button>
 
 						{/* Our Location (replacing Live Chat) */}
 						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
@@ -219,7 +225,7 @@ export default function Contact() {
 			</section>
 
 			{/* Send Us a Message Section */}
-			<section className="py-20 px-4 bg-white" data-reveal>
+			<section className="py-20 px-4 bg-white scroll-mt-20" data-reveal id="message-section">
 				<div className="max-w-7xl mx-auto">
 					<div className="text-center mb-12">
 						<h2 className="text-5xl font-bold mb-4" style={{ color: '#2B8A7A' }}>
