@@ -1,5 +1,5 @@
 import EmailIcon from '../assets/Email.png';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../utils/translations';
 import CallIcon from '../assets/Call.png';
@@ -8,11 +8,60 @@ import LocationIcon from '../assets/Location.png';
 import ConnectIcon from '../assets/Connect.png';
 import FacebookIcon from '../assets/Facebook.png';
 import InstagramIcon from '../assets/Instagram.png';
+import emailjs from '@emailjs/browser';
 // Replaced Twitter with YouTube (inline SVG icon)
+
+// Initialize EmailJS (replace with your public key from emailjs.com)
+emailjs.init('WbvSMH42FWCXVHL3g')
 
 export default function Contact() {
 	const { language } = useLanguage()
 	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
+	const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
+	const [loading, setLoading] = useState(false)
+	const [messageStatus, setMessageStatus] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const { name, value } = e.target
+		setFormData(prev => ({ ...prev, [name]: value }))
+	}
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault()
+		setLoading(true)
+		setMessageStatus(null)
+
+		try {
+			// Validate form
+			if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+				setMessageStatus({ type: 'error', text: 'Please fill in all required fields' })
+				setLoading(false)
+				return
+			}
+
+			// Send inquiry email to Ritmokids1123@gmail.com
+			await emailjs.send(
+				'service_62ccr0d',
+				'template_pqr9pd7',
+				{
+					name: formData.name,
+					email: formData.email,
+					title: formData.subject,
+					message: formData.message
+				}
+			)
+
+			setMessageStatus({ type: 'success', text: 'Thank you for reaching out to us! we\'ll do our best to answer it within 24 hours.' })
+			setFormData({ name: '', email: '', subject: '', message: '' })
+		} catch (error: any) {
+			console.error('Email send failed:', error)
+			console.error('Error details:', error?.message || error?.text || error)
+			console.error('Full error object:', JSON.stringify(error, null, 2))
+			setMessageStatus({ type: 'error', text: 'Failed to send message. Please try again.' })
+		} finally {
+			setLoading(false)
+		}
+	}
 
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'))
@@ -183,7 +232,14 @@ export default function Contact() {
 
 					<div className="max-w-3xl mx-auto">
 						<div className="bg-white rounded-3xl p-12 shadow-md">
-							<form className="space-y-6">
+							<form className="space-y-6" onSubmit={handleSubmit}>
+								{/* Status Message */}
+								{messageStatus && (
+									<div className={`p-4 rounded-lg text-center ${messageStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+										{messageStatus.text}
+									</div>
+								)}
+
 								{/* Name and Email Row */}
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 									<div>
@@ -192,6 +248,9 @@ export default function Contact() {
 										</label>
 										<input
 											type="text"
+											name="name"
+											value={formData.name}
+											onChange={handleInputChange}
 											placeholder="Enter your name"
 											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
 										/>
@@ -202,6 +261,9 @@ export default function Contact() {
 										</label>
 										<input
 											type="email"
+											name="email"
+											value={formData.email}
+											onChange={handleInputChange}
 											placeholder="Enter your email address"
 											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
 										/>
@@ -215,6 +277,9 @@ export default function Contact() {
 									</label>
 									<input
 										type="text"
+										name="subject"
+										value={formData.subject}
+										onChange={handleInputChange}
 										placeholder="How can we help you?"
 										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
 									/>
@@ -226,7 +291,10 @@ export default function Contact() {
 										Message <span className="text-red-500">*</span>
 									</label>
 									<textarea
+										name="message"
 										rows={6}
+										value={formData.message}
+										onChange={handleInputChange}
 										placeholder="Tell us more about your question or concern..."
 										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700 resize-none"
 									></textarea>
@@ -236,11 +304,12 @@ export default function Contact() {
 								<div className="text-center">
 									<button
 										type="submit"
-										className="inline-flex items-center gap-2 px-8 py-3 rounded-lg text-white font-semibold text-base transition-colors"
+										disabled={loading}
+										className="inline-flex items-center gap-2 px-8 py-3 rounded-lg text-white font-semibold text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
 										style={{ backgroundColor: '#61CCB2' }}
 									>
 										<img src={SendMessageIcon} alt="Send" className="w-5 h-5" />
-										Send Message
+										{loading ? 'Sending...' : 'Send Message'}
 									</button>
 								</div>
 							</form>
