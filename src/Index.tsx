@@ -13,7 +13,7 @@ import feature4 from './assets/Feature-4.png'
 import frontViewChild from './assets/front-view-kid-making-puzzle-table.jpg'
 import istockPhoto from './assets/istockphoto-2030023202-612x612.jpg'
 import sideViewChild from './assets/side-view-child-learning-how-count-home-using-pencils.jpg'
-import ritmoOldLogo from './assets/ritmo-old-log.png'
+//import ritmoOldLogo from './assets/ritmo-old-log.png'
 import ausLogo from './assets/AUS.png'
 // Removed sections no longer use these assets
 
