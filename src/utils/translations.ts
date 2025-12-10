@@ -33,16 +33,16 @@ export const translations = {
     buildCalmStructured: 'Build calm, structured days with visual schedules, reminders, and playful guidance designed for children with autism.',
     visualRoutines: 'Visual routines with audio cues',
     positiveFeedback: 'Positive feedback and progress tracking',
-    downloadNow: 'Download Now',
+    downloadNow: 'Download Ritmo',
     watchDemo: 'Watch Demo',
     
     // Slider hero section
-    sliderTitle1: 'Guiding every step with care.',
-    sliderDesc1: 'Ritmo is a daily routine tracker designed for children with autism — combining structured tasks with audio‑visual aids, voice feedback, and playful mini‑games to make every step clearer, calmer, and more engaging.',
-    sliderTitle2: 'Together with parents, Ritmo builds better habits.',
-    sliderDesc2: 'Built in collaboration with parents, Ritmo features parental lock controls and a clear progress tracker to help parents monitor their children and support safe, guided, and meaningful daily routines.',
-    sliderTitle3: 'Our Mission to Support Families',
-    sliderDesc3: 'To empower parents and support children with autism by providing intuitive, engaging tools that make daily routines safe, structured, and meaningful.',
+    sliderTitle1: 'What is Ritmo?',
+    sliderDesc1: 'Ritmo is a daily routine tracker for children with autism and their families. It makes everyday tasks easier through visual guides, voice prompts, alarms, and fun mini-games. Parents can use tools like parental lock and progress tracking to guide their child safely and monitor development. Ritmo brings structure, clarity, and fun to each day.',
+    sliderTitle2: 'Ritmo for Autism',
+    sliderDesc2: 'Provides clear step-by-step visual guidance • Helps build independence in daily routines • Encourages positive behavior and achievements • Supports learning through engaging visuals',
+    sliderTitle3: 'Ritmo for Parents',
+    sliderDesc3: 'Makes routine management easier at home • Monitors the child\'s progress daily • Customizable schedules for unique needs • Promotes consistency and smoother days for the family',
     
     // Feature page specific
     features: 'Features',
@@ -184,16 +184,16 @@ export const translations = {
     buildCalmStructured: 'Bumuo ng mga maayos at organisadong araw gamit ang visual schedules, reminders, at playful guidance na dinisenyo para sa mga bata na may autism.',
     visualRoutines: 'Mga visual routine na may audio cues',
     positiveFeedback: 'Positibong feedback at pagsunod sa progreso',
-    downloadNow: 'I-download Ngayon',
+    downloadNow: 'I-download ang Ritmo',
     watchDemo: 'Panoorin ang Demo',
     
     // Slider hero section
-    sliderTitle1: 'Gabayan ang bawat hakbang nang may pag-aalaga.',
-    sliderDesc1: 'Ang Ritmo ay isang daily routine tracker na dinisenyo para sa mga bata na may autism — pinagsasama ang structured tasks na may audio‑visual aids, voice feedback, at playful mini‑games upang gawing mas malinaw, mas kalmado, at mas engaging ang bawat hakbang.',
-    sliderTitle2: 'Kasama ang mga magulang, binubuo ng Ritmo ang mas magandang mga gawi.',
-    sliderDesc2: 'Binuo sa pakikipagtulungan sa mga magulang, ang Ritmo ay may parental lock controls at isang malinaw na progress tracker upang tulungan ang mga magulang na subaybayan ang kanilang mga anak at suportahan ang ligtas, gabay, at makabuluhang pang-araw-araw na mga routine.',
-    sliderTitle3: 'Ang Aming Misyon na Suportahan ang Mga Pamilya',
-    sliderDesc3: 'Bigyan ng kapangyarihan ang mga magulang at suportahan ang mga bata na may autism sa pamamagitan ng pagbibigay ng intuitive, engaging na mga tool na ginagawang ligtas, ordenado, at makahulugan ang pang-araw-araw na mga routine.',
+    sliderTitle1: 'Ano ang Ritmo?',
+    sliderDesc1: 'Ang Ritmo ay isang daily routine tracker para sa mga batang may autism at kanilang mga pamilya. Pinapadali nito ang pang-araw-araw na gawain sa pamamagitan ng visual guides, voice prompts, alarms, at masayang mini-games. Maaaring gamitin ng mga magulang ang mga tool tulad ng parental lock at progress tracking upang gabayan nang ligtas ang kanilang anak at subaybayan ang pag-unlad. Ang Ritmo ay nagdudulot ng estruktura, kalinawan, at kasiyahan sa bawat araw.',
+    sliderTitle2: 'Ritmo para sa Autism',
+    sliderDesc2: 'Nagbibigay ng malinaw na hakbang-hakbang na visual na gabay • Tumutulong bumuo ng kalayaan sa pang-araw-araw na gawain • Hinihikayat ang positibong pag-uugali at tagumpay • Sumusuporta sa pag-aaral sa pamamagitan ng nakaka-engage na visuals',
+    sliderTitle3: 'Ritmo para sa mga Magulang',
+    sliderDesc3: 'Ginagawang mas madali ang pamamahala ng routine sa bahay • Sinusubaybayan ang pag-unlad ng bata araw-araw • Customizable schedules para sa natatanging pangangailangan • Nagtataguyod ng consistency at mas maayos na araw para sa pamilya',
     
     // Feature page specific
     features: 'Mga Tampok',

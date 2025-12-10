@@ -14,12 +14,22 @@ import frontViewChild from './assets/front-view-kid-making-puzzle-table.jpg'
 import istockPhoto from './assets/istockphoto-2030023202-612x612.jpg'
 import sideViewChild from './assets/side-view-child-learning-how-count-home-using-pencils.jpg'
 import ritmoOldLogo from './assets/ritmo-old-log.png'
+import ausLogo from './assets/AUS.png'
 // Removed sections no longer use these assets
 
 export default function Index() {
   const { isLoading, progress } = useNetworkAwareLoading()
   const { language } = useLanguage()
   const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
+
+  // Preload feature images
+  useEffect(() => {
+    const images = [feature1, feature2, feature3, feature4]
+    images.forEach(src => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -185,12 +195,12 @@ export default function Index() {
 
       {/* Key Features section */}
       <section className="" style={{ backgroundColor: '#61CCB2' }} data-reveal>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 flex flex-col justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center">{t('keyFeatures')}</h2>
           <p className="mt-3 max-w-3xl mx-auto text-center text-white/90">
             {t('keyFeaturesDesc')}
           </p>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
             {[
               { title: t('autismFriendly'), desc: t('autismFriendlyDesc'), img: feature1 },
               { title: t('parentalControl'), desc: t('parentalControlDesc'), img: feature2 },
@@ -199,12 +209,14 @@ export default function Index() {
             ].map((f) => (
                 <div
                   key={f.title}
-                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-8 max-w-sm w-full min-h-[520px] flex flex-col items-center text-center justify-between transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
+                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-8 w-full max-w-sm min-h-[520px] flex flex-col items-center text-center justify-between transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
                 >
                   <img
                     src={f.img}
                     alt={`${f.title} icon`}
                     className="mb-6 w-55 h-67 md:w-65 md:h-75 object-contain"
+                    loading="eager"
+                    decoding="async"
                   />
                   <div className="text-[#2D7778] font-extrabold text-xl md:text-2xl">{f.title}</div>
                   <div className="mt-2 text-lg md:text-xl text-gray-700 leading-relaxed">{f.desc}</div>
@@ -215,58 +227,40 @@ export default function Index() {
             <Link to="/features" className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white font-semibold hover:bg-white/10 transition-colors">
               {t('viewAllFeatures')}
             </Link>
-        </div>
-        </div>
-      </section>
-
-      {/* Why Ritmo Helps section */}
-      <section className="bg-white" data-reveal>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full py-12 md:py-16">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">{t('whyRitmoHelps')}</h2>
-            <p className="mt-4 text-base md:text-lg text-gray-700">{t('benefitsForEveryone')}</p>
-          </div>
-          <div className="mt-14 grid gap-10 lg:gap-12 grid-cols-1 md:grid-cols-2 place-items-center">
-            {[
-              { title: t('forChildren'), items: [t('childBenefit1'), t('childBenefit2'), t('childBenefit3'), t('childBenefit4')] },
-              { title: t('forParent'), items: [t('parentBenefit1'), t('parentBenefit2'), t('parentBenefit3'), t('parentBenefit4')] },
-            ].map(block => (
-              <div key={block.title} className="w-full rounded-2xl bg-[#61CCB2]/20 border border-[#61CCB2]/40 shadow-md p-8 md:p-10 transition transform hover:-translate-y-1 hover:shadow-xl">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#2D7778]">{block.title}</h3>
-                <ul className="mt-6 space-y-3 text-[#2D7778] text-base">
-                  {block.items.map((item, idx) => (
-                    <li key={`${block.title}-${idx}`} className="flex items-start gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-none"><path d="M20 6 9 17l-5-5"/></svg>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* See Ritmo in Action - removed per request */}
-      
-      {/* Availability Promo - removed per request */}
-
-      {/* Our Mission */}
+      {/* We Recommend */}
       <section className="py-12 md:py-16 bg-white" data-reveal>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-gray-100 rounded-3xl shadow-md px-6 md:px-10 lg:px-16 py-10 md:py-14 text-center">
-            <h3 className="text-4xl md:text-5xl font-extrabold text-[#2D7778]">{t('ourMission')}</h3>
-            <p className="mt-4 text-gray-700 text-lg md:text-xl">
-             {t('missionStatement')}
-            </p>
-            <div className="mt-8">
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] text-white px-6 py-3 font-semibold shadow hover:opacity-90 transition-transform hover:-translate-y-0.5"
-              >
-                {t('learnMoreAboutUs')}
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </Link>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg px-8 md:px-12 lg:px-20 py-12 md:py-16 transition transform hover:-translate-y-2 hover:shadow-2xl">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-center mb-2" style={{ color: '#2D7778' }}>We Recommend</h3>
+            <p className="text-center text-lg mb-10" style={{ color: '#2D7778' }}>Visiting this website</p>
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-12" style={{ gap: '7.5rem' }}>
+              <div className="flex-shrink-0">
+                <img src={ausLogo} alt="Autism Society Philippines" className="w-auto" style={{ height: '10rem' }} />
+              </div>
+              <div className="flex flex-col gap-6 lg:max-w-md">
+                <div>
+                  <p className="font-semibold text-2xl mb-2" style={{ color: '#2D7778' }}>Website:</p>
+                  <a href="http://www.autismsocietyphilippines.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-base break-words">http://www.autismsocietyphilippines.org/</a>
+                </div>
+                <div>
+                  <p className="font-semibold text-lg mb-4" style={{ color: '#2D7778' }}>You can also visit them on:</p>
+                  <div className="flex gap-4 items-center">
+                    <a href="https://www.instagram.com/autismsocietyphilippines/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform">
+                      <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/AutismSocietyPhilippines" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover:scale-110 transition-transform">
+                      <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://twitter.com/autismsocietyph" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center hover:scale-110 transition-transform">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -331,20 +325,14 @@ function SliderHero() {
       {
         title: t('sliderTitle1'),
         desc: t('sliderDesc1'),
-        ctaLabel: t('downloadNow'),
-        ctaHref: '/download',
       },
       {
         title: t('sliderTitle2'),
         desc: t('sliderDesc2'),
-        ctaLabel: t('viewAllFeatures'),
-        ctaHref: '/features',
       },
       {
         title: t('sliderTitle3'),
         desc: t('sliderDesc3'),
-        ctaLabel: t('learnMoreAboutUs'),
-        ctaHref: '/about',
       },
     ],
     [language]
@@ -431,27 +419,34 @@ function SliderHero() {
               <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight drop-shadow-md">
                 {contents[index].title}
               </h2>
-              <p className="mt-3 md:mt-4 text-slate-900 text-base md:text-lg leading-relaxed drop-shadow">
-                {contents[index].desc}
-              </p>
-              <div className="mt-4 md:mt-6">
-                {(() => {
-                  const isDownload = contents[index].ctaHref === '/download'
-                  const base = 'inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-6 py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors'
-                  const text = isDownload ? 'text-white font-bold' : 'text-white font-semibold'
-                  return (
-                    <Link to={contents[index].ctaHref} className={`${base} ${text}`}>
-                      {isDownload && (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                          <path d="M7 10l5 5 5-5"/>
-                          <path d="M12 15V3"/>
-                        </svg>
-                      )}
-                      {contents[index].ctaLabel}
-                    </Link>
-                  )
-                })()}
+              {index === 0 ? (
+                <p className="mt-3 md:mt-4 text-slate-900 text-lg md:text-xl leading-relaxed drop-shadow">
+                  {contents[index].desc}
+                </p>
+              ) : (
+                <div className="mt-3 md:mt-4 space-y-2">
+                  {contents[index].desc.split(' • ').map((item: string, idx: number) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <svg className="w-6 h-6 md:w-7 md:h-7 text-green-600 flex-shrink-0 mt-0.5 drop-shadow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                      <span className="text-slate-900 text-lg md:text-xl leading-relaxed drop-shadow">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div className="mt-4 md:mt-6 flex flex-wrap gap-3">
+                <Link to="/download" className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-6 py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors text-white font-bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <path d="M7 10l5 5 5-5"/>
+                    <path d="M12 15V3"/>
+                  </svg>
+                  {t('downloadNow')}
+                </Link>
+                <Link to="/features" className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-6 py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors text-white font-semibold">
+                  {t('viewAllFeatures')}
+                </Link>
               </div>
             </div>
           </div>
