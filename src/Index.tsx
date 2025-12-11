@@ -244,9 +244,12 @@ export default function Index() {
       {/* We Recommend */}
       <section className="py-12 md:py-16 bg-white" data-reveal>
         <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>We Recommend</h3>
+            <p className="text-lg" style={{ color: '#2D7778' }}>Visiting this website</p>
+          </div>
+          
           <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg px-8 md:px-12 lg:px-20 py-12 md:py-16 transition transform hover:-translate-y-2 hover:shadow-2xl">
-            <h3 className="text-3xl md:text-4xl font-extrabold text-center mb-2" style={{ color: '#2D7778' }}>We Recommend</h3>
-            <p className="text-center text-lg mb-10" style={{ color: '#2D7778' }}>Visiting this website</p>
             <div className="flex flex-col lg:flex-row items-center justify-center gap-12" style={{ gap: '7.5rem' }}>
               <div className="flex-shrink-0">
                 <img src={ausLogo} alt="Autism Society Philippines" className="w-auto" style={{ height: '10rem' }} />
