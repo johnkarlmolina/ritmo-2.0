@@ -276,6 +276,82 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Articles Section - You might find useful */}
+      <section className="py-12 md:py-16 bg-white" data-reveal>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>You might find Useful</h3>
+            <p className="text-lg" style={{ color: '#2D7778' }}>Stay Informed with Our Latest Insights</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Article 1 */}
+            <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
+              <div className="bg-gray-100 h-48 flex items-center justify-center">
+                <img src={ausLogo} alt="Autism Society Philippines" className="w-auto h-32 object-contain" />
+              </div>
+              <div className="p-6">
+                <p className="text-sm mb-2" style={{ color: '#61CCB2' }}>
+                  <span className="font-semibold">Autism Society Philippines</span> • 11 Nov 2014
+                </p>
+                <h4 className="font-bold text-xl mb-3 leading-tight" style={{ color: '#2D7778' }}>
+                  Understanding Person with Disabilities: Journey with Autism
+                </h4>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  By Erling's "Ong" Uy Koe & Evert L. Malapad, MA Educ SPED. In the realm of modern society, a Point of Sale (POS) system serves as more than just a tool for processing transactions...
+                </p>
+                <a 
+                  href="http://www.autismsocietyphilippines.org/2014/11/understanding-persons-with-disabilities.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 font-semibold text-sm transition-colors"
+                  style={{ color: '#2D7778' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1a5f60'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#2D7778'}
+                >
+                  Read More
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Article 2 */}
+            <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
+              <div className="bg-gray-100 h-48 flex items-center justify-center">
+                <img src={ausLogo} alt="Autism Society Philippines" className="w-auto h-32 object-contain" />
+              </div>
+              <div className="p-6">
+                <p className="text-sm mb-2" style={{ color: '#61CCB2' }}>
+                  <span className="font-semibold">Autism Society Philippines</span> • 01 Jan 2010
+                </p>
+                <h4 className="font-bold text-xl mb-3 leading-tight" style={{ color: '#2D7778' }}>
+                  What Is Autism and What Is Not
+                </h4>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  By Tiffany Tan ASP Board Secretary. In the realm of modern society, a Point of Sale (POS) system serves as more than just a tool for processing transactions and handles sensitive customer data...
+                </p>
+                <a 
+                  href="http://www.autismsocietyphilippines.org/2010/01/what-autism-is-and-is-not.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 font-semibold text-sm transition-colors"
+                  style={{ color: '#2D7778' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1a5f60'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#2D7778'}
+                >
+                  Read More
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Ritmo is now available (restored, full width) */}
       <section className="py-16 md:py-20 mt-12 md:mt-16 mb-12 md:mb-16" style={{ backgroundColor: '#61CCB2' }} data-reveal>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
