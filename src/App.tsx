@@ -1,7 +1,6 @@
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import AccessibilityWidget from './components/AccessibilityWidget'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import Index from './Index.tsx'
@@ -30,7 +29,6 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      <AccessibilityWidget />
     </LanguageProvider>
   ) 
 }
