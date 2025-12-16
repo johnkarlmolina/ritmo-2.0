@@ -7,7 +7,7 @@ import VisionIcon from '../assets/Vision.png';
 import ChildrenIcon from '../assets/Children.png';
 import ParentIcon from '../assets/Parent.png';
 import EducatorsIcon from '../assets/Educators.png';
-import DuhilingImg from '../asset-team-img/Duhiling.png';
+import DuhilingImg from '../asset-team-img/DUHILING-removebg-preview.png';
 import HernandezImg from '../asset-team-img/Hernandez.png';
 import IsorenaImg from '../asset-team-img/Isorena.png';
 import ArcasImg from '../asset-team-img/Arcas.png';
