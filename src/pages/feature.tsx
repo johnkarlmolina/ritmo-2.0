@@ -122,63 +122,35 @@ export default function Features() {
 			{/* Left Column - Cards */}
 			<div className="col-span-1 flex flex-col justify-end space-y-5">
 				<div className="relative ml-auto group cursor-pointer">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
+					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 							<div className="flex items-center gap-3 mb-4">
 								<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 									<img src={StarIcon} alt="Star" className="w-6 h-6" />
 								</div>
 								<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-									{t('autismFriendlyTitle')}
+									Autism Friendly
 								</h3>
 								</div>
-							<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								{t('autismFriendlyText')}
+							<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
+								Ang Ritmo ay Autism-Friendly. Ang mga disenyong gaya ng kulay, tunog at mga cartoon character na ginamit ay masusing pinili upang hindi makapagbigay ng trigger sa mga batang may autism.
 							</p>
-							<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('bigUiComponents')}</span>
-									</li>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('audioVisualFeedback')}</span>
-									</li>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('animatedCharacters')}</span>
-									</li>
-								</ul>
 							</div>
 						</div>
 						<div className="relative ml-auto group cursor-pointer">
-							<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-							<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
+							<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+							<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 						<div className="flex items-center gap-3 mb-4">
 							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
 							</div>
 							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								{t('parentalControlTitle')}
+								Parental Control
 								</h3>
 							</div>
-							<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								{t('parentalControlText')}
+							<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
+								Ang mga bagay na dapat lamang makita ng magulang gaya ng reports at settings kung saan magbabago o magdadagdag ng routine ay nakapaloob sa parental control. Ito ay mayroong password nang sa gayon hindi ito maka-istorbo sa paggamit ng bata.
 							</p>
-							<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('parentalLock')}</span>
-								</li>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('dailyRoutineSetup')}</span>
-								</li>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('limitedMediaSearch')}</span>
-								</li>
-							</ul>
 						</div>
 					</div>
 				</div>
@@ -196,55 +168,35 @@ export default function Features() {
 			{/* Right Column - Cards */}
 			<div className="col-span-1 flex flex-col space-y-5">
 				<div className="relative group cursor-pointer">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
+					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 						<div className="flex items-center gap-3 mb-4">
 							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
 							</div>
 							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								{t('entertainmentTitle')}
+								Entertainment
 								</h3>
 							</div>
-							<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								{t('entertainmentText')}
+							<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
+								Ang Ritmo ay hindi lamang puro disenyo na susundan. Mayroon din itong mga video na pwedeng panooran at pwede ring hanapan ng kung anumang gustong panooring ng bata, masasayang laro na kaugnay pa rin ng gawain at mga kwento para sa aktibong pagkatuto.
 							</p>
-							<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('funGames')}</span>
-								</li>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('audioVisualBooks')}</span>
-								</li>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('mediaPage')}</span>
-								</li>
-						</ul>
 					</div>
 				</div>
 				<div className="relative group cursor-pointer">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
+					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 						<div className="flex items-center gap-3 mb-4">
 							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 								<img src={StarIcon} alt="Star" className="w-6 h-6" />
 							</div>
 							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-							{t('progressionTitle')}
+								Progression
 								</h3>
-							</div>
-							<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								{t('progressionText')}
-							</p>
-							<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-								<li className="flex items-start">
-									<span className="mr-3">●</span>
-									<span>{t('downloadablePdf')}</span>
-								</li>
-							</ul>
+								</div>
+								<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
+									Ang Ritmo ay nagbibigay ng progress report na naglalaman ng resulta ng pagsasagawa ng bata ng gawain sa loob ng isang linggo. Ito ay pwedeng magamit upang ipakita sa mga therapist ng bata.
+								</p>
 						</div>
 				</div>
 			</div>
@@ -254,39 +206,29 @@ export default function Features() {
 		<div className="lg:hidden flex flex-col items-center gap-6 py-8">
 			{/* All cards in vertical stack on mobile/tablet */}
 			<div className="relative w-72 group cursor-pointer">
-				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
+				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
 						</div>
-						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('autismFriendlyTitle')}</h3>
-					</div>
-					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('autismFriendlyText')}</p>
-					<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-						<li className="flex items-start"><span className="mr-3">●</span><span>{t('bigUiComponents')}</span></li>
-						<li className="flex items-start"><span className="mr-3">●</span><span>{t('audioVisualFeedback')}</span></li>
-						<li className="flex items-start"><span className="mr-3">●</span><span>{t('animatedCharacters')}</span></li>
-					</ul>
+					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Autism Friendly</h3>
+				</div>
+				<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Ang Ritmo ay Autism-Friendly. Ang mga disenyong gaya ng kulay, tunog at mga cartoon character na ginamit ay masusing pinili upang hindi makapagbigay ng trigger sa mga batang may autism.</p>
 				</div>
 			</div>
 			
 		
 			<div className="relative w-72 group cursor-pointer">
-			<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-			<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
+			<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+			<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 				<div className="flex items-center gap-3 mb-4">
 					<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 						<img src={StarIcon} alt="Star" className="w-6 h-6" />
 					</div>
-					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('entertainmentTitle')}</h3>
+					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Entertainment</h3>
 				</div>
-				<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('entertainmentText')}</p>
-				<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-					<li className="flex items-start"><span className="mr-3">●</span><span>{t('funGames')}</span></li>
-					<li className="flex items-start"><span className="mr-3">●</span><span>{t('audioVisualBooks')}</span></li>
-					<li className="flex items-start"><span className="mr-3">●</span><span>{t('mediaPage')}</span></li>
-				</ul>
+				<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Ang Ritmo ay hindi lamang puro disenyo na susundan. Mayroon din itong mga video na pwedeng panooran at pwede ring hanapan ng kung anumang gustong panooring ng bata, masasayang laro na kaugnay pa rin ng gawain at mga kwento para sa aktibong pagkatuto.</p>
 			</div>
 		</div>			<img 
 				src={PhoneImg} 
@@ -296,36 +238,28 @@ export default function Features() {
 			/>
 			
 			<div className="relative w-72 group cursor-pointer">
-				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
+				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
 						</div>
-						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('parentalControlTitle')}</h3>
-					</div>
-					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('parentalControlText')}</p>
-					<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-						<li className="flex items-start"><span className="mr-3">●</span><span>{t('parentalLock')}</span></li>
-						<li className="flex items-start"><span className="mr-3">●</span><span>{t('dailyRoutineSetup')}</span></li>
-						<li className="flex items-start"><span className="mr-3">●</span><span>{t('limitedMediaSearch')}</span></li>
-					</ul>
+					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Parental Control</h3>
+				</div>
+				<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Ang mga bagay na dapat lamang makita ng magulang gaya ng reports at settings kung saan magbabago o magdadagdag ng routine ay nakapaloob sa parental control. Ito ay mayroong password nang sa gayon hindi ito maka-istorbo sa paggamit ng bata.</p>
 								</div>
 							</div>
 
 			<div className="relative w-72 group cursor-pointer">
-				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-72 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-72 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
+				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
+				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
 					<div className="flex items-center gap-3 mb-4">
 						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
 							<img src={StarIcon} alt="Star" className="w-6 h-6" />
 								</div>
-						<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('progressionTitle')}</h3>
-								</div>
-					<p className="text-base mb-4 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>{t('progressionText')}</p>
-					<ul className="space-y-1 text-base leading-snug" style={{ color: '#2B2B2B' }}>
-						<li className="flex items-start"><span className="mr-3">●</span><span>{t('downloadablePdf')}</span></li>
-								</ul>
+					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Progression</h3>
+							</div>
+				<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Ang Ritmo ay nagbibigay ng progress report na naglalaman ng resulta ng pagsasagawa ng bata ng gawain sa loob ng isang linggo. Ito ay pwedeng magamit upang ipakita sa mga therapist ng bata.</p>
 							</div>
 						</div>
 					</div>

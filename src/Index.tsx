@@ -142,7 +142,7 @@ export default function Index() {
             {/* Left column: heading + paragraphs */}
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778]">{t('whatIsAutism')}</h2>
-              <p className="mt-4 text-gray-800 leading-relaxed">
+              <p className="mt-4 text-gray-800 leading-relaxed text-justify">
                 {t('autismDesc')}
               </p>
             </div>
@@ -165,7 +165,7 @@ export default function Index() {
           {/* Full-width: Routine for Autism */}
           <div className="mt-6 md:mt-8">
             <h3 className="text-2xl md:text-3xl font-extrabold text-[#2D7778]">{t('routineForAutism')}</h3>
-            <p className="mt-4 text-gray-800 leading-relaxed">
+            <p className="mt-4 text-gray-800 leading-relaxed text-justify">
               {t('routineDesc')}
             </p>
           </div>
@@ -210,7 +210,7 @@ export default function Index() {
           <p className="mt-3 max-w-3xl mx-auto text-center text-white/90">
             {t('keyFeaturesDesc')}
           </p>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {[
               { title: t('autismFriendly'), desc: t('autismFriendlyDesc'), img: feature1 },
               { title: t('parentalControl'), desc: t('parentalControlDesc'), img: feature2 },
@@ -219,12 +219,12 @@ export default function Index() {
             ].map((f) => (
                 <div
                   key={f.title}
-                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-8 w-full max-w-sm min-h-[520px] flex flex-col items-center text-center justify-between transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
+                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-8 w-full max-w-md min-h-[540px] flex flex-col items-center text-center justify-between transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
                 >
                   <img
                     src={f.img}
                     alt={`${f.title} icon`}
-                    className="mb-6 w-55 h-67 md:w-65 md:h-75 object-contain"
+                    className="mb-6 w-64 h-72 md:w-72 md:h-80 object-contain"
                     loading="eager"
                     decoding="async"
                   />
@@ -246,7 +246,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>We Recommend</h3>
-            <p className="text-lg" style={{ color: '#2D7778' }}>Visiting this website</p>
+            <p className="text-lg" style={{ color: '#2D7778' }}>Bisitahin ang website na ito para sa lubusang pagkatuto</p>
           </div>
           
           <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg px-8 md:px-12 lg:px-20 py-12 md:py-16 transition transform hover:-translate-y-2 hover:shadow-2xl">
@@ -256,7 +256,7 @@ export default function Index() {
               </div>
               <div className="flex flex-col gap-6 lg:max-w-md">
                 <div>
-                  <p className="font-semibold text-2xl mb-2" style={{ color: '#2D7778' }}>Website:</p>
+                  <p className="font-semibold text-2xl mb-2" style={{ color: '#2D7778' }}>Website</p>
                   <a href="http://www.autismsocietyphilippines.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-base break-words">http://www.autismsocietyphilippines.org/</a>
                 </div>
                 <div>
@@ -284,7 +284,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>You might find Useful</h3>
-            <p className="text-lg" style={{ color: '#2D7778' }}>Stay Informed with Our Latest Insights</p>
+            <p className="text-lg" style={{ color: '#2D7778' }}>Manatiling may kaalaman sa pamamagitan ng aming pinakabagong mga ulat.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -505,11 +505,11 @@ function SliderHero() {
         <div className="absolute inset-0 z-10">
           <div className="max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
             <div className="max-w-xl md:max-w-2xl">
-              <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight drop-shadow-md">
+              <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight drop-shadow-md whitespace-nowrap">
                 {contents[index].title}
               </h2>
               {index === 0 ? (
-                <p className="mt-3 md:mt-4 text-slate-900 text-lg md:text-xl leading-relaxed drop-shadow">
+                <p className="mt-3 md:mt-4 text-slate-900 text-lg md:text-xl leading-relaxed drop-shadow text-justify">
                   {contents[index].desc}
                 </p>
               ) : (
@@ -519,7 +519,7 @@ function SliderHero() {
                       <svg className="w-6 h-6 md:w-7 md:h-7 text-green-600 flex-shrink-0 mt-0.5 drop-shadow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                       </svg>
-                      <span className="text-slate-900 text-lg md:text-xl leading-relaxed drop-shadow">{item}</span>
+                      <span className="text-slate-900 text-lg md:text-xl leading-relaxed drop-shadow whitespace-nowrap">{item}</span>
                     </div>
                   ))}
                 </div>

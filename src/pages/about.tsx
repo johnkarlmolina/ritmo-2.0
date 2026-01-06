@@ -157,7 +157,7 @@ export default function About() {
 				<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>{t('tapClickCard')}</p>
 				
 				{/* Grid layout: responsive columns */}
-				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 lg:gap-10 justify-items-center">
+				<div className="flex flex-wrap gap-6 md:gap-8 lg:gap-10 justify-center">
 					{(() => {
 						const members = [
 							{ name: 'Myra Leah S. Duhiling', role: 'Project Manager', img: DuhilingImg, details: 'Leads cross-functional efforts and keeps the team aligned to goals.' },
