@@ -22,12 +22,41 @@ export default function Index() {
   const { language } = useLanguage()
   const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
 
-  // Preload feature images
+  // Preload critical images for faster loading
   useEffect(() => {
-    const images = [feature1, feature2, feature3, feature4]
-    images.forEach(src => {
+    const criticalImages = [
+      // Slider images - highest priority
+      frontViewChild,
+      istockPhoto,
+      sideViewChild,
+      // Feature images
+      feature1,
+      feature2,
+      feature3,
+      feature4,
+      // Other critical images
+      handPhoneImg,
+      ausLogo
+    ]
+    
+    criticalImages.forEach((src, index) => {
+      const link = document.createElement('link')
+      link.rel = 'preload'
+      link.as = 'image'
+      link.href = src
+      // Prioritize slider and feature images
+      if (index < 7) {
+        link.setAttribute('fetchpriority', 'high')
+      }
+      document.head.appendChild(link)
+      
+      // Also create image objects for immediate caching
       const img = new Image()
       img.src = src
+      if (index < 7) {
+        img.loading = 'eager'
+        img.decoding = 'async'
+      }
     })
   }, [])
 
@@ -44,10 +73,10 @@ export default function Index() {
       const texts = el.querySelectorAll<HTMLElement>('p,li')
       const buttons = el.querySelectorAll<HTMLElement>('a,button')
       const cards = el.querySelectorAll<HTMLElement>('.rounded-2xl,.rounded-3xl')
-      headings.forEach(node => { node.style.opacity = '0'; node.style.transform = 'translate(-42px,-18px) scale(.94)'; })
-      texts.forEach(node => { node.style.opacity = '0'; node.style.transform = 'translateY(34px) scale(.94)'; })
+      headings.forEach(node => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; })
+      texts.forEach(node => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; })
       buttons.forEach(node => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; })
-      cards.forEach(node => { node.style.opacity = '0'; node.style.transform = 'translateY(48px) scale(.88)'; })
+      cards.forEach(node => { node.style.opacity = '0'; node.style.transform = 'translateY(36px) scale(.88)'; })
     }
     sections.forEach(hide)
     const observer = new IntersectionObserver(entries => {
@@ -205,31 +234,37 @@ export default function Index() {
 
       {/* Key Features section */}
       <section className="" style={{ backgroundColor: '#61CCB2' }} data-reveal>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center">{t('keyFeatures')}</h2>
-          <p className="mt-3 max-w-3xl mx-auto text-center text-white/90">
+        <div className="w-full max-w-[1800px] mx-auto px-2 sm:px-3 md:px-4 py-16 md:py-20">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center px-2">{t('keyFeatures')}</h2>
+          <p className="mt-3 max-w-3xl mx-auto text-center text-white/90 px-3">
             {t('keyFeaturesDesc')}
           </p>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             {[
               { title: t('autismFriendly'), desc: t('autismFriendlyDesc'), img: feature1 },
               { title: t('parentalControl'), desc: t('parentalControlDesc'), img: feature2 },
               { title: t('entertainment'), desc: t('entertainmentDesc'), img: feature3 },
               { title: t('progressTracking'), desc: t('progressTrackingDesc'), img: feature4 },
-            ].map((f) => (
+            ].map((f, idx) => (
                 <div
                   key={f.title}
-                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-8 w-full max-w-md min-h-[540px] flex flex-col items-center text-center justify-between transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
+                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-5 sm:p-6 md:p-6 lg:p-8 w-full min-h-[600px] sm:min-h-[620px] md:min-h-[540px] flex flex-col items-center transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
                 >
                   <img
                     src={f.img}
                     alt={`${f.title} icon`}
-                    className="mb-6 w-64 h-72 md:w-72 md:h-80 object-contain"
+                    className="mb-6 sm:mb-4 w-60 h-68 sm:w-64 sm:h-72 md:w-56 md:h-64 lg:w-60 lg:h-68 object-contain flex-shrink-0"
                     loading="eager"
                     decoding="async"
+                    fetchPriority={idx < 2 ? 'high' : 'auto'}
+                    style={{
+                      willChange: 'auto',
+                      backfaceVisibility: 'hidden', 
+                      transform: 'translateZ(0)',
+                    }}
                   />
-                  <div className="text-[#2D7778] font-extrabold text-xl md:text-2xl">{f.title}</div>
-                  <div className="mt-2 text-lg md:text-xl text-gray-700 leading-relaxed">{f.desc}</div>
+                  <div className="text-[#2D7778] font-extrabold text-2xl sm:text-2xl md:text-xl lg:text-2xl mb-4 sm:mb-3 w-full text-center px-1">{f.title}</div>
+                  <div className="text-base sm:text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed px-3 md:px-2 w-full text-justify flex-grow-0">{f.desc}</div>
               </div>
             ))}
           </div>
@@ -246,13 +281,20 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>We Recommend</h3>
-            <p className="text-lg" style={{ color: '#2D7778' }}>Bisitahin ang website na ito para sa lubusang pagkatuto</p>
+            <p className="text-lg text-gray-800">Visit this website for complete learning</p>
           </div>
           
           <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg px-8 md:px-12 lg:px-20 py-12 md:py-16 transition transform hover:-translate-y-2 hover:shadow-2xl">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-12" style={{ gap: '7.5rem' }}>
               <div className="flex-shrink-0">
-                <img src={ausLogo} alt="Autism Society Philippines" className="w-auto" style={{ height: '10rem' }} />
+                <img 
+                  src={ausLogo} 
+                  alt="Autism Society Philippines" 
+                  className="w-auto" 
+                  style={{ height: '10rem' }}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="flex flex-col gap-6 lg:max-w-md">
                 <div>
@@ -284,14 +326,20 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>You might find Useful</h3>
-            <p className="text-lg" style={{ color: '#2D7778' }}>Manatiling may kaalaman sa pamamagitan ng aming pinakabagong mga ulat.</p>
+            <p className="text-lg text-gray-800">Stay informed with our latest articles and resources.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Article 1 */}
             <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
               <div className="bg-gray-100 h-48 flex items-center justify-center">
-                <img src={ausLogo} alt="Autism Society Philippines" className="w-auto h-32 object-contain" />
+                <img 
+                  src={ausLogo} 
+                  alt="Autism Society Philippines" 
+                  className="w-auto h-32 object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="p-6">
                 <p className="text-sm mb-2" style={{ color: '#61CCB2' }}>
@@ -323,7 +371,13 @@ export default function Index() {
             {/* Article 2 */}
             <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
               <div className="bg-gray-100 h-48 flex items-center justify-center">
-                <img src={ausLogo} alt="Autism Society Philippines" className="w-auto h-32 object-contain" />
+                <img 
+                  src={ausLogo} 
+                  alt="Autism Society Philippines" 
+                  className="w-auto h-32 object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="p-6">
                 <p className="text-sm mb-2" style={{ color: '#61CCB2' }}>
@@ -480,60 +534,66 @@ function SliderHero() {
     >
       {/* Image layer */}
       <div className="relative h-[80vh] md:h-[92vh] lg:h-screen overflow-hidden">
-        {slides.map((s, i) => (
-          <img
-            key={s.alt}
-            src={s.src}
-            alt={s.alt}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === index ? 'opacity-100' : 'opacity-0'}`}
-            style={{
-              transform: `translateY(${scrollY * 0.5}px)`,
-              imageRendering: 'crisp-edges',
-              filter: 'contrast(1.08) saturate(1.08) brightness(1.05)',
-              backfaceVisibility: 'hidden',
-              perspective: '1000px',
-              willChange: 'transform',
-            }}
-            loading="eager"
-            decoding="sync"
-            fetchPriority="high"
-          />
-        ))}
+        {slides.map((s, i) => {
+          const isActive = i === index
+          const isNext = i === (index + 1) % slides.length
+          const isPrev = i === (index - 1 + slides.length) % slides.length
+          
+          return (
+            <img
+              key={s.alt}
+              src={s.src}
+              alt={s.alt}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-0'}`}
+              style={{
+                transform: `translateY(${scrollY * 0.5}px)`,
+                imageRendering: 'crisp-edges',
+                filter: 'contrast(1.08) saturate(1.08) brightness(1.05)',
+                backfaceVisibility: 'hidden',
+                perspective: '1000px',
+                willChange: isActive || isNext || isPrev ? 'transform, opacity' : 'auto',
+              }}
+              loading="eager"
+              decoding="async"
+              fetchPriority={i === 0 ? 'high' : 'low'}
+            />
+          )
+        })}
         {/* Light overlay */}
         <div className="absolute inset-0 bg-white/60 pointer-events-none" />
         {/* Text overlay (absolute in front of image) */}
         <div className="absolute inset-0 z-10">
-          <div className="max-w-7xl mx-auto h-full px-6 lg:px-8 flex items-center">
-            <div className="max-w-xl md:max-w-2xl">
-              <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight drop-shadow-md whitespace-nowrap">
+          <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center">
+            <div className="max-w-xl md:max-w-2xl w-full">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight drop-shadow-md break-words md:whitespace-nowrap">
                 {contents[index].title}
               </h2>
               {index === 0 ? (
-                <p className="mt-3 md:mt-4 text-slate-900 text-lg md:text-xl leading-relaxed drop-shadow text-justify">
+                <p className="mt-3 md:mt-4 text-slate-900 text-base sm:text-lg md:text-xl leading-relaxed drop-shadow text-justify">
                   {contents[index].desc}
                 </p>
               ) : (
-                <div className="mt-3 md:mt-4 space-y-2">
+                <div className="mt-2 sm:mt-3 md:mt-4 space-y-1 sm:space-y-1.5 md:space-y-2">
                   {contents[index].desc.split(' • ').map((item: string, idx: number) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <svg className="w-6 h-6 md:w-7 md:h-7 text-green-600 flex-shrink-0 mt-0.5 drop-shadow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <div key={idx} className="flex items-start gap-1.5 sm:gap-2 md:gap-2">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 text-green-600 flex-shrink-0 mt-0.5 drop-shadow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                       </svg>
-                      <span className="text-slate-900 text-lg md:text-xl leading-relaxed drop-shadow whitespace-nowrap">{item}</span>
+                      <span className="text-slate-900 text-base sm:text-lg md:text-xl leading-relaxed drop-shadow break-words md:whitespace-nowrap flex-1">{item}</span>
                     </div>
                   ))}
                 </div>
               )}
-              <div className="mt-4 md:mt-6 flex flex-wrap gap-3">
-                <Link to="/download" className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-6 py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors text-white font-bold">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="mt-4 md:mt-6 flex flex-wrap gap-2 sm:gap-3">
+                <Link to="/download" className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-4 py-2 sm:px-6 sm:py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors text-white font-bold text-sm sm:text-base">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                     <path d="M7 10l5 5 5-5"/>
                     <path d="M12 15V3"/>
                   </svg>
                   {t('downloadNow')}
                 </Link>
-                <Link to="/features" className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-6 py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors text-white font-semibold">
+                <Link to="/features" className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-4 py-2 sm:px-6 sm:py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors text-white font-semibold text-sm sm:text-base">
                   {t('viewAllFeatures')}
                 </Link>
               </div>

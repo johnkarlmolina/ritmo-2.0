@@ -341,7 +341,7 @@ export default function Contact() {
 							</div>
 							<div className="rounded-3xl border-2 border-[#E2E8F0] bg-white shadow-md p-8">
 								<p className="text-gray-600 text-sm mb-6">
-									Follow us on social media for updates, tips, and community stories
+									Follow us on social media for updates, tips, and community stories.
 								</p>
 								<div className="space-y-3">
 									<a href="#" className="flex items-center gap-3 bg-[#E8F4F1] rounded-lg px-4 py-3 hover:bg-[#D5EDE7] transition-colors">

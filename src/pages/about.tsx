@@ -42,34 +42,34 @@ export default function About() {
 
 					if (entry.isIntersecting) {
 						headings.forEach((node, idx) => {
-							const delay = Math.min(idx * 90, 450);
-							node.style.transition = `transform 850ms cubic-bezier(.16,.68,.44,1.02) ${delay}ms, opacity 850ms ease-out ${delay}ms`;
-							node.style.opacity = '1';
-							node.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
+						const delay = Math.min(idx * 85, 425);
+						node.style.transition = `transform 820ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 620ms ease-out ${delay}ms`;
+						node.style.opacity = '1';
+						node.style.transform = 'translateY(0) scale(1)';
 						});
 						texts.forEach((node, idx) => {
-							const delay = Math.min(idx * 70, 420);
-							node.style.transition = `transform 780ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 780ms ease-out ${delay}ms`;
+						const delay = Math.min(idx * 60, 360);
+						node.style.transition = `transform 700ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 580ms ease-out ${delay}ms`;
 							node.style.opacity = '1';
 							node.style.transform = 'translateY(0) scale(1)';
 						});
 						buttons.forEach((node, idx) => {
-							const delay = Math.min(idx * 80, 480);
-							node.style.transition = `transform 720ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 720ms ease-out ${delay}ms`;
+						const delay = Math.min(idx * 75, 450);
+						node.style.transition = `transform 680ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 600ms ease-out ${delay}ms`;
 							node.style.opacity = '1';
 							node.style.transform = 'translateY(0) scale(1)';
 						});
 						cards.forEach((node, idx) => {
-							const delay = Math.min(idx * 85, 510);
-							node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 900ms ease-out ${delay}ms`;
-							node.style.opacity = '1';
-							node.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+						const delay = Math.min(idx * 70, 490);
+						node.style.transition = `transform 820ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 640ms ease-out ${delay}ms`;
+						node.style.opacity = '1';
+						node.style.transform = 'translateY(0) scale(1)';
 						});
 					} else {
-						headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translate(-40px,-20px) scale(.92) rotate(-3deg)'; });
-						texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(32px) scale(.94)'; });
+						headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
+					texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
 						buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
-						cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(48px) scale(.88) rotate(2deg)'; });
+						cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(36px) scale(.88)'; });
 					}
 				});
 			},
@@ -82,10 +82,10 @@ export default function About() {
 			const buttons = Array.from(section.querySelectorAll<HTMLElement>('a,button'));
 			const cards = Array.from(section.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl'));
 
-			headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translate(-40px,-20px) scale(.92) rotate(-3deg)'; });
-			texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(32px) scale(.94)'; });
+			headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
+			texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
 			buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
-			cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(48px) scale(.88) rotate(2deg)'; });
+			cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(36px) scale(.88)'; });
 
 			observer.observe(section);
 
@@ -93,28 +93,28 @@ export default function About() {
 			const vh = window.innerHeight || document.documentElement.clientHeight;
 			if (rect.top < vh && rect.bottom > 0) {
 				headings.forEach((node, idx) => {
-					const delay = Math.min(idx * 90, 450);
-					node.style.transition = `transform 850ms cubic-bezier(.16,.68,.44,1.02) ${delay}ms, opacity 850ms ease-out ${delay}ms`;
+					const delay = Math.min(idx * 85, 425);
+					node.style.transition = `transform 820ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 620ms ease-out ${delay}ms`;
 					node.style.opacity = '1';
-					node.style.transform = 'translate(0,0) scale(1) rotate(0deg)';
+					node.style.transform = 'translateY(0) scale(1)';
 				});
 				texts.forEach((node, idx) => {
-					const delay = Math.min(idx * 70, 420);
-					node.style.transition = `transform 780ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 780ms ease-out ${delay}ms`;
+					const delay = Math.min(idx * 60, 360);
+					node.style.transition = `transform 700ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 580ms ease-out ${delay}ms`;
 					node.style.opacity = '1';
 					node.style.transform = 'translateY(0) scale(1)';
 				});
 				buttons.forEach((node, idx) => {
-					const delay = Math.min(idx * 80, 480);
-					node.style.transition = `transform 720ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 720ms ease-out ${delay}ms`;
+					const delay = Math.min(idx * 75, 450);
+					node.style.transition = `transform 680ms cubic-bezier(.19,1,.22,1) ${delay}ms, opacity 600ms ease-out ${delay}ms`;
 					node.style.opacity = '1';
 					node.style.transform = 'translateY(0) scale(1)';
 				});
 				cards.forEach((node, idx) => {
-					const delay = Math.min(idx * 85, 510);
-					node.style.transition = `transform 900ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 900ms ease-out ${delay}ms`;
+					const delay = Math.min(idx * 70, 490);
+					node.style.transition = `transform 820ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 640ms ease-out ${delay}ms`;
 					node.style.opacity = '1';
-					node.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+					node.style.transform = 'translateY(0) scale(1)';
 				});
 			}
 		});
@@ -130,31 +130,10 @@ export default function About() {
 				</div>
 			</section>
 
-			{/* Mission & Vision */}
-			<section id="mission-vision" className="px-4 py-16 bg-white" data-reveal>
-				<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-					<div className="bg-[#E9FBF7] border border-gray-300 rounded-2xl p-8 shadow-sm transition hover:shadow-md hover:-translate-y-1 flex flex-col">
-						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">
-							<img src={MissionIcon} alt="Mission Icon" className="w-8 h-8" />
-						</div>
-						<h3 className="font-extrabold text-2xl md:text-3xl mb-3" style={{ color: '#2B8A7A' }}>{t('ourMissionAbout')}</h3>
-						<p className="text-base md:text-lg text-gray-700 leading-relaxed flex-1">{t('missionStatementAbout')}</p>
-					</div>
-					<div className="bg-[#E9FBF7] border border-gray-300 rounded-2xl p-8 shadow-sm transition hover:shadow-md hover:-translate-y-1 flex flex-col">
-						<div className="w-10 h-10 mb-4 flex items-center justify-center text-[#2B8A7A]">
-							<img src={VisionIcon} alt="Vision Icon" className="w-8 h-8" />
-						</div>
-						<h3 className="font-extrabold text-2xl md:text-3xl mb-3" style={{ color: '#2B8A7A' }}>{t('ourVision')}</h3>
-						<p className="text-base md:text-lg text-gray-700 leading-relaxed flex-1">{t('visionStatement')}</p>
-					</div>
-				</div>
-			</section>
-
 		{/* Team */}
 		<section className="py-20 bg-white" data-reveal>
 			<div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 				<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>{t('ourTeam')}</h2>
-				<p className="text-center text-base max-w-2xl mx-auto mb-16" style={{ color: '#2B8A7A' }}>{t('tapClickCard')}</p>
 				
 				{/* Grid layout: responsive columns */}
 				<div className="flex flex-wrap gap-6 md:gap-8 lg:gap-10 justify-center">
@@ -186,11 +165,11 @@ export default function About() {
 					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>{t('ourStory')}</h2>
 					<div className="max-w-4xl mx-auto">
 						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
-							<p className="text-gray-700 text-base leading-relaxed mb-6">{t('storyP1')}</p>
-						<p className="text-gray-700 text-base leading-relaxed mb-6">{t('storyP2')}</p>
-							<p className="text-gray-700 text-base leading-relaxed mb-6">{t('thatVisionBecameRitmo')}</p>
-							<p className="text-gray-700 text-base leading-relaxed mb-6">{t('storyP4')}</p>
-							<p className="text-gray-700 text-base leading-relaxed">{t('storyP5')}</p>
+						<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('storyP1')}</p>
+					<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('storyP2')}</p>
+						<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('thatVisionBecameRitmo')}</p>
+						<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('storyP4')}</p>
+						<p className="text-gray-700 text-base leading-relaxed text-justify">{t('storyP5')}</p>
 						</div>
 					</div>
 				</div>
@@ -199,7 +178,7 @@ export default function About() {
 			{/* Who We Serve */}
 			<section className="py-20 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
-					<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>{t('whoWeServe')}</h2>
+					<h2 className="text-4xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>{t('whoWeServe')}</h2>
 					<p className="text-center text-gray-600 text-lg mb-16 max-w-3xl mx-auto">{t('ritmoIsDesignedFor')}</p>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
 						<div className="flex flex-col items-center text-center">
