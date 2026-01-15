@@ -86,9 +86,9 @@ export default function News() {
 					<h2 className="text-4xl font-bold mb-12" style={{ color: '#2B8A7A' }}>
 						Featured Stories
 					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-						{/* Story Card 1 */}
-						<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+					{/* Story Card 2 */}
+					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
 							<div className="h-48 bg-[#61CCB2]"></div>
 							<div className="p-6">
 								<div className="flex items-center gap-3 mb-2">
@@ -97,67 +97,17 @@ export default function News() {
 									</span>
 									<div className="flex items-center gap-1.5 text-gray-500 text-sm">
 										<img src={DateIcon} alt="Date" className="w-4 h-4" />
-										<span>Jan 15, 2024</span>
+										<span>Jan 15, 2026</span>
 									</div>
 								</div>
 								<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
-									Ritmo Version 2.0 Released
+									Ritmo version 1.0 Beta release
 								</h3>
 								<p className="text-gray-600 text-sm mb-4 leading-relaxed">
-									Major update includes new emotion cards, improved performance, and enhanced customization options.
+									We are thrilled to announce that Ritmo version 1.0 Beta is finally here, and we want you to be part of our exclusive testing group.
 								</p>
-								<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
-									Read More →
-								</a>
-							</div>
-						</div>
-
-						{/* Story Card 2 */}
-						<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
-							<div className="h-48 bg-[#61CCB2]"></div>
-							<div className="p-6">
-								<div className="flex items-center gap-3 mb-2">
-									<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
-										Research
-									</span>
-									<div className="flex items-center gap-1.5 text-gray-500 text-sm">
-										<img src={DateIcon} alt="Date" className="w-4 h-4" />
-										<span>Dec 20, 2023</span>
-									</div>
-								</div>
-								<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
-									Study Shows 85% Improvement in Communication
-								</h3>
-								<p className="text-gray-600 text-sm mb-4 leading-relaxed">
-									Recent research demonstrates significant improvement in communication abilities among Ritmo users.
-								</p>
-								<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
-									Read More →
-								</a>
-							</div>
-						</div>
-
-						{/* Story Card 3 */}
-						<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
-							<div className="h-48 bg-[#61CCB2]"></div>
-							<div className="p-6">
-								<div className="flex items-center gap-3 mb-2">
-									<span className="inline-block px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#C8E6DD', color: '#2B8A7A' }}>
-										Media
-									</span>
-									<div className="flex items-center gap-1.5 text-gray-500 text-sm">
-										<img src={DateIcon} alt="Date" className="w-4 h-4" />
-										<span>Nov 15, 2023</span>
-									</div>
-								</div>
-								<h3 className="text-lg font-bold mb-2" style={{ color: '#2B8A7A' }}>
-									Ritmo Featured on National Television
-								</h3>
-								<p className="text-gray-600 text-sm mb-4 leading-relaxed">
-									Our app was featured on GMA News special report about autism support technology in the Philippines.
-								</p>
-								<a href="#" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
-									Read More →
+								<a href="/download#phone-mockup" className="inline-flex items-center gap-2 text-[#61CCB2] font-semibold text-sm hover:gap-3 transition-all">
+									Download Now →
 								</a>
 							</div>
 						</div>
@@ -183,126 +133,18 @@ export default function News() {
 										</span>
 										<div className="flex items-center gap-2 text-gray-500 text-sm">
 											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
-											<span>Jan 15, 2024</span>
+											<span>Jan 15, 2026</span>
 										</div>
 									</div>
 									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
-										Ritmo Version 2.0 Released
+										Ritmo version 1.0 Beta release
 									</h3>
 									<p className="text-gray-600 text-sm leading-relaxed">
-										Complete Tagalog translation now available for all interface elements and communication cards.
+										We are thrilled to announce that Ritmo version 1.0 Beta is finally here, and we want you to be part of our exclusive testing group.
 									</p>
 								</div>
-								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
-									Read More →
-								</a>
-							</div>
-						</div>
-
-						{/* Update Item 2 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
-							<div className="flex items-center justify-between gap-6">
-								<div className="flex-1">
-									<div className="flex items-center gap-3 mb-3">
-										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
-											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
-											Feature
-										</span>
-										<div className="flex items-center gap-2 text-gray-500 text-sm">
-											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
-											<span>Jan 15, 2024</span>
-										</div>
-									</div>
-									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
-										Ritmo Version 2.0 Released
-									</h3>
-									<p className="text-gray-600 text-sm leading-relaxed">
-										Complete Tagalog translation now available for all interface elements and communication cards.
-									</p>
-								</div>
-								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
-									Read More →
-								</a>
-							</div>
-						</div>
-
-						{/* Update Item 3 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
-							<div className="flex items-center justify-between gap-6">
-								<div className="flex-1">
-									<div className="flex items-center gap-3 mb-3">
-										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
-											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
-											Feature
-										</span>
-										<div className="flex items-center gap-2 text-gray-500 text-sm">
-											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
-											<span>Jan 15, 2024</span>
-										</div>
-									</div>
-									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
-										Ritmo Version 2.0 Released
-									</h3>
-									<p className="text-gray-600 text-sm leading-relaxed">
-										Complete Tagalog translation now available for all interface elements and communication cards.
-									</p>
-								</div>
-								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
-									Read More →
-								</a>
-							</div>
-						</div>
-
-						{/* Update Item 4 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
-							<div className="flex items-center justify-between gap-6">
-								<div className="flex-1">
-									<div className="flex items-center gap-3 mb-3">
-										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
-											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
-											Feature
-										</span>
-										<div className="flex items-center gap-2 text-gray-500 text-sm">
-											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
-											<span>Jan 15, 2024</span>
-										</div>
-									</div>
-									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
-										Ritmo Version 2.0 Released
-									</h3>
-									<p className="text-gray-600 text-sm leading-relaxed">
-										Complete Tagalog translation now available for all interface elements and communication cards.
-									</p>
-								</div>
-								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
-									Read More →
-								</a>
-							</div>
-						</div>
-
-						{/* Update Item 5 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm hover:shadow-md transition-shadow">
-							<div className="flex items-center justify-between gap-6">
-								<div className="flex-1">
-									<div className="flex items-center gap-3 mb-3">
-										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
-											<img src={FeaturedIcon} alt="Featured" className="w-3 h-3" />
-											Feature
-										</span>
-										<div className="flex items-center gap-2 text-gray-500 text-sm">
-											<img src={DateIcon} alt="Date" className="w-4 h-4 opacity-60" />
-											<span>Jan 15, 2024</span>
-										</div>
-									</div>
-									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
-										Ritmo Version 2.0 Released
-									</h3>
-									<p className="text-gray-600 text-sm leading-relaxed">
-										Complete Tagalog translation now available for all interface elements and communication cards.
-									</p>
-								</div>
-								<a href="#" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
-									Read More →
+								<a href="/download#phone-mockup" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
+									Download Now →
 								</a>
 							</div>
 						</div>
