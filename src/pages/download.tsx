@@ -8,6 +8,13 @@ export default function Download() {
 	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
 
 	useEffect(() => {
+		// Scroll to phone mockup section if hash is present
+		if (window.location.hash === '#phone-mockup') {
+			setTimeout(() => {
+				document.getElementById('phone-mockup')?.scrollIntoView({ behavior: 'smooth' })
+			}, 100)
+		}
+
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'))
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -74,7 +81,7 @@ export default function Download() {
 		</section>
 
 			{/* Phone Mockup Section */}
-			<section className="py-20 px-4 md:px-8 bg-white" data-reveal>
+			<section id="phone-mockup" className="py-20 px-4 md:px-8 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<div className="grid md:grid-cols-2 gap-12 items-center">
 						{/* Left side - Phone Image */}
@@ -108,25 +115,19 @@ export default function Download() {
 							</ul>
 
 							{/* Action Buttons */}
-							<div className="flex flex-wrap gap-4">
+							<div>
 								<a
-									href="#"
+									href="#phone-mockup"
 									className="inline-flex items-center gap-2 bg-teal-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-600 transition-colors shadow-lg"
+									onClick={(e) => {
+										e.preventDefault()
+										document.getElementById('phone-mockup')?.scrollIntoView({ behavior: 'smooth' })
+									}}
 								>
 									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
 									</svg>
 									Download Ritmo
-								</a>
-								<a
-									href="#"
-									className="inline-flex items-center gap-2 bg-transparent border-2 border-teal-500 text-teal-500 px-6 py-3 rounded-full font-semibold hover:bg-teal-500 hover:text-white transition-colors"
-								>
-									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-									</svg>
-									Watch Demo
 								</a>
 							</div>
 						</div>

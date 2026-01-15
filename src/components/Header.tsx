@@ -126,7 +126,13 @@ export default function Header() {
                 }>
                 {t('contact')}
               </NavLink>
-              <Link to="/download" onClick={(e) => { reloadIfSame('/download', e); setOpen(false) }} className="ml-2 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-2.5 rounded-lg text-base font-semibold shadow-sm whitespace-nowrap transition-colors">
+              <Link to="/download#phone-mockup" onClick={(e) => { 
+                if (location.pathname === '/download') {
+                  e.preventDefault()
+                  document.getElementById('phone-mockup')?.scrollIntoView({ behavior: 'smooth' })
+                }
+                setOpen(false)
+              }} className="ml-2 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-2.5 rounded-lg text-base font-semibold shadow-sm whitespace-nowrap transition-colors">
                 {t('downloadNow')}
               </Link>
             </nav>
@@ -177,7 +183,13 @@ export default function Header() {
               className={({isActive}) => isActive ? 'block px-4 py-2 rounded-full bg-emerald-100 text-[#2D7778]' : 'block text-[#2D7778] py-2'}>
               {t('contact')}
             </NavLink>
-            <Link to="/download" onClick={(e) => { reloadIfSame('/download', e); setOpen(false) }} className="block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-3 rounded-lg text-base font-semibold">{t('downloadNow')}</Link>
+            <Link to="/download#phone-mockup" onClick={(e) => { 
+              if (location.pathname === '/download') {
+                e.preventDefault()
+                document.getElementById('phone-mockup')?.scrollIntoView({ behavior: 'smooth' })
+              }
+              setOpen(false)
+            }} className="block bg-[#61CCB2] hover:bg-[#4FBDA4] text-white px-5 py-3 rounded-lg text-base font-semibold">{t('downloadNow')}</Link>
           </div>
         </div>
       )}
