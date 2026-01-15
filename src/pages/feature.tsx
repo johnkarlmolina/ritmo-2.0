@@ -2,16 +2,29 @@ import PhoneImg from '../assets/1.png';
 import StarIcon from '../assets/Star.png';
 import DownloadIcon from '../assets/Download.png';
 import RitmoAdVideo from '../assets/Ritmo Ad(22sec).mp4';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../utils/translations';
 
 export default function Features() {
 	const { language } = useLanguage()
+	const location = useLocation()
 	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
 
 	useEffect(() => {
+		// Scroll to how-ritmo-works section - check both hash and navigation state
+		const shouldScroll = window.location.hash === '#how-ritmo-works' || (location.state as any)?.scrollToSection === 'how-ritmo-works'
+		if (shouldScroll) {
+			setTimeout(() => {
+				document.getElementById('how-ritmo-works')?.scrollIntoView({ behavior: 'smooth' })
+				// Clean up hash if present
+				if (window.location.hash) {
+					window.history.replaceState(null, '', window.location.pathname)
+				}
+			}, 100)
+		}
+
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
 		const observer = new IntersectionObserver(
 			(entries) => {

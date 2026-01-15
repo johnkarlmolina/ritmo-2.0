@@ -223,11 +223,11 @@ export default function About() {
 							<li>{t('positiveFeedback')}</li>
 						</ul>
 						<div className="flex flex-wrap gap-3">
-							<Link to="/download" className="inline-flex items-center gap-2 rounded-full bg-gray-100 text-gray-800 px-6 py-3 shadow-sm hover:bg-gray-200 transition whitespace-nowrap">
-								<img src={DownloadIcon} alt="Download" className="w-5 h-5" />
-								{t('downloadNow')}
-							</Link>
-							<Link to="/features#how-ritmo-works" className="inline-flex items-center gap-2 rounded-full text-white font-semibold px-6 py-3 shadow-md hover:opacity-90 transition-all whitespace-nowrap" style={{ backgroundColor: '#61CCB2' }}>
+						<Link to="/download" state={{ scrollToSection: 'phone-mockup' }} className="inline-flex items-center gap-2 rounded-full bg-gray-100 text-gray-800 px-6 py-3 shadow-sm hover:bg-gray-200 transition whitespace-nowrap">
+							<img src={DownloadIcon} alt="Download" className="w-5 h-5" />
+							{t('downloadNow')}
+						</Link>
+						<Link to="/features" state={{ scrollToSection: 'how-ritmo-works' }} className="inline-flex items-center gap-2 rounded-full text-white font-semibold px-6 py-3 shadow-md hover:opacity-90 transition-all whitespace-nowrap" style={{ backgroundColor: '#61CCB2' }}>
 								<img src={WatchIcon} alt="Watch" className="w-5 h-5" />
 								{t('watchDemo')}
 							</Link>

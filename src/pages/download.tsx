@@ -1,17 +1,24 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../utils/translations'
 import handPhone from '../assets/hand-phone.png'
 
 export default function Download() {
 	const { language } = useLanguage()
+	const location = useLocation()
 	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
 
 	useEffect(() => {
-		// Scroll to phone mockup section if hash is present
-		if (window.location.hash === '#phone-mockup') {
+		// Scroll to phone mockup section - check both hash and navigation state
+		const shouldScroll = window.location.hash === '#phone-mockup' || (location.state as any)?.scrollToSection === 'phone-mockup'
+		if (shouldScroll) {
 			setTimeout(() => {
 				document.getElementById('phone-mockup')?.scrollIntoView({ behavior: 'smooth' })
+				// Clean up hash if present
+				if (window.location.hash) {
+					window.history.replaceState(null, '', window.location.pathname)
+				}
 			}, 100)
 		}
 
