@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../utils/translations'
+import handPhone from '../assets/hand-phone.png'
 
 export default function Download() {
 	const { language } = useLanguage()
@@ -72,7 +73,66 @@ export default function Download() {
 			</div>
 		</section>
 
-			<section className="py-8 bg-white" data-reveal></section>
+			{/* Phone Mockup Section */}
+			<section className="py-20 px-4 md:px-8 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto">
+					<div className="grid md:grid-cols-2 gap-12 items-center">
+						{/* Left side - Phone Image */}
+						<div className="flex justify-center">
+							<img 
+								src={handPhone} 
+								alt="Ritmo App on Phone" 
+								className="max-w-md w-full h-auto rounded-3xl shadow-2xl"
+							/>
+						</div>
+
+						{/* Right side - Content */}
+						<div>
+							<h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
+								The Ritmo App is Now Available on Android
+							</h2>
+							<p className="text-lg md:text-xl mb-8 leading-relaxed text-gray-700">
+								Build calm and structured days using visual schedules, reminders, and playful guidance designed for children with autism.
+							</p>
+							
+							{/* Feature List */}
+							<ul className="space-y-4 mb-10">
+								<li className="flex items-start gap-3">
+									<div className="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></div>
+									<p className="text-lg text-gray-700">Visual routines with audio cues</p>
+								</li>
+								<li className="flex items-start gap-3">
+									<div className="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></div>
+									<p className="text-lg text-gray-700">Positive feedback and progress tracking</p>
+								</li>
+							</ul>
+
+							{/* Action Buttons */}
+							<div className="flex flex-wrap gap-4">
+								<a
+									href="#"
+									className="inline-flex items-center gap-2 bg-teal-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-600 transition-colors shadow-lg"
+								>
+									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+									</svg>
+									Download Ritmo
+								</a>
+								<a
+									href="#"
+									className="inline-flex items-center gap-2 bg-transparent border-2 border-teal-500 text-teal-500 px-6 py-3 rounded-full font-semibold hover:bg-teal-500 hover:text-white transition-colors"
+								>
+									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+									</svg>
+									Watch Demo
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 	)
 }
