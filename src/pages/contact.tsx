@@ -151,11 +151,11 @@ export default function Contact() {
 			</section>
 
 			{/* Contact Methods Section */}
-			<section className="py-20 px-4 bg-white" data-reveal>
+			{/* <section className="py-20 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 						{/* Email us */}
-						<button
+						{/* <button
 							onClick={() => {
 								const messageSection = document.getElementById('message-section')
 								messageSection?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -178,10 +178,10 @@ export default function Contact() {
 							<p className="text-gray-600 text-sm">
 								Get a response within 24 hours
 							</p>
-						</button>
+						</button> */}
 
 						{/* Our Location (replacing Live Chat) */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
+						{/* <div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
 							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
 								<img 
 									src={LocationIcon} 
@@ -199,10 +199,10 @@ export default function Contact() {
 							<p className="text-gray-600 text-sm">
 								Open Mon–Fri, 9 AM – 5 PM
 							</p>
-						</div>
+						</div> */}
 
 						{/* Call us */}
-						<div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
+						{/* <div className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl">
 							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
 								<img 
 									src={CallIcon} 
@@ -216,13 +216,13 @@ export default function Contact() {
 							<p className="text-[#61CCB2] font-semibold text-lg mb-3">
 								+63 2 1234 5678
 							</p>
-							<p className="text-gray-600 text-sm">
-								Monday to Friday, 9 AM - 5 PM
+			 className="text-gray-600 text-sm">
+				Monday to Friday, 9 AM - 5 PM
 							</p>
-						</div>
-					</div>
+						</div> */}
+					{/* </div>
 				</div>
-			</section>
+			</section> */}
 
 			{/* Send Us a Message Section */}
 			<section className="py-20 px-4 bg-white scroll-mt-20" data-reveal id="message-section">
