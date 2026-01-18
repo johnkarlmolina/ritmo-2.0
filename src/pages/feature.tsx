@@ -1,5 +1,9 @@
-import PhoneImg from '../assets/1.png';
-import StarIcon from '../assets/Star.png';
+import NewFeatureImg from '../assets/new-feature-crop.png';
+import NewFeatureCrop1 from '../assets/new-feature-crop1.png';
+import NewFeatureCrop2 from '../assets/new-feature-crop2.png';
+import NewFeatureCrop3 from '../assets/new-feature-crop3.png';
+import NewFeatureCrop4Left from '../assets/new-feature-crop4-left.png';
+import NewFeatureCrop4Right from '../assets/new-feature-crop4-right.png';
 import DownloadIcon from '../assets/Download.png';
 import RitmoAdVideo from '../assets/Ritmo Ad(22sec).mp4';
 import { Link, useLocation } from 'react-router-dom';
@@ -34,6 +38,7 @@ export default function Features() {
 					const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'));
 					const buttons = Array.from(el.querySelectorAll<HTMLElement>('a,button'));
 					const cards = Array.from(el.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl,.rounded-4xl'));
+					const images = Array.from(el.querySelectorAll<HTMLElement>('img'));
 
 					if (entry.isIntersecting) {
 						headings.forEach((node, idx) => {
@@ -60,11 +65,17 @@ export default function Features() {
 						node.style.opacity = '1';
 						node.style.transform = 'translateY(0) scale(1)';
 						});
+						images.forEach((node) => {
+							node.style.transition = 'transform 800ms cubic-bezier(.19,1,.22,1), opacity 600ms ease-out';
+							node.style.opacity = '1';
+							node.style.transform = 'translateY(0)';
+						});
 					} else {
 						headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
 					texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
 					buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
 					cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(36px) scale(.88)'; });
+					images.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(40px)'; });
 					}
 				});
 			},
@@ -76,11 +87,13 @@ export default function Features() {
 			const texts = Array.from(section.querySelectorAll<HTMLElement>('p,li'));
 			const buttons = Array.from(section.querySelectorAll<HTMLElement>('a,button'));
 			const cards = Array.from(section.querySelectorAll<HTMLElement>('.rounded-3xl,.rounded-2xl,.rounded-4xl'));
+			const images = Array.from(section.querySelectorAll<HTMLElement>('img'));
 
 			headings.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
 			texts.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
 			buttons.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(28px) scale(.9)'; });
 			cards.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(36px) scale(.88)'; });
+			images.forEach((node) => { node.style.opacity = '0'; node.style.transform = 'translateY(40px)'; });
 
 			observer.observe(section);
 
@@ -109,6 +122,11 @@ export default function Features() {
 					const delay = Math.min(idx * 70, 490);
 					node.style.transition = `transform 820ms cubic-bezier(.23,1,.32,1) ${delay}ms, opacity 640ms ease-out ${delay}ms`;
 					node.style.opacity = '1';
+				images.forEach((node) => {
+					node.style.transition = 'transform 800ms cubic-bezier(.19,1,.22,1), opacity 600ms ease-out';
+					node.style.opacity = '1';
+					node.style.transform = 'translateY(0)';
+				});
 					node.style.transform = 'translateY(0) scale(1)';
 				});
 			}
@@ -118,6 +136,28 @@ export default function Features() {
 	}, []);
 	return (
 		<div className="scroll-smooth overflow-x-hidden">
+			<style>{`
+				@keyframes slideFromLeft {
+					from {
+						opacity: 0;
+						transform: translateX(-100px);
+					}
+					to {
+						opacity: 1;
+						transform: translateX(0);
+					}
+				}
+				@keyframes slideFromRight {
+					from {
+						opacity: 0;
+						transform: translateX(100px);
+					}
+					to {
+						opacity: 1;
+						transform: translateX(0);
+					}
+				}
+			`}</style>
 			{/* Hero Section */}
 			<section className="mt-4 pt-20 pb-20 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
 				<div className="max-w-7xl mx-auto text-center">
@@ -127,160 +167,213 @@ export default function Features() {
 					</p>
 				</div>
 			</section>
-				
-	{/* Features Overview Section */}
-	<section className="py-4 px-4 bg-white min-h-screen flex items-center" data-reveal>
-		<div className="w-full max-w-7xl mx-auto relative">
-		<div className="hidden lg:grid lg:grid-cols-3 gap-x-0 items-center">
-			{/* Left Column - Cards */}
-			<div className="col-span-1 flex flex-col justify-end space-y-5">
-				<div className="relative ml-auto group cursor-pointer">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
-							<div className="flex items-center gap-3 mb-4">
-								<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
-									<img src={StarIcon} alt="Star" className="w-6 h-6" />
-								</div>
-								<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-									Autism Friendly
-								</h3>
-								</div>
-							<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-							Ritmo is Autism-Friendly. Designs such as colors, sounds, and cartoon characters used were carefully chosen to avoid triggering children with autism.
-							</p>
+
+			{/* New Features Section */}
+			<section className="py-12 px-4 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto">
+					<img 
+						src={NewFeatureImg} 
+						alt="Ritmo Features" 
+						className="w-3/4 h-auto object-contain mx-auto"
+					/>
+				</div>
+			</section>
+
+			{/* Autism Friendly Section */}
+			<section className="py-12 px-4 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+					<div className="flex justify-center">
+						<img 
+							src={NewFeatureCrop1} 
+							alt="Autism Friendly Feature" 
+							className="w-2/3 h-auto object-contain transition-all duration-500 hover:scale-110"
+						/>
+					</div>
+					<div className="space-y-4">
+						<div className="flex items-center gap-3">
+							<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
+								<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+								</svg>
 							</div>
+							<h3 className="text-3xl font-bold" style={{ color: '#2B2B2B' }}>Autism Friendly</h3>
 						</div>
-						<div className="relative ml-auto group cursor-pointer">
-							<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-							<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
-						<div className="flex items-center gap-3 mb-4">
-							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
-								<img src={StarIcon} alt="Star" className="w-6 h-6" />
-							</div>
-							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								Parental Control
-								</h3>
-							</div>
-							<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-							Features that should only be seen by parents such as reports and settings where routines can be changed or added are contained in the parental control. It has a password so it doesn't interfere with the child's use.
-							</p>
-						</div>
+						<p className="text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
+							The ui design was integrated to suit people with Autism or <span className="underline">Autism Spectrum Disorder</span> (ASD)
+						</p>
+						<ul className="space-y-2">
+							<li className="flex items-center gap-2 text-base" style={{ color: '#2B2B2B' }}>
+								<span className="w-2 h-2 bg-black rounded-full"></span>
+								Big Ui components
+							</li>
+							<li className="flex items-center gap-2 text-base" style={{ color: '#2B2B2B' }}>
+								<span className="w-2 h-2 bg-black rounded-full"></span>
+								Audio Visual Feedback
+							</li>
+							<li className="flex items-center gap-2 text-base" style={{ color: '#2B2B2B' }}>
+								<span className="w-2 h-2 bg-black rounded-full"></span>
+								Animated Characters
+							</li>
+						</ul>
 					</div>
 				</div>
+			</section>
 
-			{/* Center Column - Phone Image */}
-				<div className="col-span-1 flex justify-center">
+			{/* Entertainment Section */}
+			<section className="py-12 px-4 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+					<div className="space-y-4">
+						<div className="flex items-center gap-3">
+							<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
+								<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+								</svg>
+							</div>
+							<h3 className="text-3xl font-bold" style={{ color: '#2B2B2B' }}>Entertainment</h3>
+						</div>
+						<p className="text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
+							The System has built in games, media and book guides to enhance interaction and fun.
+						</p>
+						<ul className="space-y-2">
+							<li className="flex items-center gap-2 text-base" style={{ color: '#2B2B2B' }}>
+								<span className="w-2 h-2 bg-black rounded-full"></span>
+								Fun and enjoying games
+							</li>
+							<li className="flex items-center gap-2 text-base" style={{ color: '#2B2B2B' }}>
+								<span className="w-2 h-2 bg-black rounded-full"></span>
+								Audio visual book guides
+							</li>
+							<li className="flex items-center gap-2 text-base" style={{ color: '#2B2B2B' }}>
+								<span className="w-2 h-2 bg-black rounded-full"></span>
+								Media page (Youtube)
+							</li>
+						</ul>
+					</div>
+					<div className="flex justify-center">
+						<img 
+							src={NewFeatureCrop2} 
+							alt="Entertainment Feature" 
+							className="w-3/4 h-auto object-contain transition-all duration-500 hover:scale-110"
+						/>
+					</div>
+				</div>
+			</section>
+
+			{/* Progression Section */}
+			<section className="py-12 px-4 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+					<div className="flex justify-center">
+						<img 
+							src={NewFeatureCrop3} 
+							alt="Progression Feature" 
+							className="w-3/4 h-auto object-contain transition-all duration-500 hover:scale-110"
+						/>
+					</div>
+					<div className="space-y-4">
+						<div className="flex items-center gap-3">
+							<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
+								<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+								</svg>
+							</div>
+							<h3 className="text-3xl font-bold" style={{ color: '#2B2B2B' }}>Progression</h3>
+						</div>
+						<p className="text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
+							The app has a built in progress report that records your child routine weekly
+						</p>
+						<ul className="space-y-2">
+							<li className="flex items-center gap-2 text-base" style={{ color: '#2B2B2B' }}>
+								<span className="w-2 h-2 bg-black rounded-full"></span>
+								Downloadable PDF Report
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			{/* Organize Tasks & Parental Control Section */}
+			<section className="py-12 px-4 bg-white" data-reveal>
+				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+					{/* Organize Tasks */}
+					<div className="flex gap-6 items-center">
+						<div className="space-y-4 flex-1 -mt-16">
+							<div className="flex items-center gap-3">
+								<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
+									<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+									</svg>
+								</div>
+								<h3 className="text-2xl font-bold" style={{ color: '#2B2B2B' }}>Organize Tasks</h3>
+							</div>
+							<p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+								Build the perfect day using expert presets or your own custom routines.
+							</p>
+							<ul className="space-y-2">
+								<li className="flex items-center gap-2 text-sm" style={{ color: '#2B2B2B' }}>
+									<span className="w-2 h-2 bg-black rounded-full"></span>
+									Classic Alarm Feature
+								</li>
+								<li className="flex items-center gap-2 text-sm" style={{ color: '#2B2B2B' }}>
+									<span className="w-2 h-2 bg-black rounded-full"></span>
+									Autism Integrated Preset
+								</li>
+								<li className="flex items-center gap-2 text-sm" style={{ color: '#2B2B2B' }}>
+									<span className="w-2 h-2 bg-black rounded-full"></span>
+									100% Customizability
+								</li>
+							</ul>
+						</div>
+						<div className="flex justify-center flex-shrink-0 -mt-16">
 							<img 
-								src={PhoneImg} 
-								alt="Ritmo App Phone" 
-								className="w-full max-w-xs h-auto object-contain"
-								style={{ filter: 'drop-shadow(-6px 6px 0px rgba(128, 128, 128, 0.5))' }}
+								src={NewFeatureCrop4Left} 
+								alt="Organize Tasks" 
+								className="w-48 h-auto object-contain transition-all duration-500 hover:scale-110"
 							/>
-				</div>
-
-			{/* Right Column - Cards */}
-			<div className="col-span-1 flex flex-col space-y-5">
-				<div className="relative group cursor-pointer">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
-						<div className="flex items-center gap-3 mb-4">
-							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
-								<img src={StarIcon} alt="Star" className="w-6 h-6" />
-							</div>
-							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								Entertainment
-								</h3>
-							</div>
-							<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-							Ritmo is not just all design to follow. It also has videos that can be watched and searched for whatever the child wants to watch, fun games that are still related to tasks, and stories for active learning.
-							</p>
+						</div>
 					</div>
-				</div>
-				<div className="relative group cursor-pointer">
-					<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-72 h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-					<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-72 h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
-						<div className="flex items-center gap-3 mb-4">
-							<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
-								<img src={StarIcon} alt="Star" className="w-6 h-6" />
-							</div>
-							<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								Progression
-								</h3>
+
+					{/* Parental Control */}
+					<div className="flex gap-6 items-center">
+						<div className="flex justify-center flex-shrink-0 mt-28">
+							<img 
+								src={NewFeatureCrop4Right} 
+								alt="Parental Control" 
+							className="w-48 h-auto object-contain transition-all duration-500 hover:scale-110"
+
+							/>
+						</div>
+						<div className="space-y-4 flex-1 mt-16">
+							<div className="flex items-center gap-3">
+								<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
+									<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+									</svg>
 								</div>
-								<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>
-								Ritmo provides a progress report containing the results of the child's performance of tasks within a week. This can be used to show the child's therapist.
-								</p>
-						</div>
-				</div>
-			</div>
+								<h3 className="text-2xl font-bold" style={{ color: '#2B2B2B' }}>Parental Control</h3>
 							</div>
-		
-		{/* Mobile & Tablet Layout */}
-		<div className="lg:hidden flex flex-col items-center gap-6 py-8">
-			{/* All cards in vertical stack on mobile/tablet */}
-			<div className="relative w-72 group cursor-pointer">
-				<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-				<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
-					<div className="flex items-center gap-3 mb-4">
-						<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
-							<img src={StarIcon} alt="Star" className="w-6 h-6" />
+							<p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+								The System has built in parental control to guide every childrens action
+							</p>
+							<ul className="space-y-2">
+								<li className="flex items-center gap-2 text-sm" style={{ color: '#2B2B2B' }}>
+									<span className="w-2 h-2 bg-black rounded-full"></span>
+									Parental Lock
+								</li>
+								<li className="flex items-center gap-2 text-sm" style={{ color: '#2B2B2B' }}>
+									<span className="w-2 h-2 bg-black rounded-full"></span>
+									Daily Routine Setup
+								</li>
+								<li className="flex items-center gap-2 text-sm" style={{ color: '#2B2B2B' }}>
+									<span className="w-2 h-2 bg-black rounded-full"></span>
+									Limited media search
+								</li>
+							</ul>
 						</div>
-					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Autism Friendly</h3>
-				</div>
-				<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Ritmo is Autism-Friendly. Designs such as colors, sounds, and cartoon characters used were carefully chosen to avoid triggering children with autism.</p>
-			</div>
-		</div>
-		
-		<div className="relative w-72 group cursor-pointer">
-			<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-			<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
-				<div className="flex items-center gap-3 mb-4">
-					<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
-						<img src={StarIcon} alt="Star" className="w-6 h-6" />
 					</div>
-					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Entertainment</h3>
 				</div>
-				<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Ritmo is not just all design to follow. It also has videos that can be watched and searched for whatever the child wants to watch, fun games that are still related to tasks, and stories for active learning.</p>
-			</div>
-		</div>
-		
-		<img 
-			src={PhoneImg} 
-			alt="Ritmo App Phone" 
-			className="w-64 h-auto object-contain"
-			style={{ filter: 'drop-shadow(-6px 6px 0px rgba(128, 128, 128, 0.5))' }}
-		/>
-		
-		<div className="relative w-72 group cursor-pointer">
-			<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-			<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
-				<div className="flex items-center gap-3 mb-4">
-					<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
-						<img src={StarIcon} alt="Star" className="w-6 h-6" />
-					</div>
-					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Parental Control</h3>
-				</div>
-				<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Features that should only be seen by parents such as reports and settings where routines can be changed or added are contained in the parental control. It has a password so it doesn't interfere with the child's use.</p>
-			</div>
-		</div>
+			</section>
 
-		<div className="relative w-72 group cursor-pointer">
-			<div className="absolute -bottom-1 -left-1 bg-gray-400 rounded-4xl w-full h-80 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-			<div className="relative bg-[#B8E6DC] rounded-4xl p-8 w-full h-80 flex flex-col overflow-hidden transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:ring-2 group-hover:ring-[#61CCB2]">
-				<div className="flex items-center gap-3 mb-4">
-					<div className="bg-[#61CCB2] rounded-2xl p-2 shrink-0">
-						<img src={StarIcon} alt="Star" className="w-6 h-6" />
-					</div>
-					<h3 className="text-xl font-bold flex-1 wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Progression</h3>
-				</div>
-				<p className="text-base text-justify wrap-break-word leading-tight" style={{ color: '#2B2B2B' }}>Ritmo provides a progress report containing the results of the child's performance of tasks within a week. This can be used to show the child's therapist.</p>
-			</div>
-		</div>
-	</div>
-	</div>
-</section>
-
-	{/* How Ritmo Works Section */}
+			{/* How Ritmo Works Section */}
 	{/* How Ritmo Works header (align styling to News/Contact hero) */}
 	<section id="how-ritmo-works" className="py-8 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
 		<div className="max-w-7xl mx-auto text-center">
