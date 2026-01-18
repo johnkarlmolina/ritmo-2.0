@@ -198,6 +198,27 @@ export default function Index() {
               {t('routineDesc')}
             </p>
           </div>
+
+          {/* Why Routines Matter for Autism? */}
+          <div className="mt-12 md:mt-16">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-center text-[#2D7778] mb-3">
+              Why Routines Matter for Autism?
+            </h3>
+            <p className="text-center max-w-3xl mx-auto mb-8 md:mb-10" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+              Predictable routines provide comfort, reduce anxiety, and help children with autism navigate their day with confidence.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="rounded-2xl border-2 border-[#61CCB2] bg-white p-6 md:p-8 min-h-[200px] flex flex-col items-center justify-center">
+                <div className="w-full h-full"></div>
+              </div>
+              <div className="rounded-2xl border-2 border-[#61CCB2] bg-white p-6 md:p-8 min-h-[200px] flex flex-col items-center justify-center">
+                <div className="w-full h-full"></div>
+              </div>
+              <div className="rounded-2xl border-2 border-[#61CCB2] bg-white p-6 md:p-8 min-h-[200px] flex flex-col items-center justify-center">
+                <div className="w-full h-full"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -271,6 +292,80 @@ export default function Index() {
           <div className="mt-12 text-center">
             <Link to="/features" className="inline-flex items-center rounded-full border border-white px-6 py-3 text-white font-semibold hover:bg-white/10 transition-colors">
               {t('viewAllFeatures')}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 md:py-20 bg-[#61CCB2]/15" data-reveal>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778] mb-3">How It Works</h2>
+            <p className="text-lg" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>Get started in minutes and see results in days</p>
+          </div>
+
+          <div className="relative">
+            {/* Continuous line below circles */}
+            <div className="hidden md:block absolute left-0 right-0 border-t-2 border-[#61CCB2]" style={{ top: '5rem' }}></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
+              {/* Step 01 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[#61CCB2] text-white font-bold text-xl flex items-center justify-center mb-6 relative z-10">
+                  01
+                </div>
+                <h3 className="font-bold text-lg text-[#2D7778] mb-3 mt-4">Create Profile</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                  Set up your child's profile with their preferences, needs, and daily routines
+                </p>
+              </div>
+
+              {/* Step 02 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[#61CCB2] text-white font-bold text-xl flex items-center justify-center mb-6 relative z-10">
+                  02
+                </div>
+                <h3 className="font-bold text-lg text-[#2D7778] mb-3 mt-4">Build Schedule</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                  Design visual schedules using our library of symbols, photos, and activities
+                </p>
+              </div>
+
+              {/* Step 03 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[#61CCB2] text-white font-bold text-xl flex items-center justify-center mb-6 relative z-10">
+                  03
+                </div>
+                <h3 className="font-bold text-lg text-[#2D7778] mb-3 mt-4">Follow Routine</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                  Your child follows along with audio and visual prompts throughout the day
+                </p>
+              </div>
+
+              {/* Step 04 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-[#61CCB2] text-white font-bold text-xl flex items-center justify-center mb-6 relative z-10">
+                  04
+                </div>
+                <h3 className="font-bold text-lg text-[#2D7778] mb-3 mt-4">Track Growth</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                  See progress, celebrate wins, and adjust routines as your child grows
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="mt-12 text-center">
+            <Link 
+              to="/download" 
+              className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] px-8 py-3 text-white font-semibold hover:bg-[#4DB89D] transition-colors shadow-md"
+            >
+              Get Started Today
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </Link>
           </div>
         </div>
@@ -405,6 +500,96 @@ export default function Index() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs Section */}
+      <section className="py-16 md:py-20 bg-[#61CCB2]/15" data-reveal>
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778] mb-3">Frequently Asked Questions</h2>
+            <p className="text-lg" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>Everything you need to know about Ritmo</p>
+          </div>
+
+          <div className="space-y-4">
+            {/* FAQ Item 1 */}
+            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
+              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
+                What age is Ritmo suitable for?
+                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                Ritmo is designed for children of all ages, from toddlers to teenagers. The app's visual schedules and customizable features make it suitable for various developmental stages and learning abilities.
+              </p>
+            </details>
+
+            {/* FAQ Item 2 */}
+            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
+              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
+                Is Ritmo available in Filipino/Tagalog?
+                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                Yes! Ritmo supports both English and Filipino/Tagalog languages. You can easily switch between languages in the app settings to provide the best experience for your child.
+              </p>
+            </details>
+
+            {/* FAQ Item 3 */}
+            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
+              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
+                Do I need internet connection to use Ritmo?
+                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                Ritmo works offline once downloaded. However, an internet connection is required for initial setup, syncing data across devices, and accessing online features like YouTube videos in the media section.
+              </p>
+            </details>
+
+            {/* FAQ Item 4 */}
+            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
+              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
+                Can multiple family members use one account?
+                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                Yes! Ritmo allows multiple family members and caregivers to access the same account. This ensures everyone involved in your child's care can stay coordinated with schedules and routines.
+              </p>
+            </details>
+
+            {/* FAQ Item 5 */}
+            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
+              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
+                How is Ritmo different from other apps?
+                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                Ritmo is specifically designed for children with autism in the Philippines. It combines visual schedules, parental controls, entertainment, and progress tracking in one comprehensive app, with full support for Filipino language and culture.
+              </p>
+            </details>
+
+            {/* FAQ Item 6 */}
+            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
+              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
+                Is there a free trial?
+                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                Ritmo is completely free to download and use. We believe every family should have access to tools that support their child's development, regardless of their financial situation.
+              </p>
+            </details>
           </div>
         </div>
       </section>

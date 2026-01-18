@@ -97,7 +97,7 @@ export const translations = {
     thatVisionBecameRitmo: 'With these goals in mind, Ritmo was created.',
     storyP4: 'Ritmo is a music terminology that means the regular flow of sound in a song. Like rhythm in music, this app will help children with autism have a regular flow of tasks throughout the day.',
     storyP5: '',
-    whoWeServe: 'WHO IS RITMO FOR?',
+    whoWeServe: 'Who We Serve?',
     ritmoIsDesignedFor: 'Ritmo is for everyone involved in the growth of children with autism',
     childrenWithAutism: 'Children with Autism',
     childrenBenefit: 'Children who struggle with daily tasks.',
