@@ -1,10 +1,10 @@
-import EmailIcon from '../assets/Email.png';
+//import EmailIcon from '../assets/Email.png';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../utils/translations';
-import CallIcon from '../assets/Call.png';
+// import CallIcon from '../assets/Call.png';
 import SendMessageIcon from '../assets/SendMessage.png';
-import LocationIcon from '../assets/Location.png';
+// import LocationIcon from '../assets/Location.png';
 import ConnectIcon from '../assets/Connect.png';
 import FacebookIcon from '../assets/Facebook.png';
 import InstagramIcon from '../assets/Instagram.png';
