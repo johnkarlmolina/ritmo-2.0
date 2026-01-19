@@ -197,32 +197,24 @@ export default function Index() {
             <p className="mt-4 text-gray-800 leading-relaxed text-justify">
               {t('routineDesc')}
             </p>
-          </div>
-
-          {/* Why Routines Matter for Autism? */}
-          <div className="mt-12 md:mt-16">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-center text-[#2D7778] mb-3">
-              Why Routines Matter for Autism?
-            </h3>
-            <p className="text-center max-w-3xl mx-auto mb-8 md:mb-10" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
-              Predictable routines provide comfort, reduce anxiety, and help children with autism navigate their day with confidence.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <div className="rounded-2xl border-2 border-[#61CCB2] bg-white p-6 md:p-8 min-h-[200px] flex flex-col items-center justify-center">
-                <div className="w-full h-full"></div>
-              </div>
-              <div className="rounded-2xl border-2 border-[#61CCB2] bg-white p-6 md:p-8 min-h-[200px] flex flex-col items-center justify-center">
-                <div className="w-full h-full"></div>
-              </div>
-              <div className="rounded-2xl border-2 border-[#61CCB2] bg-white p-6 md:p-8 min-h-[200px] flex flex-col items-center justify-center">
-                <div className="w-full h-full"></div>
-              </div>
-            </div>
+            <ul className="mt-6 space-y-4 text-gray-800">
+              <li className="flex items-start">
+                <span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span>
+                <span className="leading-relaxed"><strong className="text-[#2D7778]">Reduces Anxiety</strong> - Structured and predictable routines help children with autism understand what comes next, reducing confusion, anxiety, and stress especially during transitions between activities</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span>
+                <span className="leading-relaxed"><strong className="text-[#2D7778]">Builds Independence</strong> - Visual schedules and step-by-step guidance support children in completing daily routines on their own, helping them develop confidence, self-management, and reduced dependence on caregivers.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span>
+                <span className="leading-relaxed"><strong className="text-[#2D7778]">Supports Learning and Skill Development</strong> - Consistent routines provide a stable structure that reinforces learning, improves task completion, and helps children practice essential self-care skills through repetition and positive reinforcement.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-    
 {/*
   <section className="bg-white" data-reveal>
     <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8 pb-12 md:pb-16 w-full">
@@ -506,92 +498,7 @@ export default function Index() {
 
       {/* FAQs Section */}
       <section className="py-16 md:py-20 bg-[#61CCB2]/15" data-reveal>
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778] mb-3">Frequently Asked Questions</h2>
-            <p className="text-lg" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>Everything you need to know about Ritmo</p>
-          </div>
-
-          <div className="space-y-4">
-            {/* FAQ Item 1 */}
-            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
-              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
-                What age is Ritmo suitable for?
-                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
-                Ritmo is designed for children of all ages, from toddlers to teenagers. The app's visual schedules and customizable features make it suitable for various developmental stages and learning abilities.
-              </p>
-            </details>
-
-            {/* FAQ Item 2 */}
-            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
-              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
-                Is Ritmo available in Filipino/Tagalog?
-                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
-                Yes! Ritmo supports both English and Filipino/Tagalog languages. You can easily switch between languages in the app settings to provide the best experience for your child.
-              </p>
-            </details>
-
-            {/* FAQ Item 3 */}
-            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
-              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
-                Do I need internet connection to use Ritmo?
-                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
-                Ritmo works offline once downloaded. However, an internet connection is required for initial setup, syncing data across devices, and accessing online features like YouTube videos in the media section.
-              </p>
-            </details>
-
-            {/* FAQ Item 4 */}
-            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
-              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
-                Can multiple family members use one account?
-                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
-                Yes! Ritmo allows multiple family members and caregivers to access the same account. This ensures everyone involved in your child's care can stay coordinated with schedules and routines.
-              </p>
-            </details>
-
-            {/* FAQ Item 5 */}
-            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
-              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
-                How is Ritmo different from other apps?
-                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
-                Ritmo is specifically designed for children with autism in the Philippines. It combines visual schedules, parental controls, entertainment, and progress tracking in one comprehensive app, with full support for Filipino language and culture.
-              </p>
-            </details>
-
-            {/* FAQ Item 6 */}
-            <details className="bg-white border border-gray-300 rounded-xl p-6 group">
-              <summary className="font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between">
-                Is there a free trial?
-                <svg className="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
-                Ritmo is completely free to download and use. We believe every family should have access to tools that support their child's development, regardless of their financial situation.
-              </p>
-            </details>
-          </div>
-        </div>
+        <FAQSection />
       </section>
 
       {/* Ritmo is now available (restored, full width) */}
@@ -635,6 +542,89 @@ export default function Index() {
         </div>
       </section>
     </>
+  )
+}
+
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+  const faqs = [
+    {
+      question: "What age is Ritmo suitable for?",
+      answer: "Ritmo is designed for children with Autism Spectrum Disorder (ASD), specifically Level 2, who benefit from structured routines and visual guidance. The prototype was developed and tested with a young child (around early childhood age), making it most suitable for children who are still developing daily self-care routines and require caregiver support."
+    },
+    {
+      question: "Do I need an internet connection to use Ritmo?",
+      answer: "Yes. Ritmo requires an active internet connection to function properly. All features—including instructional videos, routine guidance, progress tracking, data monitoring, and content access—are delivered online to ensure real-time updates, syncing, and a seamless user experience."
+    },
+    {
+      question: "Can multiple family members use one account?",
+      answer: "No. Ritmo is designed for individual use only. Each account supports one child to ensure accurate routine tracking, personalized schedules, and progress monitoring tailored to that child's needs."
+    },
+    {
+      question: "How is Ritmo different from other apps?",
+      answer: null,
+      isSpecial: true
+    },
+    {
+      question: "Is there a free trial?",
+      answer: "Ritmo is currently developed as a research prototype and is used free of charge during testing and evaluation phases. Future deployment models (such as public release or subscription options) are outside the scope of the current study."
+    }
+  ]
+
+  return (
+    <div className="max-w-4xl mx-auto px-6">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778] mb-3">Frequently Asked Questions</h2>
+        <p className="text-lg" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>Everything you need to know about Ritmo</p>
+      </div>
+
+      <div className="space-y-4">
+        {faqs.map((faq, index) => (
+          <div key={index} className="bg-white border border-gray-300 rounded-xl p-6">
+            <button
+              onClick={() => toggleFAQ(index)}
+              className="w-full font-bold text-lg text-[#2D7778] cursor-pointer flex items-center justify-between text-left"
+            >
+              {faq.question}
+              <svg
+                className={`w-5 h-5 transition-transform ${openIndex === index ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div 
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-[1000px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}
+            >
+              {faq.isSpecial ? (
+                <div className="leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                  <p className="mb-3">Ritmo is specifically designed for children with Level 2 Autism, unlike many general routine apps. It features:</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start"><span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span><span>Visual schedules and step-by-step guidance</span></li>
+                    <li className="flex items-start"><span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span><span>Sensory-friendly and low-stimulation interface</span></li>
+                    <li className="flex items-start"><span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span><span>Positive reinforcement (badges, stars, rewards)</span></li>
+                    <li className="flex items-start"><span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span><span>Caregiver monitoring and progress reports</span></li>
+                    <li className="flex items-start"><span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span><span>Design guided by Behaviorism, Self-Determination Theory, TEACCH, and ISO/IEC 25010 quality standards</span></li>
+                  </ul>
+                  <p className="mt-3">These features help reduce anxiety, increase independence, and improve consistency in daily routines.</p>
+                </div>
+              ) : (
+                <p className="leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                  {faq.answer}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
