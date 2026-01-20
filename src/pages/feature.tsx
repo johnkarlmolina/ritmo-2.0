@@ -7,7 +7,7 @@ import NewFeatureCrop4Right from '../assets/new-feature-crop4-right.png';
 import DownloadIcon from '../assets/Download.png';
 import RitmoAdVideo from '../assets/Ritmo Ad(22sec).mp4';
 import { Link, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../utils/translations';
 
@@ -15,6 +15,7 @@ export default function Features() {
 	const { language } = useLanguage()
 	const location = useLocation()
 	const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
+	const videoRef = useRef<HTMLVideoElement>(null)
 
 	useEffect(() => {
 		// Scroll to how-ritmo-works section - check both hash and navigation state
@@ -27,6 +28,24 @@ export default function Features() {
 					window.history.replaceState(null, '', window.location.pathname)
 				}
 			}, 100)
+		}
+
+		// Video autoplay on scroll into view
+		const videoObserver = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting && videoRef.current) {
+						videoRef.current.play()
+					} else if (videoRef.current) {
+						videoRef.current.pause()
+					}
+				})
+			},
+			{ threshold: 0.5 }
+		)
+
+		if (videoRef.current) {
+			videoObserver.observe(videoRef.current)
 		}
 
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
@@ -132,7 +151,10 @@ export default function Features() {
 			}
 		});
 
-		return () => observer.disconnect();
+		return () => {
+			observer.disconnect()
+			videoObserver.disconnect()
+		}
 	}, []);
 	return (
 		<div className="scroll-smooth overflow-x-hidden">
@@ -391,10 +413,9 @@ export default function Features() {
 					}
 				`}</style>
 				<video
+					ref={videoRef}
 					className="absolute inset-0 w-full h-full object-cover"
 					controls
-					autoPlay
-					muted
 					loop
 					playsInline
 					src={RitmoAdVideo}
