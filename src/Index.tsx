@@ -308,7 +308,7 @@ export default function Index() {
                   01
                 </div>
                 {/* Arrow after step 1 */}
-                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%+1.5rem)]">
+                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%-3rem)]">
                   <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <line x1="0" y1="5" x2="95" y2="5" stroke="#61CCB2" strokeWidth="2"/>
                     <polygon points="95,2 95,8 100,5" fill="#61CCB2"/>
@@ -326,7 +326,7 @@ export default function Index() {
                   02
                 </div>
                 {/* Arrow after step 2 */}
-                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%+1.5rem)]">
+                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%-3rem)]">
                   <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <line x1="0" y1="5" x2="95" y2="5" stroke="#61CCB2" strokeWidth="2"/>
                     <polygon points="95,2 95,8 100,5" fill="#61CCB2"/>
@@ -344,7 +344,7 @@ export default function Index() {
                   03
                 </div>
                 {/* Arrow after step 3 */}
-                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%+1.5rem)]">
+                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%-3rem)]">
                   <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <line x1="0" y1="5" x2="95" y2="5" stroke="#61CCB2" strokeWidth="2"/>
                     <polygon points="95,2 95,8 100,5" fill="#61CCB2"/>
