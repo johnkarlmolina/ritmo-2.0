@@ -83,10 +83,10 @@ export default function News() {
 			{/* Featured Stories Section */}
 			<section className="pt-20 pb-12 px-4 bg-white" data-reveal>
 				<div className="max-w-6xl mx-auto">
-					<h2 className="text-4xl font-bold mb-12" style={{ color: '#2B8A7A' }}>
+					<h2 className="text-3xl md:text-4xl font-bold mb-12" style={{ color: '#2B8A7A' }}>
 						Featured Stories
 					</h2>
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div className="grid grid-cols-1 gap-8 max-w-md mx-auto md:max-w-none md:grid-cols-3">
 					{/* Story Card 2 */}
 					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
 							<div className="h-48 bg-[#61CCB2]"></div>
@@ -118,13 +118,13 @@ export default function News() {
 			{/* All Updates Section */}
 			<section className="pt-12 pb-12 px-4 bg-white" data-reveal>
 				<div className="max-w-6xl mx-auto">
-					<h2 className="text-4xl font-bold mb-10" style={{ color: '#2B8A7A' }}>
+					<h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: '#2B8A7A' }}>
 						All Updates
 					</h2>
 					<div className="space-y-5">
 						{/* Update Item 1 */}
-						<div className="bg-white rounded-3xl px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
-							<div className="flex items-center justify-between gap-6">
+						<div className="bg-white rounded-3xl px-4 md:px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
+							<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-3">
 										<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#E8F4F1', color: '#61CCB2' }}>
@@ -136,14 +136,14 @@ export default function News() {
 											<span>Jan 15, 2026</span>
 										</div>
 									</div>
-									<h3 className="text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
+									<h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: '#2B8A7A' }}>
 										Ritmo version 1.0 Beta release
 									</h3>
 									<p className="text-gray-600 text-sm leading-relaxed">
 										We are thrilled to announce that Ritmo version 1.0 Beta is finally here, and we want you to be part of our exclusive testing group.
 									</p>
 								</div>
-								<a href="/download#phone-mockup" className="text-[#61CCB2] font-semibold text-sm whitespace-nowrap flex items-center gap-2 hover:gap-3 transition-all">
+								<a href="/download#phone-mockup" className="text-[#61CCB2] font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all md:whitespace-nowrap">
 									Download Now →
 								</a>
 							</div>

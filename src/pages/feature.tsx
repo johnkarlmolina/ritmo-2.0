@@ -196,7 +196,7 @@ export default function Features() {
 					<img 
 						src={NewFeatureImg} 
 						alt="Ritmo Features" 
-						className="w-3/4 h-auto object-contain mx-auto"
+						className="w-full md:w-3/4 h-auto object-contain mx-auto"
 					/>
 				</div>
 			</section>
@@ -204,21 +204,21 @@ export default function Features() {
 			{/* Autism Friendly Section */}
 			<section className="py-12 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-					<div className="flex justify-center">
+					<div className="flex justify-center order-2 md:order-1">
 						<img 
 							src={NewFeatureCrop1} 
 							alt="Autism Friendly Feature" 
-							className="w-2/3 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-full max-w-xs md:w-2/3 h-auto object-contain transition-all duration-500 hover:scale-110"
 						/>
 					</div>
-					<div className="space-y-4">
+					<div className="space-y-4 order-1 md:order-2">
 						<div className="flex items-center gap-3">
 							<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
 								<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 								</svg>
 							</div>
-							<h3 className="text-3xl font-bold" style={{ color: '#2D7778' }}>Autism Friendly</h3>
+							<h3 className="text-2xl md:text-3xl font-bold" style={{ color: '#2D7778' }}>Autism Friendly</h3>
 						</div>
 						<p className="text-xl leading-relaxed" style={{ color: '#2B2B2B' }}>
 							The ui design was integrated to suit people with Autism or <span className="underline">Autism Spectrum Disorder</span> (ASD)
@@ -244,14 +244,14 @@ export default function Features() {
 			{/* Entertainment Section */}
 			<section className="py-12 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-					<div className="space-y-4">
+					<div className="space-y-4 order-1 md:order-1">
 						<div className="flex items-center gap-3">
 							<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
 								<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 								</svg>
 							</div>
-							<h3 className="text-3xl font-bold" style={{ color: '#2D7778' }}>Entertainment</h3>
+							<h3 className="text-2xl md:text-3xl font-bold" style={{ color: '#2D7778' }}>Entertainment</h3>
 						</div>
 						<p className="text-xl leading-relaxed" style={{ color: '#2B2B2B' }}>
 							The System has built in games, media and book guides to enhance interaction and fun.
@@ -271,11 +271,11 @@ export default function Features() {
 							</li>
 						</ul>
 					</div>
-					<div className="flex justify-center">
+					<div className="flex justify-center order-2 md:order-2">
 						<img 
 							src={NewFeatureCrop2} 
 							alt="Entertainment Feature" 
-							className="w-3/4 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-full max-w-sm md:w-3/4 h-auto object-contain transition-all duration-500 hover:scale-110"
 						/>
 					</div>
 				</div>
@@ -284,21 +284,21 @@ export default function Features() {
 			{/* Progression Section */}
 			<section className="py-12 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-					<div className="flex justify-center">
+					<div className="flex justify-center order-2 md:order-1">
 						<img 
 							src={NewFeatureCrop3} 
 							alt="Progression Feature" 
-							className="w-3/4 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-full max-w-sm md:w-3/4 h-auto object-contain transition-all duration-500 hover:scale-110"
 						/>
 					</div>
-					<div className="space-y-4">
+					<div className="space-y-4 order-1 md:order-2">
 						<div className="flex items-center gap-3">
 							<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
 								<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
 									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 								</svg>
 							</div>
-							<h3 className="text-3xl font-bold" style={{ color: '#2D7778' }}>Progression</h3>
+							<h3 className="text-2xl md:text-3xl font-bold" style={{ color: '#2D7778' }}>Progression</h3>
 						</div>
 						<p className="text-xl leading-relaxed" style={{ color: '#2B2B2B' }}>
 							The app has a built in progress report that records your child routine weekly
@@ -317,74 +317,74 @@ export default function Features() {
 			<section className="py-12 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 					{/* Organize Tasks */}
-					<div className="flex gap-6 items-center">
-						<div className="space-y-4 flex-1 -mt-16">
+					<div className="flex flex-col md:flex-row gap-6 items-center">
+						<div className="space-y-4 flex-1 order-1 md:order-1 md:-mt-16">
 							<div className="flex items-center gap-3">
 								<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
 									<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
 										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 									</svg>
 								</div>
-								<h3 className="text-2xl font-bold" style={{ color: '#2B2B2B' }}>Organize Tasks</h3>
+								<h3 className="text-xl md:text-2xl font-bold" style={{ color: '#2B2B2B' }}>Organize Tasks</h3>
 							</div>
-						<p className="text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
+						<p className="text-base md:text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
 								Build the perfect day using expert presets or your own custom routines.
 							</p>
 							<ul className="space-y-2">
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
+							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
 								<span className="w-2 h-2 bg-black rounded-full"></span>
 								Classic Alarm Feature
 							</li>
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
+							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
 								<span className="w-2 h-2 bg-black rounded-full"></span>
 								Autism Integrated Preset
 							</li>
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
+							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
 									<span className="w-2 h-2 bg-black rounded-full"></span>
 									100% Customizability
 								</li>
 							</ul>
 						</div>
-						<div className="flex justify-center flex-shrink-0 -mt-16">
+						<div className="flex justify-center flex-shrink-0 order-2 md:order-2 md:-mt-16">
 							<img 
 								src={NewFeatureCrop4Left} 
 								alt="Organize Tasks" 
-							className="w-64 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-48 md:w-64 h-auto object-contain transition-all duration-500 hover:scale-110"
 							/>
 						</div>
 					</div>
 
 					{/* Parental Control */}
-					<div className="flex gap-6 items-center">
-						<div className="flex justify-center flex-shrink-0 mt-28">
+					<div className="flex flex-col md:flex-row gap-6 items-center">
+						<div className="flex justify-center flex-shrink-0 order-2 md:order-1 md:mt-28">
 							<img 
 								src={NewFeatureCrop4Right} 
 								alt="Parental Control" 
-							className="w-64 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-48 md:w-64 h-auto object-contain transition-all duration-500 hover:scale-110"
 						/>
 					</div>
-					<div className="space-y-4 flex-1 mt-16">
+					<div className="space-y-4 flex-1 order-1 md:order-2 md:mt-16">
 							<div className="flex items-center gap-3">
 								<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
 									<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
 										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 									</svg>
 								</div>
-								<h3 className="text-2xl font-bold" style={{ color: '#2B2B2B' }}>Parental Control</h3>
+								<h3 className="text-xl md:text-2xl font-bold" style={{ color: '#2B2B2B' }}>Parental Control</h3>
 							</div>
-							<p className="text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
+							<p className="text-base md:text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
 								The System has built in parental control to guide every childrens action
 							</p>
 							<ul className="space-y-2">
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
+							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
 								<span className="w-2 h-2 bg-black rounded-full"></span>
 								Parental Lock
 							</li>
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
+							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
 								<span className="w-2 h-2 bg-black rounded-full"></span>
 								Daily Routine Setup
 							</li>
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
+							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
 									<span className="w-2 h-2 bg-black rounded-full"></span>
 									Limited media search
 								</li>
