@@ -249,9 +249,6 @@ export default function Index() {
       <section className="" style={{ backgroundColor: '#61CCB2' }} data-reveal>
         <div className="w-full max-w-[1800px] mx-auto px-2 sm:px-3 md:px-4 py-16 md:py-20">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center px-2">{t('keyFeatures')}</h2>
-          <p className="mt-3 max-w-3xl mx-auto text-center text-white/90 px-3">
-            {t('keyFeaturesDesc')}
-          </p>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             {[
               { title: t('autismFriendly'), desc: t('autismFriendlyDesc'), img: feature1 },
@@ -261,7 +258,7 @@ export default function Index() {
             ].map((f, idx) => (
                 <div
                   key={f.title}
-                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-5 sm:p-6 md:p-6 lg:p-8 w-full min-h-[600px] sm:min-h-[620px] md:min-h-[540px] flex flex-col items-center transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
+                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-5 sm:p-6 md:p-6 lg:p-8 w-full min-h-[300px] sm:min-h-[320px] md:min-h-[280px] flex flex-col items-center transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
                 >
                   <img
                     src={f.img}
@@ -277,7 +274,6 @@ export default function Index() {
                     }}
                   />
                   <div className="text-[#2D7778] font-extrabold text-2xl sm:text-2xl md:text-xl lg:text-2xl mb-4 sm:mb-3 w-full text-center px-1">{f.title}</div>
-                  <div className="text-base sm:text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed px-3 md:px-2 w-full text-justify flex-grow-0">{f.desc}</div>
               </div>
             ))}
           </div>
