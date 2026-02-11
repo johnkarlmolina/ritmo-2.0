@@ -124,9 +124,9 @@ export default function Download() {
 							{/* Action Buttons */}
 							<div>
 								<a
-									href="https://drive.google.com/uc?export=download&id=1BaWTfjBsbW-iiZGV5BjYl-PqsViO0b_P"
-									target="_blank"
-									rel="noopener noreferrer"
+								href="https://drive.google.com/uc?export=download&id=14vazjwm22HZtz6MxYf7hGpuKrANxhm4_"
+								target="_blank"
+								rel="noopener noreferrer"
 									className="inline-flex items-center gap-2 bg-teal-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-600 transition-colors shadow-lg"
 								>
 									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
