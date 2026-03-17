@@ -21,7 +21,7 @@ import BertesImg from '../asset-team-img/Bertes.png';
 import MendozaImg from '../asset-team-img/Mendoza.png';
 import SambilayImg from '../asset-team-img/Sambilay.png';
 import TeamMemberCard from '../components/TeamMemberCard';
-import HandPhoneImg from '../assets/hand-phone.png';
+import HImg from '../assets/H.png';
 import DownloadIcon from '../assets/Download.png';
 import WatchIcon from '../assets/Watch.png';
 
@@ -212,7 +212,7 @@ export default function About() {
 					<div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
 						<div className="w-full md:w-1/3">
 							<div className="rounded-2xl shadow-md border border-gray-200 overflow-hidden bg-white max-w-xs mx-auto">
-								<img src={HandPhoneImg} alt="Hand holding phone with Ritmo app" className="w-full h-auto object-cover" />
+								<img src={HImg} alt="Hand holding phone with Ritmo app" className="w-full h-auto object-cover" />
 							</div>
 						</div>
 						<div className="w-full md:w-2/3">

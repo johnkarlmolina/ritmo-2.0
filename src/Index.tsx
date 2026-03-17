@@ -5,11 +5,11 @@ import { useNetworkAwareLoading } from './hooks/useNetworkAwareLoading'
 import { GlobalLoadingScreen } from './components/GlobalLoadingScreen'
 import { useLanguage } from './context/LanguageContext'
 import { translations } from './utils/translations'
-import handPhoneImg from './assets/hand-phone.png'
-import feature1 from './assets/Feature-1.png'
-import feature2 from './assets/Feature-2.png'
+import HIMG from './assets/H.png'
+import feature1 from './assets/Home.png'
+import feature2 from './assets/Parental Lock.png'
 import feature3 from './assets/Feature-3.png'
-import feature4 from './assets/Feature-4.png'
+import feature4 from './assets/Progress.png'
 import frontViewChild from './assets/front-view-kid-making-puzzle-table.jpg'
 import istockPhoto from './assets/istockphoto-2030023202-612x612.jpg'
 import sideViewChild from './assets/side-view-child-learning-how-count-home-using-pencils.jpg'
@@ -35,7 +35,7 @@ export default function Index() {
       feature3,
       feature4,
       // Other critical images
-      handPhoneImg,
+      HIMG,
       ausLogo
     ]
     
@@ -524,7 +524,7 @@ export default function Index() {
           <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-10 md:gap-12 items-center">
             {/* Image */}
             <div className="flex items-center justify-center">
-              <img src={handPhoneImg} alt="Ritmo phone in hand" className="w-72 md:w-80 lg:w-96 h-auto object-contain drop-shadow" />
+              <img src={HIMG} alt="Ritmo phone in hand" className="w-72 md:w-80 lg:w-96 h-auto object-contain drop-shadow" />
             </div>
             {/* Content */}
             <div className="text-white">

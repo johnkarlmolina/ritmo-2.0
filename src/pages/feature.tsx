@@ -1,9 +1,10 @@
 import NewFeatureImg from '../assets/new-feature-crop.png';
-import NewFeatureCrop1 from '../assets/new-feature-crop1.png';
-import NewFeatureCrop2 from '../assets/new-feature-crop2.png';
-import NewFeatureCrop3 from '../assets/new-feature-crop3.png';
-import NewFeatureCrop4Left from '../assets/new-feature-crop4-left.png';
-import NewFeatureCrop4Right from '../assets/new-feature-crop4-right.png';
+import Feature3Img from '../assets/Feature-3.png';
+import Book1Img from '../assets/Book1.png';
+import AutismFriendlyHomeImg from '../assets/Home.png';
+import ProgressImg from '../assets/Progress.png';
+import SetupRoutineImg from '../assets/Setup Routine.png';
+import ParentalLockImg from '../assets/Parental Lock.png';
 import DownloadIcon from '../assets/Download.png';
 import RitmoAdVideo from '../assets/Ritmo Ad(22sec).mp4';
 import { Link, useLocation } from 'react-router-dom';
@@ -206,9 +207,9 @@ export default function Features() {
 				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
 					<div className="flex justify-center order-2 md:order-1">
 						<img 
-							src={NewFeatureCrop1} 
+							src={AutismFriendlyHomeImg} 
 							alt="Autism Friendly Feature" 
-							className="w-full max-w-xs md:w-2/3 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
 						/>
 					</div>
 					<div className="space-y-4 order-1 md:order-2">
@@ -271,11 +272,16 @@ export default function Features() {
 							</li>
 						</ul>
 					</div>
-					<div className="flex justify-center order-2 md:order-2">
-						<img 
-							src={NewFeatureCrop2} 
-							alt="Entertainment Feature" 
-							className="w-full max-w-sm md:w-3/4 h-auto object-contain transition-all duration-500 hover:scale-110"
+					<div className="flex justify-center items-center gap-3 md:gap-5 order-2 md:order-2">
+						<img
+							src={Feature3Img}
+							alt="Entertainment Feature"
+							className="w-44 md:w-56 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
+						/>
+						<img
+							src={Book1Img}
+							alt="Entertainment Book Guide"
+							className="w-44 md:w-56 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
 						/>
 					</div>
 				</div>
@@ -286,9 +292,9 @@ export default function Features() {
 				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
 					<div className="flex justify-center order-2 md:order-1">
 						<img 
-							src={NewFeatureCrop3} 
+							src={ProgressImg} 
 							alt="Progression Feature" 
-							className="w-full max-w-sm md:w-3/4 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
 						/>
 					</div>
 					<div className="space-y-4 order-1 md:order-2">
@@ -347,9 +353,9 @@ export default function Features() {
 						</div>
 						<div className="flex justify-center flex-shrink-0 order-2 md:order-2 md:-mt-16">
 							<img 
-								src={NewFeatureCrop4Left} 
+								src={SetupRoutineImg} 
 								alt="Organize Tasks" 
-							className="w-48 md:w-64 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
 							/>
 						</div>
 					</div>
@@ -358,9 +364,9 @@ export default function Features() {
 					<div className="flex flex-col md:flex-row gap-6 items-center">
 						<div className="flex justify-center flex-shrink-0 order-2 md:order-1 md:mt-28">
 							<img 
-								src={NewFeatureCrop4Right} 
+								src={ParentalLockImg} 
 								alt="Parental Control" 
-							className="w-48 md:w-64 h-auto object-contain transition-all duration-500 hover:scale-110"
+							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
 						/>
 					</div>
 					<div className="space-y-4 flex-1 order-1 md:order-2 md:mt-16">
