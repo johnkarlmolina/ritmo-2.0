@@ -124,7 +124,7 @@ export default function Download() {
 							{/* Action Buttons */}
 							<div>
 								<a
-								href="https://drive.google.com/file/d/185_gpZ9uvlzs4amU554D86cCRIwTvxel/view?usp=sharing"
+								href="https://drive.google.com/uc?export=download&id=185_gpZ9uvlzs4amU554D86cCRIwTvxel	"
 								target="_blank"
 								rel="noopener noreferrer"
 									className="inline-flex items-center gap-2 bg-teal-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-600 transition-colors shadow-lg"
