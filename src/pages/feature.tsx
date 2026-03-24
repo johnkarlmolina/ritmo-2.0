@@ -6,7 +6,7 @@ import ProgressImg from '../assets/Progress.png';
 import SetupRoutineImg from '../assets/Setup Routine.png';
 import ParentalLockImg from '../assets/Parental Lock.png';
 import DownloadIcon from '../assets/Download.png';
-import RitmoAdVideo from '../assets/Ritmo Ad(22sec).mp4';
+import RitmoAdVideo from '../assets/Ritmo Ad 3-24-26 4k Reso.mp4';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
