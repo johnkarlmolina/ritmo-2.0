@@ -10,7 +10,7 @@ function App() {
     <LanguageProvider>
       <Header />
       <ScrollToTop />
-      <main className="pt-16">
+      <main className="pt-16 overflow-x-hidden">
         <Index />
       </main>
       <Footer />

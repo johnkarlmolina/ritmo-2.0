@@ -19,6 +19,7 @@ body {
   margin: 0;
   background: #ffffff;
   color: #0f172a; /* slate-900 */
+  overflow-x: hidden;
 }
 
 /* Accessible text scaling: apply on the html element */

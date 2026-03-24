@@ -153,9 +153,6 @@ export default function Download() {
 									</div>
 									Download Ritmo for Android
 								</a>
-								<p className="mt-4 text-center sm:text-left text-sm text-gray-500 font-medium ml-2">
-									Requires Android 8.0 or later
-								</p>
 							</div>
 						</div>
 					</div>
