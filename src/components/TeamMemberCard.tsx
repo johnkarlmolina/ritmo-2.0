@@ -19,8 +19,8 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
       aria-label={`${name} card; tap to flip`}
     >
       <div
-        className="flip-inner rounded-[200px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
-        style={{ backgroundColor: bg }}
+        className="flip-inner rounded-[200px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.2)] transition-shadow duration-300"
+        style={{ background: 'linear-gradient(135deg, #2B8A7A 0%, #1f5c5d 100%)' }}
       >
         {/* Front */}
         <div className="flip-front flex flex-col items-center pt-16">

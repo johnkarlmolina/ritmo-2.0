@@ -1,10 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type React from 'react'
 import { useNetworkAwareLoading } from './hooks/useNetworkAwareLoading'
 import { GlobalLoadingScreen } from './components/GlobalLoadingScreen'
 import { useLanguage } from './context/LanguageContext'
 import { translations } from './utils/translations'
+import About from './pages/about'
+import Features from './pages/feature'
+import News from './pages/news'
+import Contact from './pages/contact'
+import Download from './pages/download'
 import HIMG from './assets/H.png'
 import feature1 from './assets/Home.png'
 import feature2 from './assets/Parental Lock.png'
@@ -20,6 +25,7 @@ import ausLogo from './assets/AUS.png'
 export default function Index() {
   const { isLoading, progress } = useNetworkAwareLoading()
   const { language } = useLanguage()
+  const location = useLocation()
   const t = (key: string) => (translations as any)[language as keyof typeof translations][key]
 
   // Preload critical images for faster loading
@@ -63,6 +69,25 @@ export default function Index() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  useEffect(() => {
+    const sectionByPath: Record<string, string> = {
+      '/about': 'about-section',
+      '/features': 'features-section',
+      '/news': 'news-section',
+      '/contact': 'contact-section',
+      '/download': 'download-section',
+    }
+
+    const targetId = sectionByPath[location.pathname]
+    if (!targetId) return
+
+    const timer = window.setTimeout(() => {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 80)
+
+    return () => window.clearTimeout(timer)
+  }, [location.pathname])
   // Sliding / reveal animations similar to other pages
   // Run only after loading screen finishes so sections exist in the DOM
   useEffect(() => {
@@ -164,8 +189,9 @@ export default function Index() {
       </section>
 
       {/* What is autism? */}
-      <section className="bg-white" data-reveal>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+      <section className="bg-white relative overflow-hidden" data-reveal>
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-[#61CCB2]/10 blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-24 relative z-10">
           {/* Top row: What is autism + definition card */}
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 items-start">
             {/* Left column: heading + paragraphs */}
@@ -246,10 +272,14 @@ export default function Index() {
 */}
 
       {/* Key Features section */}
-      <section className="" style={{ backgroundColor: '#61CCB2' }} data-reveal>
-        <div className="w-full max-w-[1800px] mx-auto px-2 sm:px-3 md:px-4 py-16 md:py-20">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center px-2">{t('keyFeatures')}</h2>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+      <section className="bg-gradient-to-br from-[#61CCB2] to-[#2D7778] relative overflow-hidden" data-reveal>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjwvcmVjdD4KPHBhdGggZD0iTTAgMEw4IDhaIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] opacity-20 pointer-events-none" />
+        <div className="w-full max-w-[1800px] mx-auto px-4 md:px-6 py-20 md:py-24 relative z-10">
+          <div className="text-center mb-12">
+            <span className="inline-block py-1 px-3 rounded-full bg-white/20 text-white font-semibold text-sm mb-4 tracking-wider uppercase backdrop-blur-sm border border-white/20">Highlights</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center px-2">{t('keyFeatures')}</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               { title: t('autismFriendly'), desc: t('autismFriendlyDesc'), img: feature1 },
               { title: t('parentalControl'), desc: t('parentalControlDesc'), img: feature2 },
@@ -258,12 +288,12 @@ export default function Index() {
             ].map((f, idx) => (
                 <div
                   key={f.title}
-                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-5 sm:p-6 md:p-6 lg:p-8 w-full min-h-[300px] sm:min-h-[320px] md:min-h-[280px] flex flex-col items-center transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
+                  className="group rounded-3xl bg-white/10 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20 p-6 md:p-8 w-full min-h-[320px] flex flex-col items-center transition-all duration-500 hover:-translate-y-2 hover:bg-white/20 hover:shadow-[0_8px_40px_rgb(0,0,0,0.2)]"
                 >
                   <img
                     src={f.img}
                     alt={`${f.title} icon`}
-                    className="mb-6 sm:mb-4 w-60 h-68 sm:w-64 sm:h-72 md:w-56 md:h-64 lg:w-60 lg:h-68 object-contain flex-shrink-0"
+                    className="mb-6 w-56 h-64 md:w-52 md:h-60 object-contain flex-shrink-0 transition-transform duration-500 group-hover:scale-110 drop-shadow-lg"
                     loading="eager"
                     decoding="async"
                     fetchPriority={idx < 2 ? 'high' : 'auto'}
@@ -273,7 +303,7 @@ export default function Index() {
                       transform: 'translateZ(0)',
                     }}
                   />
-                  <div className="text-[#2D7778] font-extrabold text-2xl sm:text-2xl md:text-xl lg:text-2xl mb-4 sm:mb-3 w-full text-center px-1">{f.title}</div>
+                  <div className="text-white font-extrabold text-2xl md:text-xl lg:text-2xl mb-4 w-full text-center px-1 drop-shadow-sm">{f.title}</div>
               </div>
             ))}
           </div>
@@ -286,79 +316,77 @@ export default function Index() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 md:py-20 bg-[#61CCB2]/15 mt-12 md:mt-16" data-reveal>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#2D7778] mb-3">How It Works</h2>
-            <p className="text-lg" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>Get started in minutes and see results in days</p>
+      <section className="py-20 md:py-24 bg-gradient-to-b from-white to-[#61CCB2]/5" data-reveal>
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block py-1 px-3 rounded-full bg-[#61CCB2]/10 text-[#2D7778] font-semibold text-sm mb-4 tracking-wider uppercase">Process</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#2D7778] to-[#61CCB2] mb-4">How It Works</h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">Get started in minutes and see results in days</p>
           </div>
 
           <div className="relative">
             {/* Horizontal line below circles */}
-            <div className="hidden md:block absolute left-0 right-0 border-t-2 border-[#61CCB2]" style={{ top: '5.5rem' }}></div>
+            <div className="hidden md:block absolute left-0 right-0 border-t-[3px] border-dashed border-[#61CCB2]/30" style={{ top: '2.5rem' }}></div>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6 relative">
               {/* Step 01 */}
-              <div className="flex flex-col items-center text-center relative">
-                <div className="w-16 h-16 rounded-full bg-[#61CCB2] text-white font-bold text-xl flex items-center justify-center mb-6 relative z-10">
+              <div className="group flex flex-col items-center text-center relative hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#61CCB2] to-[#2D7778] text-white font-bold text-2xl flex items-center justify-center mb-6 relative z-10 shadow-lg shadow-[#61CCB2]/30 group-hover:shadow-[#61CCB2]/50 transition-shadow">
                   01
                 </div>
                 {/* Arrow after step 1 */}
-                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%-3rem)]">
-                  <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <line x1="0" y1="5" x2="95" y2="5" stroke="#61CCB2" strokeWidth="2"/>
-                    <polygon points="95,2 95,8 100,5" fill="#61CCB2"/>
+                <div className="hidden md:block absolute left-[calc(50%+2.5rem)] top-10 w-[calc(100%-5rem)] text-[#61CCB2]/30">
+                  <svg className="w-full h-4" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <polygon points="95,0 95,10 100,5" fill="currentColor"/>
                   </svg>
                 </div>
-                <h3 className="font-bold text-lg text-[#2D7778] mb-3 mt-4">Create Profile</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                <h3 className="font-bold text-xl text-[#2D7778] mb-3 mt-2">Create Profile</h3>
+                <p className="text-base leading-relaxed text-gray-600">
                   Set up your child's profile with their preferences, needs, and daily routines
                 </p>
               </div>
 
               {/* Step 02 */}
-              <div className="flex flex-col items-center text-center relative">
-                <div className="w-16 h-16 rounded-full bg-[#61CCB2] text-white font-bold text-xl flex items-center justify-center mb-6 relative z-10">
+              <div className="group flex flex-col items-center text-center relative hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#61CCB2] to-[#2D7778] text-white font-bold text-2xl flex items-center justify-center mb-6 relative z-10 shadow-lg shadow-[#61CCB2]/30 group-hover:shadow-[#61CCB2]/50 transition-shadow">
                   02
                 </div>
                 {/* Arrow after step 2 */}
-                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%-3rem)]">
-                  <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <line x1="0" y1="5" x2="95" y2="5" stroke="#61CCB2" strokeWidth="2"/>
-                    <polygon points="95,2 95,8 100,5" fill="#61CCB2"/>
+                <div className="hidden md:block absolute left-[calc(50%+2.5rem)] top-10 w-[calc(100%-5rem)] text-[#61CCB2]/30">
+                  <svg className="w-full h-4" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <polygon points="95,0 95,10 100,5" fill="currentColor"/>
                   </svg>
                 </div>
-                <h3 className="font-bold text-lg text-[#2D7778] mb-3 mt-4">Build Schedule</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                <h3 className="font-bold text-xl text-[#2D7778] mb-3 mt-2">Build Schedule</h3>
+                <p className="text-base leading-relaxed text-gray-600">
                   Design visual schedules using our library of symbols, photos, and activities
                 </p>
               </div>
 
               {/* Step 03 */}
-              <div className="flex flex-col items-center text-center relative">
-                <div className="w-16 h-16 rounded-full bg-[#61CCB2] text-white font-bold text-xl flex items-center justify-center mb-6 relative z-10">
+              <div className="group flex flex-col items-center text-center relative hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#61CCB2] to-[#2D7778] text-white font-bold text-2xl flex items-center justify-center mb-6 relative z-10 shadow-lg shadow-[#61CCB2]/30 group-hover:shadow-[#61CCB2]/50 transition-shadow">
                   03
                 </div>
                 {/* Arrow after step 3 */}
-                <div className="hidden md:block absolute left-[calc(50%+2rem)] top-8 w-[calc(100%-3rem)]">
-                  <svg className="w-full h-2" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <line x1="0" y1="5" x2="95" y2="5" stroke="#61CCB2" strokeWidth="2"/>
-                    <polygon points="95,2 95,8 100,5" fill="#61CCB2"/>
+                <div className="hidden md:block absolute left-[calc(50%+2.5rem)] top-10 w-[calc(100%-5rem)] text-[#61CCB2]/30">
+                  <svg className="w-full h-4" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <polygon points="95,0 95,10 100,5" fill="currentColor"/>
                   </svg>
                 </div>
-                <h3 className="font-bold text-lg text-[#2D7778] mb-3 mt-4">Follow Routine</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                <h3 className="font-bold text-xl text-[#2D7778] mb-3 mt-2">Follow Routine</h3>
+                <p className="text-base leading-relaxed text-gray-600">
                   Your child follows along with audio and visual prompts throughout the day
                 </p>
               </div>
 
               {/* Step 04 */}
-              <div className="flex flex-col items-center text-center relative">
-                <div className="w-16 h-16 rounded-full bg-[#61CCB2] text-white font-bold text-xl flex items-center justify-center mb-6 relative z-10">
+              <div className="group flex flex-col items-center text-center relative hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#61CCB2] to-[#2D7778] text-white font-bold text-2xl flex items-center justify-center mb-6 relative z-10 shadow-lg shadow-[#61CCB2]/30 group-hover:shadow-[#61CCB2]/50 transition-shadow">
                   04
                 </div>
-                <h3 className="font-bold text-lg text-[#2D7778] mb-3 mt-4">Track Growth</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                <h3 className="font-bold text-xl text-[#2D7778] mb-3 mt-2">Track Growth</h3>
+                <p className="text-base leading-relaxed text-gray-600">
                   See progress, celebrate wins, and adjust routines as your child grows
                 </p>
               </div>
@@ -366,10 +394,10 @@ export default function Index() {
           </div>
 
           {/* CTA Button */}
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <Link 
               to="/download" 
-              className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] px-8 py-3 text-white font-semibold hover:bg-[#4DB89D] transition-colors shadow-md"
+              className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#2D7778] to-[#61CCB2] px-8 py-4 text-white font-semibold hover:from-[#1f5c5d] hover:to-[#4DB89D] transition-all shadow-[0_8px_20px_rgba(45,119,120,0.3)] hover:shadow-[0_12px_25px_rgba(45,119,120,0.4)] hover:-translate-y-1 text-lg"
             >
               Get Started Today
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -381,15 +409,18 @@ export default function Index() {
       </section>
 
       {/* We Recommend */}
-      <section className="py-12 md:py-16 bg-white" data-reveal>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>We Recommend</h3>
-            <p className="text-lg text-gray-800">Visit this website for complete learning</p>
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden" data-reveal>
+        <div className="absolute top-1/2 left-0 -ml-20 w-80 h-80 rounded-full bg-[#2D7778]/5 blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-12">
+            <span className="inline-block py-1 px-3 rounded-full bg-[#61CCB2]/10 text-[#2D7778] font-semibold text-sm mb-4 tracking-wider uppercase">Resources</span>
+            <h3 className="text-3xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2D7778] to-[#61CCB2]">We Recommend</h3>
+            <p className="text-lg md:text-xl text-gray-600">Visit this website for complete learning</p>
           </div>
           
-          <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg px-8 md:px-12 lg:px-20 py-12 md:py-16 transition transform hover:-translate-y-2 hover:shadow-2xl">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-12" style={{ gap: '7.5rem' }}>
+          <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 hover:border-[#61CCB2]/30 px-8 md:px-12 lg:px-20 py-12 md:py-16 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.1)] group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#61CCB2]/10 to-transparent rounded-bl-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 relative z-10" style={{ gap: '7.5rem' }}>
               <div className="flex-shrink-0">
                 <img 
                   src={ausLogo} 
@@ -426,85 +457,81 @@ export default function Index() {
       </section>
 
       {/* Articles Section - You might find useful */}
-      <section className="py-12 md:py-16 bg-white" data-reveal>
+      <section className="py-16 md:py-24 bg-slate-50/50" data-reveal>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>You might find Useful</h3>
-            <p className="text-lg text-gray-800">Stay informed with our latest articles and resources.</p>
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2]">You might find Useful</h3>
+            <p className="text-lg md:text-xl text-gray-600">Stay informed with our latest articles and resources.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Article 1 */}
-            <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
-              <div className="bg-gray-100 h-48 flex items-center justify-center">
+            <div className="group bg-white rounded-[2rem] shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] cursor-pointer">
+              <div className="bg-gradient-to-br from-gray-100 to-slate-200 h-52 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[#61CCB2]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img 
                   src={ausLogo} 
                   alt="Autism Society Philippines" 
-                  className="w-auto h-32 object-contain"
+                  className="w-auto h-32 object-contain transition-transform duration-700 group-hover:scale-105 relative z-10"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-              <div className="p-6">
-                <p className="text-sm mb-2" style={{ color: '#61CCB2' }}>
-                  <span className="font-semibold">Autism Society Philippines</span> • 11 Nov 2014
+              <div className="p-8">
+                <p className="text-sm font-semibold mb-3 tracking-wide text-[#61CCB2] uppercase">
+                  <span className="text-[#2D7778]">Autism Society Philippines</span> • 11 Nov 2014
                 </p>
-                <h4 className="font-bold text-xl mb-3 leading-tight" style={{ color: '#2D7778' }}>
+                <h4 className="font-extrabold text-2xl mb-4 leading-tight text-[#2D7778] group-hover:text-[#1a5f60] transition-colors">
                   Understanding Person with Disabilities: Journey with Autism
                 </h4>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                <p className="text-gray-600 mb-6 line-clamp-3 text-base leading-relaxed">
                   By Erling's "Ong" Uy Koe & Evert L. Malapad, MA Educ SPED. In the realm of modern society, a Point of Sale (POS) system serves as more than just a tool for processing transactions...
                 </p>
                 <a 
                   href="http://www.autismsocietyphilippines.org/2014/11/understanding-persons-with-disabilities.html" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 font-semibold text-sm transition-colors"
-                  style={{ color: '#2D7778' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#1a5f60'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#2D7778'}
+                  className="inline-flex items-center gap-2 font-bold text-[#61CCB2] group-hover:gap-3 transition-all"
                 >
                   Read More
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
               </div>
             </div>
 
             {/* Article 2 */}
-            <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
-              <div className="bg-gray-100 h-48 flex items-center justify-center">
+            <div className="group bg-white rounded-[2rem] shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] cursor-pointer">
+              <div className="bg-gradient-to-br from-gray-100 to-slate-200 h-52 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[#61CCB2]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img 
                   src={ausLogo} 
                   alt="Autism Society Philippines" 
-                  className="w-auto h-32 object-contain"
+                  className="w-auto h-32 object-contain transition-transform duration-700 group-hover:scale-105 relative z-10"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-              <div className="p-6">
-                <p className="text-sm mb-2" style={{ color: '#61CCB2' }}>
-                  <span className="font-semibold">Autism Society Philippines</span> • 01 Jan 2010
+              <div className="p-8">
+                <p className="text-sm font-semibold mb-3 tracking-wide text-[#61CCB2] uppercase">
+                  <span className="text-[#2D7778]">Autism Society Philippines</span> • 01 Jan 2010
                 </p>
-                <h4 className="font-bold text-xl mb-3 leading-tight" style={{ color: '#2D7778' }}>
+                <h4 className="font-extrabold text-2xl mb-4 leading-tight text-[#2D7778] group-hover:text-[#1a5f60] transition-colors">
                   What Is Autism and What Is Not
                 </h4>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                <p className="text-gray-600 mb-6 line-clamp-3 text-base leading-relaxed">
                   By Tiffany Tan ASP Board Secretary. In the realm of modern society, a Point of Sale (POS) system serves as more than just a tool for processing transactions and handles sensitive customer data...
                 </p>
                 <a 
                   href="http://www.autismsocietyphilippines.org/2010/01/what-autism-is-and-is-not.html" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 font-semibold text-sm transition-colors"
-                  style={{ color: '#2D7778' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = '#1a5f60'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = '#2D7778'}
+                  className="inline-flex items-center gap-2 font-bold text-[#61CCB2] group-hover:gap-3 transition-all"
                 >
                   Read More
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
               </div>
@@ -514,13 +541,15 @@ export default function Index() {
       </section>
 
       {/* FAQs Section */}
-      <section className="py-16 md:py-20 bg-[#61CCB2]/15" data-reveal>
+      <section className="py-20 md:py-32 bg-white relative overflow-hidden" data-reveal>
+        <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-gradient-to-tl from-[#61CCB2]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
         <FAQSection />
       </section>
 
       {/* Ritmo is now available (restored, full width) */}
-      <section className="py-16 md:py-20 mt-12 md:mt-16 mb-12 md:mb-16" style={{ backgroundColor: '#61CCB2' }} data-reveal>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-24 bg-gradient-to-r from-[#2D7778] to-[#1a5f60] relative overflow-hidden" data-reveal>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjwvcmVjdD4KPHBhdGggZD0iTTAgMEw4IDhaIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] opacity-20 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-10 md:gap-12 items-center">
             {/* Image */}
             <div className="flex items-center justify-center">
@@ -558,6 +587,26 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      <div id="about-section">
+        <About />
+      </div>
+
+      <div id="features-section">
+        <Features />
+      </div>
+
+      <div id="news-section">
+        <News />
+      </div>
+
+      <div id="contact-section">
+        <Contact />
+      </div>
+
+      <div id="download-section">
+        <Download />
+      </div>
     </>
   )
 }

@@ -140,12 +140,14 @@ export default function Contact() {
 	return (
 		<div className="bg-white">
 			{/* Hero Section */}
-			<section className="mt-4 pt-20 pb-20 px-4" data-reveal style={{ backgroundColor: '#61CCB2' }}>
-				<div className="max-w-7xl mx-auto text-center">
-					<h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+			<section className="pt-24 pb-12 px-4 relative" data-reveal>
+				<div className="absolute inset-0 bg-gradient-to-t from-emerald-50/50 to-transparent pointer-events-none" />
+				<div className="max-w-7xl mx-auto text-center relative z-10">
+					<span className="inline-block py-1 px-3 rounded-full bg-[#61CCB2]/10 text-[#2B8A7A] font-semibold text-sm mb-4 tracking-wider uppercase">Contact Us</span>
+					<h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2]">
 						{t('getInTouch')}
-					</h1>
-					<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+					</h2>
+					<p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 leading-relaxed">
 						{t('hereToHelp')}
 					</p>
 				</div>
@@ -226,31 +228,34 @@ export default function Contact() {
 			</section> */}
 
 			{/* Send Us a Message Section */}
-			<section className="py-20 px-4 bg-white scroll-mt-20" data-reveal id="message-section">
-				<div className="max-w-7xl mx-auto">
-					<div className="text-center mb-12">
-						<h2 className="text-5xl font-bold mb-4" style={{ color: '#2B8A7A' }}>
+			<section className="py-24 px-4 bg-slate-50/50 scroll-mt-20 relative overflow-hidden" data-reveal id="message-section">
+				<div className="absolute top-0 right-0 w-96 h-96 bg-[#61CCB2] rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
+				<div className="absolute bottom-0 left-0 w-96 h-96 bg-[#2B8A7A] rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
+				
+				<div className="max-w-7xl mx-auto relative z-10">
+					<div className="text-center mb-16">
+						<h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2]">
 							Send Us a Message
 						</h2>
-						<p className="text-gray-600 text-base">
+						<p className="text-gray-600 text-lg md:text-xl font-medium max-w-2xl mx-auto">
 							Fill out the form below and we'll get back to you as soon as possible
 						</p>
 					</div>
 
-					<div className="max-w-3xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md">
-							<form className="space-y-6" onSubmit={handleSubmit}>
+					<div className="max-w-4xl mx-auto">
+						<div className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.05)] border border-white">
+							<form className="space-y-8" onSubmit={handleSubmit}>
 								{/* Status Message */}
 								{messageStatus && (
-									<div className={`p-4 rounded-lg text-center ${messageStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+									<div className={`p-4 rounded-2xl text-center text-sm font-semibold transition-all duration-300 ${messageStatus.type === 'success' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-red-50 text-red-800 border border-red-200'}`}>
 										{messageStatus.text}
 									</div>
 								)}
 
 								{/* Name and Email Row */}
-								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-									<div>
-										<label className="block text-sm font-semibold mb-2" style={{ color: '#2B8A7A' }}>
+								<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+									<div className="space-y-2">
+										<label className="block text-sm font-bold text-gray-700 ml-1">
 											Your Name <span className="text-red-500">*</span>
 										</label>
 										<input
@@ -259,11 +264,11 @@ export default function Contact() {
 											value={formData.name}
 											onChange={handleInputChange}
 											placeholder="Enter your name"
-											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+											className="w-full px-5 py-4 bg-slate-50/50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#61CCB2] focus:border-transparent focus:bg-white text-gray-800 transition-all placeholder-gray-400"
 										/>
 									</div>
-									<div>
-										<label className="block text-sm font-semibold mb-2" style={{ color: '#2B8A7A' }}>
+									<div className="space-y-2">
+										<label className="block text-sm font-bold text-gray-700 ml-1">
 											Email Address <span className="text-red-500">*</span>
 										</label>
 										<input
@@ -271,15 +276,15 @@ export default function Contact() {
 											name="email"
 											value={formData.email}
 											onChange={handleInputChange}
-											placeholder="Enter your email address"
-											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+											placeholder="Enter your email"
+											className="w-full px-5 py-4 bg-slate-50/50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#61CCB2] focus:border-transparent focus:bg-white text-gray-800 transition-all placeholder-gray-400"
 										/>
 									</div>
 								</div>
 
 								{/* Subject */}
-								<div>
-									<label className="block text-sm font-semibold mb-2" style={{ color: '#2B8A7A' }}>
+								<div className="space-y-2">
+									<label className="block text-sm font-bold text-gray-700 ml-1">
 										Subject <span className="text-red-500">*</span>
 									</label>
 									<input
@@ -288,13 +293,13 @@ export default function Contact() {
 										value={formData.subject}
 										onChange={handleInputChange}
 										placeholder="How can we help you?"
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+										className="w-full px-5 py-4 bg-slate-50/50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#61CCB2] focus:border-transparent focus:bg-white text-gray-800 transition-all placeholder-gray-400"
 									/>
 								</div>
 
 								{/* Message */}
-								<div>
-									<label className="block text-sm font-semibold mb-2" style={{ color: '#2B8A7A' }}>
+								<div className="space-y-2">
+									<label className="block text-sm font-bold text-gray-700 ml-1">
 										Message <span className="text-red-500">*</span>
 									</label>
 									<textarea
@@ -303,20 +308,19 @@ export default function Contact() {
 										value={formData.message}
 										onChange={handleInputChange}
 										placeholder="Tell us more about your question or concern..."
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700 resize-none"
+										className="w-full px-5 py-4 bg-slate-50/50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#61CCB2] focus:border-transparent focus:bg-white text-gray-800 transition-all resize-none placeholder-gray-400"
 									></textarea>
 								</div>
 
 								{/* Submit Button */}
-								<div className="text-center">
+								<div className="text-center pt-4">
 									<button
 										type="submit"
 										disabled={loading}
-										className="inline-flex items-center gap-2 px-8 py-3 rounded-lg text-white font-semibold text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-										style={{ backgroundColor: '#61CCB2' }}
+										className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2] hover:from-[#237064] hover:to-[#4DB89E] text-white font-bold text-lg rounded-2xl shadow-[0_10px_20px_rgba(97,204,178,0.3)] hover:shadow-[0_15px_30px_rgba(97,204,178,0.4)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed group w-full md:w-auto"
 									>
-										<img src={SendMessageIcon} alt="Send" className="w-5 h-5" />
-										{loading ? 'Sending...' : 'Send Message'}
+										<span>{loading ? 'Sending...' : 'Send Message'}</span>
+										{!loading && <img src={SendMessageIcon} alt="Send" className="w-5 h-5 group-hover:translate-x-1 transition-transform invert" />}
 									</button>
 								</div>
 							</form>
@@ -325,40 +329,41 @@ export default function Contact() {
 				</div>
 			</section>
 
-			{/* Connect with us Section (centered, wide) */}
-			<section className="py-20 px-4 bg-white" data-reveal>
-				<div className="max-w-7xl mx-auto">
-					<div className="max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto">
-							<div className="flex items-center gap-3 mb-6">
+			{/* Connect with us Section */}
+			<section className="py-20 px-4 bg-white relative" data-reveal>
+				<div className="absolute left-0 bottom-0 w-64 h-64 bg-[#61CCB2] rounded-full blur-[100px] opacity-5 pointer-events-none"></div>
+				<div className="max-w-7xl mx-auto relative z-10">
+					<div className="max-w-4xl mx-auto">
+						<div className="bg-emerald-50/50 rounded-[2.5rem] p-10 md:p-14 border border-emerald-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] text-center transition-all hover:shadow-[0_15px_50px_rgba(97,204,178,0.1)]">
+							<div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl shadow-sm mb-6">
 								<img 
 									src={ConnectIcon} 
 									alt="Connect Icon" 
 									className="w-8 h-8"
 									style={{ filter: 'invert(48%) sepia(79%) saturate(449%) hue-rotate(120deg) brightness(94%) contrast(86%)' }}
 								/>
-								<h3 className="text-2xl font-bold" style={{ color: '#2B8A7A' }}>
-									Connect with us
-								</h3>
 							</div>
-							<div className="rounded-3xl border-2 border-[#E2E8F0] bg-white shadow-md p-8">
-								<p className="text-gray-600 text-sm mb-6">
-									Follow us on social media for updates, tips, and community stories.
-								</p>
-								<div className="space-y-3">
-									<a href="#" className="flex items-center gap-3 bg-[#E8F4F1] rounded-lg px-4 py-3 hover:bg-[#D5EDE7] transition-colors">
-										<img src={FacebookIcon} alt="Facebook" className="w-5 h-5" />
-										<span className="text-gray-800 font-medium">Facebook</span>
-									</a>
-									<a href="#" className="flex items-center gap-3 bg-[#E8F4F1] rounded-lg px-4 py-3 hover:bg-[#D5EDE7] transition-colors">
-										<img src={InstagramIcon} alt="Instagram" className="w-5 h-5" />
-										<span className="text-gray-800 font-medium">Instagram</span>
-									</a>
-									<a href="#" className="flex items-center gap-3 bg-[#E8F4F1] rounded-lg px-4 py-3 hover:bg-[#D5EDE7] transition-colors">
-									<img src={YoutubeIcon} alt="YouTube" className="w-5 h-5" />
-										<span className="text-gray-800 font-medium">YouTube</span>
-									</a>
-								</div>
+							<h3 className="text-3xl font-extrabold mb-4 text-gray-800">
+								Connect with us
+							</h3>
+							<p className="text-gray-600 text-lg mb-10 max-w-xl mx-auto">
+								Follow us on social media for updates, tips, and community stories.
+							</p>
+							<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+								<a href="#" className="flex items-center gap-3 bg-white w-full sm:w-auto px-8 py-4 rounded-xl shadow-[0_4px_15px_rgb(0,0,0,0.02)] border border-slate-100 hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group">
+									<img src={FacebookIcon} alt="Facebook" className="w-6 h-6 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+									<span className="text-gray-700 font-semibold group-hover:text-blue-600 transition-colors">Facebook</span>
+								</a>
+								<a href="#" className="flex items-center gap-3 bg-white w-full sm:w-auto px-8 py-4 rounded-xl shadow-[0_4px_15px_rgb(0,0,0,0.02)] border border-slate-100 hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group">
+									<img src={InstagramIcon} alt="Instagram" className="w-6 h-6 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+									<span className="text-gray-700 font-semibold group-hover:text-pink-600 transition-colors">Instagram</span>
+								</a>
+								<a href="#" className="flex items-center gap-3 bg-white w-full sm:w-auto px-8 py-4 rounded-xl shadow-[0_4px_15px_rgb(0,0,0,0.02)] border border-slate-100 hover:shadow-[0_8px_20px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all group">
+									<img src={YoutubeIcon} alt="YouTube" className="w-6 h-6 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+									<span className="text-gray-700 font-semibold group-hover:text-red-600 transition-colors">YouTube</span>
+								</a>
 							</div>
+						</div>
 					</div>
 				</div>
 			</section>

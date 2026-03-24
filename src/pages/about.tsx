@@ -121,19 +121,23 @@ export default function About() {
 	}, []);
 
 	return (
-		<div>
-			{/* Hero */}
-			<section className="mt-4 pt-20 pb-20 px-4" style={{ backgroundColor: '#61CCB2' }} data-reveal>
-				<div className="max-w-7xl mx-auto text-center">
-					<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">{t('aboutRitmo')}</h1>
-					<p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">{t('transformingDaily')}</p>
+		<div className="bg-slate-50/50">
+			{/* Hero / Section Header */}
+			<section className="pt-24 pb-16 px-4 relative overflow-hidden" data-reveal>
+				<div className="absolute inset-0 bg-gradient-to-br from-[#61CCB2]/20 to-transparent pointer-events-none" />
+				<div className="max-w-7xl mx-auto text-center relative z-10">
+					<span className="inline-block py-1 px-3 rounded-full bg-[#61CCB2]/10 text-[#2B8A7A] font-semibold text-sm mb-4 tracking-wider uppercase">Our Mission</span>
+					<h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2]">{t('aboutRitmo')}</h2>
+					<p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">{t('transformingDaily')}</p>
 				</div>
 			</section>
 
 		{/* Team */}
-		<section className="py-20 bg-white" data-reveal>
-			<div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-				<h2 className="text-5xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>{t('ourTeam')}</h2>
+		<section className="py-24 bg-white relative" data-reveal>
+			<div className="absolute top-1/2 left-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl pointer-events-none -translate-x-1/2" />
+			<div className="absolute top-0 right-0 w-96 h-96 bg-teal-50 rounded-full blur-3xl pointer-events-none translate-x-1/2" />
+			<div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+				<h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2]">{t('ourTeam')}</h2>
 				
 				{/* Grid layout: responsive columns */}
 				<div className="flex flex-wrap gap-6 md:gap-8 lg:gap-10 justify-center">
@@ -160,11 +164,12 @@ export default function About() {
 				</div>
 			</div>
 		</section>			{/* Story */}
-			<section className="py-20 px-4 bg-gray-100" data-reveal>
-				<div className="max-w-7xl mx-auto">
-					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>{t('ourStory')}</h2>
+			<section className="py-24 px-4 bg-slate-50/50 relative overflow-hidden" data-reveal>
+				<div className="absolute top-0 right-0 w-80 h-80 bg-teal-50 rounded-full blur-3xl pointer-events-none translate-x-1/2" />
+				<div className="max-w-7xl mx-auto relative z-10">
+					<h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2]">{t('ourStory')}</h2>
 					<div className="max-w-4xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
+						<div className="bg-white/80 backdrop-blur-xl rounded-[2rem] p-10 md:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.1)]">
 						<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('storyP1')}</p>
 					<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('storyP2')}</p>
 						<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('thatVisionBecameRitmo')}</p>
@@ -176,59 +181,69 @@ export default function About() {
 			</section>
 
 			{/* Who We Serve */}
-			<section className="py-20 px-4 bg-white" data-reveal>
+			<section className="py-24 px-4 bg-white" data-reveal>
 				<div className="max-w-7xl mx-auto">
-					<h2 className="text-4xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>{t('whoWeServe')}</h2>
-					<p className="text-center text-gray-600 text-lg mb-16 max-w-3xl mx-auto">{t('ritmoIsDesignedFor')}</p>
+					<h2 className="text-4xl md:text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2]">{t('whoWeServe')}</h2>
+					<p className="text-center text-gray-600 text-lg md:text-xl mb-20 max-w-3xl mx-auto">{t('ritmoIsDesignedFor')}</p>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-						<div className="flex flex-col items-center text-center">
-							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img src={ChildrenIcon} alt="Children Icon" className="w-12 h-12" />
+						{/* Card 1 */}
+						<div className="group flex flex-col items-center text-center p-8 rounded-[2rem] bg-slate-50/50 hover:bg-white border border-transparent hover:border-slate-100 transition-all duration-500 hover:shadow-[0_20px_40px_rgb(0,0,0,0.06)] hover:-translate-y-2">
+							<div className="w-24 h-24 rounded-3xl mb-8 flex items-center justify-center bg-gradient-to-br from-[#61CCB2] to-[#2B8A7A] shadow-lg shadow-[#61CCB2]/30 group-hover:scale-110 transition-transform duration-500 group-hover:-rotate-3">
+								<img src={ChildrenIcon} alt="Children Icon" className="w-12 h-12 brightness-0 invert" />
 							</div>
-								<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('childrenWithAutism')}</h3>
-								<p className="text-gray-600 text-sm leading-relaxed">{t('childrenBenefit')}</p>
+								<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('childrenWithAutism')}</h3>
+								<p className="text-gray-600 text-base leading-relaxed">{t('childrenBenefit')}</p>
 						</div>
-						<div className="flex flex-col items-center text-center">
-							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img src={ParentIcon} alt="Parents Icon" className="w-12 h-12" />
+						{/* Card 2 */}
+						<div className="group flex flex-col items-center text-center p-8 rounded-[2rem] bg-slate-50/50 hover:bg-white border border-transparent hover:border-slate-100 transition-all duration-500 hover:shadow-[0_20px_40px_rgb(0,0,0,0.06)] hover:-translate-y-2">
+							<div className="w-24 h-24 rounded-3xl mb-8 flex items-center justify-center bg-gradient-to-br from-[#61CCB2] to-[#2B8A7A] shadow-lg shadow-[#61CCB2]/30 group-hover:scale-110 transition-transform duration-500 group-hover:-rotate-3">
+								<img src={ParentIcon} alt="Parents Icon" className="w-12 h-12 brightness-0 invert" />
 							</div>
-								<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('parentsAndCaregivers')}</h3>
-								<p className="text-gray-600 text-sm leading-relaxed">{t('parentsBenefit')}</p>
+								<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('parentsAndCaregivers')}</h3>
+								<p className="text-gray-600 text-base leading-relaxed">{t('parentsBenefit')}</p>
 						</div>
-						<div className="flex flex-col items-center text-center">
-							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img src={EducatorsIcon} alt="Educators Icon" className="w-12 h-12" />
+						{/* Card 3 */}
+						<div className="group flex flex-col items-center text-center p-8 rounded-[2rem] bg-slate-50/50 hover:bg-white border border-transparent hover:border-slate-100 transition-all duration-500 hover:shadow-[0_20px_40px_rgb(0,0,0,0.06)] hover:-translate-y-2">
+							<div className="w-24 h-24 rounded-3xl mb-8 flex items-center justify-center bg-gradient-to-br from-[#61CCB2] to-[#2B8A7A] shadow-lg shadow-[#61CCB2]/30 group-hover:scale-110 transition-transform duration-500 group-hover:-rotate-3">
+								<img src={EducatorsIcon} alt="Educators Icon" className="w-12 h-12 brightness-0 invert" />
 							</div>
-								<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('educatorsAndTherapists')}</h3>
-								<p className="text-gray-600 text-sm leading-relaxed">{t('educatorsBenefit')}</p>
+								<h3 className="text-2xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('educatorsAndTherapists')}</h3>
+								<p className="text-gray-600 text-base leading-relaxed">{t('educatorsBenefit')}</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			{/* Availability Promo */}
-			<section className="py-16 px-4 bg-white" data-reveal>
+			<section className="py-24 px-4 bg-slate-50/50" data-reveal>
 				<div className="max-w-7xl mx-auto">
-					<div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
-						<div className="w-full md:w-1/3">
-							<div className="rounded-2xl shadow-md border border-gray-200 overflow-hidden bg-white max-w-xs mx-auto">
-								<img src={HImg} alt="Hand holding phone with Ritmo app" className="w-full h-auto object-cover" />
+					<div className="bg-gradient-to-r from-emerald-50 to-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-emerald-100 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+						<div className="w-full md:w-5/12 flex justify-center">
+							<div className="relative group">
+								<div className="absolute inset-0 bg-[#61CCB2] rounded-[3rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+								<img src={HImg} alt="Hand holding phone with Ritmo app" className="w-full max-w-[280px] h-auto object-cover relative z-10 drop-shadow-2xl transition-transform duration-700 hover:-translate-y-4" />
 							</div>
 						</div>
-						<div className="w-full md:w-2/3">
-						<h3 className="text-2xl md:text-3xl font-extrabold mb-3" style={{ color: '#2B8A7A' }}>{t('ritmoAppAvailable')}</h3>
-						<p className="font-semibold mb-2" style={{ color: '#2B8A7A' }}>{t('whatDoesRitmoDo')}</p>
-						<ul className="text-gray-600 space-y-2 mb-6 list-disc pl-5">
-							<li>{t('visualRoutines')}</li>
-							<li>{t('positiveFeedback')}</li>
+						<div className="w-full md:w-7/12">
+						<h3 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight" style={{ color: '#2B8A7A' }}>{t('ritmoAppAvailable')}</h3>
+						<p className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('whatDoesRitmoDo')}</p>
+						<ul className="text-gray-600 space-y-4 mb-10 text-lg">
+							<li className="flex items-center gap-3">
+								<div className="w-2.5 h-2.5 rounded-full bg-[#61CCB2]"></div>
+								{t('visualRoutines')}
+							</li>
+							<li className="flex items-center gap-3">
+								<div className="w-2.5 h-2.5 rounded-full bg-[#61CCB2]"></div>
+								{t('positiveFeedback')}
+							</li>
 						</ul>
-						<div className="flex flex-wrap gap-3">
-						<Link to="/download" state={{ scrollToSection: 'phone-mockup' }} className="inline-flex items-center gap-2 rounded-full bg-gray-100 text-gray-800 px-6 py-3 shadow-sm hover:bg-gray-200 transition whitespace-nowrap">
-							<img src={DownloadIcon} alt="Download" className="w-5 h-5" />
+						<div className="flex flex-wrap gap-4">
+						<Link to="/download" state={{ scrollToSection: 'phone-mockup' }} className="inline-flex items-center gap-3 rounded-full bg-white text-gray-800 px-8 py-4 shadow-[0_4px_15px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_25px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all whitespace-nowrap font-bold text-lg border border-gray-100">
+							<img src={DownloadIcon} alt="Download" className="w-6 h-6" />
 							{t('downloadNow')}
 						</Link>
-						<Link to="/features" state={{ scrollToSection: 'how-ritmo-works' }} className="inline-flex items-center gap-2 rounded-full text-white font-semibold px-6 py-3 shadow-md hover:opacity-90 transition-all whitespace-nowrap" style={{ backgroundColor: '#61CCB2' }}>
-								<img src={WatchIcon} alt="Watch" className="w-5 h-5" />
+						<Link to="/features" state={{ scrollToSection: 'how-ritmo-works' }} className="inline-flex items-center gap-3 rounded-full text-white font-bold text-lg px-8 py-4 shadow-[0_4px_15px_rgba(97,204,178,0.3)] hover:shadow-[0_8px_25px_rgba(97,204,178,0.4)] hover:-translate-y-1 transition-all whitespace-nowrap bg-gradient-to-r from-[#2D7778] to-[#61CCB2]">
+								<img src={WatchIcon} alt="Watch" className="w-6 h-6 brightness-0 invert" />
 								{t('watchDemo')}
 							</Link>
 						</div>
