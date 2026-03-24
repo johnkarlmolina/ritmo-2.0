@@ -779,33 +779,26 @@ function SliderHero() {
       <div className="relative h-[80vh] md:h-[92vh] lg:h-screen overflow-hidden">
         {slides.map((s, i) => {
           const isActive = i === index
-          const isNext = i === (index + 1) % slides.length
-          const isPrev = i === (index - 1 + slides.length) % slides.length
           
           return (
             <img
               key={s.alt}
               src={s.src}
               alt={s.alt}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-0'}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
               style={{
-                transform: `translateY(${scrollY * 0.5}px)`,
-                imageRendering: 'crisp-edges',
-                filter: 'contrast(1.08) saturate(1.08) brightness(1.05)',
-                backfaceVisibility: 'hidden',
-                perspective: '1000px',
-                willChange: isActive || isNext || isPrev ? 'transform, opacity' : 'auto',
+                transform: `translateY(${scrollY * 0.3}px)`,
+                filter: 'brightness(1.05)',
               }}
-              loading="eager"
+              loading={i === 0 ? "eager" : "lazy"}
               decoding="async"
-              fetchPriority={i === 0 ? 'high' : 'low'}
             />
           )
         })}
-        {/* Light overlay */}
-        <div className="absolute inset-0 bg-white/60 pointer-events-none" />
+        {/* Full-screen light overlay + subtle blur so text is readable */}
+        <div className="absolute inset-0 bg-white/20 backdrop-blur-sm z-20 pointer-events-none" />
         {/* Text overlay (absolute in front of image) */}
-        <div className="absolute inset-0 z-10">
+        <div className="absolute inset-0 z-30">
           <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center">
             <div className="max-w-xl md:max-w-2xl w-full">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight drop-shadow-md break-words md:whitespace-nowrap">
@@ -848,20 +841,20 @@ function SliderHero() {
         <button
           aria-label="Previous slide"
           onClick={prev}
-          className="hidden md:block absolute left-3 md:left-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+          className="hidden md:block absolute left-3 md:left-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-40 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
         >
           ‹
         </button>
         <button
           aria-label="Next slide"
           onClick={next}
-          className="hidden md:block absolute right-3 md:right-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+          className="hidden md:block absolute right-3 md:right-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-40 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
         >
           ›
         </button>
 
         {/* Dots */}
-        <div className="absolute bottom-4 left-0 right-0 z-20 flex items-center justify-center gap-2">
+        <div className="absolute bottom-4 left-0 right-0 z-40 flex items-center justify-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
