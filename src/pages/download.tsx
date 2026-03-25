@@ -124,7 +124,8 @@ export default function Download() {
 							{/* Action Buttons */}
 							<div>
 								<a
-								href="/download.php"
+									href="/downloads/Ritmo.apk"
+									download
 									className="inline-flex items-center gap-2 bg-teal-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-600 transition-colors shadow-lg"
 								>
 									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
