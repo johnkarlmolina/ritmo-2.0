@@ -15,9 +15,9 @@ import feature1 from './assets/Home.png'
 import feature2 from './assets/Parental Lock.png'
 import feature3 from './assets/Feature-3.png'
 import feature4 from './assets/Progress.png'
-import frontViewChild from './assets/front-view-kid-making-puzzle-table.jpg'
-import istockPhoto from './assets/istockphoto-2030023202-612x612.jpg'
-import sideViewChild from './assets/side-view-child-learning-how-count-home-using-pencils.jpg'
+import frontViewChild from './assets/sai-1.jpg'
+import istockPhoto from './assets/sai-2.jpg'
+import sideViewChild from './assets/sai-3.jpg'
 //import ritmoOldLogo from './assets/ritmo-old-log.png'
 import ausLogo from './assets/AUS.png'
 // Removed sections no longer use these assets
@@ -776,92 +776,134 @@ function SliderHero() {
       }}
     >
       {/* Image layer */}
-      <div className="relative h-[80vh] md:h-[92vh] lg:h-screen overflow-hidden">
+      <div className="relative h-[80vh] md:h-[92vh] lg:h-screen overflow-hidden group">
         {slides.map((s, i) => {
           const isActive = i === index
           
           return (
-            <img
+            <div
               key={s.alt}
-              src={s.src}
-              alt={s.alt}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-              style={{
-                transform: `translateY(${scrollY * 0.3}px)`,
-                filter: 'brightness(1.05)',
-              }}
-              loading={i === 0 ? "eager" : "lazy"}
-              decoding="async"
-            />
+              className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive ? 'opacity-100 z-10 scale-100' : 'opacity-0 z-0 scale-105'}`}
+            >
+              <img
+                src={s.src}
+                alt={s.alt}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-linear origin-center"
+                style={{
+                  transform: `translateY(${scrollY * 0.3}px) scale(${isActive ? '1.05' : '1'})`,
+                  filter: 'brightness(1.05)',
+                }}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+              {/* Refined gradient overlay for better text contrast without being overly bright */}
+              <div className={`absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent transition-opacity duration-1000 ${isActive ? 'opacity-100' : 'opacity-0'}`} />
+              <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+              {/* Optional modern vignette effect */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent blend-multiply pointer-events-none" />
+            </div>
           )
         })}
         {/* Full-screen light overlay + subtle blur so text is readable */}
-        <div className="absolute inset-0 bg-white/20 backdrop-blur-sm z-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] z-20 pointer-events-none" />
+        
         {/* Text overlay (absolute in front of image) */}
         <div className="absolute inset-0 z-30">
           <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center">
             <div className="max-w-xl md:max-w-2xl w-full">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight drop-shadow-md break-words md:whitespace-nowrap">
+              <div className="overflow-hidden mb-2">
+                <span className={`inline-block py-1.5 px-3 rounded-md bg-[#61CCB2]/10 text-[#2B8A7A] font-bold text-xs uppercase tracking-widest border border-[#61CCB2]/20 backdrop-blur-md mb-4 transition-all duration-700 delay-100 ${paused ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-0'}`}>
+                  Welcome to Ritmo
+                </span>
+              </div>
+              <h2 key={`title-${index}`} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#1c5c51] leading-tight drop-shadow-sm break-words md:whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-[#1c5c51] to-[#2B8A7A] animate-[slideUp_0.8s_ease-out_forwards]">
                 {contents[index].title}
               </h2>
               {index === 0 ? (
-                <p className="mt-3 md:mt-4 text-slate-900 text-base sm:text-lg md:text-xl leading-relaxed drop-shadow text-justify">
+                <p key={`desc-${index}`} className="mt-4 md:mt-6 text-gray-700 font-medium text-base sm:text-lg md:text-xl leading-relaxed drop-shadow-sm text-justify animate-[slideUp_0.8s_ease-out_0.1s_forwards] opacity-0" style={{ animationFillMode: 'forwards' }}>
                   {contents[index].desc}
                 </p>
               ) : (
-                <div className="mt-2 sm:mt-3 md:mt-4 space-y-1 sm:space-y-1.5 md:space-y-2">
+                <div key={`list-${index}`} className="mt-4 md:mt-6 space-y-2 sm:space-y-3 md:space-y-3 animate-[slideUp_0.8s_ease-out_0.1s_forwards] opacity-0" style={{ animationFillMode: 'forwards' }}>
                   {contents[index].desc.split(' • ').map((item: string, idx: number) => (
-                    <div key={idx} className="flex items-start gap-1.5 sm:gap-2 md:gap-2">
-                      <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 text-green-600 flex-shrink-0 mt-0.5 drop-shadow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                      </svg>
-                      <span className="text-slate-900 text-base sm:text-lg md:text-xl leading-relaxed drop-shadow break-words md:whitespace-nowrap flex-1">{item}</span>
+                    <div key={idx} className="flex items-start gap-2 sm:gap-3 bg-white/40 backdrop-blur-sm p-3 rounded-2xl border border-white/50 shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:bg-white/60 hover:shadow-[0_8px_25px_rgba(97,204,178,0.15)] transition-all duration-300">
+                      <div className="bg-gradient-to-br from-[#61CCB2] to-[#4eb39b] p-1.5 rounded-full shadow-inner mt-0.5">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                      </div>
+                      <span className="text-[#1c5c51] font-semibold text-base sm:text-lg md:text-xl leading-relaxed drop-shadow-sm flex-1">{item}</span>
                     </div>
                   ))}
                 </div>
               )}
-              <div className="mt-4 md:mt-6 flex flex-wrap gap-2 sm:gap-3">
-                <Link to="/download" state={{ scrollToSection: 'phone-mockup' }} className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-4 py-2 sm:px-6 sm:py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors text-white font-bold text-sm sm:text-base">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              
+              <style>{`
+                @keyframes slideUp {
+                  from { opacity: 0; transform: translateY(30px); }
+                  to { opacity: 1; transform: translateY(0); }
+                }
+              `}</style>
+              
+              <div className="mt-8 md:mt-10 flex flex-wrap gap-3 sm:gap-4 animate-[slideUp_0.8s_ease-out_0.2s_forwards] opacity-0" style={{ animationFillMode: 'forwards' }}>
+                <Link to="/download" state={{ scrollToSection: 'phone-mockup' }} className="group relative inline-flex items-center gap-2 rounded-full overflow-hidden bg-[#2B8A7A] px-6 py-3 sm:px-8 sm:py-4 shadow-[0_8px_20px_rgba(43,138,122,0.3)] hover:shadow-[0_15px_30px_rgba(43,138,122,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-white font-extrabold text-sm sm:text-base border border-[#4eb39b]/50">
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                  <style>{`
+                    @keyframes shimmer {
+                      100% { transform: translateX(100%); }
+                    }
+                  `}</style>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="sm:w-[20px] sm:h-[20px] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                     <path d="M7 10l5 5 5-5"/>
                     <path d="M12 15V3"/>
                   </svg>
                   {t('downloadNow')}
                 </Link>
-                <Link to="/features" className="inline-flex items-center gap-2 rounded-full bg-[#61CCB2] border-2 border-white px-4 py-2 sm:px-6 sm:py-3 md:px-7 md:py-3.5 shadow-lg hover:bg-[#4FBDA4] transition-colors text-white font-semibold text-sm sm:text-base">
+                <Link to="/features" className="group inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md border border-[#2B8A7A]/20 px-6 py-3 sm:px-8 sm:py-4 shadow-md hover:shadow-xl hover:bg-white transition-all duration-300 transform hover:-translate-y-1 text-[#2B8A7A] hover:text-[#1c5c51] font-bold text-sm sm:text-base">
                   {t('viewAllFeatures')}
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </Link>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Arrows */}
+        {/* Enhanced Arrows */}
         <button
           aria-label="Previous slide"
           onClick={prev}
-          className="hidden md:block absolute left-3 md:left-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-40 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+          className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-40 w-14 h-14 bg-white/30 hover:bg-white/90 backdrop-blur-md text-[#1c5c51] rounded-full items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.1)] border border-white/40 transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 -translate-x-4 group-hover:translate-x-0"
         >
-          ‹
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
         </button>
         <button
           aria-label="Next slide"
           onClick={next}
-          className="hidden md:block absolute right-3 md:right-4 bottom-16 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-40 bg-[#61CCB2] hover:bg-[#4FBDA4] text-white rounded-full p-3 shadow-lg"
+          className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-40 w-14 h-14 bg-white/30 hover:bg-white/90 backdrop-blur-md text-[#1c5c51] rounded-full items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.1)] border border-white/40 transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 translate-x-4 group-hover:translate-x-0"
         >
-          ›
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
         </button>
 
-        {/* Dots */}
-        <div className="absolute bottom-4 left-0 right-0 z-40 flex items-center justify-center gap-2">
+        {/* Modern Progress Dots */}
+        <div className="absolute bottom-8 left-0 right-0 z-40 flex items-center justify-center gap-3">
           {slides.map((_, i) => (
             <button
               key={i}
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => goTo(i)}
-              className={`h-2.5 w-2.5 rounded-full ${i === index ? 'bg-white' : 'bg-white/50'} hover:bg-white`}
-            />
+              className={`relative overflow-hidden h-2.5 rounded-full transition-all duration-500 flex items-center ${i === index ? 'w-10 bg-[#e8fbf6]' : 'w-2.5 bg-white/50 hover:bg-white/80'}`}
+            >
+              {i === index && (
+                <div className="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-[#2B8A7A] to-[#61CCB2] animate-[progress_4s_linear_forwards]" style={{ animationPlayState: paused ? 'paused' : 'running' }}></div>
+              )}
+              <style>{`
+                @keyframes progress {
+                  0% { width: 0%; }
+                  100% { width: 100%; }
+                }
+              `}</style>
+            </button>
           ))}
         </div>
       </div>
