@@ -12,7 +12,7 @@ import feature3 from './assets/Feature-3.png'
 import feature4 from './assets/Progress.png'
 import frontViewChild from './assets/sai-1.jpg'
 import istockPhoto from './assets/sai-2.jpg'
-import sideViewChild from './assets/sai-3.jpg'
+import sideViewChild from './assets/sai-4.jpg'
 //import ritmoOldLogo from './assets/ritmo-old-log.png'
 import ausLogo from './assets/AUS.png'
 // Removed sections no longer use these assets
