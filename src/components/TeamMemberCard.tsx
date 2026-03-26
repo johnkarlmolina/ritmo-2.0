@@ -10,20 +10,22 @@ interface TeamMemberCardProps {
 
 export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', details }: TeamMemberCardProps) {
   const [flipped, setFlipped] = useState(false)
+  const memberDetails = details || 'Passionate about improving structured routine experiences. Click again to flip back.'
 
   return (
     <button
       type="button"
-      className={`flip-card shrink-0 w-60 h-96 transition-transform duration-300 hover:scale-105 ${flipped ? 'flipped' : ''}`}
+      className={`flip-card feature-img-shadow shrink-0 w-60 h-96 transition-transform duration-300 hover:scale-105 ${flipped ? 'flipped' : ''}`}
       onClick={(e) => { e.stopPropagation(); setFlipped((f) => !f) }}
       aria-label={`${name} card; tap to flip`}
+      aria-pressed={flipped}
     >
       <div
-        className="flip-inner rounded-[200px] overflow-hidden feature-img-shadow transition-shadow duration-300"
+        className="flip-inner rounded-[200px] overflow-hidden transition-shadow duration-300"
         style={{ backgroundColor: bg }}
       >
         {/* Front */}
-        <div className="flip-front flex flex-col items-center pt-16">
+        <div className="flip-face flip-front flex flex-col items-center pt-16">
           <div className="flip-hint">FLIP</div>
           <div className="text-center mb-2 px-4 z-10">
             <h3 className="text-sm font-bold text-white leading-tight">{name}</h3>
@@ -33,12 +35,12 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
             <img src={img} alt={name} className="w-full h-full object-cover" />
           </div>
         </div>
-        {/* Back: text only */}
-        <div className="flip-back rounded-[200px] text-center" style={{ backgroundColor: bg }}>
-          <div className="px-5 py-6">
-            <p className="text-sm md:text-base text-white/95 leading-relaxed">
-              {details || 'Passionate about improving structured routine experiences. Click again to flip back.'}
-            </p>
+        {/* Back: member details */}
+        <div className="flip-face flip-back rounded-[200px] text-center" style={{ backgroundColor: bg }}>
+          <div className="flip-back-content px-6 py-8 relative z-10 w-full">
+            <div className="block text-sm md:text-base text-white leading-relaxed" style={{ opacity: 1, transform: 'none', visibility: 'visible' }}>
+              {memberDetails}
+            </div>
           </div>
         </div>
       </div>
