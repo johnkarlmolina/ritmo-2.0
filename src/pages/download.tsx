@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { translations } from '../utils/translations'
 import handPhone from '../assets/hand-phone.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHandPointDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Download() {
 	const { language } = useLanguage()
@@ -122,7 +124,11 @@ export default function Download() {
 							</ul>
 
 							{/* Action Buttons */}
-							<div>
+							<div className="relative inline-block mt-12">
+								<FontAwesomeIcon
+									icon={faHandPointDown}
+									className="absolute -top-10 -right-10 text-5xl text-teal-600 animate-bounce transform -rotate-320"
+								/>
 								<a
 									href="/downloads/Ritmo.apk"
 									download
