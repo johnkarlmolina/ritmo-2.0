@@ -164,7 +164,7 @@ export default function About() {
 				<div className="max-w-7xl mx-auto">
 					<h2 className="text-5xl font-bold text-center mb-12" style={{ color: '#2B8A7A' }}>{t('ourStory')}</h2>
 					<div className="max-w-4xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
+						<div className="bg-white rounded-3xl p-12 feature-img-shadow transition transform hover:-translate-y-1">
 						<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('storyP1')}</p>
 					<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('storyP2')}</p>
 						<p className="text-gray-700 text-base leading-relaxed mb-6 text-justify">{t('thatVisionBecameRitmo')}</p>
@@ -211,7 +211,7 @@ export default function About() {
 				<div className="max-w-7xl mx-auto">
 					<div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
 						<div className="w-full md:w-1/3">
-							<div className="rounded-2xl shadow-md border border-gray-200 overflow-hidden bg-white max-w-xs mx-auto">
+							<div className="rounded-2xl feature-img-shadow border border-gray-200 overflow-hidden bg-white max-w-xs mx-auto">
 								<img src={HImg} alt="Hand holding phone with Ritmo app" className="w-full h-auto object-cover" />
 							</div>
 						</div>

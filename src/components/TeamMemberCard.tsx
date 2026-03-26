@@ -19,7 +19,7 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
       aria-label={`${name} card; tap to flip`}
     >
       <div
-        className="flip-inner rounded-[200px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        className="flip-inner rounded-[200px] overflow-hidden feature-img-shadow transition-shadow duration-300"
         style={{ backgroundColor: bg }}
       >
         {/* Front */}

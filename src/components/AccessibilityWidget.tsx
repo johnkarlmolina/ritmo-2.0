@@ -36,7 +36,7 @@ export default function AccessibilityWidget() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="inline-flex items-center justify-center rounded-full bg-white border-2 border-[#2D7778] w-14 h-14 shadow-md hover:border-[#61CCB2]"
+            className="inline-flex items-center justify-center rounded-full bg-white border-2 border-[#2D7778] w-14 h-14 feature-img-shadow hover:border-[#61CCB2]"
             aria-expanded={open}
             aria-controls="accessibility-modal"
             title="Accessibility Menu"
@@ -53,7 +53,7 @@ export default function AccessibilityWidget() {
             id="accessibility-modal"
             className="fixed left-3 md:left-4 bottom-20 md:bottom-6 z-[2000]"
           >
-            <div className="rounded-3xl bg-white shadow-xl border-2 border-[#61CCB2] w-[320px] md:w-[420px]">
+            <div className="rounded-3xl bg-white feature-img-shadow border-2 border-[#61CCB2] w-[320px] md:w-[420px]">
               {/* Modal header */}
               <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 border-b border-[#61CCB2]/30">
                 <div className="text-[#2D7778] font-bold">Accessibility Menu</div>

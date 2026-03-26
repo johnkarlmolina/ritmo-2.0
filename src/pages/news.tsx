@@ -88,7 +88,7 @@ export default function News() {
 					</h2>
 				<div className="grid grid-cols-1 gap-8 max-w-md mx-auto md:max-w-none md:grid-cols-3">
 					{/* Story Card 2 */}
-					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 shadow-sm transition transform hover:-translate-y-1 hover:shadow-2xl">
+					<div className="bg-white rounded-3xl overflow-hidden border-[3px] border-gray-300 feature-img-shadow transition transform hover:-translate-y-1">
 							<div className="h-48 bg-[#61CCB2]"></div>
 							<div className="p-6">
 								<div className="flex items-center gap-3 mb-2">
@@ -123,7 +123,7 @@ export default function News() {
 					</h2>
 					<div className="space-y-5">
 						{/* Update Item 1 */}
-						<div className="bg-white rounded-3xl px-4 md:px-8 py-6 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-xl">
+						<div className="bg-white rounded-3xl px-4 md:px-8 py-6 feature-img-shadow transition transform hover:-translate-y-0.5">
 							<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-3">

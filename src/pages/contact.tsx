@@ -161,7 +161,7 @@ export default function Contact() {
 								const messageSection = document.getElementById('message-section')
 								messageSection?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 							}}
-							className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 hover:shadow-xl cursor-pointer w-full"
+							className="bg-[#C8E6DD] rounded-3xl p-10 border-2 border-[#5BBFA5] flex flex-col items-center text-center transition transform hover:-translate-y-1 feature-img-shadow cursor-pointer w-full"
 						>
 							<div className="w-20 h-20 rounded-2xl mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B7A73' }}>
 								<img 
@@ -339,7 +339,7 @@ export default function Contact() {
 									Connect with us
 								</h3>
 							</div>
-							<div className="rounded-3xl border-2 border-[#E2E8F0] bg-white shadow-md p-8">
+							<div className="rounded-3xl border-2 border-[#E2E8F0] bg-white feature-img-shadow p-8">
 								<p className="text-gray-600 text-sm mb-6">
 									Follow us on social media for updates, tips, and community stories.
 								</p>

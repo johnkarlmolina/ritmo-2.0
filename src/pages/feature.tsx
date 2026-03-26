@@ -6,7 +6,7 @@ import ProgressImg from '../assets/Progress.png';
 import SetupRoutineImg from '../assets/Setup Routine.png';
 import ParentalLockImg from '../assets/Parental Lock.png';
 import DownloadIcon from '../assets/Download.png';
-import RitmoAdVideo from '../assets/Ritmo Ad 3-24-26 4k Reso.mp4';
+import RitmoAdVideo from '../assets/latest-vid.mp4';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
@@ -429,7 +429,7 @@ export default function Features() {
 				<div className="flex justify-center">
 					<Link
 						to="/download"
-						className="flex items-center justify-center gap-2 w-48 py-4 bg-white hover:bg-gray-50 text-[#2B8A7A] font-semibold rounded-full shadow-lg border-2 border-white transition-all focus:outline-none focus:ring-4 focus:ring-white/60"
+						className="flex items-center justify-center gap-2 w-48 py-4 bg-white hover:bg-gray-50 text-[#2B8A7A] font-semibold rounded-full feature-img-shadow border-2 border-white transition-all focus:outline-none focus:ring-4 focus:ring-white/60"
 					>
 						<img src={DownloadIcon} alt="Download" className="w-5 h-5" />
 						Download Now

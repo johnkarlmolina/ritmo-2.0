@@ -178,7 +178,7 @@ export default function Index() {
 
             {/* Right column: definition card */}
             <div className="w-full">
-              <div className="rounded-2xl bg-gradient-to-b from-[#61CCB2] to-[#2D7778] text-white shadow-xl p-6 md:p-8">
+              <div className="rounded-2xl bg-gradient-to-b from-[#61CCB2] to-[#2D7778] text-white feature-img-shadow p-6 md:p-8">
                 <div className="flex items-center gap-2">
                   <span className="inline-block rounded-full bg-white/90 text-[#2D7778] font-bold px-3 py-1">{t('autism')}</span>
                   <span className="text-white/90">{t('autismPronunciation')}</span>
@@ -258,7 +258,7 @@ export default function Index() {
             ].map((f, idx) => (
                 <div
                   key={f.title}
-                  className="rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg p-5 sm:p-6 md:p-6 lg:p-8 w-full min-h-[300px] sm:min-h-[320px] md:min-h-[280px] flex flex-col items-center transition transform hover:-translate-y-1 hover:shadow-2xl hover:ring-1 hover:ring-[#2D7778]/30"
+                  className="rounded-2xl bg-white/95 backdrop-blur-sm feature-img-shadow p-5 sm:p-6 md:p-6 lg:p-8 w-full min-h-[300px] sm:min-h-[320px] md:min-h-[280px] flex flex-col items-center transition transform hover:-translate-y-1 hover:ring-1 hover:ring-[#2D7778]/30"
                 >
                   <img
                     src={f.img}
@@ -388,7 +388,7 @@ export default function Index() {
             <p className="text-lg text-gray-800">Visit this website for complete learning</p>
           </div>
           
-          <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg px-8 md:px-12 lg:px-20 py-12 md:py-16 transition transform hover:-translate-y-2 hover:shadow-2xl">
+          <div className="bg-white border-2 border-gray-300 rounded-3xl feature-img-shadow px-8 md:px-12 lg:px-20 py-12 md:py-16 transition transform hover:-translate-y-2">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-12" style={{ gap: '7.5rem' }}>
               <div className="flex-shrink-0">
                 <img 
@@ -435,11 +435,11 @@ export default function Index() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Article 1 */}
-            <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
+            <div className="bg-white border-2 border-gray-300 rounded-3xl feature-img-shadow overflow-hidden transition transform hover:-translate-y-2">
               <div className="bg-gray-100 h-48 flex items-center justify-center">
-                <img 
-                  src={ausLogo} 
-                  alt="Autism Society Philippines" 
+                <img
+                  src={ausLogo}
+                  alt="Autism Society Philippines"
                   className="w-auto h-32 object-contain"
                   loading="lazy"
                   decoding="async"
@@ -473,11 +473,11 @@ export default function Index() {
             </div>
 
             {/* Article 2 */}
-            <div className="bg-white border-2 border-gray-300 rounded-3xl shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
+            <div className="bg-white border-2 border-gray-300 rounded-3xl feature-img-shadow overflow-hidden transition transform hover:-translate-y-2">
               <div className="bg-gray-100 h-48 flex items-center justify-center">
-                <img 
-                  src={ausLogo} 
-                  alt="Autism Society Philippines" 
+                <img
+                  src={ausLogo}
+                  alt="Autism Society Philippines"
                   className="w-auto h-32 object-contain"
                   loading="lazy"
                   decoding="async"

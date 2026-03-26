@@ -93,10 +93,10 @@ export default function Download() {
 					<div className="grid md:grid-cols-2 gap-12 items-center">
 						{/* Left side - Phone Image */}
 						<div className="flex justify-center">
-							<img 
-								src={handPhone} 
-								alt="Ritmo App on Phone" 
-								className="max-w-md w-full h-auto rounded-3xl shadow-2xl"
+							<img
+								src={handPhone}
+								alt="Ritmo App on Phone"
+								className="max-w-md w-full h-auto rounded-3xl feature-img-shadow"
 							/>
 						</div>
 
