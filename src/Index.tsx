@@ -382,32 +382,31 @@ export default function Index() {
 
       {/* We Recommend */}
       <section className="py-12 md:py-16 bg-white" data-reveal>
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-extrabold mb-2" style={{ color: '#2D7778' }}>We Recommend</h3>
             <p className="text-lg text-gray-800">Visit this website for complete learning</p>
           </div>
           
-          <div className="bg-white border-2 border-gray-300 rounded-3xl feature-img-shadow px-8 md:px-12 lg:px-20 py-12 md:py-16 transition transform hover:-translate-y-2">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-12" style={{ gap: '7.5rem' }}>
+          <div className="bg-white border-2 border-gray-300 rounded-3xl feature-img-shadow px-6 sm:px-8 md:px-12 lg:px-20 py-10 md:py-16 transition transform hover:-translate-y-2">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-20">
               <div className="flex-shrink-0">
                 <img 
                   src={ausLogo} 
                   alt="Autism Society Philippines" 
-                  className="w-auto" 
-                  style={{ height: '10rem' }}
+                  className="w-auto h-28 sm:h-32 md:h-40"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-              <div className="flex flex-col gap-6 lg:max-w-md">
+              <div className="flex flex-col gap-6 lg:max-w-md text-center lg:text-left">
                 <div>
                   <p className="font-semibold text-2xl mb-2" style={{ color: '#2D7778' }}>Website</p>
-                  <a href="http://www.autismsocietyphilippines.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-base break-words">http://www.autismsocietyphilippines.org/</a>
+                  <a href="http://www.autismsocietyphilippines.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-base break-all">http://www.autismsocietyphilippines.org/</a>
                 </div>
                 <div>
                   <p className="font-semibold text-lg mb-4" style={{ color: '#2D7778' }}>You can also visit them on:</p>
-                  <div className="flex gap-4 items-center">
+                  <div className="flex gap-4 items-center justify-center lg:justify-start">
                     <a href="https://www.instagram.com/autismsocietyphilippines/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform">
                       <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
