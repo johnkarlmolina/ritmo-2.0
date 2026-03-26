@@ -31,10 +31,13 @@ export default function About() {
 
 	useEffect(() => {
 		const sections = Array.from(document.querySelectorAll<HTMLElement>('section'));
+		const isTeamSection = (section: HTMLElement) =>
+			section.querySelector('.flip-card') !== null;
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					const el = entry.target as HTMLElement;
+					if (isTeamSection(el)) return;
 					const headings = Array.from(el.querySelectorAll<HTMLElement>('h1,h2,h3'));
 					const texts = Array.from(el.querySelectorAll<HTMLElement>('p,li'));
 					const buttons = Array.from(el.querySelectorAll<HTMLElement>('a,button'));
@@ -77,6 +80,14 @@ export default function About() {
 		);
 
 		sections.forEach((section) => {
+			if (isTeamSection(section)) {
+				const teamCards = Array.from(section.querySelectorAll<HTMLElement>('.flip-card'));
+				teamCards.forEach((node) => {
+					node.style.opacity = '1';
+					node.style.transform = 'none';
+				});
+				return;
+			}
 			const headings = Array.from(section.querySelectorAll<HTMLElement>('h1,h2,h3'));
 			const texts = Array.from(section.querySelectorAll<HTMLElement>('p,li'));
 			const buttons = Array.from(section.querySelectorAll<HTMLElement>('a,button'));

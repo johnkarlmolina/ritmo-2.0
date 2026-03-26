@@ -32,7 +32,16 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
             <p className="text-sm leading-tight" style={{ color: '#C8E6DD' }}>{role}</p>
           </div>
           <div className="w-60 h-60 rounded-full overflow-hidden shrink-0 mt-auto">
-            <img src={img} alt={name} className="w-full h-full object-cover" />
+            <img
+              src={img}
+              alt={name}
+              className="w-full h-full object-cover"
+              width={240}
+              height={240}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
           </div>
         </div>
         {/* Back: member details */}
