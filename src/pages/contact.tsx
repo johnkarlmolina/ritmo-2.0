@@ -312,7 +312,7 @@ export default function Contact() {
 									<button
 										type="submit"
 										disabled={loading}
-										className="glowing-btn inline-flex items-center gap-2 text-white px-8 py-4 rounded-full font-semibold transition-colors"
+										className="bg-teal-400 hover:bg-teal-500 transition-colors inline-flex items-center gap-2 text-white px-8 py-3 rounded-lg font-semibold"
 									>
 										<img src={SendMessageIcon} alt="Send" className="w-5 h-5" />
 										<span>{loading ? 'Sending...' : 'Send Message'}</span>
