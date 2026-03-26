@@ -1,1 +1,57 @@
 /* Empty on purpose: removed Vite demo styles that centered the app */
+
+.glowing-btn {
+  position: relative;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background-color: #0f766e; /* teal-700 */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glowing-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 300%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    #0d9488, /* teal-600 */
+    #14b8a6, /* teal-500 */
+    #2dd4bf, /* teal-400 */
+    #14b8a6, /* teal-500 */
+    #0d9488 /* teal-600 */
+  );
+  animation: rotate 4s linear infinite;
+}
+
+.glowing-btn:hover::before {
+  animation-play-state: paused;
+}
+
+.glowing-btn::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 9999px;
+  background-color: #0f766e; /* teal-700 */
+  z-index: 1;
+}
+
+.glowing-btn > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
