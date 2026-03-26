@@ -238,7 +238,7 @@ export default function Contact() {
 					</div>
 
 					<div className="max-w-3xl mx-auto">
-						<div className="bg-white rounded-3xl p-12 shadow-md">
+						<div className="modern-form-container">
 							<form className="space-y-6" onSubmit={handleSubmit}>
 								{/* Status Message */}
 								{messageStatus && (
@@ -259,7 +259,7 @@ export default function Contact() {
 											value={formData.name}
 											onChange={handleInputChange}
 											placeholder="Enter your name"
-											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+											className="modern-input"
 										/>
 									</div>
 									<div>
@@ -272,7 +272,7 @@ export default function Contact() {
 											value={formData.email}
 											onChange={handleInputChange}
 											placeholder="Enter your email address"
-											className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+											className="modern-input"
 										/>
 									</div>
 								</div>
@@ -288,7 +288,7 @@ export default function Contact() {
 										value={formData.subject}
 										onChange={handleInputChange}
 										placeholder="How can we help you?"
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700"
+										className="modern-input"
 									/>
 								</div>
 
@@ -303,7 +303,7 @@ export default function Contact() {
 										value={formData.message}
 										onChange={handleInputChange}
 										placeholder="Tell us more about your question or concern..."
-										className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#61CCB2] text-gray-700 resize-none"
+										className="modern-textarea"
 									></textarea>
 								</div>
 
@@ -312,11 +312,10 @@ export default function Contact() {
 									<button
 										type="submit"
 										disabled={loading}
-										className="inline-flex items-center gap-2 px-8 py-3 rounded-lg text-white font-semibold text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-										style={{ backgroundColor: '#61CCB2' }}
+										className="glowing-btn inline-flex items-center gap-2 text-white px-8 py-4 rounded-full font-semibold transition-colors"
 									>
 										<img src={SendMessageIcon} alt="Send" className="w-5 h-5" />
-										{loading ? 'Sending...' : 'Send Message'}
+										<span>{loading ? 'Sending...' : 'Send Message'}</span>
 									</button>
 								</div>
 							</form>
