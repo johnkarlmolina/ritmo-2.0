@@ -187,31 +187,34 @@ export default function About() {
 			</section>
 
 			{/* Who We Serve */}
-			<section className="py-20 px-4 bg-white" data-reveal>
-				<div className="max-w-7xl mx-auto">
-					<h2 className="text-4xl font-bold text-center mb-4" style={{ color: '#2B8A7A' }}>{t('whoWeServe')}</h2>
-					<p className="text-center text-gray-600 text-lg mb-16 max-w-3xl mx-auto">{t('ritmoIsDesignedFor')}</p>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-						<div className="flex flex-col items-center text-center">
-							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img src={ChildrenIcon} alt="Children Icon" className="w-12 h-12" />
+			<section className="py-20 px-4 bg-gray-50" data-reveal>
+				<div className="max-w-7xl mx-auto text-center">
+					<h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('whoWeServe')}</h2>
+					<p className="text-lg text-gray-600 mb-16 max-w-3xl mx-auto">{t('ritmoIsDesignedFor')}</p>
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+						{/* Card 1: Children */}
+						<div className="bg-white rounded-2xl p-8 shadow-[0_4px_24px_rgba(43,138,122,0.1)] hover:shadow-[0_10px_40px_rgba(43,138,122,0.2)] transition-all duration-300 ease-in-out transform hover:-translate-y-2">
+							<div className="w-24 h-24 rounded-full mb-6 mx-auto flex items-center justify-center" style={{ backgroundColor: '#61CCB2' }}>
+								<img src={ChildrenIcon} alt="Children Icon" className="w-14 h-14" />
 							</div>
-								<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('childrenWithAutism')}</h3>
-								<p className="text-gray-600 text-sm leading-relaxed">{t('childrenBenefit')}</p>
+							<h3 className="text-2xl font-bold mb-3" style={{ color: '#2B8A7A' }}>{t('childrenWithAutism')}</h3>
+							<p className="text-gray-600 leading-relaxed">{t('childrenBenefit')}</p>
 						</div>
-						<div className="flex flex-col items-center text-center">
-							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img src={ParentIcon} alt="Parents Icon" className="w-12 h-12" />
+						{/* Card 2: Parents */}
+						<div className="bg-white rounded-2xl p-8 shadow-[0_4px_24px_rgba(43,138,122,0.1)] hover:shadow-[0_10px_40px_rgba(43,138,122,0.2)] transition-all duration-300 ease-in-out transform hover:-translate-y-2">
+							<div className="w-24 h-24 rounded-full mb-6 mx-auto flex items-center justify-center" style={{ backgroundColor: '#61CCB2' }}>
+								<img src={ParentIcon} alt="Parents Icon" className="w-14 h-14" />
 							</div>
-								<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('parentsAndCaregivers')}</h3>
-								<p className="text-gray-600 text-sm leading-relaxed">{t('parentsBenefit')}</p>
+							<h3 className="text-2xl font-bold mb-3" style={{ color: '#2B8A7A' }}>{t('parentsAndCaregivers')}</h3>
+							<p className="text-gray-600 leading-relaxed">{t('parentsBenefit')}</p>
 						</div>
-						<div className="flex flex-col items-center text-center">
-							<div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center" style={{ backgroundColor: '#2B8A7A' }}>
-								<img src={EducatorsIcon} alt="Educators Icon" className="w-12 h-12" />
+						{/* Card 3: Educators */}
+						<div className="bg-white rounded-2xl p-8 shadow-[0_4px_24px_rgba(43,138,122,0.1)] hover:shadow-[0_10px_40px_rgba(43,138,122,0.2)] transition-all duration-300 ease-in-out transform hover:-translate-y-2">
+							<div className="w-24 h-24 rounded-full mb-6 mx-auto flex items-center justify-center" style={{ backgroundColor: '#61CCB2' }}>
+								<img src={EducatorsIcon} alt="Educators Icon" className="w-14 h-14" />
 							</div>
-								<h3 className="text-xl font-bold mb-4" style={{ color: '#2B8A7A' }}>{t('educatorsAndTherapists')}</h3>
-								<p className="text-gray-600 text-sm leading-relaxed">{t('educatorsBenefit')}</p>
+							<h3 className="text-2xl font-bold mb-3" style={{ color: '#2B8A7A' }}>{t('educatorsAndTherapists')}</h3>
+							<p className="text-gray-600 leading-relaxed">{t('educatorsBenefit')}</p>
 						</div>
 					</div>
 				</div>
