@@ -197,7 +197,7 @@ export default function Features() {
 					<img 
 						src={NewFeatureImg} 
 						alt="Ritmo Features" 
-						className="w-full md:w-3/4 h-auto object-contain mx-auto"
+						className="w-full md:w-3/4 h-auto object-contain mx-auto feature-img-shadow"
 					/>
 				</div>
 			</section>
@@ -209,7 +209,7 @@ export default function Features() {
 						<img 
 							src={AutismFriendlyHomeImg} 
 							alt="Autism Friendly Feature" 
-							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
+							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105 feature-img-shadow"
 						/>
 					</div>
 					<div className="space-y-4 order-1 md:order-2">
@@ -224,17 +224,14 @@ export default function Features() {
 						<p className="text-xl leading-relaxed" style={{ color: '#2B2B2B' }}>
 							The ui design was integrated to suit people with Autism or <span className="underline">Autism Spectrum Disorder</span> (ASD)
 						</p>
-						<ul className="space-y-2">
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+						<ul className="space-y-0">
+							<li className="bullet-item-container">
 								Big Ui components
 							</li>
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+							<li className="bullet-item-container">
 								Audio Visual Feedback
 							</li>
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+							<li className="bullet-item-container">
 								Animated Characters
 							</li>
 						</ul>
@@ -257,17 +254,14 @@ export default function Features() {
 						<p className="text-xl leading-relaxed" style={{ color: '#2B2B2B' }}>
 							The System has built in games, media and book guides to enhance interaction and fun.
 						</p>
-						<ul className="space-y-2">
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+						<ul className="space-y-0">
+							<li className="bullet-item-container">
 								Fun and enjoying games
 							</li>
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+							<li className="bullet-item-container">
 								Audio visual book guides
 							</li>
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+							<li className="bullet-item-container">
 								Media page (Youtube)
 							</li>
 						</ul>
@@ -276,12 +270,12 @@ export default function Features() {
 						<img
 							src={Feature3Img}
 							alt="Entertainment Feature"
-							className="w-44 md:w-56 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
+							className="w-44 md:w-56 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105 feature-img-shadow"
 						/>
 						<img
 							src={Book1Img}
 							alt="Entertainment Book Guide"
-							className="w-44 md:w-56 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
+							className="w-44 md:w-56 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105 feature-img-shadow"
 						/>
 					</div>
 				</div>
@@ -294,7 +288,7 @@ export default function Features() {
 						<img 
 							src={ProgressImg} 
 							alt="Progression Feature" 
-							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
+							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105 feature-img-shadow"
 						/>
 					</div>
 					<div className="space-y-4 order-1 md:order-2">
@@ -309,9 +303,8 @@ export default function Features() {
 						<p className="text-xl leading-relaxed" style={{ color: '#2B2B2B' }}>
 							The app has a built in progress report that records your child routine weekly
 						</p>
-						<ul className="space-y-2">
-							<li className="flex items-center gap-2 text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+						<ul className="space-y-0">
+							<li className="bullet-item-container">
 								Downloadable PDF Report
 							</li>
 						</ul>
@@ -321,10 +314,10 @@ export default function Features() {
 
 			{/* Organize Tasks & Parental Control Section */}
 			<section className="py-12 px-4 bg-white" data-reveal>
-				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+				<div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
 					{/* Organize Tasks */}
 					<div className="flex flex-col md:flex-row gap-6 items-center">
-						<div className="space-y-4 flex-1 order-1 md:order-1 md:-mt-16">
+						<div className="space-y-4 flex-1 order-1 md:order-1">
 							<div className="flex items-center gap-3">
 								<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
 									<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -336,40 +329,37 @@ export default function Features() {
 						<p className="text-base md:text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
 								Build the perfect day using expert presets or your own custom routines.
 							</p>
-							<ul className="space-y-2">
-							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+							<ul className="space-y-0">
+							<li className="bullet-item-container">
 								Classic Alarm Feature
 							</li>
-							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+							<li className="bullet-item-container">
 								Autism Integrated Preset
 							</li>
-							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
-									<span className="w-2 h-2 bg-black rounded-full"></span>
+							<li className="bullet-item-container">
 									100% Customizability
 								</li>
 							</ul>
 						</div>
-						<div className="flex justify-center flex-shrink-0 order-2 md:order-2 md:-mt-16">
+						<div className="flex justify-center flex-shrink-0 order-2 md:order-2">
 							<img 
 								src={SetupRoutineImg} 
 								alt="Organize Tasks" 
-							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
+							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105 feature-img-shadow"
 							/>
 						</div>
 					</div>
 
 					{/* Parental Control */}
 					<div className="flex flex-col md:flex-row gap-6 items-center">
-						<div className="flex justify-center flex-shrink-0 order-2 md:order-1 md:mt-28">
+						<div className="flex justify-center flex-shrink-0 order-2 md:order-1">
 							<img 
 								src={ParentalLockImg} 
 								alt="Parental Control" 
-							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
+							className="w-48 md:w-64 h-auto object-contain transition-transform duration-700 ease-out hover:scale-105 feature-img-shadow"
 						/>
 					</div>
-					<div className="space-y-4 flex-1 order-1 md:order-2 md:mt-16">
+					<div className="space-y-4 flex-1 order-1 md:order-2">
 							<div className="flex items-center gap-3">
 								<div className="bg-[#61CCB2] rounded-2xl p-3 shrink-0">
 									<svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -381,17 +371,14 @@ export default function Features() {
 							<p className="text-base md:text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
 								The System has built in parental control to guide every childrens action
 							</p>
-							<ul className="space-y-2">
-							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+							<ul className="space-y-0">
+							<li className="bullet-item-container">
 								Parental Lock
 							</li>
-							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
-								<span className="w-2 h-2 bg-black rounded-full"></span>
+							<li className="bullet-item-container">
 								Daily Routine Setup
 							</li>
-							<li className="flex items-center gap-2 text-base md:text-lg" style={{ color: '#2B2B2B' }}>
-									<span className="w-2 h-2 bg-black rounded-full"></span>
+							<li className="bullet-item-container">
 									Limited media search
 								</li>
 							</ul>
