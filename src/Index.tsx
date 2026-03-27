@@ -620,7 +620,7 @@ function FAQSection() {
               className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-[1000px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}
             >
               {faq.isSpecial ? (
-                <div className="leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                <div className="leading-relaxed text-justify" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
                   <p className="mb-3">Ritmo is specifically designed for children with Level 2 Autism, unlike many general routine apps. It features:</p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start"><span className="mr-3 text-[#61CCB2] font-bold text-xl">•</span><span>Visual schedules and step-by-step guidance</span></li>
@@ -632,7 +632,7 @@ function FAQSection() {
                   <p className="mt-3">These features help reduce anxiety, increase independence, and improve consistency in daily routines.</p>
                 </div>
               ) : (
-                <p className="leading-relaxed" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
+                <p className="leading-relaxed text-justify" style={{ color: 'oklch(27.8% 0.033 256.848)' }}>
                   {faq.answer}
                 </p>
               )}
