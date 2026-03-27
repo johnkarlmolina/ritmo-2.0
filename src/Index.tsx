@@ -184,7 +184,7 @@ export default function Index() {
                   <span className="text-white/90">{t('autismPronunciation')}</span>
                 </div>
                 <div className="mt-4 border-t border-white/40" />
-                <p className="mt-4 text-white/95 text-sm md:text-base leading-relaxed">
+                <p className="mt-4 text-white/95 text-sm md:text-base leading-relaxed text-justify">
                   {t('autismDefinition')}
                 </p>
               </div>
