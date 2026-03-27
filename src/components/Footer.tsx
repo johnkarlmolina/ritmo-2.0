@@ -48,10 +48,10 @@ export default function Footer() {
             <h3 className="text-white font-bold text-xl mb-5">{t('legalSection')}</h3>
             <ul className="space-y-2.5">
               <li>
-                <button type="button" onClick={() => setShowTerms(true)} className="text-white/90 hover:text-white text-base transition-colors">{t('termsAndConditions')}</button>
+                <button type="button" onClick={() => setShowTerms(true)} className="text-white/90 hover:text-white text-base transition-colors cursor-pointer">{t('termsAndConditions')}</button>
               </li>
               <li>
-                <button type="button" onClick={() => setShowPrivacy(true)} className="text-white/90 hover:text-white text-base transition-colors">{t('privacyPolicy')}</button>
+                <button type="button" onClick={() => setShowPrivacy(true)} className="text-white/90 hover:text-white text-base transition-colors cursor-pointer">{t('privacyPolicy')}</button>
               </li>
             </ul>
           </div>
@@ -198,8 +198,7 @@ export default function Footer() {
 
         <hr className="my-4 border-[#2D7778]/20" />
         <h4 className="font-semibold text-[#2D7778]">12. Contact Information</h4>
-        <p>For questions, support, or feedback, you can reach us at:</p>
-        <p className="mt-2">Email: <span className="text-gray-600">lagay email for contact</span><br/>Website: <span className="text-gray-600">(add website)</span></p>
+        <p>For questions, support, or feedback, you can reach us at: Ritmokids1123@gmail.com</p>
       </Modal>
 
       {/* Privacy Modal */}
@@ -297,8 +296,7 @@ export default function Footer() {
 
         <hr className="my-4 border-[#2D7778]/20" />
         <h4 className="font-semibold text-[#2D7778]">8. Contact Us</h4>
-        <p>If you have questions or concerns about this Privacy Policy, you may contact us at:</p>
-        <p className="mt-2">Email: <span className="text-gray-600">(add email)</span><br/>Developer: <span className="text-gray-600">(add developer name)</span></p>
+        <p>If you have questions or concerns about this Privacy Policy, you may contact us at: Ritmokids1123@gmail.com</p>
       </Modal>
     </footer>
   )
