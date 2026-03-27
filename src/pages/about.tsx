@@ -158,11 +158,11 @@ export default function About() {
 							{ name: 'John Carlo A. Deato', role: 'Back-End Developer', img: DeatoImg, details: 'Focuses on server logic and secure data handling.' },
 							{ name: 'John Karl P. Molina', role: 'Front-End Developer', img: MolinaImg, details: 'Delivers features with attention to clarity and performance.' },
 							{ name: 'Kurt Lee B. Manzano', role: 'UI/UX Designer', img: ManzanoImg, details: 'Shapes visual identity and consistent design systems.' },
-							{ name: 'Ashley D. Abucay', role: 'System Analyst', img: AbucayImg, details: 'Analyzes requirements and streamlines workflows for families.' },
-							{ name: 'Ma. Daniella A. Broncano', role: 'System Analyst', img: BroncanoImg, details: 'Translates user needs into actionable technical specs.' },
-							{ name: 'Nikki Anne R. Bertes', role: 'System Analyst', img: BertesImg, details: 'Improves processes and ensures reliable routine tracking.' },
-							{ name: 'Mary Joy N. Mendoza', role: 'System Analyst', img: MendozaImg, details: 'Helps validate features that support daily independence.' },
-							{ name: 'Joemar A. Sambilay', role: 'System Analyst', img: SambilayImg, details: 'Focuses on usability and real-world routine scenarios.' }
+							{ name: 'Ashley D. Abucay', role: 'Researcher', img: AbucayImg, details: 'Analyzes requirements and streamlines workflows for families.' },
+							{ name: 'Ma. Daniella A. Broncano', role: 'Researcher', img: BroncanoImg, details: 'Translates user needs into actionable technical specs.' },
+							{ name: 'Nikki Anne R. Bertes', role: 'Researcher', img: BertesImg, details: 'Improves processes and ensures reliable routine tracking.' },
+							{ name: 'Mary Joy N. Mendoza', role: 'Researcher', img: MendozaImg, details: 'Helps validate features that support daily independence.' },
+							{ name: 'Joemar A. Sambilay', role: 'Researcher', img: SambilayImg, details: 'Focuses on usability and real-world routine scenarios.' }
 						];
 						return members.map((m) => (
 							<TeamMemberCard key={m.name} name={m.name} role={m.role} img={m.img} details={m.details} />
