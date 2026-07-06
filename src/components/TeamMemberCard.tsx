@@ -25,7 +25,7 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
         style={{ backgroundColor: bg }}
       >
         {/* Front */}
-        <div className="flip-face flip-front flex flex-col items-center pt-16">
+        <div className="flip-face flip-front flex flex-col items-center pt-12">
           <div className="flip-hint">FLIP</div>
           <div className="text-center mb-2 px-4 z-10">
             <h3 className="text-sm font-bold text-white leading-tight">{name}</h3>
@@ -35,7 +35,7 @@ export default function TeamMemberCard({ name, role, img, bg = '#2B8A7A', detail
             <img
               src={img}
               alt={name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-fill "
               width={240}
               height={240}
               loading="eager"
